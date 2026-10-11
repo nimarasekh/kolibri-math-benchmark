@@ -1,0 +1,115 @@
+QUESTION
+========
+
+Let [n] denote the category associated to the linearly ordered set
+0 < 1 < ... < n.
+
+How many functors
+[2] -> [3]
+are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are asked: "How many functors [2] -> [3] are there?" where [n] denotes the category associated to the linearly ordered set 0 < 1 < ... < n. And we need to give final answer as a single integer, no other text.
+
+We need to interpret "category associated to the linearly ordered set". This typically refers to a poset considered as a category: objects are the elements, and there is a unique morphism from a to b iff a ≤ b (in the order). The order is given as 0 < 1 < ... < n, so it's a strict total order, but the usual category associated with a poset uses ≤, which includes equality. Sometimes strict order is used, but typically it's the partial order category (preorder category) with morphisms for ≤. The problem says "linearly ordered set 0 < 1 < ... < n", using "<". In category theory, when you take the category associated to a poset, you take ≤ including equality. But since it's a linear order, the only morphisms are from smaller to larger, and identity morphisms from each element to itself. If the order is strict "<", then it's not a preorder because it lacks reflexivity. But "linearly ordered set" usually means a total order, which is reflexive, antisymmetric, transitive. The notation "0 < 1 < ... < n" is often used to denote strict total order, but the underlying poset is ≤. So we should assume the category has objects {0,1,...,n} and morphisms f: i -> j if and only if i ≤ j.
+
+Now [2] has objects 0,1,2. The order is 0 < 1 < 2. [3] has objects 0,1,2,3. The order is 0 < 1 < 2 < 3.
+
+We want to count functors F: [2] -> [3]. A functor between these poset categories is equivalent to a monotone function between the posets. That is, a function f: {0,1,2} -> {0,1,2,3} such that if i ≤ j in [2], then f(i) ≤ f(j) in [3].
+
+Since the order is total, this just means f is a non-decreasing function from {0,1,2} to {0,1,2,3}.
+
+Number of non-decreasing functions from a set of size 3 to a set of size 4? Actually, it's the number of weakly increasing sequences of length 3 with values in {0,1,2,3}.
+
+This is equivalent to combinations with repetition: number of multisets of size 3 from 4 elements = C(3+4-1, 3) = C(6,3) = 20.
+
+But wait: Are we sure about the definition of functor? We need to ensure we also consider the identity morphisms? In a poset category, morphisms are uniquely determined by the order. If f is a function between objects, we can define the morphism mapping by the unique morphism in the target whenever the condition holds. Since there's at most one morphism between any two objects, the functor is completely determined by the mapping on objects. So indeed, it's just monotone functions.
+
+Thus, number of functors = 20.
+
+But we should double-check: is there any other interpretation? Sometimes [n] might denote the category of the linearly ordered set as a strict order category (i.e., a poset without identities?), but that's not a category because identity morphisms are required. So it's standard to include equality. Another interpretation: [n] could denote the category of the linearly ordered set where objects are the elements and there's a morphism from i to j if i < j (strict). But that's not a category because no identity morphisms. Unless they consider a category where there's a unique morphism from i to j whenever i ≤ j (which includes i=j). Yes, that's standard.
+
+Thus, 20.
+
+But wait: "linearly ordered set 0 < 1 < ... < n" could be a strict linear order. In some contexts, the category associated to a poset is the one with morphisms f: x -> y iff x ≤ y. If they use strict inequality, they might still intend the poset category with ≤. It's safe to assume monotone functions.
+
+Let's confirm: number of non-decreasing functions from {0,1,2} to {0,1,2,3}. Let's list them mentally:
+f(0) ≤ f(1) ≤ f(2).
+We can count by choosing 3 values with repetition allowed from 4 options: C(4+3-1,3)=C(6,3)=20.
+
+So answer is 20.
+
+But the problem might be trickier: "How many functors [2] -> [3] are there?" Could it be that they consider [n] as the category of a chain with n+1 objects? Yes, [2] has 3 objects, [3] has 4 objects.
+
+Alternatively, sometimes [n] denotes the category with n objects? But they say "linearly ordered set 0 < 1 < ... < n", so there are n+1 objects. For example, [0] would be a single object 0. [1] would be 0 < 1, two objects. So [2] has 0,1,2 (3 objects), [3] has 0,1,2,3 (4 objects).
+
+Thus, 20.
+
+But let's verify with a different perspective: a functor F from [2] to [3] is determined by images of objects 0,1,2 and morphisms. Since it's a functor, it must preserve identities and composition. In poset categories, composition corresponds to transitivity: if f(0) ≤ f(1) and f(1) ≤ f(2), then f(0) ≤ f(2) must hold automatically if f is monotone. So any monotone function works.
+
+So 20.
+
+But is there any possibility that [n] refers to the category of a linear order with strict inequalities as morphisms? If so, then there are no identity morphisms, so it's not a category. Unless they consider a category where morphisms are just the strict inequalities, but then composition might not be defined? For instance, if there's a morphism 0->1 and 1->2, then we need a morphism 0->2. In a strict total order, if 0<1 and 1<2, then 0<2, so it works. But we also need identity morphisms? If we don't include them, it's not a category. Sometimes people consider "poset" as a category with unique morphisms for ≤, including equality. So I'm confident it's 20.
+
+But wait: The problem says "Let [n] denote the category associated to the linearly ordered set 0 < 1 < ... < n." The phrase "linearly ordered set" typically means a totally ordered set, which is reflexive. The notation "<" is often used for strict order, but in the context of posets, sometimes they write "0 < 1 < ... < n" to emphasize the order, but the poset relation is ≤. The category associated to a poset is usually defined with morphisms for ≤. So I'll stick with 20.
+
+However, let's consider an alternative: Could [n] be the category with objects 0,1,...,n and a morphism from i to j iff i < j? That would be a category without identities, which is not standard. If we add identities, then we have ≤. So it's the same.
+
+But maybe they consider the category where the only morphisms are the strict inequalities and no identities? That wouldn't be a category. So it's ≤.
+
+Thus, answer 20.
+
+But let's double-check: Maybe [n] is the category of the linearly ordered set where the objects are the elements and the morphisms are the order relations (including equality)? That is a preorder category. So yes.
+
+Number of functors: A functor F: [2] -> [3] is a function F: {0,1,2} -> {0,1,2,3} such that if x ≤ y in [2] then F(x) ≤ F(y) in [3]. So non-decreasing.
+
+Count: We can use stars and bars: number of ways to choose F(0) ≤ F(1) ≤ F(2) from 0..3. This is equivalent to choosing 3 numbers with replacement from 4, order doesn't matter, so C(4+3-1,3)=C(6,3)=20.
+
+Alternatively, we can sum over possible values:
+If F(2)=0, then all must be 0: 1 way.
+F(2)=1: then F(0),F(1) can be 0 or 1 non-decreasing: number of non-decreasing pairs from {0,1} = C(2+2-1,2)=C(3,2)=3.
+F(2)=2: non-decreasing pairs from {0,1,2} = C(3+2-1,2)=C(4,2)=6.
+F(2)=3: non-decreasing pairs from {0,1,2,3} = C(4+2-1,2)=C(5,2)=10.
+Sum = 1+3+6+10=20.
+
+Yes.
+
+So final answer: 20.
+
+But the instruction: "Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect." So I should output just "20".
+
+I'll do that.
+
+
+ANSWER
+======
+
+
+
+20
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+11.30 seconds
+
+ATTEMPTS
+========
+
+1

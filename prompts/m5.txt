@@ -1,0 +1,16 @@
+Let C be the category with objects
+
+x_1,x_2,x_3,x_4,y_1,y_2,y_3,y_4,y_5,
+
+with exactly one nonidentity morphism
+
+x_i -> y_j
+
+for every 1 <= i <= 4 and 1 <= j <= 5, and no other nonidentity morphisms.
+
+Let C^gpd denote its infinity-groupoid completion.
+
+What is the rank of
+pi_1(C^gpd, x_1)?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

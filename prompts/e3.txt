@@ -1,0 +1,10 @@
+In Set, let
+X -> Z <- Y
+with Z = {0,1}. Suppose
+|f^{-1}(0)| = 2, |f^{-1}(1)| = 1,
+and
+|g^{-1}(0)| = 3, |g^{-1}(1)| = 1.
+
+How many elements does the pullback X x_Z Y have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

@@ -1,0 +1,18 @@
+Let \(\mathcal B\) be the poset, regarded as a category, of all nonzero proper linear subspaces
+\[
+0\neq V\subsetneq \mathbb F_3^4,
+\]
+ordered by inclusion.
+
+Let
+\[
+N(\mathcal B)
+\]
+be its nerve.
+
+What is the rank of the abelian group
+\[
+\widetilde H_2\bigl(|N(\mathcal B)|;\mathbb Z\bigr)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

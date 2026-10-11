@@ -1,0 +1,112 @@
+Answer: 2579890176
+
+Let
+\[
+A=K(\mathbb Z^2,2),\qquad
+B=K(\mathbb Z^3,2).
+\]
+Since \(X\) is the homotopy cofiber of
+\[
+f:A\to B,
+\]
+representability by Eilenberg--Mac Lane spaces gives
+\[
+\pi_0\operatorname{Map}_*(X,K(\mathbb Z/12,6))
+\cong
+\widetilde H^6(X;\mathbb Z/12).
+\]
+
+The cofiber sequence gives the long exact cohomology sequence
+\[
+H^5(A;\mathbb Z/12)
+\longrightarrow
+\widetilde H^6(X;\mathbb Z/12)
+\longrightarrow
+H^6(B;\mathbb Z/12)
+\xrightarrow{f^*}
+H^6(A;\mathbb Z/12).
+\]
+Since \(K(\mathbb Z^r,2)\simeq(\mathbb CP^\infty)^r\) has cohomology only
+in even degrees,
+\[
+H^5(A;\mathbb Z/12)=0.
+\]
+Therefore
+\[
+\widetilde H^6(X;\mathbb Z/12)
+\cong
+\ker(f^*:H^6(B;\mathbb Z/12)\to H^6(A;\mathbb Z/12)).
+\]
+
+Write
+\[
+H^*(B;\mathbb Z/12)
+\cong
+(\mathbb Z/12)[x_1,x_2,x_3],
+\]
+and
+\[
+H^*(A;\mathbb Z/12)
+\cong
+(\mathbb Z/12)[u,v],
+\]
+with all generators in degree \(2\). The map on degree-two classes is
+\[
+x_1\mapsto2u,\qquad
+x_2\mapsto3v,\qquad
+x_3\mapsto2u+3v.
+\]
+
+Degree six corresponds to homogeneous cubic polynomials. Thus the source
+is \((\mathbb Z/12)^{10}\), with basis the ten degree-three monomials in
+\(x_1,x_2,x_3\), while the target is \((\mathbb Z/12)^4\), with basis
+\[
+u^3,\quad u^2v,\quad uv^2,\quad v^3.
+\]
+
+Over the integers, the substitution map is represented by
+\[
+\begin{pmatrix}
+8&0&0&0&8&0&0&8&0&8\\
+36&12&0&0&24&12&0&12&12&0\\
+54&36&18&0&18&18&18&0&0&0\\
+27&27&27&27&0&0&0&0&0&0
+\end{pmatrix}.
+\]
+
+Its Smith normal form over \(\mathbb Z\) has nonzero diagonal entries
+\[
+1,\;6,\;36,\;216.
+\]
+
+Reducing modulo \(12\), the image therefore has cardinality
+\[
+\frac{12}{\gcd(12,1)}
+\cdot
+\frac{12}{\gcd(12,6)}
+\cdot
+\frac{12}{\gcd(12,36)}
+\cdot
+\frac{12}{\gcd(12,216)}
+=
+12\cdot2\cdot1\cdot1
+=
+24.
+\]
+
+The source has cardinality
+\[
+12^{10}=61917364224.
+\]
+Hence the kernel has cardinality
+\[
+\frac{12^{10}}{24}
+=
+2579890176.
+\]
+
+Therefore the mapping space has exactly
+\[
+2579890176
+\]
+connected components.

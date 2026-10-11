@@ -1,0 +1,30 @@
+Answer: 60
+
+Explanation:
+For the poset [4] = {0<1<2<3<4}, the objects of the twisted-arrow category Tw([4]) are the arrows
+
+i -> j
+
+with i <= j.
+
+We may identify such an object with the interval [i,j]. A morphism
+
+(i,j) -> (i',j')
+
+in Tw([4]) exists exactly when
+
+i' <= i <= j <= j'.
+
+Thus Tw([4]) is the poset of intervals in [4], ordered by inclusion.
+
+A nondegenerate 3-simplex of its nerve is therefore a strict chain of four intervals
+
+I_0 < I_1 < I_2 < I_3.
+
+Starting from an interval [i,j], every strict enlargement is obtained by moving the left endpoint weakly to the left and/or the right endpoint weakly to the right, with at least one endpoint changing at each step.
+
+Counting all strict chains of four intervals in the interval poset gives 60.
+
+Equivalently, one can sum over the possible terminal interval [i,j] and count length-three strict chains in its lower interval; the total is again 60.
+
+Final answer: 60

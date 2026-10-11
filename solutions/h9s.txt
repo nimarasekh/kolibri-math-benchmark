@@ -1,0 +1,46 @@
+Answer: 216
+
+Explanation:
+For objects A and B concentrated in degree 0, the connected components of
+
+Map_{D(Z)}(A,B[1])
+
+are
+
+Hom_{D(Z)}(A,B[1])
+~= Ext^1_Z(A,B).
+
+Ext^1 is additive in each variable for finite direct sums, so
+
+Ext^1_Z(
+  Z/12 direct_sum Z/18,
+  Z/8 direct_sum Z/27
+)
+
+is the direct sum of the four groups
+
+Ext^1(Z/12,Z/8),
+Ext^1(Z/12,Z/27),
+Ext^1(Z/18,Z/8),
+Ext^1(Z/18,Z/27).
+
+For positive integers m,n,
+
+Ext^1_Z(Z/m,Z/n) ~= Z/gcd(m,n).
+
+Thus the four groups have orders
+
+gcd(12,8)  = 4,
+gcd(12,27) = 3,
+gcd(18,8)  = 2,
+gcd(18,27) = 9.
+
+The direct sum therefore has
+
+4 * 3 * 2 * 9 = 216
+
+elements.
+
+Hence the mapping space has 216 connected components.
+
+Final answer: 216

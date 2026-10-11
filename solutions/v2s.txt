@@ -1,0 +1,54 @@
+Answer: 35
+
+Because the base is \(B\mathbb Z^2\), the functor
+\[
+F:B\mathbb Z^2\to\Cat_\infty
+\]
+describes an action of \(\mathbb Z^2\) on \(B\mathbb Z^4\). The
+Grothendieck construction is therefore the action groupoid, equivalently
+\[
+\mathcal E\simeq B(\mathbb Z^4\rtimes\mathbb Z^2).
+\]
+In particular \(\mathcal E\) is already an \(\infty\)-groupoid, so its
+groupoid completion changes nothing.
+
+Hence
+\[
+H_1(\mathcal E^{\mathrm{gpd}};\mathbb Z)
+\cong
+(\mathbb Z^4\rtimes\mathbb Z^2)_{\mathrm{ab}}.
+\]
+
+For a semidirect product with abelian normal subgroup, the abelianization
+is
+\[
+\mathbb Z^2\oplus
+\frac{\mathbb Z^4}
+{(M-I)\mathbb Z^4+(N-I)\mathbb Z^4}.
+\]
+The free summand \(\mathbb Z^2\) contributes no torsion, so we only need
+the torsion of the coinvariant group.
+
+The map whose image imposes the coinvariant relations is represented by
+the \(4\times8\) integer matrix
+\[
+\left[\;M-I\mid N-I\;\right].
+\]
+Its Smith normal form is
+\[
+\operatorname{diag}(1,1,1,35).
+\]
+
+Consequently
+\[
+\frac{\mathbb Z^4}
+{(M-I)\mathbb Z^4+(N-I)\mathbb Z^4}
+\cong
+\mathbb Z/35.
+\]
+
+Therefore the torsion subgroup of
+\[
+H_1(\mathcal E^{\mathrm{gpd}};\mathbb Z)
+\]
+has order \(35\).

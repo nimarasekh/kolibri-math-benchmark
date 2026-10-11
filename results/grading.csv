@@ -1,0 +1,201 @@
+question,run,difficulty,correct_answer,suggested_answer,match,finish_reason,time_seconds,grading_reason
+e1.txt,1,easy,20,20,True,stop,11.13,correct
+e1.txt,2,easy,20,20,True,stop,11.30,correct
+e1.txt,3,easy,20,20,True,stop,8.89,correct
+e1.txt,4,easy,20,20,True,stop,16.20,correct
+e1.txt,5,easy,20,20,True,stop,6.58,correct
+e2.txt,1,easy,3,3,True,stop,13.54,correct
+e2.txt,2,easy,3,3,True,stop,4.66,correct
+e2.txt,3,easy,3,3,True,stop,4.74,correct
+e2.txt,4,easy,3,3,True,stop,7.97,correct
+e2.txt,5,easy,3,3,True,stop,11.45,correct
+e3.txt,1,easy,7,7,True,stop,2.36,correct
+e3.txt,2,easy,7,7,True,stop,2.09,correct
+e3.txt,3,easy,7,7,True,stop,1.93,correct
+e3.txt,4,easy,7,7,True,stop,1.82,correct
+e3.txt,5,easy,7,7,True,stop,1.94,correct
+e4.txt,1,easy,7,7,True,stop,5.02,correct
+e4.txt,2,easy,7,7,True,stop,2.69,correct
+e4.txt,3,easy,7,7,True,stop,1.61,correct
+e4.txt,4,easy,7,7,True,stop,6.76,correct
+e4.txt,5,easy,7,7,True,stop,5.12,correct
+e5.txt,1,easy,7,7,True,stop,99.53,correct
+e5.txt,2,easy,7,7,True,stop,15.15,correct
+e5.txt,3,easy,7,7,True,stop,10.65,correct
+e5.txt,4,easy,7,7,True,stop,11.88,correct
+e5.txt,5,easy,7,7,True,stop,8.83,correct
+e6.txt,1,easy,10,4,False,stop,79.45,incorrect
+e6.txt,2,easy,10,4,False,stop,91.12,incorrect
+e6.txt,3,easy,10,4,False,stop,77.04,incorrect
+e6.txt,4,easy,10,4,False,stop,101.03,incorrect
+e6.txt,5,easy,10,4,False,stop,145.10,incorrect
+e7.txt,1,easy,4,4,True,stop,49.47,correct
+e7.txt,2,easy,4,4,True,stop,28.76,correct
+e7.txt,3,easy,4,4,True,stop,11.76,correct
+e7.txt,4,easy,4,4,True,stop,23.47,correct
+e7.txt,5,easy,4,4,True,stop,19.13,correct
+e8.txt,1,easy,2,2,True,stop,18.84,correct
+e8.txt,2,easy,2,2,True,stop,5.43,correct
+e8.txt,3,easy,2,2,True,stop,11.87,correct
+e8.txt,4,easy,2,2,True,stop,7.58,correct
+e8.txt,5,easy,2,2,True,stop,6.65,correct
+e9.txt,1,easy,6,,False,length,173.98,length
+e9.txt,2,easy,6,,False,length,173.98,length
+e9.txt,3,easy,6,,False,length,173.93,length
+e9.txt,4,easy,6,3,False,stop,146.73,incorrect
+e9.txt,5,easy,6,,False,length,174.14,length
+e10.txt,1,easy,3,3,True,stop,100.30,correct
+e10.txt,2,easy,3,3,True,stop,106.33,correct
+e10.txt,3,easy,3,3,True,stop,16.31,correct
+e10.txt,4,easy,3,3,True,stop,21.98,correct
+e10.txt,5,easy,3,3,True,stop,33.70,correct
+m1.txt,1,medium,168,168,True,stop,153.27,correct
+m1.txt,2,medium,168,,False,length,175.13,length
+m1.txt,3,medium,168,,False,length,174.69,length
+m1.txt,4,medium,168,168,True,stop,101.68,correct
+m1.txt,5,medium,168,168,True,stop,138.76,correct
+m2.txt,1,medium,16,16,True,stop,96.98,correct
+m2.txt,2,medium,16,,False,length,175.30,length
+m2.txt,3,medium,16,,False,length,175.93,length
+m2.txt,4,medium,16,,False,length,175.10,length
+m2.txt,5,medium,16,16,True,stop,116.84,correct
+m3.txt,1,medium,480,480,True,stop,163.84,correct
+m3.txt,2,medium,480,,False,length,174.69,length
+m3.txt,3,medium,480,480,True,stop,129.02,correct
+m3.txt,4,medium,480,480,True,stop,159.85,correct
+m3.txt,5,medium,480,480,True,stop,87.35,correct
+m4.txt,1,medium,3,,False,length,174.79,length
+m4.txt,2,medium,3,,False,length,176.03,length
+m4.txt,3,medium,3,9,False,stop,46.23,incorrect
+m4.txt,4,medium,3,,False,length,175.37,length
+m4.txt,5,medium,3,,False,length,174.78,length
+m5.txt,1,medium,12,,False,length,175.02,length
+m5.txt,2,medium,12,12,True,stop,115.61,correct
+m5.txt,3,medium,12,,False,length,174.80,length
+m5.txt,4,medium,12,12,True,stop,21.91,correct
+m5.txt,5,medium,12,,False,length,174.59,length
+m6.txt,1,medium,11,,False,length,175.21,length
+m6.txt,2,medium,11,,False,length,178.62,length
+m6.txt,3,medium,11,,False,length,185.83,length
+m6.txt,4,medium,11,,False,length,174.80,length
+m6.txt,5,medium,11,11,True,stop,171.01,correct
+m7.txt,1,medium,7,,False,length,174.93,length
+m7.txt,2,medium,7,,False,length,180.53,length
+m7.txt,3,medium,7,,False,length,180.14,length
+m7.txt,4,medium,7,1,False,stop,18.80,incorrect
+m7.txt,5,medium,7,,False,length,175.11,length
+m8.txt,1,medium,8,8,True,stop,53.65,correct
+m8.txt,2,medium,8,,False,length,177.16,length
+m8.txt,3,medium,8,,False,length,175.52,length
+m8.txt,4,medium,8,8,True,stop,49.05,correct
+m8.txt,5,medium,8,8,True,stop,145.55,correct
+m9.txt,1,medium,85,,False,length,175.38,length
+m9.txt,2,medium,85,,False,length,175.95,length
+m9.txt,3,medium,85,,False,length,174.90,length
+m9.txt,4,medium,85,,False,length,174.94,length
+m9.txt,5,medium,85,3,False,stop,38.62,incorrect
+m10.txt,1,medium,35,10,False,stop,62.35,incorrect
+m10.txt,2,medium,35,10,False,stop,79.69,incorrect
+m10.txt,3,medium,35,10,False,stop,114.69,incorrect
+m10.txt,4,medium,35,10,False,stop,129.44,incorrect
+m10.txt,5,medium,35,10,False,stop,53.66,incorrect
+h1.txt,1,hard,7,,False,length,175.72,length
+h1.txt,2,hard,7,,False,length,173.58,length
+h1.txt,3,hard,7,7,True,stop,23.28,correct
+h1.txt,4,hard,7,7,True,stop,170.69,correct
+h1.txt,5,hard,7,,False,length,173.94,length
+h2.txt,1,hard,5,,False,length,173.86,length
+h2.txt,2,hard,5,,False,length,173.69,length
+h2.txt,3,hard,5,,False,length,173.67,length
+h2.txt,4,hard,5,,False,length,173.68,length
+h2.txt,5,hard,5,10,False,stop,21.70,incorrect
+h3.txt,1,hard,2,,False,length,175.99,length
+h3.txt,2,hard,2,,False,length,174.98,length
+h3.txt,3,hard,2,1,False,stop,22.08,incorrect
+h3.txt,4,hard,2,,False,length,175.62,length
+h3.txt,5,hard,2,,False,length,175.41,length
+h4.txt,1,hard,2,2,True,stop,81.45,correct
+h4.txt,2,hard,2,2,True,stop,79.65,correct
+h4.txt,3,hard,2,2,True,stop,87.05,correct
+h4.txt,4,hard,2,2,True,stop,82.43,correct
+h4.txt,5,hard,2,2,True,stop,117.05,correct
+h5.txt,1,hard,3024,,False,length,173.77,length
+h5.txt,2,hard,3024,,False,length,173.73,length
+h5.txt,3,hard,3024,16,False,stop,21.75,incorrect
+h5.txt,4,hard,3024,,False,length,173.58,length
+h5.txt,5,hard,3024,,False,length,173.57,length
+h6.txt,1,hard,60,,False,length,173.73,length
+h6.txt,2,hard,60,,False,length,173.70,length
+h6.txt,3,hard,60,,False,length,173.62,length
+h6.txt,4,hard,60,,False,length,173.62,length
+h6.txt,5,hard,60,,False,length,174.21,length
+h7.txt,1,hard,2,,False,length,173.71,length
+h7.txt,2,hard,2,,False,length,173.61,length
+h7.txt,3,hard,2,,False,length,173.98,length
+h7.txt,4,hard,2,,False,length,173.78,length
+h7.txt,5,hard,2,,False,length,174.41,length
+h8.txt,1,hard,13,13,True,stop,137.13,correct
+h8.txt,2,hard,13,13,True,stop,48.39,correct
+h8.txt,3,hard,13,,False,length,174.49,length
+h8.txt,4,hard,13,13,True,stop,22.53,correct
+h8.txt,5,hard,13,13,True,stop,169.58,correct
+h9.txt,1,hard,216,216,True,stop,133.73,correct
+h9.txt,2,hard,216,216,True,stop,45.77,correct
+h9.txt,3,hard,216,216,True,stop,149.40,correct
+h9.txt,4,hard,216,216,True,stop,173.64,correct
+h9.txt,5,hard,216,216,True,stop,139.09,correct
+h10.txt,1,hard,8,8,True,stop,80.90,correct
+h10.txt,2,hard,8,,False,length,175.10,length
+h10.txt,3,hard,8,,False,length,174.55,length
+h10.txt,4,hard,8,0,False,stop,21.85,incorrect
+h10.txt,5,hard,8,8,True,stop,18.53,correct
+v1.txt,1,very hard,1152,,False,length,175.67,length
+v1.txt,2,very hard,1152,,False,length,175.10,length
+v1.txt,3,very hard,1152,,False,length,175.10,length
+v1.txt,4,very hard,1152,,False,length,175.10,length
+v1.txt,5,very hard,1152,,False,length,174.96,length
+v2.txt,1,very hard,35,,False,length,175.35,length
+v2.txt,2,very hard,35,,False,length,175.16,length
+v2.txt,3,very hard,35,,False,length,175.15,length
+v2.txt,4,very hard,35,,False,length,175.41,length
+v2.txt,5,very hard,35,,False,length,175.41,length
+v3.txt,1,very hard,12,,False,length,175.31,length
+v3.txt,2,very hard,12,12,True,stop,164.35,correct
+v3.txt,3,very hard,12,12,True,stop,152.47,correct
+v3.txt,4,very hard,12,12,True,stop,129.64,correct
+v3.txt,5,very hard,12,,False,length,175.11,length
+v4.txt,1,very hard,72,,False,length,176.64,length
+v4.txt,2,very hard,72,72,True,stop,167.33,correct
+v4.txt,3,very hard,72,72,True,stop,137.32,correct
+v4.txt,4,very hard,72,,False,length,176.84,length
+v4.txt,5,very hard,72,,False,length,175.43,length
+v5.txt,1,very hard,216,,False,length,175.70,length
+v5.txt,2,very hard,216,,False,length,175.10,length
+v5.txt,3,very hard,216,,False,length,175.41,length
+v5.txt,4,very hard,216,,False,length,175.03,length
+v5.txt,5,very hard,216,,False,length,175.28,length
+v6.txt,1,very hard,144,,False,length,174.85,length
+v6.txt,2,very hard,144,,False,length,175.15,length
+v6.txt,3,very hard,144,,False,length,174.97,length
+v6.txt,4,very hard,144,,False,length,174.83,length
+v6.txt,5,very hard,144,,False,length,175.31,length
+v7.txt,1,very hard,240,,False,length,175.52,length
+v7.txt,2,very hard,240,,False,length,174.93,length
+v7.txt,3,very hard,240,,False,length,178.33,length
+v7.txt,4,very hard,240,,False,length,180.04,length
+v7.txt,5,very hard,240,,False,length,174.61,length
+v8.txt,1,very hard,36,,False,length,175.09,length
+v8.txt,2,very hard,36,0,False,stop,22.53,incorrect
+v8.txt,3,very hard,36,,False,length,177.19,length
+v8.txt,4,very hard,36,,False,length,175.63,length
+v8.txt,5,very hard,36,,False,length,174.72,length
+v9.txt,1,very hard,729,,False,length,175.03,length
+v9.txt,2,very hard,729,,False,length,175.63,length
+v9.txt,3,very hard,729,,False,length,174.62,length
+v9.txt,4,very hard,729,729,True,stop,164.61,correct
+v9.txt,5,very hard,729,,False,length,175.93,length
+v10.txt,1,very hard,2579890176,,False,length,175.72,length
+v10.txt,2,very hard,2579890176,,False,length,175.46,length
+v10.txt,3,very hard,2579890176,,False,length,177.75,length
+v10.txt,4,very hard,2579890176,,False,length,175.16,length
+v10.txt,5,very hard,2579890176,,False,length,174.82,length

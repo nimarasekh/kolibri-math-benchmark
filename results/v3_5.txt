@@ -1,0 +1,633 @@
+QUESTION
+========
+
+Let \(C\) be the category
+\[
+b\longleftarrow a\longrightarrow c,
+\]
+and let \(D=C^{\triangleright}\) be obtained by adjoining a terminal object \(t\). Let
+\[
+j:C\hookrightarrow D.
+\]
+
+Define \(F:C\to\mathcal S\) by
+\[
+F(a)=F(b)=F(c)=T^2=S^1\times S^1.
+\]
+
+With respect to the standard bases of \(H_1(T^2;\mathbb Z)\cong\mathbb Z^2\), suppose that the two structure maps induce the matrices
+\[
+M=
+\begin{pmatrix}
+0&2\\
+6&0
+\end{pmatrix},
+\qquad
+N=
+\begin{pmatrix}
+0&2\\
+6&2
+\end{pmatrix}.
+\]
+
+Let
+\[
+X=(\operatorname{Lan}_jF)(t).
+\]
+
+What is the order of the torsion subgroup of
+\[
+H_1(X;\mathbb Z)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are given a diagram in category theory: C is a category with objects a, b, c and arrows f: a → b? Wait the text says: "Let C be the category b ← a → c". This typically means an arrow a → b and an arrow a → c? Or "b ← a → c" means there is an arrow from a to b and an arrow from a to c? The arrow notation: "b ← a → c" means a has arrows to b and to c. So C is a "V" shape: object a, with maps to b and to c.
+
+Then D = C ▷ (obtained by adjoining a terminal object t). So D is the category C with a terminal object t added, meaning there's a unique morphism from each object in C to t. The inclusion j: C → D.
+
+Define F: C → S (some category? S likely the category of spaces or maybe something with homology? It says F(a)=F(b)=F(c)=T^2 = S^1 × S^1. The maps? "With respect to the standard bases of H_1(T^2; Z) ≅ Z^2, suppose that the two structure maps induce the matrices M and N."
+
+The "two structure maps" probably refer to the two maps from a to b and a to c? Actually C has two arrows: a → b and a → c? Wait "b ← a → c" means arrow a → b and arrow a → c. But there are only two structure maps? The text says "the two structure maps induce the matrices M and N". Likely the maps F(a → b) and F(a → c) are maps between T^2, which induce maps on H_1, given by matrices M and N. Since both domain and codomain are T^2, H_1 is Z^2, so endomorphisms are 2x2 matrices. M and N are given.
+
+Now X = (Lan_j F)(t). The left adjoint to j? Lan_j F is the left Kan extension of F along j. Since j: C → D is the inclusion of C into D where D has a terminal object t added. The left Kan extension of F along j evaluated at t is the colimit of the diagram formed by F applied to the comma category? Alternatively, we can think: Lan_j F (t) = colim_{(c, f: j(c) → t)} F(c)? Actually the formula for left Kan extension along an inclusion: if D = C ∪ {t} with t terminal, then Lan_j F (t) is the colimit over the arrow category? More concretely, left Kan extension of F: C → S along j: C → D is given by Lan_j F (d) = colim_{(c, f: j(c) → d)} F(c). For d = t, the objects are (c, f: c → t). Since t is terminal, for each c there is a unique f: c → t. So the diagram is just the objects c ∈ C, with morphisms? Wait, the colimit is over the category of such pairs, with morphisms (c, f) → (c', f') given by g: c → c' in C such that f' ∘ g = f. But f and f' are both the unique map to t, so f' ∘ g = f is automatically true because both sides are the unique map to t. Thus the comma category is just C itself, but with all morphisms? Actually the morphisms between (c, f) and (c', f') are morphisms g: c → c' in C such that f' g = f. Since f and f' are unique, any g works. So the category is just C. The colimit of F over C? That would be colim F: C → S. But wait: The left Kan extension formula: Lan_j F (t) = colim_{(c, f: c → t)} F(c). If the comma category is C, then the colimit is just the colimit of the diagram F: C → S. But is the diagram just F? The objects are C, and the morphisms are the morphisms of C. However, the colimit of a diagram F: C → S where C has multiple objects is the colimit over the whole category C. But usually colimit of a functor over a small category: we take the colimit of the diagram whose objects are objects of C and morphisms are morphisms of C mapped by F. So it's the colimit of the functor F. But we must be careful: The left Kan extension is defined as a left adjoint to precomposition with j. Since j is fully faithful, Lan_j F (t) = colim_{(c, f: j(c) → t)} F(c). The comma category (j ↓ t) is isomorphic to C because t is terminal. So Lan_j F (t) = colim_{C} F.
+
+But wait: Is there a simpler description? Often, adding a terminal object and taking left Kan extension of a functor yields the "union" or something. Let's check: C has objects a,b,c and arrows a→b, a→c (and identities). The colimit of F over C: we have objects F(a), F(b), F(c) and morphisms F(a→b): F(a) → F(b) and F(a→c): F(a) → F(c). The colimit of this diagram (a cocone under F) would be an object X with maps from F(a), F(b), F(c) commuting with the morphisms. That is, we need maps F(b) → X, F(c) → X, F(a) → X such that the triangle with F(a) → F(b) → X commutes, etc. But colimit of a diagram that looks like a "V": F(a) → F(b) and F(a) → F(c). The colimit is typically the pushout? Actually pushout is for a square. Here we have F(a) mapping to both F(b) and F(c). The colimit of this diagram is just the disjoint union with F(a) identified with its images? Wait, the colimit of a diagram with objects A, B, C and morphisms f: A → B, g: A → C. The colimit is the pushout of f and g? No, pushout is for a diagram with two objects mapping to a third? Actually pushout of f: A → B and g: A → C is a diagram B ← A → C, whose colimit is an object P with maps B → P, C → P making the square commute. That's exactly the colimit of the diagram B ← A → C. But our diagram is F(a) → F(b) and F(a) → F(c), which is the same shape: F(b) ← F(a) → F(c). Wait, the arrow direction: F(a) → F(b) and F(a) → F(c) means F(a) is the source, F(b) and F(c) are targets. That's a "cospan". The colimit of a cospan is the pushout? Actually the colimit of a diagram with objects X, Y, Z and morphisms f: X → Y, g: X → Z. A cocone under this diagram consists of maps h_Y: Y → L, h_Z: Z → L, h_X: X → L such that h_Y f = h_X and h_Z g = h_X. This is exactly a cone over the cospan. The colimit is the "pushout" of the cospan? Usually pushout is for a span: A ← X → B. Colimit of a span is pushout. Here we have a cospan: X → Y, X → Z. The colimit of a cospan is the "copushout" or "pushout"? Wait, the colimit of a diagram is the universal cocone. If the diagram is X → Y and X → Z, then a cocone is a pair of maps Y → L, Z → L and a map X → L such that the triangle commutes. That's the same as a map from the cocone to L. The colimit is often called the "pushout" of the two maps? Actually in a category with pullbacks, the pushout is the colimit of a span (A ← C → B). The colimit of a cospan (A → B, A → C) is the "copushout" or just the colimit. In many categories (like sets), the colimit of a cospan A → B, A → C is the quotient of B ∐ C by identifying f(a) with g(a) for all a ∈ A. That's the same as the pushout of the opposite diagram? In abelian categories, pushout and copushout are different. But here S is a category of spaces? The context: H_1 of T^2, so probably S is the category of spaces or topological spaces, or maybe chain complexes? The notation S could be the category of spaces? "F: C → S" and "F(a)=F(b)=F(c)=T^2". S might be the category of topological spaces, and F is a functor sending objects to T^2 and morphisms to maps between T^2 that induce the given matrices on H_1.
+
+But we can compute the colimit in whatever category S is. Typically, if S is the category of spaces, the colimit of F over C is the quotient of the disjoint union of F(b) and F(c) by identifying the image of F(a) in F(b) with the image in F(c) via the maps. That is, we have two maps f_b: F(a) → F(b) and f_c: F(a) → F(c). The colimit X is the space obtained from F(b) ∐ F(c) by gluing f_b(F(a)) to f_c(F(a)) via the identification f_b(x) ~ f_c(x) for x ∈ F(a). This is the pushout of the two maps? Actually it's the coequalizer of the two maps from F(a) to F(b) ∐ F(c)? The colimit of the cospan is the pushout of the maps from F(a) to F(b) and F(a) to F(c) in the sense of the copushout. In topological spaces, it's the quotient space (F(b) ⊔ F(c))/~ where f_b(x) ~ f_c(x).
+
+Alternatively, maybe S is the category of abelian groups or something, but F sends objects to T^2, so S must be a category of spaces or similar. H_1(X;Z) is asked. So X is a space, and we want the torsion subgroup of H_1(X;Z).
+
+We have F(a)=T^2, F(b)=T^2, F(c)=T^2. The maps f_b: T^2 → T^2 and f_c: T^2 → T^2 induce on H_1 the matrices M and N respectively. M = [[0,2],[6,0]], N = [[0,2],[6,2]].
+
+We need to compute H_1(X;Z) where X is the pushout (copushout) of f_b and f_c. That is, X = T^2 ∪_{T^2} T^2, where the two copies of T^2 are glued along the image of f_b and f_c. But wait: The maps are from F(a) to F(b) and F(a) to F(c). So the gluing is: we have one copy of T^2 (F(b)) and another copy of T^2 (F(c)), and we identify the image of f_b(T^2) in F(b) with the image of f_c(T^2) in F(c) via the identification f_b(x) ~ f_c(x). This is exactly the pushout of the diagram:
+T^2 --f_b--> T^2
+| f_c       |
+v          v
+T^2 ------?
+Wait, the diagram is:
+F(a) --f_b--> F(b)
+ | f_c        |
+ v          v
+F(c) -----> X
+Actually the colimit of the cospan F(a) → F(b), F(a) → F(c) is the pushout of the two maps into F(b) and F(c)? No, pushout usually refers to a square where we have two maps into an object? In a category, the copushout of a cospan A → B, A → C is an object P with maps B → P, C → P such that the triangle commutes. This is the same as the pushout of the span? In any case, it's the quotient of B ∐ C by identifying f_B(a) with f_C(a). So X = (F(b) ⊔ F(c)) / (f_b(x) ~ f_c(x) for all x ∈ F(a)). This is a standard "gluing" or "amalgamated free product" type construction if we were in groups, but here in spaces.
+
+We want H_1(X;Z). We can use Mayer-Vietoris sequence for the cover by the two copies of T^2, say U = F(b) and V = F(c) (or their images in X). Their intersection is the image of F(a) in both? Actually in the quotient, the images of F(b) and F(c) are subspaces U and V of X. Their intersection is the image of the diagonal embedding of F(a)? Wait, we identify f_b(x) with f_c(x). So a point in the intersection would be an equivalence class that comes from some x in F(b) and some y in F(c). Since we only identify f_b(x) with f_c(x), the intersection is precisely the image of f_b (which is identified with the image of f_c). So U ∩ V is homeomorphic to the image of f_b (or f_c) in X. However, the maps f_b and f_c might not be injective, but typically we consider the subspaces as the images. In Mayer-Vietoris, we can use open neighborhoods that deformation retract onto these subspaces. For a pushout of spaces, there is a Mayer-Vietoris sequence:
+... → H_1(U ∩ V) → H_1(U) ⊕ H_1(V) → H_1(X) → H_0(U ∩ V) → H_0(U) ⊕ H_0(V) → H_0(X) → 0.
+Here U = F(b) ≅ T^2, V = F(c) ≅ T^2. U ∩ V = image of F(a) under f_b (or f_c). But the map F(a) → U ∩ V is f_b (or f_c). So H_1(U ∩ V) is a quotient of H_1(F(a)) by the kernel of f_b*. But we need to be careful: The intersection is the image of f_b, which might have different homology if f_b is not injective on H_1. However, the Mayer-Vietoris sequence usually requires the intersection to be the actual intersection of the two subspaces. If we take the images, the intersection is exactly the image of F(a) in X, which is homeomorphic to the quotient of F(a) by the equivalence relation x ~ y if f_b(x) = f_c(y)? Wait, no: In the pushout, U is the image of F(b), V is the image of F(c). Their intersection is the set of points that have representatives in both. A point in the intersection is an equivalence class [x] where x ∈ F(b) and also [y] where y ∈ F(c) with [x] = [y]. The equivalence relation is generated by f_b(z) ~ f_c(z) for z ∈ F(a). But U and V are just the images of F(b) and F(c) under the quotient map. The intersection U ∩ V consists of equivalence classes that can be represented by elements from F(b) and also from F(c). In general, this might not be simply the image of F(a); it could be larger if there are identifications between elements of F(b) and F(c) not coming from F(a)? But the pushout is defined as the quotient of the disjoint union by the relation f_b(z) ~ f_c(z). There are no other identifications. So an equivalence class can contain elements from F(b) and F(c) only if it is of the form [f_b(z)] = [f_c(z)] for some z. So indeed U ∩ V is exactly the image of F(a) in X, which is the union of the image of f_b in F(b) and the image of f_c in F(c) after identification. This image is homeomorphic to the quotient of F(a) by the equivalence relation z1 ~ z2 if f_b(z1) = f_b(z2) or f_c(z1) = f_c(z2)? Actually, the map from F(a) to X factors as F(a) → F(b) → X and F(a) → F(c) → X. The image in X is the same as the image of either composition. The kernel of the map F(a) → X is the union of the fibers? The map F(a) → X is the pushout of the two maps? Wait, the pushout diagram is:
+F(a) → F(b)
+↓      ↓
+F(c) → X
+Actually it's a cospan, so the pushout is the colimit:
+F(b) ← F(a) → F(c)
+ ↓         ↓
+ X = ?
+The maps are from F(a) to F(b) and F(a) to F(c). The colimit X has maps F(b) → X and F(c) → X making the triangle commute. The map F(a) → X is not directly part of the universal property, but we can compose F(a) → F(b) → X or F(a) → F(c) → X. These two compositions are equal. So the image of F(a) in X is the same as the image of the map F(a) → F(b) → X. The intersection U ∩ V is the image of F(a) in X under either map. So we can consider the subspace U ∩ V as the image of F(a) in X. But to apply Mayer-Vietoris, we need the homology of the intersection. The intersection is the image of the map F(a) → X. The map F(a) → X is the composition F(a) → F(b) → X. Its image is homeomorphic to F(a) / ker(f_b) where ker(f_b) is the equivalence relation of points mapping to the same point in X? Actually, the map F(a) → X is f_b followed by the quotient map q_b: F(b) → X. So the image is q_b(f_b(F(a))). Since q_b identifies f_b(z) with f_c(z), the fibers of q_b restricted to f_b(F(a)) correspond to points z1, z2 in F(a) such that q
+
+ANSWER
+======
+
+(X) identifies f_b(z1) with f_c(z1)? Wait, q_b: F(b) → X is the quotient map. On the subspace f_b(F(a)) ⊂ F(b), the quotient identifies f_b(z) with f_c(z) ∈ F(c). So two points f_b(z1) and f_b(z2) in f_b(F(a)) become identified in X if there exist w1, w2 in F(a) such that f_b(z1) = f_c(w1) and f_b(z2) = f_c(w2) and the equivalence class is the same? Actually, the equivalence relation on the disjoint union F(b) ⊔ F(c) is: x ~ y if x = f_b(z) and y = f_c(z) for some z ∈ F(a). There are no other identifications. So in X, the image of F(b) is F(b)/~ where we identify f_b(z) with the point [f_c(z)] in F(c)? But wait, the quotient is on the whole disjoint union. So we identify f_b(z) with f_c(z). That means in the quotient, the image of F(b) is just F(b) with the subspace f_b(F(a)) collapsed to a point? No, we are not collapsing; we are gluing F(b) and F(c) along the images of F(a). So the image of f_b(F(a)) in F(b) is glued to the image of f_c(F(a)) in F(c). In the quotient space X, the intersection U ∩ V is precisely the image of f_b(F(a)) (which is identified with f_c(F(a))). This intersection is homeomorphic to f_b(F(a)) (if we consider it as a subspace of X, it's the image of f_b(F(a)) under the quotient map restricted to F(b)). Since we are not identifying different points within f_b(F(a)) unless they are also identified via f_c? But the equivalence relation only identifies f_b(z) with f_c(z) for the same z. It does not identify f_b(z1) with f_b(z2) unless there is some z such that f_b(z1) = f_b(z2)? Actually, two points in F(b) could become identified if they are both identified with the same point in F(c). That would require f_b(z1) = f_c(w1) and f_b(z2) = f_c(w2) and f_c(w1) = f_c(w2)? But the equivalence relation is generated by the pairs (f_b(z), f_c(z)). It does not directly identify f_b(z1) with f_b(z2) unless there is a chain of identifications. Since the only identifications are between a point in F(b) and a point in F(c) coming from the same z, there is no way to identify two different points in F(b) unless they are also identified in F(c) or something? Wait, if f_b(z1) = f_b(z2) in F(b), then they are the same point in F(b), so they represent the same class. If f_c(w1) = f_c(w2) in F(c), similarly. But could f_b(z1) be identified with f_c(w) and f_b(z2) be identified with f_c(w)? That would require z1 = w and z2 = w, so z1 = z2. So the only identifications between points in the image of f_b are those that already were identifications in F(b). Therefore, the map f_b: F(a) → F(b) followed by the quotient map q: F(b) ⊔ F(c) → X is injective on the image of f_b modulo the kernel of f_b? Actually, if f_b(z1) = f_b(z2) in F(b), then q(f_b(z1)) = q(f_b(z2)). If f_b(z1) ≠ f_b(z2) in F(b), could they become equal in X? Suppose q(f_b(z1)) = q(f_b(z2)). Then either f_b(z1) = f_b(z2) (impossible by assumption), or there exists w1, w2 such that f_b(z1) = f_c(w1) and f_b(z2) = f_c(w2) and the classes are the same. But the only way classes are the same is if f_b(z1) = f_c(w1) and f_b(z2) = f_c(w2) and there is a chain? Actually, the equivalence relation is the smallest equivalence relation containing the pairs (f_b(z), f_c(z)). In the quotient of a disjoint union by a relation that pairs points from different summands, two points from the same summand are equivalent only if they are equivalent via a sequence of these pairs. A sequence would alternate between summands. Starting with a point in F(b), you can only go to F(c) via some z, then back to F(b) via the same z? Wait, if f_b(z) ~ f_c(z), then from f_c(z) you can only go back to f_b(z). There are no other identifications. So you cannot go from f_b(z1) to f_b(z2) with z1 ≠ z2. Therefore, the quotient map restricted to F(b) is injective on the image of f_b? Not necessarily injective overall, but on the image of f_b, two distinct points f_b(z1) and f_b(z2) (with z1 ≠ z2) remain distinct in X, because any path would require an intermediate point in F(c), which would force z1 = z2. So the map f_b: F(a) → X is injective on the quotient of F(a) by the kernel of f_b? Actually, if f_b(z1) = f_b(z2) in F(b), then they are the same point in F(b), so they map to the same point in X. If f_b(z1) ≠ f_b(z2) in F(b), they map to different points in X. So the image of F(a) in X under f_b is homeomorphic to f_b(F(a)) ⊆ F(b). Similarly under f_c. And the intersection U ∩ V is exactly this image, which is homeomorphic to f_b(F(a)) (and also to f_c(F(a)), since they are glued). But we can just think of the intersection as the image of F(a) in X, which is the pushout of the two maps? Wait, the intersection is the subspace of X consisting of points that come from both F(b) and F(c). In the quotient, a point is an equivalence class. A class has a representative in F(b) if it is of the form [f_b(z)] or [x] for x ∈ F(b) not in the image of f_b. It has a representative in F(c) if it is [f_c(z)] or [y] for y ∈ F(c). The intersection is classes that have both, which are exactly the classes of f_b(z) ~ f_c(z). So the intersection is in bijection with the set of equivalence classes of the relation on F(a) given by z1 ~ z2 if f_b(z1) = f_b(z2) or f_c(z1) = f_c(z2)? Actually, each z gives a class [f_b(z)] = [f_c(z)]. If f_b(z1) = f_b(z2), then [f_b(z1)] = [f_b(z2)]. Similarly for f_c. Could [f_b(z1)] = [f_c(z2)]? Only if z1 = z2, because the only identifications between F(b) and F(c) are f_b(z) ~ f_c(z). So [f_b(z1)] = [f_c(z2)] implies z1 = z2. So the intersection is homeomorphic to the quotient of F(a) by the equivalence relation generated by z1 ~ z2 if f_b(z1) = f_b(z2) or f_c(z1) = f_c(z2). But that's just the quotient of F(a) by the kernel of the map to X? The map F(a) → X is z ↦ [f_b(z)] = [f_c(z)]. Its kernel is exactly the equivalence relation z1 ~ z2 if f_b(z1) = f_b(z2) or f_c(z1) = f_c(z2). So the intersection is homeomorphic to the image of F(a) in X, which is the quotient of F(a) by this kernel. But we can also think of it as the pushout? Actually, the pushout of the two maps F(a) → F(b) and F(a) → F(c) is X. The intersection U ∩ V is not necessarily the same as the pushout of F(a) with itself? Wait, there's a known fact: In a pushout of spaces A ← C → B, the intersection of the images of A and B? No, here the cospan is A → B and A → C, and the pushout (colimit) is B ∪_A C. The intersection of B and C in the union is exactly the image of A. So U ∩ V = image of A in the pushout. That image is homeomorphic to A / ~ where ~ identifies points that map to the same point in B or C? Actually, the map from A to the pushout factors through B and C. The kernel of A → B ∪_A C is the equivalence relation generated by x ~ y if f_B(x) = f_B(y) or f_C(x) = f_C(y)? Not exactly; the map A → B ∪_A C is given by a ↦ [f_B(a)] = [f_C(a)]. So two points a1, a2 are identified if [f_B(a1)] = [f_B(a2)] in B or [f_C(a1)] = [f_C(a2)] in C? In the union, [f_B(a1)] = [f_B(a2)] iff f_B(a1) = f_B(a2) in B (since B is embedded? Is B embedded in the union? In a pushout of spaces, if the maps are cofibrations, the images of B and C intersect exactly in the image of A. But even if not, the quotient map from B ⊔ C to B ∪_A C identifies f_B(a) with f_C(a). Two points in B are identified in the quotient if they are in the same equivalence class. Since the only identifications between B and C are via A, two points in B can only be identified if they are both identified with the same point in C, which would require them to be f_B(a1) and f_B(a2) with f_C(a1) = f_C(a2) in C? Wait, if x, y ∈ B are identified, there must be a chain of identifications. Since the only cross-identifications are f_B(a) ~ f_C(a), any chain must go B → C → B → C ... But if we start with x ∈ B, to go to C we must have x = f_B(a1) for some a1, then we go to f_C(a1) in C. From f_C(a1), to go back to B we must use the same identification? The only identification involving f_C(a1) is with f_B(a1). So we cannot go to a different point in B. Therefore, no two distinct points in B are identified unless they are already equal in B. Similarly for C. So the quotient maps from B and C to the union are injective on their images? Wait, that would mean the union is just the disjoint union with f_B(A) glued to f_C(A). That is true if the maps are injective? But here the maps f_B and f_C are maps from T^2 to T^2, which are not necessarily injective. However, the quotient map from B to the union is the composition B → B ⊔ C → B ∪_A C. On the subset f_B(A) ⊆ B, the quotient map identifies f_B(a) with f_C(a). But two different points f_B(a1) and f_B(a2) in f_B(A) could be identified if f_B(a1) = f_B(a2) in B. If they are distinct in B, they remain distinct in the union because there is no way to connect them via C unless f_C(a1) = f_C(a2) and then f_B(a1) is identified with f_C(a1) and f_B(a2) with f_C(a2), but f_C(a1) and f_C(a2) are distinct in C, so they don't get identified. So the union's intersection is exactly the image of A in the union, which is homeomorphic to the quotient of A by the equivalence relation a1 ~ a2 iff f_B(a1) = f_B(a2) or f_C(a1) = f_C(a2)? Actually, if f_B(a1) = f_B(a2), then [f_B(a1)] = [f_B(a2)] in the union. If f_B(a1) ≠ f_B(a2) but f_C(a1) = f_C(a2), then [f_C(a1)] = [f_C(a2)], so [f_B(a1)] = [f_B(a2)]? Wait, [f_B(a1)] = [f_C(a1)] and [f_B(a2)] = [f_C(a2)]. If f_C(a1) = f_C(a2), then [f_C(a1)] = [f_C(a2)], so [f_B(a1)] = [f_B(a2)]. So indeed the equivalence relation on A is a1 ~ a2 if f_B(a1) = f_B(a2) or f_C(a1) = f_C(a2). This is the kernel of the map A → B ∪_A C. So the intersection is homeomorphic to A/~.
+
+In our case, A = F(a) = T^2, B = F(b) = T^2, C = F(c) = T^2. The maps f_B and f_C induce on H_1 the matrices M and N. We are interested in H_1 of the union X = B ∪_A C.
+
+We can use the Mayer-Vietoris sequence for the cover of X by U = B and V = C (or their images). Since B and C are closed? We can assume they are nice spaces (T^2 with maps). The sequence:
+... → H_1(U ∩ V) → H_1(U) ⊕ H_1(V) → H_1(X) → H_0(U ∩ V) → H_0(U) ⊕ H_0(V) → H_0(X) → 0.
+
+Here U ≅ T^2, V ≅ T^2, so H_1(U) ≅ Z^2, H_1(V) ≅ Z^2. U ∩ V is the image of A in X, which we call W. W is a quotient of T^2 by the equivalence relation described. But we need H_1(W). W is the intersection, and we have maps i_U: W → U and i_V: W → V induced by the inclusions. On H_1, these maps are induced by f_B and f_C? Let's see: W is the image of A in X. The inclusion W → U corresponds to the map A → B followed by the quotient B → X? Actually, W is the image of A in X, and U is the image of B in X. The inclusion W ⊂ U is the map q|_B: B → X restricted to the image of A. But as we argued, the map B → X is injective on the image of A? Not necessarily injective if f_B is not injective? Wait, we said two distinct points in B that are images of A remain distinct unless they are identified via C. But we just saw they could be identified if f_C identifies their preimages. So the map from A to U is not necessarily injective; its kernel is the equivalence relation on A given by f_B(a1)=f_B(a2) or f_C(a1)=f_C(a2). But the inclusion W → U is the map from A/~ to B? Actually, W is homeomorphic to A/~. The map W → U sends the class of a to the class of f_B(a) in B/~? But B is not quotiented; B is embedded in X? Wait, is B embedded in X? In the pushout B ∪_A C, the map B → X is not necessarily injective if the maps A → B and A → C are not cofibrations? In general, for pushouts of spaces, the maps B → X and C → X are injective if the map A → B (and A → C) are cofibrations. But here our spaces are T^2 and maps are some continuous maps (inducing given matrices on H_1). We don't know if they are cofibrations. However, we can still use the Mayer-Vietoris sequence for the cover by the images of B and C, provided we take their interiors or use the fact that X is the union of the two subspaces. The homology of the intersection W is the homology of the fiber product? Alternatively, we can use the algebraic approach: The pushout in the category of spaces, when we apply H_1, we can use the Mayer-Vietoris sequence in homology, which is valid for any good cover. If we take U and V to be open neighborhoods that deformation retract onto the images of B and C, their intersection will deformation retract onto the intersection of the images, which is W. So the sequence above holds with H_*(U) = H_*(B), H_*(V) = H_*(C), H_*(U ∩ V) = H_*(W). And the maps H_1(W) → H_1(U) and H_1(W) → H_1(V) are induced by the inclusions W → U and W → V. But what are these inclusions on the level of homology? W is the image of A in X. The inclusion W → U is the map A → B → X restricted to the image? Actually, W is the intersection, so the inclusion W → U is just the map from the intersection to U. The intersection is the image of A in X, which is the same as the image of A under the map A → B → X (or A → C → X). Since the map B → X is the quotient map, the inclusion W → U is the map A → B → X? But W is the image of A in X, and U is the image of B in X. The inclusion W ⊂ U is the map A/~ → B/~? Not exactly. The homology maps i_{U*}: H_1(W) → H_1(U) and i_{V*}: H_1(W) → H_1(V) can be described as follows: The map A → W is the quotient map q_A: A → X, and then W is the image. The inclusion W → U is the map q_U: U → X restricted to W? Actually, W ⊂ U, so the inclusion is just the inclusion of the image of A into the image of B. On homology, this is the map induced by the composition A → B → X? Wait, the inclusion W → U is the map that sends [a] ∈ W to [f_B(a)] ∈ U. This is exactly the map f_B*: H_1(A) → H_1(B) composed with the quotient map H_1(B) → H_1(U)? But U is homeomorphic to B? In the pushout, is U homeomorphic to B? Not necessarily; B might not be embedded injectively. But in our case, B = T^2, and the map B → X might identify some points of B? We argued that two points in B are identified only if they are images of the same point in C, which would require them to be f_B(a1) and f_B(a2) with f_C(a1) = f_C(a2). So the map B → X is not necessarily injective on all of B, but its restriction to the image of A might have kernel as described. However, for homology, we can consider the map A → B → X. The image of A in X is W. The map H_1(A) → H_1(X) factors as H_1(A) → H_1(B) → H_1(X) and also H_1(A) → H_1(C) → H_1(X). The maps H_1(W) → H_1(U) and H_1(W) → H_1(V) in the Mayer-Vietoris sequence are the maps induced by the inclusions. Since W is the intersection, the inclusion W → U is the map W → X → U? No, U is a subspace of X, so W → U is just the inclusion. But we can also think of W as the pushout of A along the two maps? There's a better way: Use the algebraic Mayer-Vietoris sequence for the pushout in the category of chain complexes or abelian groups. If we apply H_1 to the pushout of spaces, we can use the Mayer-Vietoris sequence:
+... → H_1(A) → H_1(B) ⊕ H_1(C) → H_1(X) → H_0(A) → H_0(B) ⊕ H_0(C) → ...
+Wait, is that true? In the usual Mayer-Vietoris sequence for a union X = U ∪ V, with U ∩ V = W, we have:
+... → H_1(W) → H_1(U) ⊕ H_1(V) → H_1(X) → ...
+But here U and V are the images of B and C, and W is the image of A. The maps H_1(W) → H_1(U) and H_1(W) → H_1(V) are the maps induced by the inclusions W ↪ U and W ↪ V. We can relate these to the maps H_1(A) → H_1(B) and H_1(A) → H_1(C). The map A → W is a quotient map (identifying points that map to the same in B or C). The inclusion W → U is the map induced by A → B? Actually, the composition A → W → U is the same as A → B → U? But B → U is the quotient map B → X restricted to B. In general, the map A → B factors as A → W → U? Not necessarily, because A → B might not factor through W; W is the image of A in X, and U is the image of B in X. The map A → B is given. The composition A → B → U is the map A → X via B. The composition A → W → U is also the map A → X via the intersection. Are they equal? Yes, both are the map A → X given by a ↦ [f_B(a)] = [f_C(a)]. So we have a commutative diagram:
+A → B
+↓    ↓
+W → U
+where the right vertical map B → U is the quotient map (inclusion of image? Actually B → U is the map from B to its image in X, which is the quotient map). Similarly for C. So the map H_1(W) → H_1(U) is the map induced by the inclusion of the image of A into the image of B. But we can also factor the map H_1(A) → H_1(U) as H_1(A) → H_1(W) → H_1(U). So the map H_1(W) → H_1(U) is the quotient of H_1(A) by the kernel of H_1(A) → H_1(U)? Actually, it's the map that makes the triangle commute:
+H_1(A) → H_1(U)
+↓         ↓
+H_1(W) → H_1(U)? Wait, the triangle is:
+H_1(A) → H_1(B)
+↓         ↓
+H_1(W) → H_1(U)
+But H_1(B) and H_1(U) might be different if B → U is not an isomorphism on H_1. In our case, B = T^2, and the map B → X is the quotient map from B ⊔ C to X. Is the map B → X injective on H_1? Not necessarily. However, we can use the fact that X is the pushout in the category of spaces, and we can compute H_1(X) using the algebraic pushout in the category of chain complexes? Alternatively, we can use the Mayer-Vietoris sequence in terms of the maps f_B and f_C directly.
+
+There is a known formula for the homology of a pushout (amalgamated union) of two spaces along a common subspace. If X = B ∪_A C, then there is a Mayer-Vietoris sequence:
+... → H_n(A) → H_n(B) ⊕ H_n(C) → H_n(X) → H_{n-1}(A) → ...
+This is true if the maps A → B and A → C are cofibrations (e.g., if A is a closed subspace of B and C). In our case, A = T^2, B = T^2, C = T^2, and the maps are some continuous maps. Are they cofibrations? Not necessarily. But often in such problems, we assume the maps are nice enough (e.g., covering maps? The matrices have determinant? M = [[0,2],[6,0]], det = -12. N = [[0,2],[6,2]], det = -12. Both have non-zero determinant, so they are isomorphisms on H_1? Wait, determinant of M is 0*0 - 2*6 = -12. Determinant of N is 0*2 - 2*6 = -12. Both are non-zero, so the maps induce isomorphisms on H_1! Since H_1(T^2) = Z^2, any matrix with determinant ±1 would be an isomorphism over Z. Here determinant is -12, which is not ±1. So the maps are not isomorphisms on H_1; they are injective? Over Z, a matrix with non-zero determinant is injective but not surjective; its image is a subgroup of index |det| = 12. So the maps on H_1 are injective! Indeed, M and N are 2x2 matrices with non-zero determinant, so they represent injective endomorphisms of Z^2. So f_B* and f_C* are injective maps Z^2 → Z^2. This is important. If the maps on homology are injective, then the maps on the spaces might be injective on homology, but the spaces themselves are T^2. The maps are continuous maps T^2 → T^2 inducing injective maps on H_1. That suggests they are covering maps? A covering map of degree |det| would induce an injective map on H_1 with image of index |det|. Indeed, degree = |det| = 12. So f_B and f_C are likely 12-fold covering maps? But they could be other maps. However, for homology, we can use the algebraic pushout in the category of chain complexes, or we can use the Mayer-Vietoris sequence for the pushout of chain complexes. In the category of abelian groups, the pushout of two injective maps A → B and A → C is the union of B and C along A. The Mayer-Vietoris sequence for homology of a pushout of spaces often carries over to the algebraic pushout of chain complexes if the spaces are nice. But we must be careful: The sequence is:
+... → H_n(A) → H_n(B) ⊕ H_n(C) → H_n(X) → H_{n-1}(A) → ...
+where the map H_n(A) → H_n(B) ⊕ H_n(C) is (i_{B*}, -i_{C*}) or something. Actually, the standard Mayer-Vietoris sequence for X = U ∪ V with intersection W is:
+... → H_n(W) → H_n(U) ⊕ H_n(V) → H_n(X) → H_{n-1}(W) → ...
+with the map H_n(W) → H_n(U) ⊕ H_n(V) given by (i_{W*}, -j_{W*}) where i: W → U, j: W → V. In our pushout, U = image of B, V = image of C, W = image of A. The maps i: W → U and j: W → V are the inclusions. How do they relate to the original maps f_B: A → B and f_C: A → C? We have a commutative diagram:
+A --f_B--> B
+| q_A       | q_B
+v          v
+W --i--> U
+and similarly for C. The maps i_* and j_* on homology are the maps induced by the inclusions. We also have maps f_{B*} : H_1(A) → H_1(B) and f_{C*} : H_1(A) → H_1(C), and q_{B*} : H_1(B) → H_1(U), q_{C*} : H_1(C) → H_1(V). The diagram commutes:
+H_1(A) --f_{B*}--> H_1(B)
+| q_{A*}        | q_{B*}
+v              v
+H_1(W) --i_*--> H_1(U)
+But we don't know q_{B*} and q_{C*} in general. However, if f_B and f_C are injective on H_1, and the spaces are T^2, the maps B → X and C → X might be injective on H_1? Not necessarily; but if we use the algebraic pushout in the category of abelian groups, the pushout of Z^2 ← Z^2 → Z^2 (with maps M and N) would give a group, and the homology of X would be that pushout if the Mayer-Vietoris sequence is exact in the middle. But wait, the Mayer-Vietoris sequence in homology is exact. If we can determine H_1(W), H_1(U), H_1(V), and the maps between them, we can compute H_1(X). We need H_1(W). W is the intersection, which is the image of A in X. But what is W homologically? In the pushout of spaces, W is the union of the images? Actually, W = i(U ∩ V)? Wait, U and V are the images of B and C in X. Their intersection is the image of A. So W = U ∩ V. The homology of W can be computed from the pushout? There is a Mayer-Vietoris sequence for the pushout itself, but that requires knowing the homology of A, B, C and the maps between them. In the usual algebraic setup, if we have a pushout of chain complexes, the Mayer-Vietoris sequence is:
+... → C_*(A) → C_*(B) ⊕ C_*(C) → C_*(X) → C_{*-1}(A) → ...
+This is the long exact sequence of the pushout (or the Mayer-Vietoris sequence for the union). In homology, it becomes:
+... → H_n(A) → H_n(B) ⊕ H_n(C) → H_n(X) → H_{n-1}(A) → ...
+This is a standard result: If X is the pushout of spaces B ← A → C, and the maps are cofibrations (so the union is nice), then there is a Mayer-Vietoris sequence with H_*(A) mapping to H_*(B) ⊕ H_*(C). But here the diagram is A → B and A → C, so it's a cospan. The pushout of a cospan is often called the "copushout" or "pushout" in some contexts? Wait, in the problem, C is the category with objects a,b,c and arrows a → b, a → c. The functor F sends a to T^2, b to T^2, c to T^2, and the arrows to maps f_B: T^2 → T^2 and f_C: T^2 → T^2. Then X = (Lan_j F)(t). We earlier deduced that Lan_j F(t) is the colimit of F over C, which is the copushout (colimit) of the diagram F(a) → F(b), F(a) → F(c). In categorical terms, the colimit of a diagram with objects B, A, C and maps A → B, A → C is an object X with maps B → X, C → X such that the triangle commutes. That's exactly the pushout? In category theory, a pushout is a colimit of a diagram A → B, A → C? No, a pushout is a colimit of a span: B ← A → C. The colimit of a cospan A → B, A → C is a copushout, also called a pushout in some categories? Actually, in abelian categories, pushout is for a span, copushout for a cospan. In topological spaces, the pushout is for a span: two maps into a common object. The colimit of a cospan is the "copushout" or "gluing" along the source? Typically, if you have two maps f: A → B and g: A → C, the colimit is the pushout of f and g? Wait, the universal property: An object X with maps u: B → X, v: C → X such that u f = v g. This is exactly the pushout of the diagram B ← A → C? No, pushout of B ← A → C has maps B → X, C → X with u f = v g? If the diagram is B ← A → C, then the maps are f: A → B and g: A → C? No, a span is B ← A → C, meaning maps A → B and A → C. The pushout of a span is an object X with maps B → X and C → X such that the diagram commutes: A → B → X and A → C → X. That's exactly our diagram! So the pushout of a span is the colimit of the span. Wait, I'm confused. Let's recall: A span is a diagram A ← C → B? Usually, a span is a diagram with two arrows pointing out of a central object: A ← C → B? No, in standard terminology, a span is a diagram C → A ← B? Let's check: In category theory, a pullback is a limit of a span. A span is typically a diagram with two arrows pointing into a central object: A → C ← B. The pullback is the limit. The pushout is the colimit of a cospan: A ← C → B? Or A → C → B? Actually, pushout is colimit of a cospan: two arrows pointing out of a central object: A ← C → B? Wait, "cospan" means the arrows point out? Span: arrows point in? I think: A span is a diagram with two morphisms with a common target: A → C ← B. A cospan is a diagram with a common source: A ← C → B. The pushout is the colimit of a cospan: A ← C → B. The pullback is the limit of a span: A → C ← B. Yes! So a cospan has a common source. In our diagram, we have maps from a to b and a to c: that is a common source a. So it's a cospan: b ← a → c. The colimit of a cospan is a pushout? Wait, I just said pushout is colimit of a cospan. So the colimit of b ← a → c is a pushout! Indeed, the pushout of a cospan? Let's verify: In Set, the pushout of A ← C → B is the quotient of A ∐ B by identifying f(c) with g(c). That's exactly the colimit of the cospan C → A, C → B. So yes, pushout = colimit of cospan. Pullback = limit of span. So our diagram C is b ← a → c, which is a cospan (common source a). Its colimit is a pushout. So X = (Lan_j F)(t) is the pushout of the cospan F(a) → F(b) and F(a) → F(c)? Wait, F sends a to T^2, b to T^2, c to T^2. The arrows in C are a → b and a → c? The text says "b ← a → c", which means arrows a → b and a → c. So F gives maps F(a) → F(b) and F(a) → F(c). This is a cospan with common source F(a). The colimit (pushout) of this cospan is an object X with maps F(b) → X and F(c) → X such that the triangle commutes. That is exactly the gluing we described: X = F(b) ∪_{F(a)} F(c), where we glue the image of F(a) in F(b) to the image of F(a) in F(c). So yes, X is the pushout of the cospan.
+
+Now, the Mayer-Vietoris sequence for a pushout of spaces (cospan) is:
+... → H_n(F(a)) → H_n(F(b)) ⊕ H_n(F(c)) → H_n(X) → H_{n-1}(F(a)) → ...
+Wait, is that the correct sequence? For a pushout of spaces where the maps are cofibrations, there is a Mayer-Vietoris sequence:
+... → H_n(A) → H_n(B) ⊕ H_n(C) → H_n(X) → H_{n-1}(A) → ...
+where A is the common source? Let's check standard Mayer-Vietoris: If X = U ∪ V, and U ∩ V = W, then the sequence involves H_*(W). In our pushout, U = F(b), V = F(c), and U ∩ V = image of F(a)? But in the pushout, U and V are glued along the images of F(a). The intersection U ∩ V is exactly the image of F(a) in X. Let's denote W = U ∩ V. Then W is the image of F(a). The maps H_n(W) → H_n(U) and H_n(W) → H_n(V) are the inclusions. But these maps are not necessarily the same as the maps induced by F(a) → F(b) and F(a) → F(c), because F(a) → U factors as F(a) → W → U? Actually, F(a) → U is F(a) → F(b) → U? Wait, U is the image of F(b) in X. The map F(b) → X is the quotient map. The composition F(a) → F(b) → X has image W. The map F(a) → W is the quotient map F(a) → X with image W. The inclusion W → U is the map W → X → U? Actually, U is a subspace of X, so W → U is just the inclusion. The composition F(a) → W → U is the same as F(a) → F(b) → U? Not necessarily, because F(a) → F(b) → X factors as F(a) → F(b) → U? But U is the image of F(b), so F(b) → U is the quotient map. So yes, F(a) → F(b) → U = F(a) → W → U. Similarly for C. So we have a commutative diagram:
+F(a) → F(b)
+ ↓    ↓
+W → U
+and same for C. So on homology, we have maps:
+H_n(F(a)) → H_n(F(b))
+ ↓       ↓
+H_n(W) → H_n(U)
+and similarly for C. The Mayer-Vietoris sequence uses H_n(W), H_n(U), H_n(V). We don't directly know H_n(W) or the maps from H_n(W). However, we can relate them to the maps from H_n(F(a)). If the map F(a) → F(b) is injective on homology, then the map H_n(F(a)) → H_n(F(b)) is injective, and the map H_n(F(a)) → H_n(W) might be an isomorphism? Not necessarily, because W is the quotient of F(a) by the relation that identifies points that map to the same in U or V? Actually, the kernel of H_n(F(a)) → H_n(W) is the kernel of the map to H_n(U) (since W → U is injective? We don't know if W → U is injective on homology). This seems messy.
+
+Alternative approach: The colimit in the category of spaces of the diagram T^2 → T^2, T^2 → T^2 can be computed homologically by taking the pushout in the category of chain complexes, or more simply, since we are only interested in H_1, we can use the fact that the pushout in the category of abelian groups of the diagram Z^2 → Z^2, Z^2 → Z^2 (with maps M and N) might give H_1(X) if the Mayer-Vietoris sequence in homology is exact and the spaces are nice (e.g., if the maps are cofibrations). In many such problems (like from algebraic topology exams), the homology of a pushout of spaces with injective maps on homology can be computed by the algebraic pushout in the category of abelian groups, i.e., the group obtained by amalgamating the two copies of Z^2 along the image of the map from Z^2. That is, H_1(X) is the pushout of the diagram:
+Z^2 --M--> Z^2
+ | N       |
+ v        v
+Z^2 ----> ?
+Wait, the diagram is F(a) → F(b) and F(a) → F(c). In homology, we have H_1(F(a)) = Z^2, H_1(F(b)) = Z^2, H_1(F(c)) = Z^2, with maps M: Z^2 → Z^2 and N: Z^2 → Z^2. The pushout of this diagram in abelian groups is the group X_1 = (Z^2 ⊕ Z^2) / { (M(v), -N(v)) | v ∈ Z^2 }. This is the amalgamated sum. If the homology of the pushout of spaces is the pushout of the homologies (which is true if the spaces are nice and the maps are cofibrations, or more generally if we use the rational homology or if the maps are injective and we consider the first homology, often the sequence is exact), then H_1(X) would be this pushout group. Let's check if there's any other term. The Mayer-Vietoris sequence for a pushout of spaces with intersection W:
+... → H_1(W) → H_1(U) ⊕ H_1(V) → H_1(X) → H_0(W) → ...
+We have H_1(U) = Z^2, H_1(V) = Z^2. H_1(W) is the homology of the intersection. If the map F(a) → F(b) is injective on H_1, then the image of F(a) in U might be a subgroup isomorphic to Z^2? But W is the intersection, which is the image of F(a) in X. If F(a) → F(b) and F(a) → F(c) are injective on homology, then the map H_1(F(a)) → H_1(U) might not be injective if the quotient map F(b) → U kills some homology? Actually, U is the image of F(b) in X. If F(b) → X is injective on H_1, then H_1(U) ≅ H_1(F(b)). Is F(b) → X injective on H_1? In a pushout of spaces where the maps are cofibrations, the inclusion of F(b) into X is a cofibration, and if the map F(a) → F(b) is injective on H_1, then the map H_1(F(a)) → H_1(F(b)) is injective, and the map H_1(F(b)) → H_1(X) is also injective? Not necessarily. But there's a known result: If we have a pushout of chain complexes, the Mayer-Vietoris sequence is exact and H_1(X) is the pushout of the chain complexes in the homotopy category? Actually, for any pushout of spaces, there is a Mayer-Vietoris sequence in homology:
+... → H_n(A) → H_n(B) ⊕ H_n(C) → H_n(X) → H_{n-1}(A) → ...
+where the map H_n(A) → H_n(B) ⊕ H_n(C) is (f_{B*}, -f_{C*}). This is true if A is the intersection? Wait, in the standard Mayer-Vietoris, the intersection is W, and the map is H_n(W) → H_n(U) ⊕ H_n(V). In our pushout, the intersection is the image of A, not A itself. So the map is from H_n(W), not H_n(A). The map H_n(A) → H_n(B) ⊕ H_n(C) is not directly in the Mayer-Vietoris sequence unless A is homeomorphic to W. But if the maps A → B and A → C are injective, then W is homeomorphic to A? Not necessarily; if the maps are injective, then the intersection W is homeomorphic to A? If f_B: A → B is injective and f_C: A → C is injective, then in the pushout X = B ∪_A C, the images of B and C intersect exactly in the images of A, and since f_B and f_C are injective, the image of A in B is homeomorphic to A, and in C homeomorphic to A, and they are glued identically? Wait, the gluing identifies f_B(a) with f_C(a). If f_B and f_C are injective, then the intersection is homeomorphic to A? Let's see: The intersection consists of points [f_B(a)] = [f_C(a)]. Since f_B is injective, if f_B(a1) = f_B(a2) then a1 = a2. Similarly for f_C. Could [f_B(a1)] = [f_C(a2)]? That would require f_B(a1) = f_C(a2) in X, which only happens if a1 = a2 (since the only identifications are f_B(a) ~ f_C(a)). So the map A → W given by a ↦ [f_B(a)] is a bijection. If the spaces are nice, it's a homeomorphism. So W ≅ A. In that case, H_n(W) ≅ H_n(A), and the inclusion maps W → U and W → V correspond to f_B and f_C (up to the quotient maps B → U and C → V, but if B → U is injective on the image of A? Actually, if f_B is injective, then the map B → X might not be injective elsewhere, but on the image of A it's injective). So in this case, the Mayer-Vietoris sequence becomes:
+... → H_n(A) → H_n(B) ⊕ H_n(C) → H_n(X) → H_{n-1}(A) → ...
+where the map H_n(A) → H_n(B) ⊕ H_n(C) is (f_{B*}, -f_{C*}). This is a standard sequence for the homology of a pushout when the maps are injective (or more generally, when A is a retract of something?).
+
+Given that M and N are injective matrices (determinant non-zero), the maps on H_1 are injective. So we can assume that H_1(W) ≅ Z^2, and the maps are M and N. Then the Mayer-Vietoris sequence in degree 1 is:
+H_1(A) --(M, -N)--> H_1(B) ⊕ H_1(C) --(i, j)--> H_1(X) --∂--> H_0(A) --(k, -l)--> H_0(B) ⊕ H_0(C) → H_0(X) → 0.
+
+We need to compute H_1(X). The sequence is exact. H_1(A) = Z^2, H_1(B) = Z^2, H_1(C) = Z^2. The map (M, -N): Z^2 → Z^2 ⊕ Z^2 is given by v ↦ (Mv, -Nv). The next map is H_1(B) ⊕ H_1(C) → H_1(X). The cokernel of (M, -N) will inject into H_1(X) (since the next map is ∂ to H_0). Actually, exactness:
+im(M, -N) = ker(i, j).
+So H_1(X) contains (H_1(B) ⊕ H_1(C)) / im(M, -N) as a subgroup? The sequence is:
+... → H_1(A) → H_1(B) ⊕ H_1(C) → H_1(X) → H_0(A) → ...
+So H_1(X) / im(H_1(B) ⊕ H_1(C) → H_1(X)) ≅ ker(H_0(A) → H_0(B) ⊕ H_0(C)).
+But we are interested in the torsion subgroup of H_1(X). Often, the map H_1(B) ⊕ H_1(C) → H_1(X) is surjective onto the free part? Actually, we can compute the whole group H_1(X) by analyzing the exact sequence.
+
+First, compute the map on H_0. H_0 is about path components. A, B, C are all T^2, so they are path-connected. The map F(a) → F(b) induces a map on H_0 which is an isomorphism (since both are path-connected, H_0 = Z, and any continuous map between path-connected spaces induces an isomorphism on H_0). Similarly for F(a) → F(c). So the map H_0(A) → H_0(B) ⊕ H_0(C) is Z → Z ⊕ Z given by 1 ↦ (1, -1) (or (1,1) depending on signs; in Mayer-Vietoris the map is usually (i_*, j_*) with a sign? The standard sequence has H_0(W) → H_0(U) ⊕ H_0(V) given by (i_*, -j_*). If both are path-connected, the map is Z → Z ⊕ Z sending 1 to (1, -1) (if we use that sign convention). The kernel is 0, and the cokernel is Z (since the image is the diagonal-like subgroup? Actually, cokernel of Z → Z ⊕ Z, 1 ↦ (1, -1) is (Z ⊕ Z) / {(n, -n)} ≅ Z. But we also have H_0(X) which is Z since X is path-connected. The sequence continues: H_0(A) → H_0(B) ⊕ H_0(C) → H_0(X) → 0. So H_0(X) is the cokernel of that map, which is Z. That matches. The map H_1(X) → H_0(A) has image equal to kernel of H_0(A) → H_0(B) ⊕ H_0(C). Since the latter map is injective (1 ↦ (1, -1) is injective), its kernel is 0. Therefore, the map H_1(X) → H_0(A) is the zero map! So the sequence at H_1 is:
+H_1(A) → H_1(B) ⊕ H_1(C) → H_1(X) → 0.
+Wait, exactness: im(H_1(B) ⊕ H_1(C) → H_1(X)) = ker(H_1(X) → H_0(A)). Since ker(H_1(X) → H_0(A)) = H_1(X) (because the map is zero), the map H_1(B) ⊕ H_1(C) → H_1(X) is surjective! And its kernel is the image of H_1(A) → H_1(B) ⊕ H_1(C).
+So H_1(X) = (H_1(B) ⊕ H_1(C)) / im( (M, -N) ).
+
+Thus H_1(X) is the pushout of the diagram of abelian groups:
+Z^2 --M--> Z^2
+ | N       |
+ v        v
+Z^2 ----> H_1(X)
+which is (Z^2 ⊕ Z^2) / { (Mv, -Nv) : v ∈ Z^2 }.
+But usually the pushout of a cospan in abelian groups is defined as the quotient of the direct sum by the relations f_B(v) = f_C(v), so (Mv, -Nv) = 0 means Mv = 0 in the first component and -Nv = 0 in the second? Wait, the relation is that the image of M in the first Z^2 equals the image of N in the second Z^2? In the pushout, we identify Mv with Nv. So the subgroup we quotient by is { (Mv, -Nv) } if we use additive notation and the map from the first Z^2 is inclusion, and from the second is inclusion, and we set them equal: i_1(x) = i_2(y) means (x, -y) = 0. So yes, the subgroup is { (Mv, -Nv) : v ∈ Z^2 }.
+
+So H_1(X) = (Z^2 ⊕ Z^2) / { (Mv, -Nv) : v ∈ Z^2 }.
+
+But wait, is it exactly that? Let's double-check the sign. In the Mayer-Vietoris sequence, the map H_n(W) → H_n(U) ⊕ H_n(V) is usually (i_*, j_*) or (i_*, -j_*)? The exact sequence is:
+... → H_n(W) --(i_*, j_*)--> H_n(U) ⊕ H_n(V) → H_n(X) → ...
+Actually, the standard Mayer-Vietoris sequence is:
+... → H_n(W) → H_n(U) ⊕ H_n(V) → H_n(X) → H_{n-1}(W) → ...
+where the map H_n(W) → H_n(U) ⊕ H_n(V) is a ↦ (i_*(a), -j_*(a)). The sign depends on conventions, but the kernel and cokernel up to isomorphism are the same. The subgroup we quotient by is the image of a ↦ (i_*(a), -j_*(a)). If we don't have the minus sign, it's just the image of (i_*, j_*). The cokernel would be different? Let's check exactness with sign:
+... → H_n(W) --φ--> H_n(U) ⊕ H_n(V) --ψ--> H_n(X) → ...
+φ(a) = (i_*(a), -j_*(a)). Then ψ is the map induced by inclusions. The kernel of ψ is the image of φ. So H_n(X) ≅ (H_n(U) ⊕ H_n(V)) / { (i_*(a), -j_*(a)) }.
+If we used +j_*, the kernel would be different? Actually, the Mayer-Vietoris sequence is natural, and the map ψ: H_n(U) ⊕ H_n(V) → H_n(X) sends (x, y) to j_U(x) + j_V(y), where j_U: U → X, j_V: V → X. The kernel of this map consists of pairs (x, y) such that j_U(x) = -j_V(y) in H_n(X). In the pushout, the relation is j_U(f_B(a)) = j_V(f_C(a)). So j_U(f_B(a)) - j_V(f_C(a)) = 0. So (f_{B*}(a), -f_{C*}(a)) is in the kernel. So indeed the image of φ is the set of (f_{B*}(a), -f_{C*}(a)). So the quotient is (H_n(B) ⊕ H_n(C)) / { (Mv, -Nv) }. If we used +Nv, we would get a different group? But the minus sign is crucial. However, since we are taking the quotient by a subgroup, and the subgroup is the image of v ↦ (Mv, -Nv), the cokernel is isomorphic to the cokernel of v ↦ (Mv, Nv) if we change the sign of the second component? Actually, (Z^2 ⊕ Z^2) / { (Mv, -Nv) } is isomorphic to (Z^2 ⊕ Z^2) / { (Mv, Nv) } via the isomorphism (x, y) ↦ (x, -y). Because if (Mv, -Nv) = 0, then (Mv, Nv) = 0 in the twisted group? Wait, the quotient by {(Mv, -Nv)} is isomorphic to the quotient by {(Mv, Nv)} via the map (x, y) ↦ (x, -y). Let's check: The subgroup with minus sign is S = { (Mv, -Nv) }. The map T: Z^2 ⊕ Z^2 → Z^2 ⊕ Z^2 given by T(x, y) = (x, -y) is an isomorphism. T(S) = { (Mv, Nv) }. So the quotient by S is isomorphic to the quotient by T(S). So the sign doesn't matter for the isomorphism class of the group. So we can just compute the pushout as (Z^2 ⊕ Z^2) / { (Mv, Nv) } or with a minus sign; the group is the same.
+
+So H_1(X) = (Z^2 ⊕ Z^2) / ⟨ (Mv, -Nv) : v ∈ Z^2 ⟩.
+
+Now we need to compute this group and find the order of its torsion subgroup.
+
+Given M = [[0,2],[6,0]], N = [[0,2],[6,2]].
+
+Let's write Z^2 as Z e1 ⊕ Z e2. M and N are linear maps.
+
+M(e1) = 6 e2? Wait, M = [[0,2],[6,0]] means first column is (0,6)^T, second column is (2,0)^T. So M(e1) = 0*e1 + 6*e2 = 6 e2. M(e2) = 2 e1 + 0 e2 = 2 e1.
+Similarly, N = [[0,2],[6,2]] means N(e1) = 6 e2, N(e2) = 2 e1 + 2 e2.
+
+We need to compute the quotient group G = (Z^2 ⊕ Z^2) / H, where H is the subgroup generated by all (Mv, -Nv) for v ∈ Z^2.
+
+Let's denote the first Z^2 as A with basis a1, a2 (corresponding to e1, e2 of F(b)), and the second Z^2 as B with basis b1, b2 (corresponding to F(c)). Then M: Z^2 → A is given by M(e1) = 6 a2, M(e2) = 2 a1. N: Z^2 → B is given by N(e1) = 6 b2, N(e2) = 2 b1 + 2 b2.
+
+The subgroup H is generated by the images of the basis vectors of the domain Z^2 under the map v ↦ (Mv, -Nv).
+
+For v = e1: (M e1, -N e1) = (6 a2, -6 b2).
+For v = e2: (M e2, -N e2) = (2 a1, -2 b1 - 2 b2).
+
+So H is the subgroup of A ⊕ B generated by these two elements.
+
+We want G = (A ⊕ B) / H.
+
+A = Z a1 ⊕ Z a2, B = Z b1 ⊕ Z b2.
+A ⊕ B = Z^4 with basis a1, a2, b1, b2.
+
+H is generated by:
+g1 = 6 a2 - 6 b2,
+g2 = 2 a1 - 2 b1 - 2 b2.
+
+We can also write g1 = 6(a2 - b2).
+g2 = 2(a1 - b1 - b2).
+
+We need to find the structure of the quotient group Z^4 / H, and specifically the order of its torsion subgroup.
+
+We can compute the Smith normal form of the matrix whose columns are the generators of H, or we can present the group by generators and relations.
+
+Let's set up the presentation. The group G is generated by a1, a2, b1, b2 with relations:
+6 a2 - 6 b2 = 0  => 6 a2 = 6 b2.
+2 a1 - 2 b1 - 2 b2 = 0 => a1 = b1 + b2 (after dividing by 2? Wait, we can't just divide in the group; the relation is 2 a1 - 2 b1 - 2 b2 = 0. This means 2(a1 - b1 - b2) = 0. So a1 - b1 - b2 is 2-torsion? Actually, it means the element a1 - b1 - b2 has order dividing 2. We can introduce a new variable to simplify.
+
+Let's change basis to simplify the relations.
+
+Let x1 = a1, x2 = a2, y1 = b1, y2 = b2.
+
+Relations:
+(1) 6 x2 - 6 y2 = 0  => 6(x2 - y2) = 0.
+(2) 2 x1 - 2 y1 - 2 y2 = 0 => 2(x1 - y1 - y2) = 0.
+
+We can define new generators:
+u1 = x1 - y1 - y2
+u2 = x2 - y2
+And keep some other generators to complete the basis of A ⊕ B.
+
+We want to express A ⊕ B in terms of u1, u2, and two more generators that are independent.
+
+We have:
+x1 = u1 + y1 + y2
+x2 = u2 + y2
+y1, y2 are free? But we also have x1, x2, y1, y2 as the original basis. The subgroup H is generated by 6 u2 and 2 u1. Wait:
+(1) says 6 u2 = 0.
+(2) says 2 u1 = 0.
+But H is generated by these two elements. Are there any other relations? No, H is exactly the subgroup generated by 6 u2 and 2 u1. But we need to ensure that u1, u2, and two other generators form a basis of A ⊕ B? Not necessarily; u1 and u2 are linear combinations of the basis. We can choose a new basis for Z^4 such that u1 and u2 are part of it, but u1 and u2 might not be primitive vectors (they might not be part of a Z-basis). We need to find the Smith normal form of the inclusion map Z^2 → Z^4 given by the matrix with columns g1 and g2.
+
+Let's write the matrix whose columns are the coordinates of g1 and g2 in the basis (x1, x2, y1, y2):
+
+g1 = (0, 6, 0, -6)^T
+g2 = (2, 0, -2, -2)^T
+
+So the matrix A (4x2) is:
+[ 0  2 ]
+[ 6  0 ]
+[ 0 -2 ]
+[-6 -2 ]
+
+We want the cokernel of this matrix, i.e., Z^4 / im(A). The torsion subgroup of the cokernel can be found by computing the invariant factors of A. The Smith normal form of A will give diagonal entries d1, d2 (since there are 2 columns, the rank is at most 2). The cokernel will be Z^{4 - rank} ⊕ Z/d1 Z ⊕ Z/d2 Z (if d1, d2 > 1; if some are 1, they don't contribute torsion). The order of the torsion subgroup is the product of d_i that are not 1.
+
+So we need to compute the Smith normal form of the 4x2 matrix.
+
+Let's perform row and column operations.
+
+Matrix:
+R1: 0  2
+R2: 6  0
+R3: 0 -2
+R4: -6 -2
+
+We can rearrange rows to get a non-zero pivot. Let's put R2 first? Actually, we can do column operations first to simplify.
+
+Columns: C1 = (0,6,0,-6)^T, C2 = (2,0,-2,-2)^T.
+
+Notice that C1 has a 6 in row 2 and -6 in row 4. C2 has 2 in row 1, -2 in row 3, -2 in row 4.
+
+We can factor out common factors? But we must do integer row/column operations (invertible over Z).
+
+Let's write the matrix:
+[ 0  2 ]
+[ 6  0 ]
+[ 0 -2 ]
+[-6 -2 ]
+
+We can add columns: C1 + C2? Let's see:
+C1 + C2 = (2, 6, -2, -8)^T.
+C2 - C1? C2 - C1 = (2, -6, -2, -4)^T? Wait, C1 = (0,6,0,-6), C2 = (2,0,-2,-2).
+C2 - C1 = (2, -6, -2, 4)? -2 - 0 = -2; -2 - (-6) = 4? Wait, C1 is (0,6,0,-6)^T. C2 is (2,0,-2,-2)^T.
+C2 - C1 = (2, -6, -2, 4)^T.
+C1 + C2 = (2, 6, -2, -8)^T.
+
+Also we can do row operations. Let's try to get a 1 in the top left. We have a 2 in row 1, column 2. We can swap columns? If we swap C1 and C2, we get:
+[ 2  0 ]
+[ 0  6 ]
+[-2  0 ]
+[-2 -6 ]
+But then top left is 2. We can also add rows. Let's do column swap first:
+Swap C1 and C2:
+Matrix:
+[ 2  0 ]
+[ 0  6 ]
+[-2  0 ]
+[-2 -6 ]
+
+Now we have a 2 at (1,1). We can use it to eliminate other entries in row 1 and column 1.
+Row 1: [2, 0] already good.
+Column 1: entries are 2, 0, -2, -2.
+We can add row 1 to row 3: R3 = R3 + R1 -> ( -2+2, 0+0 ) = (0,0).
+Add row 1 to row 4: R4 = R4 + R1 -> ( -2+2, -6+0 ) = (0, -6).
+Now matrix:
+R1: 2  0
+R2: 0  6
+R3: 0  0
+R4: 0 -6
+
+Now we have:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0 -6 ]
+
+Next, we can use the 6 in row 2, column 2 to eliminate the -6 in row 4. R4 = R4 + R2 -> (0, -6+6) = (0,0).
+Matrix:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0  0 ]
+
+Now we have diagonal entries 2 and 6. The Smith normal form should have d1 | d2. Here 2 divides 6, so the invariant factors are 2 and 6. The remaining rows are zero, so the cokernel is Z^2 (from the two zero rows) ⊕ Z/2Z ⊕ Z/6Z? Wait, the number of rows is 4, columns 2. The rank is 2. The cokernel is Z^{4-2} = Z^2 ⊕ torsion part Z/d1 ⊕ Z/d2. Here d1 = 2, d2 = 6. So torsion subgroup is Z/2Z ⊕ Z/6Z? But wait, the invariant factors are the diagonal entries of the Smith normal form. For a matrix of size m x n with m > n, the Smith normal form has diagonal entries d1, d2, ..., dr, followed by zeros. The cokernel is Z^{m-r} ⊕ Z/d1 Z ⊕ ... ⊕ Z/dr Z. Here r = 2, d1 = 2, d2 = 6. So torsion part is Z/2 ⊕ Z/6. The order of the torsion subgroup would be 2 * 6 = 12.
+
+But we must be careful: Are the invariant factors 2 and 6? Let's double-check the Smith normal form steps.
+
+Original matrix after column swap:
+[ 2  0 ]
+[ 0  6 ]
+[-2  0 ]
+[-2 -6 ]
+
+Row operations: R3 = R3 + R1: [0,0] correct. R4 = R4 + R1: [0, -6] correct.
+Matrix:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0 -6 ]
+Then R4 = R4 + R2: [0,0].
+Matrix:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0  0 ]
+
+Yes, diagonal entries are 2 and 6. The product of invariant factors is 12. So the torsion subgroup has order 12.
+
+But wait: Is H_1(X) exactly this cokernel? We derived H_1(X) = (Z^2 ⊕ Z^2) / im(M, -N). The matrix we used was the map from Z^2 (domain of v) to Z^2 ⊕ Z^2 (codomain). The columns of the matrix are the images of the basis vectors of the domain. We used C1 = image of e1 = (M e1, -N e1) = (6 a2, -6 b2) = (0,6,0,-6)? Wait, our ordering of basis was (a1, a2, b1, b2). M e1 = 6 a2 -> coordinates (0,6,0,0). -N e1 = -6 b2 -> coordinates (0,0,0,-6). So C1 = (0,6,0,-6)^T. M e2 = 2 a1 -> (2,0,0,0). -N e2 = -2 b1 - 2 b2 -> (0,0,-2,-2). So C2 = (2,0,-2,-2)^T. That matches our matrix:
+[ 0  2 ]  for a1? Wait, first row is a1: C1 has 0, C2 has 2 -> [0, 2]^T? In my matrix above I wrote:
+[ 0  2 ]  <- row 1 (a1)
+[ 6  0 ]  <- row 2 (a2)
+[ 0 -2 ]  <- row 3 (b1)
+[-6 -2]  <- row 4 (b2)
+But earlier I said after column swap:
+[ 2  0 ]
+[ 0  6 ]
+[-2  0 ]
+[-2 -6 ]
+That was after swapping columns? Wait, original matrix:
+C1 = (0, 6, 0, -6)^T
+C2 = (2, 0, -2, -2)^T
+So as columns:
+Column 1: 0, 6, 0, -6
+Column 2: 2, 0, -2, -2
+So the matrix is:
+[ 0  2 ]
+[ 6  0 ]
+[ 0 -2 ]
+[-6 -2 ]
+Yes, that's what I had. Then I swapped columns to get:
+[ 2  0 ]
+[ 0  6 ]
+[-2  0 ]
+[-2 -6 ]
+But wait, after column swap, the columns are C2 then C1. So the matrix is:
+C2: 2, 0, -2, -2
+C1: 0, 6, 0, -6
+So:
+[ 2  0 ]
+[ 0  6 ]
+[-2  0 ]
+[-2 -6 ]
+Yes, that matches. Then I did row operations: R3 = R3 + R1? R1 is [2,0], R3 is [-2,0] -> sum = [0,0]. R4 = R4 + R1: R4 = [-2,-6] + [2,0] = [0,-6]. Then matrix:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0 -6 ]
+Then R4 = R4 + R2: [0,0].
+Result:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0  0 ]
+Invariant factors: 2, 6. Torsion subgroup order = 12.
+
+But we must be cautious: The Mayer-Vietoris sequence might have a different map? We used the map H_1(A) → H_1(B) ⊕ H_1(C) given by (M, -N). But what if the sign is different? As argued, changing sign of N corresponds to an automorphism of the quotient (multiplying the second component by -1), so the isomorphism class is the same. So the torsion subgroup order should be the same.
+
+Also, we assumed that H_1(X) is exactly this cokernel. But we should verify that there is no additional torsion coming from the map H_1(X) → H_0(A). We already checked that H_0(A) → H_0(B) ⊕ H_0(C) is injective, so the map H_1(X) → H_0(A) is zero, and H_1(X) is the cokernel. That seems correct.
+
+But wait: In the Mayer-Vietoris sequence, the map H_1(W) → H_1(U) ⊕ H_1(V) is (i_*, j_*) or (i_*, -j_*)? We used (M, -N) where M and N are the maps induced by f_B and f_C on H_1. But are i_* and j_* exactly f_B* and f_C*? W is the intersection, which is the image of A in X. The inclusion W → U is the map induced by A → B → X? Actually, U is the image of B in X. The inclusion W ⊂ U is the map W → X → U? But W is already a subspace of U. The map i: W → U is the inclusion. How does it relate to f_B: A → B? We have a commutative diagram:
+A --f_B--> B
+| q_A      | q_B
+v         v
+W --i--> U
+where q_A: A → W is the quotient map (identifying a with a' if f_B(a)=f_B(a') or f_C(a)=f_C(a')), and q_B: B → U is the quotient map (identifying points in B that are glued to points in C). On homology, we have maps f_B*: H_1(A) → H_1(B), i*: H_1(W) → H_1(U), q_A*: H_1(A) → H_1(W), q_B*: H_1(B) → H_1(U). The diagram commutes. In our case, we assumed that W ≅ A, meaning q_A* is an isomorphism? But is q_A* an isomorphism? q_A is the map A → W that identifies a1 and a2 if f_B(a1)=f_B(a2) or f_C(a1)=f_C(a2). Since f_B and f_C are injective on H_1? They are injective as linear maps over Z (determinant non-zero). But does that imply q_A is a homology isomorphism? Not necessarily. The kernel of q_A on H_1 could be non-zero if the identifications in the space cause torsion in homology? But we are working with T^2 and maps that induce injective maps on H_1. If f_B and f_C are covering maps of degree 12, then they are local homeomorphisms. The pushout of two covering maps? This might be complicated. However, in many such algebraic topology problems, when they give you matrices for the maps on H_1 and ask for the torsion subgroup of H_1 of the pushout, they expect you to compute the pushout in the category of abelian groups as we did. The alternative is to use the Mayer-Vietoris sequence with H_*(A) instead of H_*(W), assuming the intersection is A. But is that valid?
+
+Let's re-examine the setup. The category C has objects a, b, c and arrows a → b, a → c? Wait, the diagram is "b ← a → c". That means arrows a → b and a → c? Or could it be arrows b → a and c → a? The notation "b ← a → c" typically means b has an arrow to a? No, "b ← a" means arrow from a to b. "a → c" means arrow from a to c. So yes, common source a. So F sends a to T^2, b to T^2, c to T^2, with maps f_b: T^2 → T^2 and f_c: T^2 → T^2.
+
+Then D = C ▷ with terminal object t. j: C → D. F: C → S (where S is probably the category of spaces or something with homology). X = (Lan_j F)(t). Left Kan extension along j: Since j is fully faithful and t is terminal, Lan_j F(t) = colim_{(c, f: j(c) → t)} F(c). The comma category (j ↓ t) has objects (c, f) with f: c → t unique. So it's isomorphic to C. The colimit of F over C is the pushout of the cospan F(a) → F(b), F(a) → F(c)? Wait, the colimit of a diagram with objects b, a, c and maps a → b, a → c is indeed the pushout (copushout) of the maps from a. In category theory, the colimit of a cospan A → B, A → C is often called the pushout of A → B and A → C? Actually, the pushout is usually for a span B ← A → C. The colimit of a cospan is the copushout. In topological spaces, the copushout is the union along the source? If we have maps f: A → B and g: A → C, the copushout is an object X with maps B → X and C → X such that f = g when composed with the maps to X? Wait, the universal property: For any object Y with maps h_B: B → Y and h_C: C → Y such that h_B f = h_C g, there exists a unique map h_X: X → Y with h_X u_B = h_B and h_X u_C = h_C. So X is the "pushout" in the sense of a common source? Usually, if f: A → B and g: A → C, the pushout is the colimit. But many texts call the pushout of a span B ← A → C. Here it's a cospan. The terminology varies, but it's the colimit. In spaces, if f and g are inclusions, the colimit is the union. If they are not inclusions, it's the quotient of the disjoint union identifying f(a) with g(a). That's exactly what we did: X = (B ⊔ C) / (f_B(a) ~ f_C(a)). That is the pushout in the category of spaces? Wait, in the category of spaces, the pushout of two maps f: A → B and g: A → C is defined as the colimit of the diagram B ← A → C? No, that's a span with common target A. Here we have common source A. So it's the colimit of A → B, A → C. That is sometimes called the "copushout" or "pushout" in some contexts? Actually, in the category of groups, the pushout of A → B and A → C is the amalgamated free product B *_{A} C, which is the colimit. In spaces, it's the same: we glue B and C along the images of A. So our X is B ∪_A C. That's correct.
+
+Now, the Mayer-Vietoris sequence for X = U ∪ V where U = image of B, V = image of C, and U ∩ V = image of A. If the maps f_B and f_C are injective, then U ∩ V ≅ A. But here f_B and f_C are maps T^2 → T^2 with non-zero determinant, so they are not necessarily injective as maps of spaces? A continuous map T^2 → T^2 with non-zero degree could be a covering map, which is a local homeomorphism, hence injective on homology but not necessarily injective as a map? Covering maps are not injective globally unless degree 1. But the image of A in B is the image of f_B. The intersection U ∩ V is the image of f_B glued to the image of f_C. If f_B and f_C are covering maps, their images are the whole space? Actually, a covering map of T^2 of degree 12 is surjective. So f_B(T^2) = T^2, f_C(T^2) = T^2. Then the images of B and C in X are the whole U and V? Wait, B is T^2, and the map B → X is the quotient map from B ⊔ C to X. If f_B is surjective, then the image of B in X is all of X? Because every point in X comes from B or C, and since f_B is surjective, the image of f_B is B? No, B is T^2, the map f_B: A → B is a map from T^2 to T^2. The pushout diagram is:
+A --f_B--> B
+| f_C       |
+v          v
+X
+Wait, no: The cospan is A → B and A → C. The pushout is X with maps u_B: B → X and u_C: C → X such that u_B f_B = u_C f_C. Here A = T^2, B = T^2, C = T^2. The maps f_B and f_C are given. The maps u_B: B → X and u_C: C → X are part of the universal property. X is the colimit. In the disjoint union B ⊔ C, we identify f_B(a) with f_C(a). So X = (B ⊔ C) / ~. The map u_B is the quotient map from B to X. The image of u_B is all of X if u_C is surjective? Actually, since every point in X is an equivalence class, and each class has a representative in B or C. If f_B is surjective? f_B is a map from A to B. Surjectivity of f_B doesn't mean u_B is surjective? u_B is defined on all of B. The image of u_B is the set of classes that have a representative in B. Since every class has a representative in B or C, if f_C is not surjective, maybe some classes only have representatives in C? But the identifications only happen between f_B(A) and f_C(A). So a point in B not in f_B(A) will not be identified with anything in C. So its class is just itself. So the image of u_B is all of X? Yes, because every equivalence class has at least one representative in B or C. If it has one in C, it might not have one in B? If a class is [c] for some c ∈ C not in f_C(A), then does it have a representative in B? Not necessarily, unless there is some b ∈ B identified with c. But the only identifications are between f_B(A) and f_C(A). So if c ∉ f_C(A), then [c] is just the class of c, and it has no representative in B. So the image of u_B is the set of classes that have a representative in B. That is the image of B under the quotient map. Similarly for u_C. So U = im(u_B) and V = im(u_C) are subspaces of X, and U ∩ V = im(u_B) ∩ im(u_C) = classes that have representatives in both B and C, which are exactly the classes of f_B(A) (identified with f_C(A)). So U ∩ V = u_B(f_B(A)) = u_C(f_C(A)).
+
+Now, the map f_B*: H_1(A) → H_1(B) is given. The map i*: H_1(U ∩ V) → H_1(U) is induced by the inclusion U ∩ V ⊂ U. This inclusion is the map u_B restricted to f_B(A), composed with the identification? Actually, U ∩ V is exactly u_B(f_B(A)). The inclusion into U is just the map u_B: f_B(A) → U. So on homology, it's (u_B)_* ∘ (f_B)_*? Wait, f_B: A → B, and then we have the restriction of u_B to f_B(A)? The composition A → B → U is u_B ∘ f_B. The map u_B ∘ f_B: A → U has image U ∩ V. The inclusion i: U ∩ V → U is the map that makes the diagram commute: A → U (via u_B f_B) factors as A → U ∩ V → U. So i_* ∘ (u_B f_B)_* = (u_B)_* ∘ f_{B*}. But (u_B)_* is the map H_1(B) → H_1(U). This map might not be injective. However, if f_B is injective on H_1, is (u_B)_* injective on the image of f_{B*}? Not necessarily.
+
+In our algebraic computation, we assumed that H_1(U ∩ V) is isomorphic to H_1(A) and the maps i_* and j_* are exactly f_B* and f_C*. This would be true if the maps u_B and u_C are isomorphisms on the images of f_B and f_C? Or if we are working in a category where the pushout of abelian groups gives the homology of the pushout of spaces. In many cases, for nice spaces (like CW complexes) and maps that are cofibrations, the Mayer-Vietoris sequence is:
+... → H_n(A) → H_n(B) ⊕ H_n(C) → H_n(X) → H_{n-1}(A) → ...
+Wait, I've seen this sequence: If X is the pushout of B ← A → C (span), then there is a Mayer-Vietoris sequence with H_*(A). Here our pushout is of a cospan A → B, A → C. It's the same shape if we reverse arrows? If we take the opposite category, it's a span. In homology, the sequence for a copushout (amalgamated union) is often:
+... → H_n(A) → H_n(B) ⊕ H_n(C) → H_n(X) → H_{n-1}(A) → ...
+where the map H_n(A) → H_n(B) ⊕ H_n(C) is (f_{B*}, -f_{C*}). This is exactly the sequence we used, with H_1(A) mapping to H_1(B) ⊕ H_1(C). This sequence is valid when A is a retract of something? Or when the maps are cofibrations? In our case, the maps are f_B: T^2 → T^2 and f_C: T^2 → T^2. They are not necessarily cofibrations. But the problem likely intends for us to use this algebraic sequence. The fact that they provided matrices M and N and asked for the torsion subgroup of H_1(X) strongly suggests we should compute the cokernel of the map (M, -N) (or similar) in abelian groups. The result 12 seems plausible.
+
+But let's double-check if there is any other interpretation. Could S be the category of abelian groups? "Define F: C → S by F(a)=F(b)=F(c)=T^2=S^1 × S^1." T^2 is a space, so S is likely the category of topological spaces or perhaps the category of chain complexes? If S is the category of spaces, then Lan_j F(t) is the colimit in spaces. But then H_1(X) is the first homology of that space. If S is the category of abelian groups, then T^2 wouldn't make sense as an object. So S is spaces. But then the matrices M and N are the induced maps on H_1. The problem says: "With respect to the standard bases of H_1(T^2;Z) ≅ Z^2, suppose that the two structure maps induce the matrices M = ... N = ...". This implies we are to compute H_1(X) using these matrices.
+
+We can also approach this by using the fact that H_1(X) is the first homology of the pushout. There is a general formula for the homology of a pushout in terms of the homologies of the pieces and the maps, using the Mayer-Vietoris sequence. If we don't assume W = A, we need to know H_1(W). What is W? W = U ∩ V = u_B(f_B(A)) = u_C(f_C(A)). The map f_B: A → B induces M on H_1. The map u_B: B → X induces some map on H_1. The composition u_B f_B: A → X induces M followed by u_B*. But we also have the map f_C: A → C with N, and u_C f_C with N followed by u_C*. Since u_B f_B = u_C f_C in X, we have u_B* M = u_C* N. The intersection W is the image of A in X. The map A → W is the quotient by the kernel of u_B f_B? Actually, the map A → X factors as A → W → X, where W is the image. The map A → W is the quotient by the equivalence relation a1 ~ a2 if u_B f_B(a1) = u_B f_B(a2) (or equivalently u_C f_C(a1) = u_C f_C(a2)). In homology, H_1(W) is the quotient of H_1(A) by the kernel of the map H_1(A) → H_1(X). The map H_1(X) is what we want to find. This seems circular.
+
+However, if we use the algebraic pushout in the category of chain complexes, or if we assume the spaces are Eilenberg-MacLane spaces K(Z^2,1)? T^2 is a K(Z^2,1). The maps are maps between K(Z^2,1) inducing M and N on π_1? Actually, H_1 is abelianization of π_1. For T^2, π_1 = Z^2, H_1 = Z^2. The maps on π_1 would be given by matrices M and N (since they induce those on H_1). If we consider the pushout in the category of spaces, we can replace T^2 by K(Z^2,1) and the maps by maps inducing M and N on π_1. The pushout of K(G,1)'s is a K(G,1) for the amalgamated free product? Actually, the pushout of K(G,1) and K(H,1) over K(K,1) is not necessarily a K(G,1) unless the maps are injective? But if we just want H_1, we can use the fact that H_1 is the abelianization of π_1. The pushout of groups: If we have groups G, A, H with maps A → G and A → H, the pushout in groups is G *_{A} H. The first homology of the pushout space would be the abelianization of G *_{A} H, which is the pushout of the abelianizations? For groups, the abelianization of a pushout is the pushout of the abelianizations if the maps are something? In general, the abelianization of G *_{A} H is the pushout of H_1(G) ← H_1(A) → H_1(H) if the map A → G is injective? Actually, there is a Mayer-Vietoris sequence for groups? Not directly. But in our case, the maps on H_1 are injective (M and N are injective). So the pushout of abelian groups is the amalgamated sum. The torsion subgroup we computed (Z/2 ⊕ Z/6) has order 12.
+
+Let's verify by computing the group G *_{A} H directly, where G = Z^2, H = Z^2, A = Z^2, with maps M and N. The amalgamated free product G *_{A} H is the group with generators g1, g2, h1, h2 and relations M(v) = N(v) for v in A. Here M and N are endomorphisms of Z^2. We can write the relations: M(e1) = N(e1) => 6 g2 = 6 h2 => 6(g2 - h2) = 0. M(e2) = N(e2) => 2 g1 = 2 h1 + 2 h2 => 2(g1 - h1 - h2) = 0. In the abelianization, we just add the relations that these elements are zero (since we are in an abelian group). In the group itself, we have elements of order dividing 6 and 2. The abelianization will have these as torsion as well, plus possibly more torsion from commutators? But we are taking abelianization, so the group becomes abelian, and the relations become exactly the ones we had: 6(g2 - h2) = 0, 2(g1 - h1 - h2) = 0, and all generators commute. This is exactly the abelian group we computed: Z^4 modulo the subgroup generated by (6, -6) in the g2,h2 part and (2, -2, -2) in the g1,h1,h2 part? Wait, in the abelianization, the relations are exactly that the images of M and N are equal. So the abelian group is (Z^2 ⊕ Z^2) / { (Mv, -Nv) }. That's exactly what we computed. The torsion subgroup we found was Z/2 ⊕ Z/6, order 12.
+
+But wait: In the abelianization, the relation 6(g2 - h2) = 0 means the element g2 - h2 has order dividing 6. Could it have order exactly 6? We need to check if there are any other relations that reduce the order. In our Smith normal form computation, the invariant factors were 2 and 6. The torsion subgroup was Z/2 ⊕ Z/6. The product is 12. The order of the torsion subgroup is 12.
+
+Let's double-check the Smith normal form computation carefully. We had the matrix:
+[ 0  2 ]
+[ 6  0 ]
+[ 0 -2 ]
+[-6 -2 ]
+This represents the map φ: Z^2 → Z^4 given by φ(e1) = (0,6,0,-6)^T, φ(e2) = (2,0,-2,-2)^T.
+We want the cokernel Z^4 / im(φ).
+
+We did column swap: now columns are φ(e2), φ(e1):
+[ 2  0 ]
+[ 0  6 ]
+[-2  0 ]
+[-2 -6 ]
+Row operations: R3 = R3 + R1 -> [0,0]; R4 = R4 + R1 -> [0,-6].
+Matrix:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0 -6 ]
+R4 = R4 + R2 -> [0,0].
+Matrix:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0  0 ]
+
+The invariant factors are the diagonal entries: 2 and 6. The cokernel is Z^2 ⊕ Z/2 ⊕ Z/6. The torsion subgroup is Z/2 ⊕ Z/6, order 12.
+
+But wait: Is the matrix correct? The generators of the image are the columns. We have two generators. The Smith normal form of a 4x2 matrix gives two invariant factors. The product of invariant factors is the order of the torsion subgroup of the cokernel, provided the rank is 2. The rank is 2 because the two columns are linearly independent (determinant of the 2x2 minor? The first two rows after column swap are [[2,0],[0,6]] which has rank 2). So the cokernel has free part of rank 4-2=2, and torsion part of order 2*6=12.
+
+But we must ensure that the sign in the second component (-N) doesn't change the invariant factors. If we used +N, the matrix would be:
+φ(e1) = (0,6,0,6)? Wait, -N e1 = -6 b2 -> (0,0,0,-6). If we used +N, it would be (0,0,0,6). Then the matrix would be:
+[ 0  2 ]
+[ 6  0 ]
+[ 0 -2 ]
+[ 6  2 ]? Wait, N e2 = 2 b1 + 2 b2 -> (0,0,2,2). If +N, it's (0,0,2,2).
+So matrix with +N:
+[ 0  2 ]
+[ 6  0 ]
+[ 0  2 ]
+[ 6  2 ]
+But we used -N, so the last row was -6 -2. If we change the sign of the last two rows? Actually, the quotient by {(Mv, -Nv)} is isomorphic to the quotient by {(Mv, Nv)} via multiplying the second component by -1. That's an automorphism of Z^2 ⊕ Z^2. So the cokernels are isomorphic. So the torsion subgroup order is the same.
+
+Let's also check if there is any possibility that the map on H_0 affects H_1. In the Mayer-Vietoris sequence:
+H_1(A) → H_1(B) ⊕ H_1(C) → H_1(X) → H_0(A) → H_0(B) ⊕ H_0(C).
+We have H_0(A) = Z, H_0(B) = Z, H_0(C) = Z. The map H_0(A) → H_0(B) ⊕ H_0(C) is induced by the inclusions of path components. Since all spaces are path-connected, the map is Z → Z ⊕ Z given by 1 ↦ (1, -1) (or similar). This map is injective. Therefore, its kernel is 0. By exactness, the image of H_1(X) → H_0(A) is this kernel, so it's 0. Thus H_1(X) → H_0(A) is the zero map, and H_1(B) ⊕ H_1(C) → H_1(X) is surjective. So H_1(X) is indeed the cokernel of H_1(A) → H_1(B) ⊕ H_1(C). So our computation of the cokernel is correct for H_1(X).
+
+Now, is there any chance that the map H_1(A) → H_1(B) ⊕ H_1(C) is different? In the Mayer-Vietoris sequence, the map is usually i_* - j_* (or i_* + j_* depending on convention). If we use i_* - j_*, then the image is generated by (Mv, -Nv). If we use i_* + j_*, it's (Mv, Nv). As we said, it's isomorphic.
+
+But wait: In our pushout, the maps are f_B: A → B and f_C: A → C. The map H_1(A) → H_1(B) ⊕ H_1(C) is (f_{B*}, f_{C*}) or (f_{B*}, -f_{C*})? The Mayer-Vietoris sequence for X = U ∪ V with U ∩ V = W is:
+... → H_n(W) --(i_*, j_*)--> H_n(U) ⊕ H_n(V) → H_n(X) → ...
+with i: W → U, j: W → V. The map is usually (i_*, j_*) or (i_*, -j_*). The kernel of the next map is the image of (i_*, -j_*) if the next map is (u_*, v_*) -> u_* + v_*? Let's recall the standard exact sequence:
+... → H_n(W) → H_n(U) ⊕ H_n(V) → H_n(X) → ...
+The map H_n(U) ⊕ H_n(V) → H_n(X) is (a, b) ↦ i_{U*}(a) + i_{V*}(b). The kernel consists of pairs (a,b) such that i_{U*}(a) = -i_{V*}(b). The image of H_n(W) is pairs (i_{W*}(w), -j_{W*}(w))? Or (i_{W*}(w), j_{W*}(w))? If the map is w ↦ (i_{W*}(w), -j_{W*}(w)), then i_{U*}(i_{W*}(w)) + i_{V*}(-j_{W*}(w)) = j_U i_W (w) - j_V j_W (w). But j_U i_W = j_V j_W as maps to X, so this is 0. So that works. If we used +j, then i_U i_W + i_V j_W = 2 j_U i_W, not zero. So the correct map is (i_*, -j_*) (or some sign convention). So the image is (i_*(w), -j_*(w)). In our case, i_* corresponds to the map H_1(W) → H_1(U). If W ≅ A via the map f_B? Wait, W is the intersection, which is the image of A. The inclusion i: W → U is the map induced by f_B? Actually, the composition A → W → U is the same as A → B → U? If we assume W ≅ A and the inclusion i is f_B (up to isomorphism), then i_* = f_{B*}. Similarly j_* = f_{C*}. So the map is (f_{B*}, -f_{C*}). That's what we used.
+
+But what if W is not isomorphic to A? If f_B and f_C are not injective on homology? They are injective (determinant non-zero). But they might have kernel in H_0? No, they are maps between path-connected spaces, so H_0 is Z and maps are isomorphisms. The maps on H_1 are injective. However, the map A → W is the quotient by the relation a1 ~ a2 if f_B(a1) and f_B(a2) are identified in X? Actually, W is the intersection U ∩ V. The map A → W is the map a ↦ [f_B(a)] = [f_C(a)]. The kernel of this map on H_1 is the set of cycles in A that become boundaries or zero in X? In our algebraic approach, we used H_1(A) as the domain of the map to H_1(B) ⊕ H_1(C). But the Mayer-Vietoris sequence uses H_1(W), not H_1(A). If the map A → W is not an isomorphism on H_1, then our computation might be wrong. We need to determine if A → W is an isomorphism on H_1.
+
+Let's analyze the map A → W. A = T^2, W = U ∩ V. U is the image of B in X, V is the image of C in X. The map f_B: A → B induces M on H_1. The map u_B: B → X induces some map on H_1. The composition u_B f_B: A → X has image W. The map H_1(A) → H_1(W) is the map induced by u_B f_B, but W is the image, so it's the map H_1(A) → H_1(X) followed by restriction? Actually, H_1(W) is a subgroup of H_1(X) (since W is a subspace). The map H_1(A) → H_1(W) is the map induced by the quotient A → W. The kernel of this map is the image of H_1(A) in H_1(B) that gets killed by u_B*? Not sure.
+
+Alternatively, we can use the algebraic pushout in the category of abelian groups directly as the definition of the homology of the pushout? In many topology problems, when they give you the matrices on H_1 and ask for the torsion of H_1 of the pushout, they expect you to compute the pushout in the category of abelian groups. The fact that they specified "With respect to the standard bases of H_1(T^2;Z) ≅ Z^2, suppose that the two structure maps induce the matrices..." strongly suggests we should just treat the maps on H_1 as linear maps between Z^2 and compute the homology of the pushout as the cokernel of the map H_1(A) → H_1(B) ⊕ H_1(C). This is a standard computation in algebraic topology (e.g., computing H_1 of a union of spaces via Mayer-Vietoris). The intersection's homology is usually given by the maps from the common piece. If the common piece is A, then H_1(W) = H_1(A) if the maps are injective on H_1 and the inclusion of A into B and C are cofibrations? But here the maps are not necessarily inclusions; they are arbitrary maps. However, the problem likely simplifies to the algebraic pushout.
+
+Let's double-check if there's any other interpretation of the category C. "b ← a → c" could also mean there are arrows b → a and c → a? The notation "b ← a" usually means an arrow from a to b? Actually, in category theory diagrams, "b ← a" means an arrow with source a and target b. "a → c" means source a, target c. So yes, a is the source for both. If it were the opposite, it would be "b → a ← c". So our interpretation is correct.
+
+D = C ▷ (adjoining a terminal object t). So D has objects a,b,c,t and arrows a→b, a→c, and a→t, b→t, c→t (unique). j: C ↪ D is inclusion.
+
+F: C → S, F(a)=F(b)=F(c)=T^2. S is probably the category of spaces or maybe the category of topological spaces. The two structure maps are the maps F(a→b) and F(a→c). They induce M and N on H_1.
+
+X = (Lan_j F)(t). Left Kan extension of F along j evaluated at t. Since j is fully faithful, Lan_j F(t) = colim_{(c, f: j(c) → t)} F(c). The comma category (j ↓ t) has objects (c, f) with f: c → t. Since t is terminal, there's a unique f for each c. Morphisms between (c, f) and (c', f') are g: c → c' in C such that f' g = f. Since f and f' are the unique maps to t, this just means g: c → c' in C. So the comma category is just C. The colimit of F over C is the pushout of the diagram F(a) → F(b), F(a) → F(c)? Wait, the colimit of a diagram with objects b, a, c and arrows a→b, a→c is the pushout? In any category, the colimit of a diagram with two objects and one arrow? No, it has three objects and two arrows: a → b and a → c. The colimit is an object X with maps u_b: F(b) → X and u_c: F(c) → X such that u_b F(a→b) = u_c F(a→c). This is exactly the pushout of the cospan? In category theory, the pushout is the colimit of a cospan. So yes, it's the pushout.
+
+But wait: The colimit of a diagram with objects A, B, C and arrows A → B, A → C is sometimes called the "copushout" or "pushout" depending on convention. In any case, it's the universal object with maps from B and C making the triangle commute. That's what we used.
+
+Now, is there any chance that the left Kan extension is different? Lan_j F(t) = colim_{j ↓ t} F. The category j ↓ t is the slice category. Objects are pairs (c, f: j(c) → t). Since t is terminal, there's exactly one such f for each c. So objects are just c. Morphisms: (c, f) → (c', f') is g: c → c' with f' g = f. Since f, f' are unique, any g works. So the slice category is isomorphic to C. The functor F composed with the projection to C is just F. So the colimit is colim F. That's correct.
+
+Could "structure maps" refer to something else? "the two structure maps induce the matrices M and N". F has two maps: F(a→b) and F(a→c). That's two maps. So M and N are those.
+
+Now, the matrices:
+M = [[0,2],[6,0]]
+N = [[0,2],[6,2]]
+
+We computed the cokernel of (M, -N): Z^2 ⊕ Z^2 / ⟨(Mv, -Nv)⟩.
+We got torsion subgroup of order 12.
+
+But let's re-calculate carefully to avoid any arithmetic mistake.
+
+M = [0 2; 6 0] means M*(x,y)^T = (2y, 6x)^T.
+N = [0 2; 6 2] means N*(x,y)^T = (2y, 6x+2y)^T.
+
+Let v = (x,y)^T.
+Mv = (2y, 6x)^T in basis (a1, a2)? Wait, standard basis for Z^2: e1 = (1,0), e2 = (0,1).
+M e1 = (0,6)^T = 6 e2.
+M e2 = (2,0)^T = 2 e1.
+N e1 = (0,6)^T = 6 e2.
+N e2 = (2,2)^T = 2 e1 + 2 e2.
+
+So the generators of the image of (M, -N) are:
+For v = e1: (M e1, -N e1) = (6 e2, -6 f2) where f1,f2 basis for second Z^2.
+For v = e2: (M e2, -N e2) = (2 e1, -2 f1 - 2 f2).
+
+So the subgroup H is generated by:
+g1 = (0,6, 0,-6) in (e1, e2, f1, f2)
+g2 = (2,0, -2,-2)
+
+We want Z^4 / H.
+
+We can do row and column operations over Z.
+
+Matrix with columns g1, g2:
+[ 0  2 ]
+[ 6  0 ]
+[ 0 -2 ]
+[-6 -2 ]
+
+Swap columns to get pivot:
+[ 2  0 ]
+[ 0  6 ]
+[-2  0 ]
+[-2 -6 ]
+
+Add row 1 to row 3: R3 = R3 + R1 -> (0,0)
+Add row 1 to row 4: R4 = R4 + R1 -> (0,-6)
+Matrix:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0 -6 ]
+Add row 2 to row 4: R4 = R4 + R2 -> (0,0)
+Matrix:
+[ 2  0 ]
+[ 0  6 ]
+[ 0  0 ]
+[ 0  0 ]
+
+Invariant factors: 2 and 6. Torsion subgroup Z/2 ⊕ Z/6, order 12.
+
+But wait: In the Smith normal form, the diagonal entries must satisfy d1 | d2. Here 2 | 6, so it's valid. The product is 12.
+
+Could there be any additional torsion from the fact that the map on H_0 might not be injective? We already checked H_0: all spaces are path-connected, so H_0 = Z for each. The map H_0(A) → H_0(B) ⊕ H_0(C) is given by the inclusions of components. Since the maps f_B and f_C are between path-connected spaces, they induce isomorphisms on H_0. In the Mayer-Vietoris sequence, the map is H_0(W) → H_0(U) ⊕ H_0(V). If W is path-connected (which it should be if A is path-connected and the maps are something), then the map is Z → Z ⊕ Z, 1 ↦ (1, -1) (or similar). This is injective. So kernel is 0, cokernel is Z. So H_1(X) → H_0(W) is zero, and H_1(U) ⊕ H_1(V) → H_1(X) is surjective. So H_1(X) is exactly the cokernel.
+
+But is W path-connected? W is the intersection U ∩ V = image of A in X. Since A is path-connected, its image is path-connected. So yes.
+
+Thus H_1(X) is the cokernel we computed.
+
+But wait: Could the map H_1(A) → H_1(B) ⊕ H_1(C) be different if W is not exactly A? If W is a quotient of A, then H_1(W) might be different from H_1(A). The Mayer-Vietoris sequence uses H_1(W), not H_1(A). Our computation assumed H_1(W) = H_1(A) and the maps i_* and j_* are M and N. If that's not true, we need to find H_1(W). Let's examine if the map A → W could kill some homology.
+
+W is the image of A in X. The map A → X is the composition A → B → X (or A → C → X). The map B → X is the quotient map from B ⊔ C to X. On homology, we have a map H_1(B) → H_1(X). The image of H_1(A) in H_1(X) is the subgroup generated by M(H_1(A)) and also by N(H_1(A)) (they are equal in H_1(X)). The intersection W has H_1(W) = image of H_1(A) in H_1(X)? Not exactly; H_1(W) is the homology of the intersection, which is a subspace of X. The inclusion H_1(W) → H_1(X) is injective? Not necessarily; H_1 of a subspace doesn't always inject into H_1 of the whole space. But in the Mayer-Vietoris sequence, the map H_1(W) → H_1(X) is part of the sequence. The map H_1(W) → H_1(U) ⊕ H_1(V) is given by the inclusions. If we don't know H_1(W), we can't directly compute.
+
+However, there is a way to compute H_1(X) using the algebraic pushout in the category of chain complexes. If we model T^2 as a K(Z^2,1), then the pushout in spaces is a K(G,1) for the pushout group G? Actually, the pushout of K(G,1)'s over K(H,1) is not always a K(G,1), but its first homology is the pushout of the first homologies if the maps are injective on homology? I'm not entirely sure.
+
+But this problem seems like a standard exercise in applying the Mayer-Vietoris sequence to compute homology of a pushout. In such exercises, they usually assume the intersection is the common space A. Here the common space in the pushout is A = T^2, and the maps are f_B, f_C: A → B, A → C. The pushout is X = B ∪_A C. The Mayer-Vietoris sequence for a union X = U ∪ V with U ∩ V = W is used. If we set U = B, V = C, then W = A? Only if the maps A → B and A → C are inclusions. But here they are not inclusions; they are maps T^2 → T^2. However, in the pushout B ∪_A C, the intersection of the images of B and C is exactly the image of A. If the maps f_B and f_C are injective, then the image of A in B is homeomorphic to A, and similarly in C, and they are glued. So W is homeomorphic to A. In our case, f_B and f_C are maps with non-zero determinant, so they are covering maps? Covering maps are local homeomorphisms, but not globally injective. However, they are surjective. If f_B is surjective, then the image of A in B is all of B? Wait, f_B: A → B. If f_B is surjective, then f_B(A) = B. Then the image of A in B is B. Similarly f_C(A) = C. Then the pushout X = B ∪_A C would be B ∪_B C? That would just be C? But that doesn't make sense because the maps f_B and f_C are different. If f_B and f_C are both surjective, then in the pushout, we are identifying B with C along A? Actually, if f_B is surjective, then every point in B is f_B(a) for some a. In the pushout, we identify f_B(a) with f_C(a). So every point in B is identified with f_C(a) in C. This means the map from C to X might be surjective? The pushout of two surjective maps from A to B and A to C is just B (or C) if we identify them? Wait, if f_B: A → B and f_C: A → C are both surjective, then in the pushout X, we have maps u_B: B → X and u_C: C → X. For any b ∈ B, b = f_B(a), so u_B(b) = u_B(f_B(a)) = u_C(f_C(a)). So u_B(b) is in the image of u_C. Similarly, u_C(c) is in the image of u_B. So X is the image of both, and the maps u_B and u_C are surjective. But X is not necessarily just B or C; it could be a quotient of B and C. For example, if A = B = C = [0,1] and f_B, f_C are surjections, the pushout is a point? Not sure. In our case, f_B and f_C are maps T^2 → T^2 with degree 12. They are surjective. Then the pushout X might be something else. But the intersection W = U ∩ V = image of A in X. Since f_B is surjective, the image of A in B is all of B, so U = X? Similarly V = X? Then U ∩ V = X, so W = X. That would mean the Mayer-Vietoris sequence has U = V = X, and W = X, which is degenerate. But is f_B surjective? A degree 12 covering map T^2 → T^2 is indeed surjective. So f_B(T^2) = T^2. That means in B, every point is in the image of f_B. Then in the pushout X, every point in U (image of B) comes from some b ∈ B, which is f_B(a) for some a, so u_B(b) = u_C(f_C(a)). So U ⊂ V? Actually, U = image of B, V = image of C. If every b is f_B(a), then u_B(b) = u_C(f_C(a)), so u_B(b) is in the image of C. Thus U ⊂ V. Similarly V ⊂ U. So U = V = X. Then W = U ∩ V = X. Then the Mayer-Vietoris sequence would be H_1(X) → H_1(X) ⊕ H_1(X) → H_1(X) → ... which is not useful.
+
+But wait, are f_B and f_C necessarily surjective? The problem says "the two structure maps induce the matrices M and N". It doesn't say they are covering maps. They are just continuous maps T^2 → T^2 that induce those matrices on H_1. They could be maps that are not surjective. For example, a map that collapses some part? But any continuous map between compact connected manifolds of the same dimension with non-zero degree must be surjective? Not necessarily; you could have a map that is a covering on a subspace and constant elsewhere? But if it induces an injective map on H_1 with image of index 12, it's likely a covering map outside a set of measure zero? Actually, any map T^2 → T^2 of degree d ≠ 0 is surjective because the image is a closed subset with non-zero degree? If it misses a point, it factors through T^2 minus a point, which has fundamental group free, but H_1 would be different? I think a map between closed manifolds of the same dimension with non-zero degree is surjective. So f_B and f_C are likely surjective. If they are surjective, then our interpretation of the pushout as a union along A might be problematic because the images of B and C in X would overlap completely? But wait, the pushout of B ← A → C with surjective maps: If f_B: A → B and f_C: A → C are surjective, then the pushout X is just the quotient of B ⊔ C by identifying f_B(a) with f_C(a). Since f_B is surjective, every b ∈ B is f_B(a) for some a, so b ~ f_C(a) ∈ C. So every point in B is equivalent to some point in C. Thus X is the quotient of C (or B) by identifying c1 ~ c2 if there exist a1,a2 with f_C(a1)=c1, f_C(a2)=c2 and f_B(a1)=f_B(a2)? Actually, the equivalence relation on C is: c1 ~ c2 if there exist a1,a2 such that c1 = f_C(a1), c2 = f_C(a2), and f_B(a1) = f_B(a2)? But since f_B is surjective, for any c1 = f_C(a1), we can find b = f_B(a1) ∈ B, and then b ~ c1. But B is also identified with C via the same a. So essentially X is the pushout. If f_B and f_C are both surjective, X might be just B? Let's think: If we have f: A → B and g: A → C surjective, the pushout is B ∪_A C. Since f is surjective, B is generated by the image of f. The relation is f(a) = g(a). So we are replacing each a in A with its image in C. This is like taking C and then for each b ∈ B, expressing b as f(a), we equate it to g(a) in C. So X is the coequalizer of the two maps f and g? Not exactly. If B is the codomain of f, and f is surjective, then B is a quotient of A? No, surjective means f: A → B is onto, so B is a quotient of A? If f is surjective, it doesn't mean B is a quotient of A in the categorical sense unless f is a regular epimorphism. But in sets, surjective means B is a quotient. In spaces, a surjective continuous map doesn't mean B is a quotient, but homologically it might. If we think algebraically, if f: A → B is surjective on H_1? But M and N are injective, not surjective! Wait! M and N are injective maps Z^2 → Z^2. They are not surjective because determinant is 12, so image is index 12. So on H_1, the maps are injective but NOT surjective. So f_B* and f_C* are injective, not surjective. So f_B and f_C are not surjective on homology. They could still be surjective on spaces? A map can be surjective on spaces but injective on homology? If a map T^2 → T^2 is surjective but not injective on homology, its degree would be non-zero? If it's surjective, the image is the whole space, but the map on H_1 could be injective? If it's injective on H_1, the image is a subgroup of index 12. That means the map is 12-to-1 on homology? But a surjective continuous map with injective homology map? That's impossible for compact manifolds? If f: T^2 → T^2 is surjective, then the degree is non-zero. If it's injective on H_1, the induced map is an injection Z^2 → Z^2. The only way an injective endomorphism of Z^2 has finite index image is if the determinant is non-zero. But a surjective map between closed manifolds of the same dimension always has a degree, and if the degree is non-zero, the map on H_1 is surjective? Wait, the top homology H_2 is Z, and the map on H_2 is multiplication by the degree. If the degree is non-zero, the map on H_2 is injective (and surjective if degree = ±1? No, multiplication by 12 on Z is injective but not surjective. The image is 12Z, index 12). For H_1, the map could be injective with cokernel? For a map T^2 → T^2 of degree 12, the map on H_1 can be an injection with cokernel of order 12? For example, a 12-fold covering map. A covering map is surjective, and on H_1 it is injective with image of index 12. Yes! A covering map has degree equal to the number of sheets. It is surjective. On H_1, the map is multiplication by the degree on each generator? Actually, for a covering map of torus, the induced map on H_1 is an injective linear map with determinant ±degree. So the image has index |degree|. So f_B and f_C are surjective maps (covering maps) with injective H_1 maps. So they are surjective on spaces but not on H_1.
+
+Now, back to the pushout. If f_B: A → B is surjective, then in the pushout X = B ∪_A C, the image of B is all of X? Because every b ∈ B is f_B(a) for some a, so in X, b is identified with f_C(a) ∈ C. So the image of B contains the image of C? Actually, every point in X is either from B or C, but since every b is f_B(a), its class is also represented by f_C(a) ∈ C. So the image of B is the same as the image of C? Not necessarily the same as the whole X? The whole X is the quotient of B ⊔ C. If every b is equivalent to some c, then the map from C to X is surjective? Similarly the map from B to X is surjective? Yes, because for any b, b ~ f_C(a) for some a, so b's class has a representative in C. So both u_B: B → X and u_C: C → X are surjective. Then U = V = X. Then U ∩ V = X. Then the Mayer-Vietoris sequence is degenerate. But that can't be right for computing H_1(X) via Mayer-Vietoris with U and V as the images. The Mayer-Vietoris sequence requires U and V to be open sets whose union is X and whose intersection is path-connected? We can take U and V to be open neighborhoods that deformation retract onto B and C? But if B and C are not subspaces of X in an injective way, the Mayer-Vie
+
+FINISH REASON
+=============
+
+length
+
+GRADING REASON
+==============
+
+length
+
+TIME
+====
+
+175.11 seconds
+
+ATTEMPTS
+========
+
+1

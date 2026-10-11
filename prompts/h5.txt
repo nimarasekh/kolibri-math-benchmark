@@ -1,0 +1,25 @@
+Let
+
+f : X -> Y
+and
+g : U -> V
+
+be maps of finite discrete spaces. Suppose Y has three elements and the three fibers of f have cardinalities
+
+1, 2, 3,
+
+while V has three elements and the three fibers of g have cardinalities
+
+1, 2, 3.
+
+Regard f and g as objects of
+
+Fun(Delta^1, S).
+
+How many connected components does
+
+Map_{Fun(Delta^1,S)}(f,g)
+
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

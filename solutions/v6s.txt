@@ -1,0 +1,85 @@
+Answer: 144
+
+Eilenberg--Mac Lane objects in an \(\infty\)-topos represent sheaf
+cohomology. Therefore
+\[
+\pi_0
+\operatorname{Map}_{\mathcal X}
+(1_{\mathcal X},K(\mathcal A,1))
+\cong
+H^1(T^2;\mathcal A).
+\]
+
+Because
+\[
+T^2\simeq B\mathbb Z^2
+\]
+and \(\mathcal A\) is the local system corresponding to the
+\(\mathbb Z^2\)-module \(A=(\mathbb Z/12)^2\), this is group cohomology:
+\[
+H^1(T^2;\mathcal A)
+\cong
+H^1(\mathbb Z^2;A).
+\]
+
+The standard Koszul cochain complex computing the cohomology of
+\(\mathbb Z^2\) is
+\[
+A\xrightarrow{d^0}A\oplus A\xrightarrow{d^1}A,
+\]
+with
+\[
+d^0(a)=((M-I)a,(N-I)a),
+\]
+and
+\[
+d^1(u,v)=(N-I)u-(M-I)v.
+\]
+
+Writing
+\[
+u=(u_1,u_2),\qquad v=(v_1,v_2),
+\]
+we have
+\[
+(M-I)(x,y)=(2y,0),
+\qquad
+(N-I)(x,y)=(3y,0).
+\]
+Thus
+\[
+d^1(u,v)=(3u_2-2v_2,0).
+\]
+
+The homomorphism
+\[
+(\mathbb Z/12)^2\to\mathbb Z/12,
+\qquad
+(u_2,v_2)\mapsto3u_2-2v_2
+\]
+is surjective because
+\[
+\gcd(12,3,2)=1.
+\]
+Its kernel therefore has \(12\) elements. The coordinates \(u_1,v_1\)
+are arbitrary, giving
+\[
+|\ker d^1|=12\cdot12^2=1728.
+\]
+
+Meanwhile
+\[
+d^0(x,y)=((2y,0),(3y,0)).
+\]
+The map \(y\mapsto(2y,3y)\) is injective modulo \(12\), so
+\[
+|\operatorname{im}d^0|=12.
+\]
+
+Therefore
+\[
+|H^1(\mathbb Z^2;A)|
+=
+\frac{1728}{12}
+=
+144.

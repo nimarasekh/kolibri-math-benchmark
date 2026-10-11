@@ -1,0 +1,7 @@
+Let B_3 be the poset of all subsets of {1,2,3}, ordered by inclusion and regarded as a category. Let [2] = {0 < 1 < 2}.
+
+How many functors
+B_3 -> [2]
+are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

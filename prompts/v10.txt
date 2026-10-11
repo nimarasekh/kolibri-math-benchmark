@@ -1,0 +1,31 @@
+Let
+\[
+f:K(\mathbb Z^2,2)\longrightarrow K(\mathbb Z^3,2)
+\]
+be the map induced by the homomorphism
+\[
+\mathbb Z^2\longrightarrow\mathbb Z^3,
+\qquad
+(u,v)\longmapsto (2u,\,3v,\,2u+3v).
+\]
+
+Let \(X\) be the homotopy cofiber of \(f\) in pointed spaces:
+\[
+K(\mathbb Z^2,2)
+\xrightarrow{\,f\,}
+K(\mathbb Z^3,2)
+\longrightarrow X.
+\]
+
+Consider the pointed mapping space
+\[
+\operatorname{Map}_*
+\left(
+X,\,
+K(\mathbb Z/12,6)
+\right).
+\]
+
+How many connected components does this mapping space have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

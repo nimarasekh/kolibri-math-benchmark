@@ -1,0 +1,28 @@
+Answer: 7
+
+Explanation:
+The connected components of the homotopy pullback
+
+BH x^h_{BG} BK
+
+are indexed by the double cosets
+
+H\G/K.
+
+Here |G/K| = 24/2 = 12. The group H of order 2 acts on these 12 right cosets.
+
+By Burnside's lemma, the number of H-orbits is
+
+(12 + number_of_fixed_cosets)/2.
+
+A coset gK is fixed by the nonidentity element (12) precisely when
+
+g^{-1}(12)g lies in K.
+
+The nonidentity element of K is (34). There are 4 elements g conjugating (12) to (34), and dividing by |K|=2 gives 2 fixed cosets.
+
+Hence
+
+(12+2)/2 = 7.
+
+Final answer: 7

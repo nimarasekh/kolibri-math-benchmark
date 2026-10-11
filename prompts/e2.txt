@@ -1,0 +1,10 @@
+Let C = [1]. Define F,G : C -> Set by
+F(0) = F(1) = {*},
+with the unique structure map, and
+G(0) = {a,b,c}, G(1) = {x,y},
+where the nonidentity arrow of C is sent by G to the function
+a -> x, b -> x, c -> y.
+
+How many natural transformations F => G are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

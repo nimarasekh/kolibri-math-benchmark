@@ -1,0 +1,10 @@
+Answer: 12
+
+Explanation:
+The nerve of C is the complete bipartite graph K_{4,5}: there are 9 vertices and 20 edges, and there are no nondegenerate simplices in dimensions greater than 1.
+
+Its realization is therefore a connected graph. The groupoid completion has the same homotopy type, so its fundamental group is free of rank
+
+E - V + 1 = 20 - 9 + 1 = 12.
+
+Final answer: 12

@@ -1,0 +1,18 @@
+Answer: 7
+
+Explanation:
+The pullback X x_Z Y consists of pairs (x,y) with f(x)=g(y).
+
+Over 0 there are
+2 * 3 = 6
+such pairs.
+
+Over 1 there are
+1 * 1 = 1
+such pair.
+
+Therefore
+
+|X x_Z Y| = 6 + 1 = 7.
+
+Final answer: 7

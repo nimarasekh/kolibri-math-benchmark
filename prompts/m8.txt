@@ -1,0 +1,15 @@
+Consider the map
+
+BC_4 -> BS_4
+
+induced by the homomorphism sending a generator of C_4 to
+
+(12)(34).
+
+This determines a point of
+
+Map_{Cat_infinity}(BC_4, BS_4).
+
+What is the order of the fundamental group of the connected component containing this point?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

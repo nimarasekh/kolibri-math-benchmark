@@ -1,0 +1,8 @@
+Let F : [1] -> Set satisfy
+|F(0)| = 2, |F(1)| = 3.
+
+Consider its category of elements ∫_[1] F.
+
+How many morphisms does ∫_[1] F have in total, including identity morphisms?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

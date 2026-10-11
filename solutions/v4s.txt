@@ -1,0 +1,52 @@
+Answer: 72
+
+Since \(t\) is the adjoined initial object, the pointwise formula for the
+right Kan extension identifies
+\[
+P=(\operatorname{Ran}_jF)(t)
+\]
+with the homotopy limit of the cospan
+\[
+F(a)\longrightarrow F(c)\longleftarrow F(b).
+\]
+Thus
+\[
+P\simeq
+K(\mathbb Z/12\oplus\mathbb Z/18,2)
+\times^h_{K(\mathbb Z/24,2)}
+K(\mathbb Z/8,2).
+\]
+
+The homotopy long exact sequence for this homotopy pullback gives
+\[
+\pi_2(P)
+\cong
+\ker\left(
+(\mathbb Z/12\oplus\mathbb Z/18)\oplus\mathbb Z/8
+\longrightarrow
+\mathbb Z/24
+\right),
+\]
+where
+\[
+(x,y,z)\longmapsto 2x+4y-3z.
+\]
+
+The image is all of \(\mathbb Z/24\), because \(2,4,3\) generate the
+unit ideal modulo \(24\):
+\[
+\gcd(24,2,4,3)=1.
+\]
+Hence the map is surjective.
+
+The domain has order
+\[
+12\cdot18\cdot8=1728.
+\]
+Therefore
+\[
+|\pi_2(P)|
+=
+\frac{1728}{24}
+=
+72.

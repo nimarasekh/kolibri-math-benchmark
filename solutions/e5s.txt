@@ -1,0 +1,22 @@
+Answer: 7
+
+Explanation:
+The category of elements of F has one object (i,x) for each x in F(i).
+
+Thus it has
+
+|F(0)| + |F(1)| = 2 + 3 = 5
+
+objects, giving 5 identity morphisms.
+
+For each x in F(0), the unique nonidentity arrow 0 -> 1 in [1] gives exactly one nonidentity morphism
+
+(0,x) -> (1,F(x)).
+
+Since |F(0)|=2, there are exactly 2 such nonidentity morphisms.
+
+Therefore the total number of morphisms is
+
+5 + 2 = 7.
+
+Final answer: 7

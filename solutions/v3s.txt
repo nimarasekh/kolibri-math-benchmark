@@ -1,0 +1,60 @@
+Answer: 12
+
+Since \(t\) is the adjoined terminal object, the pointwise formula for
+left Kan extensions gives
+\[
+(\operatorname{Lan}_jF)(t)
+\simeq
+\operatorname*{hocolim}_{C}F.
+\]
+For the span
+\[
+b\longleftarrow a\longrightarrow c,
+\]
+this homotopy colimit is the homotopy pushout
+\[
+T^2\amalg^h_{T^2}T^2.
+\]
+
+All three tori are connected. The Mayer--Vietoris sequence therefore
+shows that
+\[
+H_1(X;\mathbb Z)
+\cong
+\operatorname{coker}
+\left(
+H_1(T^2)
+\longrightarrow
+H_1(T^2)\oplus H_1(T^2)
+\right),
+\]
+where the map is represented, up to an irrelevant sign on one summand,
+by
+\[
+\begin{pmatrix}
+M\\
+-N
+\end{pmatrix}
+=
+\begin{pmatrix}
+0&2\\
+6&0\\
+0&-2\\
+-6&-2
+\end{pmatrix}.
+\]
+
+The Smith normal form of this \(4\times2\) matrix is
+\[
+\operatorname{diag}(2,6).
+\]
+Thus
+\[
+H_1(X;\mathbb Z)
+\cong
+\mathbb Z^2\oplus\mathbb Z/2\oplus\mathbb Z/6.
+\]
+
+The torsion subgroup therefore has order
+\[
+2\cdot6=12.

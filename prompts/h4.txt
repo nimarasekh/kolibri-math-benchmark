@@ -1,0 +1,11 @@
+In S, consider the diagram
+
+S^1 <-^4 S^1 ->^6 S^1,
+
+where the maps have degrees 4 and 6. Let X be its colimit in S, i.e. its homotopy pushout.
+
+What is the order of the torsion subgroup of
+
+H_1(X; Z)?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

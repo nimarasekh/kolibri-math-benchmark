@@ -1,0 +1,13 @@
+Let
+
+X = K(Z^2,2)
+
+and regard X and K(Z/2,4) as infinity-groupoids.
+
+How many connected components does
+
+Map_{Cat_infinity}(K(Z^2,2), K(Z/2,4))
+
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

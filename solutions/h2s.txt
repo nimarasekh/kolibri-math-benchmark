@@ -1,0 +1,37 @@
+Answer: 5
+
+Explanation:
+A Cartesian section of the Cartesian fibration classified by
+
+F : C^op -> Cat_infinity
+
+amounts, in this discrete situation, to choosing an element x_1 in F(1) together with an element x_0 in F(0) such that x_0 is simultaneously the pullback of x_1 along all three arrows
+
+alpha, beta, gamma : 0 -> 1.
+
+Thus we must count those x_1 in {1,...,10} for which
+
+alpha^*(x_1) = beta^*(x_1) = gamma^*(x_1).
+
+Reading the three given lists position by position:
+
+1:  a,a,a   -> yes
+2:  a,b,a   -> no
+3:  b,b,b   -> yes
+4:  b,b,c   -> no
+5:  c,c,c   -> yes
+6:  c,d,c   -> no
+7:  d,d,d   -> yes
+8:  d,d,a   -> no
+9:  a,a,a   -> yes
+10: b,c,b   -> no
+
+Hence precisely the elements
+
+1, 3, 5, 7, 9
+
+give Cartesian sections.
+
+Because all fibers are discrete, there are no nontrivial equivalences between distinct sections. Therefore there are exactly 5 equivalence classes.
+
+Final answer: 5

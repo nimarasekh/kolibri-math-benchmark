@@ -1,0 +1,10 @@
+Answer: 3
+
+Explanation:
+The category [1] has a terminal object, namely 1.
+
+For any functor F:[1] -> S, the colimit over [1] is therefore equivalent to F(1).
+
+Here F(1) is a discrete space with 3 points, so it has 3 connected components.
+
+Final answer: 3

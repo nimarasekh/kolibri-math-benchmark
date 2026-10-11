@@ -1,0 +1,18 @@
+Answer: 480
+
+Explanation:
+A nondegenerate 4-simplex of N(B_5) is a strict chain of five subsets
+
+S_0 < S_1 < S_2 < S_3 < S_4.
+
+For each of the five elements of {1,2,3,4,5}, record when it enters the chain:
+it may already lie in S_0, enter at one of the four strict transitions, or never enter.
+Thus there are six possible labels for each element.
+
+For the chain to be strict, each of the four transition labels must occur at least once.
+By inclusion-exclusion the number is
+
+6^5 - C(4,1)5^5 + C(4,2)4^5 - C(4,3)3^5 + C(4,4)2^5
+= 480.
+
+Final answer: 480

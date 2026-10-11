@@ -1,0 +1,101 @@
+QUESTION
+========
+
+Let C = [1]. Define F,G : C -> Set by
+F(0) = F(1) = {*},
+with the unique structure map, and
+G(0) = {a,b,c}, G(1) = {x,y},
+where the nonidentity arrow of C is sent by G to the function
+a -> x, b -> x, c -> y.
+
+How many natural transformations F => G are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are given a category C = [1], which is the category with one object (0? Actually [1] typically denotes the category with two objects 0 and 1 and one non-identity arrow from 0 to 1? Wait, the problem says: "Let C = [1]". Usually [1] is the interval category with two objects 0,1 and a unique arrow 0->1? But then they write F(0), F(1) and nonidentity arrow of C. Yes, [1] often denotes the category with objects {0,1} and a unique nonidentity arrow from 0 to 1. The notation "C = [1]" probably means the category with two objects and one arrow. So objects are 0 and 1, and there is a unique arrow f: 0 -> 1.
+
+We have F, G: C -> Set. Set is the category of sets, with functions as morphisms.
+
+F: C -> Set
+F(0) = F(1) = {*}.
+With the unique structure map: So F(f): {*} -> {*} must be the identity function on {*}.
+
+G: C -> Set
+G(0) = {a,b,c}, G(1) = {x,y}.
+The nonidentity arrow of C (f) is sent by G to the function a -> x, b -> x, c -> y.
+So G(f): {a,b,c} -> {x,y} is the function defined by G(f)(a)=x, G(f)(b)=x, G(f)(c)=y.
+
+We need to find the number of natural transformations F => G.
+
+A natural transformation from F to G consists of a natural transformation in each component: For each object i in C, a function α_i: F(i) -> G(i) such that for every morphism f: i -> j in C, the following square commutes:
+
+G(f) ∘ α_i = α_j ∘ F(f).
+
+Here C has objects 0 and 1, and one nonidentity morphism f: 0 -> 1.
+
+We have:
+F(0) = {*}, F(1) = {*}, F(f) = id_{*} (identity).
+G(0) = {a,b,c}, G(1) = {x,y}, G(f) = g where g(a)=x, g(b)=x, g(c)=y.
+
+We need functions α_0: {*} -> {a,b,c} and α_1: {*} -> {x,y} such that:
+G(f) ∘ α_0 = α_1 ∘ F(f).
+
+Since F(f) = id_{*}, α_1 ∘ F(f) = α_1.
+So the equation is G(f) ∘ α_0 = α_1.
+
+α_0 is a function from {*} to {a,b,c}, so it picks a single element of {a,b,c}. There are 3 choices for α_0.
+α_1 is a function from {*} to {x,y}, so it picks a single element of {x,y}. There are 2 choices for α_1.
+
+But they must satisfy: G(f)(α_0(*)) = α_1(*).
+
+Let’s denote the chosen elements: α_0(*) = p ∈ {a,b,c}, α_1(*) = q ∈ {x,y}.
+Then we need G(f)(p) = q.
+
+We know:
+G(f)(a) = x
+G(f)(b) = x
+G(f)(c) = y
+
+So:
+If p = a, then G(f)(p) = x => q = x.
+If p = b, then G(f)(p) = x => q = x.
+If p = c, then G(f)(p) = y => q = y.
+
+So there are exactly 3 valid natural transformations: one for each p, with q determined.
+
+Thus the number is 3.
+
+Answer: 3.
+
+
+ANSWER
+======
+
+
+
+3
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+4.74 seconds
+
+ATTEMPTS
+========
+
+1

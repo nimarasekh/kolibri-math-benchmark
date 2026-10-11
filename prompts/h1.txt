@@ -1,0 +1,28 @@
+Let C = N([2]), and let
+
+F : [2] -> S
+
+take values in discrete spaces with
+
+F(0) = {a,b,c},
+F(1) = {1,...,7},
+F(2) = {x,y,z,w}.
+
+Suppose the map F(0) -> F(1) sends a,b,c to 1,2,3, respectively, and F(1) -> F(2) sends
+
+1,2 -> x,
+3,4 -> y,
+5 -> z,
+6,7 -> w.
+
+Let L_F -> C be the left fibration classified by F, and let L_1 -> C be the left fibration classified by the covariant representable
+
+Map_C(1,-).
+
+How many connected components does
+
+Map_{LFib(C)}(L_1,L_F)
+
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

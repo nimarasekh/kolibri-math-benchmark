@@ -1,0 +1,22 @@
+Let C be the category with objects 0,1 and precisely three nonidentity arrows
+
+alpha,beta,gamma : 0 -> 1.
+
+Let p : E -> N(C) be the Cartesian fibration classified by a functor
+
+F : C^op -> Cat_infinity
+
+taking values in discrete categories, with
+
+F(1) = {1,...,10},
+F(0) = {a,b,c,d}.
+
+The three reindexing functors F(1) -> F(0) are given, on 1,...,10, by
+
+alpha^* = (a,a,b,b,c,c,d,d,a,b),
+beta^*  = (a,b,b,b,c,d,d,d,a,c),
+gamma^* = (a,a,b,c,c,c,d,a,a,b).
+
+How many equivalence classes of Cartesian sections of p are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

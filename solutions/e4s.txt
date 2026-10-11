@@ -1,0 +1,12 @@
+Answer: 7
+
+Explanation:
+Because A -> B and A -> C are injections, the pushout B ⨿_A C is obtained by taking the disjoint union of B and C and identifying the two copies of each element of A.
+
+Hence
+
+|B ⨿_A C| = |B| + |C| - |A|
+            = 4 + 5 - 2
+            = 7.
+
+Final answer: 7

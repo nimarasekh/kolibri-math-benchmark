@@ -1,0 +1,66 @@
+QUESTION
+========
+
+In Set, let
+X -> Z <- Y
+with Z = {0,1}. Suppose
+|f^{-1}(0)| = 2, |f^{-1}(1)| = 1,
+and
+|g^{-1}(0)| = 3, |g^{-1}(1)| = 1.
+
+How many elements does the pullback X x_Z Y have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are given: In Set, let X -> Z <- Y with Z = {0,1}. Suppose |f^{-1}(0)| = 2, |f^{-1}(1)| = 1, and |g^{-1}(0)| = 3, |g^{-1}(1)| = 1. How many elements does the pullback X ×_Z Y have?
+
+The pullback in Set of two functions f: X -> Z and g: Y -> Z is the set of pairs (x, y) in X × Y such that f(x) = g(y). Since Z has two elements, 0 and 1.
+
+We have f: X -> Z, and the preimage sizes: f^{-1}(0) has size 2, f^{-1}(1) has size 1. So |X| = 3.
+
+g: Y -> Z, g^{-1}(0) has size 3, g^{-1}(1) has size 1. So |Y| = 4.
+
+The pullback X ×_Z Y = {(x, y) ∈ X × Y | f(x) = g(y)}.
+
+We can compute this by summing over z in Z the product of the sizes of f^{-1}(z) and g^{-1}(z), because for each z, any x with f(x)=z and any y with g(y)=z yields a pair.
+
+So for z=0: |f^{-1}(0)| * |g^{-1}(0)| = 2 * 3 = 6.
+For z=1: |f^{-1}(1)| * |g^{-1}(1)| = 1 * 1 = 1.
+Total = 6 + 1 = 7.
+
+Thus the pullback has 7 elements.
+
+Answer: 7.
+
+
+ANSWER
+======
+
+
+
+7
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+2.36 seconds
+
+ATTEMPTS
+========
+
+1

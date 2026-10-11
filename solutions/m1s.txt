@@ -1,0 +1,11 @@
+Answer: 168
+
+Explanation:
+A functor B_3 -> [2] is an order-preserving map from the Boolean lattice B_3 to the chain {0<1<2}.
+
+Such a map is equivalent to choosing two nested order ideals I_0 subseteq I_1 of B_3, where
+I_0 is the inverse image of {0} and I_1 is the inverse image of {0,1}.
+
+The Boolean lattice B_3 has 20 order ideals. Counting nested pairs of order ideals gives 168.
+
+Final answer: 168

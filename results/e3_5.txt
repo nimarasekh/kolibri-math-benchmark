@@ -1,0 +1,66 @@
+QUESTION
+========
+
+In Set, let
+X -> Z <- Y
+with Z = {0,1}. Suppose
+|f^{-1}(0)| = 2, |f^{-1}(1)| = 1,
+and
+|g^{-1}(0)| = 3, |g^{-1}(1)| = 1.
+
+How many elements does the pullback X x_Z Y have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are given: In the category of sets, we have a pullback diagram:
+X -> Z <- Y
+with Z = {0,1}. 
+We are given sizes of fibers:
+|f^{-1}(0)| = 2, |f^{-1}(1)| = 1 => so |X| = 3.
+|g^{-1}(0)| = 3, |g^{-1}(1)| = 1 => so |Y| = 4.
+We need to find the number of elements in the pullback X ×_Z Y.
+The pullback in sets is the set of pairs (x,y) in X × Y such that f(x) = g(y).
+So we can compute the number of such pairs by summing over each z in Z:
+Number of pairs = sum_{z in Z} |f^{-1}(z)| * |g^{-1}(z)|.
+Because for each z, any x in f^{-1}(z) can be paired with any y in g^{-1}(z).
+So:
+For z=0: |f^{-1}(0)| * |g^{-1}(0)| = 2 * 3 = 6.
+For z=1: |f^{-1}(1)| * |g^{-1}(1)| = 1 * 1 = 1.
+Total = 6 + 1 = 7.
+
+Thus the pullback has 7 elements.
+
+Final answer: 7.
+
+
+ANSWER
+======
+
+
+
+7
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+1.94 seconds
+
+ATTEMPTS
+========
+
+1

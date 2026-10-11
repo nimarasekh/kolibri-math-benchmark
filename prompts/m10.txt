@@ -1,0 +1,9 @@
+Regard [3] and [4] as categories.
+
+How many functors
+
+F : [3] -> [4]
+
+admit a right adjoint?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

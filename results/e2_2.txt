@@ -1,0 +1,84 @@
+QUESTION
+========
+
+Let C = [1]. Define F,G : C -> Set by
+F(0) = F(1) = {*},
+with the unique structure map, and
+G(0) = {a,b,c}, G(1) = {x,y},
+where the nonidentity arrow of C is sent by G to the function
+a -> x, b -> x, c -> y.
+
+How many natural transformations F => G are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are asked: "Let C = [1]. Define F,G : C -> Set by F(0) = F(1) = {*}, with the unique structure map, and G(0) = {a,b,c}, G(1) = {x,y}, where the nonidentity arrow of C is sent by G to the function a -> x, b -> x, c -> y. How many natural transformations F => G are there? Give your final answer as a single integer."
+
+First, understand the category C = [1]. The category [1] usually denotes the category with two objects 0, 1 and a single non-identity arrow 0 -> 1 (the interval category). Objects: 0 and 1; morphisms: id_0, id_1, and a unique arrow f: 0 -> 1.
+
+F: C -> Set. F(0) = {*}, F(1) = {*}. The unique structure map: F(f): {*} -> {*} must be the unique function sending * to *. So F is constant at {*} for both objects, and F(f) is the identity function on {*} essentially (the only function).
+
+G: C -> Set. G(0) = {a,b,c}, G(1) = {x,y}. G(f): {a,b,c} -> {x,y} is given by a -> x, b -> x, c -> y.
+
+We want natural transformations F => G. A natural transformation η: F => G consists of a function η_0: F(0) -> G(0) and η_1: F(1) -> G(1) such that for the arrow f: 0 -> 1, the naturality square commutes:
+G(f) ∘ η_0 = η_1 ∘ F(f).
+
+Here, F(f): {*} -> {*} is the identity (since it's the unique map, which must send * to *).
+G(f): {a,b,c} -> {x,y} sends a->x, b->x, c->y.
+
+η_0: {*} -> {a,b,c}. There are 3 possible functions because it sends * to any of a,b,c.
+η_1: {*} -> {x,y}. There are 2 possible functions because it sends * to any of x,y.
+
+But they must satisfy naturality: For all z in F(0) (which is just *), G(f)(η_0(z)) = η_1(F(f)(z)).
+Left side: G(f)(η_0(*)) = G(f)(a), G(f)(b), or G(f)(c) depending on η_0.
+Right side: η_1(F(f)(*)) = η_1(*) since F(f) is identity on {*}.
+
+So we require: G(f)(η_0(*)) = η_1(*).
+
+η_0(*) can be a, b, or c.
+If η_0(*) = a or b, then G(f)(a) = x, G(f)(b) = x. So we need η_1(*) = x.
+If η_0(*) = c, then G(f)(c) = y. So we need η_1(*) = y.
+
+Thus the possibilities:
+- Choose η_0(*) = a, then η_1(*) must be x: 1 option.
+- Choose η_0(*) = b, then η_1(*) must be x: 1 option.
+- Choose η_0(*) = c, then η_1(*) must be y: 1 option.
+
+Total natural transformations = 3.
+
+But wait: Are there any other constraints? The naturality condition is just that one equation. Each choice of η_0 determines η_1 uniquely. So there are exactly 3 natural transformations.
+
+Thus the answer is 3.
+
+
+ANSWER
+======
+
+
+
+3
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+4.66 seconds
+
+ATTEMPTS
+========
+
+1

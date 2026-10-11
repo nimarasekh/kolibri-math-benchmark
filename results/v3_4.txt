@@ -1,0 +1,723 @@
+QUESTION
+========
+
+Let \(C\) be the category
+\[
+b\longleftarrow a\longrightarrow c,
+\]
+and let \(D=C^{\triangleright}\) be obtained by adjoining a terminal object \(t\). Let
+\[
+j:C\hookrightarrow D.
+\]
+
+Define \(F:C\to\mathcal S\) by
+\[
+F(a)=F(b)=F(c)=T^2=S^1\times S^1.
+\]
+
+With respect to the standard bases of \(H_1(T^2;\mathbb Z)\cong\mathbb Z^2\), suppose that the two structure maps induce the matrices
+\[
+M=
+\begin{pmatrix}
+0&2\\
+6&0
+\end{pmatrix},
+\qquad
+N=
+\begin{pmatrix}
+0&2\\
+6&2
+\end{pmatrix}.
+\]
+
+Let
+\[
+X=(\operatorname{Lan}_jF)(t).
+\]
+
+What is the order of the torsion subgroup of
+\[
+H_1(X;\mathbb Z)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are given a category C: b ← a → c. This is a "V" shape: objects a, b, c, with morphisms from a to b and a to c? Wait: "b ← a → c" usually means there are arrows a → b and a → c. The category C has objects a, b, c, and two non-identity arrows: a → b and a → c. It's a commutative diagram? It just says b ← a → c, which typically indicates a cospan? The notation "b \longleftarrow a \longrightarrow c" shows arrows a -> b and a -> c. Yes.
+
+Then D = C ▷ obtained by adjoining a terminal object t. D has objects a, b, c, t and all arrows of C plus arrows from every object to t? Terminal object t means there is a unique arrow from every object to t. D = C with a terminal object t added. j: C → D is inclusion.
+
+F: C → S (wait, \mathcal S? It says \mathcal S; likely the category of spaces? Or maybe S^1? "F(a)=F(b)=F(c)=T^2=S^1×S^1." So S is probably the category of topological spaces, and T^2 is the 2-torus. So F maps each object to T^2.)
+
+We have structure maps? The phrase: "With respect to the standard bases of H_1(T^2; Z) ≅ Z^2, suppose that the two structure maps induce the matrices M and N." The two structure maps probably refer to the maps induced by the two arrows in C? C has arrows a → b and a → c. F assigns T^2 to each, and for each arrow we need a map. But F is a functor from C to S. It must send the arrows to continuous maps between T^2. The phrase "the two structure maps induce the matrices M and N" likely refers to the maps on H_1 induced by these two continuous maps. We are given M and N as 2x2 matrices with integer entries. M corresponds to one arrow, N to the other. But which is which? It says "the two structure maps induce the matrices M = ... N = ...". Probably M is for one arrow, N for the other. We need to compute something.
+
+Then X = (Lan_j F)(t). j: C → D, F: C → S. Lan_j F is the left adjoint to j^*? Wait, j: C → D, F: C → S. Typically, Lan_j F is the left Kan extension of F along j. j is the inclusion of C into D. D = C with a terminal object t added. The left Kan extension Lan_j F evaluated at an object d in D is given by the colimit over the comma category j ↓ d of F(c). Since j is fully faithful inclusion, Lan_j F is the functor D → S that sends t to the colimit of F over the comma category C ↓ t? Wait, for a terminal object t, the comma category j ↓ t consists of objects c in C with a map c → t in D. Since t is terminal, there is a unique map from every object in C to t. So the comma category is just C itself? Wait: j: C → D. For d = t, the comma category j ↓ t has objects c in C, and morphisms f: c → d? Actually, the comma category (j ↓ d) has objects (c, f) where c ∈ C and f: j(c) → d is a morphism in D. Since j is inclusion, we can just write c → d. Since t is terminal, there's exactly one morphism from each c to t. So the comma category is isomorphic to C (just forget the arrow to t). Therefore, Lan_j F(t) = colim_{c ∈ C} F(c). Since C is a small category (just three objects with two arrows), the colimit is the pushout? Wait: C has objects a,b,c and arrows a→b, a→c. This is a span? Actually it's a cospan: a → b and a → c. The colimit of F over C is the colimit of the diagram F(b) ← F(a) → F(c). That's a pushout? The colimit of a diagram with two objects mapping to one? Wait, F(b) ← F(a) → F(c). The colimit is the union along the common source? It's the pushout of F(a) → F(b) and F(a) → F(c)? That's the coproduct of F(b) and F(c) over F(a). Actually, the colimit of a diagram with a shape: two arrows leaving a common object a: b and c are targets. The colimit is the pushout of the two maps from F(a) to F(b) and F(a) to F(c). So X = Lan_j F(t) = pushout of F(a) → F(b) and F(a) → F(c). That is, X is the quotient of the disjoint union of F(b) and F(c) by identifying F(a) via the two maps? Wait, pushout of A ← C → B is (A ∐ B)/~ where c in C is identified with its image in A and its image in B. So yes, X = F(b) ∪ F(c) with F(a) glued via the two maps. But careful: F(a), F(b), F(c) are all T^2. The maps are the structure maps (the ones induced by the arrows a→b and a→c?). Wait, C has arrows a → b and a → c. F is a functor, so it assigns to a→b a map f_b: F(a) → F(b), and to a→c a map f_c: F(a) → F(c). So the pushout is T^2 ← T^2 → T^2, where the two maps are f_b and f_c? But wait, the colimit of the diagram with objects F(b), F(a), F(c) and arrows F(a) → F(b), F(a) → F(c) is indeed the pushout of these two arrows. So X = pushout(T^2 → T^2, T^2 → T^2). That is, we have two maps from T^2 to T^2, and we take the pushout.
+
+But the problem statement: "Define F: C → S by F(a)=F(b)=F(c)=T^2 = S^1 × S^1. With respect to the standard bases of H_1(T^2; Z) ≅ Z^2, suppose that the two structure maps induce the matrices M and N."
+
+It says "the two structure maps". There are two arrows a → b and a → c. Which induces which matrix? M and N are given:
+M = [[0,2],[6,0]]
+N = [[0,2],[6,2]]
+We need to decide which is for a→b and which for a→c, or maybe it doesn't matter because the pushout is symmetric? But the matrices are different; M and N are not symmetric. The pushout might depend on which map is which. The phrase "the two structure maps induce the matrices M and N" might imply that one specific structure map induces M and the other N, but we don't know which is which? Typically, the arrow a → b might be the first, and a → c the second, but we should deduce from context or perhaps the order doesn't affect the torsion subgroup of H_1? We should check. The pushout of two maps f, g: T^2 → T^2. The homology of the pushout can be computed via Mayer-Vietoris or via the homotopy pushout? The maps are continuous maps between T^2; the pushout in topological spaces might be complicated, but we are asked for the homology of X = pushout. However, typically in such algebraic problems, X is the homotopy pushout or the pushout in the category of spaces? But the problem says "Let X = (Lan_j F)(t)". Lan_j F is a left Kan extension in the category of functors? Wait, j: C → D and F: C → S. If S is the category of topological spaces, then Lan_j F is defined as a functor D → S. For a terminal object t, Lan_j F(t) = colim_{c → t} F(c). In topology, colimits are usually not the strict pushout (which may not preserve nice properties), but often in such problems they mean the homotopy colimit or just the strict colimit? But the question asks for H_1(X; Z) and its torsion subgroup. The homotopy colimit of T^2's along maps induced by M and N would have H_1 computable via the algebraic pushout of the chain complexes? Since we are given matrices on H_1, we can compute the homology of the pushout in some algebraic category. But we need to be careful: the pushout in topological spaces of two maps f,g: A → B? Wait, the diagram is F(b) ← F(a) → F(c)? The colimit of F(b) ← F(a) → F(c) is the pushout of f_b: F(a) → F(b) and f_c: F(a) → F(c). That is a double cospace? It's the union of F(b) and F(c) along the image of F(a). In topology, the pushout of two maps out of a space is not always a nice space, but its homology can be computed using the Mayer-Vietoris sequence for the pushout. Indeed, if we have a pushout of A ← C → B, the homology of the pushout X can be computed via the Mayer-Vietoris sequence: ... → H_n(C) → H_n(A) ⊕ H_n(B) → H_n(X) → H_{n-1}(C) → ... This holds for homology if the maps are cofibrations, or in general for singular homology? Actually, the Mayer-Vietoris sequence for a pushout square holds if the maps are cofibrations, or we can use the homotopy pushout. But in algebraic topology, often "pushout" in the category of spaces refers to the homotopy pushout, or one assumes the maps are nice (like CW complexes). Since T^2 is a CW complex and the maps are induced by matrices, they can be represented by maps that are not necessarily cofibrations? But we can still use the algebraic pushout of chain complexes? Typically, the homology of the pushout of two maps f,g: C → A,B is computed by the homotopy pushout, which yields a long exact sequence: ... → H_n(C) → H_n(A) ⊕ H_n(B) → H_n(X) → H_{n-1}(C) → ... where the maps are (f_*, -g_*). This is exactly the Mayer-Vietoris sequence. And it gives the homology of the homotopy pushout. The problem likely intends this algebraic computation, as we are given only the induced maps on H_1, and we assume the higher homology is as for T^2 (H_2 = Z, H_1 = Z^2, H_0 = Z). The pushout X will have homology computed from this sequence.
+
+Let's verify: X = pushout of T^2 ← T^2 → T^2. The Mayer-Vietoris sequence (or the long exact sequence of the homotopy pushout) in homology:
+... → H_n(T^2) → H_n(T^2) ⊕ H_n(T^2) → H_n(X) → H_{n-1}(T^2) → ...
+where the first map is (f_*, g_*): H_n(T^2) → H_n(T^2) ⊕ H_n(T^2), given by f_* - g_*? Wait, the standard Mayer-Vietoris for union U ∪ V with intersection U ∩ V is ... → H_n(U ∩ V) → H_n(U) ⊕ H_n(V) → H_n(X) → H_{n-1}(U ∩ V) → ... where the map H_n(U ∩ V) → H_n(U) ⊕ H_n(V) is (i_*, j_*), i.e., inclusion into U and V. In a pushout square C → A, C → B, the intersection is C, U = A, V = B. The map is C → A and C → B, so the map on homology is (f_*, g_*). The sequence is:
+... → H_n(C) → H_n(A) ⊕ H_n(B) → H_n(X) → H_{n-1}(C) → ...
+Yes.
+
+Here A = F(b) = T^2, B = F(c) = T^2, C = F(a) = T^2. The maps are f: C → A corresponding to one arrow, and g: C → B corresponding to the other arrow. Their induced maps on H_1 are given by matrices M and N. We need to determine which is f and which is g. The problem says "the two structure maps induce the matrices M and N". It might be that the arrow a → b induces M and a → c induces N, or vice versa. We might need to consider both possibilities or the order might not matter for the torsion subgroup? Let's check both possibilities, or maybe the structure maps are defined by the category: C: b ← a → c. The arrow from a to b might be the first one written? "b \longleftarrow a \longrightarrow c" Usually, the map a → b is on the left, a → c on the right. But the matrices are given as M and N in that order? "M = ... N = ...". It says "the two structure maps induce the matrices M and N". It doesn't explicitly assign which to which. But we can assume the order corresponds to the order of arrows: maybe M for a→b and N for a→c. Let's test both assignments and see if the torsion subgroup order differs. If it differs, there might be a convention.
+
+Let's compute H_1(X) using Mayer-Vietoris sequence. We only care about H_1 and H_2 and H_0? The torsion subgroup of H_1(X). H_1 is computed from the part of the sequence involving H_1 and H_2 and H_1 again.
+
+The Mayer-Vietoris sequence for n=2:
+H_2(C) → H_2(A) ⊕ H_2(B) → H_2(X) → H_1(C) → H_1(A) ⊕ H_1(B) → H_1(X) → H_0(C) → H_0(A) ⊕ H_0(B) → H_0(X) → 0.
+
+We have:
+H_2(C) = Z, H_2(A) = Z, H_2(B) = Z.
+H_1(C) = Z^2, H_1(A) = Z^2, H_1(B) = Z^2.
+H_0(C) = Z, H_0(A) = Z, H_0(B) = Z.
+
+The maps on H_2: f_*: H_2(C) → H_2(A) and g_*: H_2(C) → H_2(B). Since T^2 is a closed manifold, any continuous map T^2 → T^2 induces a map on H_2 which is multiplication by some integer (the degree). But we are not given the matrices on H_2. We only have the matrices on H_1. However, we might not need the H_2 maps if we can deduce them from the H_1 maps? Not necessarily, but maybe the maps on H_2 are zero? Or maybe the problem implies that the structure maps are such that we only need the H_1 information? Wait, the problem says "With respect to the standard bases of H_1(T^2; Z) ≅ Z^2, suppose that the two structure maps induce the matrices M and N." It only gives matrices for H_1. It doesn't mention H_2. In the Mayer-Vietoris sequence, the map H_2(C) → H_2(A) ⊕ H_2(B) might be zero if the maps on H_2 are zero, but we don't know. However, often in such problems, the maps are induced by some geometric maps, and we might need to infer the H_2 maps? Alternatively, maybe the pushout X is a space whose H_1 can be computed purely from the H_1 maps, if we assume the maps are such that the H_2 parts don't affect the torsion of H_1? Let's analyze the exact sequence.
+
+We have:
+... → H_2(C) --(f_*, g_*)--> H_2(A) ⊕ H_2(B) --α--> H_2(X) --∂--> H_1(C) --(f_*, -g_*)--> H_1(A) ⊕ H_1(B) --β--> H_1(X) --∂--> H_0(C) --(i_*, -j_*)--> H_0(A) ⊕ H_0(B) --γ--> H_0(X) → 0.
+
+We want the torsion subgroup of H_1(X). H_1(X) is the cokernel of the map H_1(C) → H_1(A) ⊕ H_1(B) up to the kernel of the next map? Actually, exactness:
+im(∂: H_2(X) → H_1(C)) = ker(f_*, -g_*).
+Then H_1(A) ⊕ H_1(B) / im(f_*, -g_*) ≅ H_1(X) / ker(∂: H_1(X) → H_0(C)).
+But ∂: H_1(X) → H_0(C) has image in ker(i_*, -j_*). And H_0(C) = Z, H_0(A)=Z, H_0(B)=Z. The map i_*: H_0(C) → H_0(A) is induced by inclusion, which is an isomorphism (since C is path-connected and inclusion into path-connected components is iso on H_0). Similarly j_* is iso. So i_* - j_*: Z → Z ⊕ Z is given by (1, -1). Its kernel is Z (generated by (1,1)). Its cokernel is Z (since Z⊕Z / im(1,-1) ≅ Z). So the map γ: H_0(A)⊕H_0(B) → H_0(X) has kernel im(i_* - j_*) ≅ Z, so H_0(X) ≅ Z. And the map ∂: H_1(X) → H_0(C) has image contained in ker(i_* - j
+
+ANSWER
+======
+
+*) = Z? Wait, i_*: H_0(C) → H_0(A) is iso, j_* iso, so i_* - j_*: Z → Z⊕Z is (1, -1). Its kernel is 0? Wait: (1, -1) * n = (n, -n) = 0 implies n=0. So the kernel is trivial! Indeed, i_* - j_* is injective. So ker(i_* - j_*) = 0. Therefore, im(∂: H_1(X) → H_0(C)) = 0, so ∂ = 0. Thus H_1(X) ≅ (H_1(A) ⊕ H_1(B)) / im(f_*, -g_*). Wait, exactness at H_1(C):
+im(∂: H_2(X) → H_1(C)) = ker(f_*, -g_*).
+Then exactness at H_1(A) ⊕ H_1(B): im(f_*, -g_*) = ker(β: H_1(A)⊕H_1(B) → H_1(X)).
+So H_1(X) ≅ (H_1(A) ⊕ H_1(B)) / im(f_*, -g_*)? Not exactly, because there is the map from H_2(X). The sequence is:
+H_2(X) --∂--> H_1(C) --(f_*, -g_*)--> H_1(A)⊕H_1(B) --β--> H_1(X) --∂--> H_0(C).
+We found ∂: H_1(X) → H_0(C) is zero (since its image is in ker(i_* - j_*) = 0). So β is surjective. Thus H_1(X) ≅ (H_1(A)⊕H_1(B)) / im(f_*, -g_*). Wait, that would be true if the map H_2(X) → H_1(C) had image zero? No, exactness at H_1(C) says im(∂) = ker(f_*, -g_*). Then im(f_*, -g_*) is a subspace of H_1(A)⊕H_1(B). The cokernel of f_* - g_* is (H_1(A)⊕H_1(B)) / im(f_*, -g_*). The map β has kernel exactly im(f_*, -g_*), so its image is isomorphic to the cokernel. And since β is surjective onto H_1(X), H_1(X) ≅ coker(f_* - g_*). The map from H_2(X) doesn't affect H_1(X) because it only affects the kernel of f_* - g_*, which is the image of H_2(X), but that doesn't change the cokernel. Wait, if im(∂) = ker(f_* - g_*), then the map f_* - g_* has kernel = im(∂). The cokernel is (H_1(A)⊕H_1(B)) / im(f_* - g_*). That is isomorphic to H_1(X) because β is surjective and its kernel is im(f_* - g_*). So indeed H_1(X) ≅ (H_1(A)⊕H_1(B)) / im(f_* - g_*). The H_2 terms don't affect H_1(X) as long as the sequence is exact. So we only need f_* and g_* on H_1.
+
+But wait: Is that always true? The Mayer-Vietoris sequence for a pushout: H_1(X) = coker( H_1(C) → H_1(A)⊕H_1(B) ) only if the map H_2(X) → H_1(C) is zero or something? Let's check exactness carefully:
+... → H_2(X) → H_1(C) → H_1(A)⊕H_1(B) → H_1(X) → H_0(C) → ...
+We have H_1(X) = coker( H_1(C) → H_1(A)⊕H_1(B) ) if the map H_1(X) → H_0(C) is injective? Actually, the sequence is:
+H_1(C) --φ--> H_1(A)⊕H_1(B) --ψ--> H_1(X) --∂--> H_0(C) --ε--> H_0(A)⊕H_0(B).
+We found ε is injective, so ∂ = 0. Then ψ is surjective, and ker ψ = im φ. So H_1(X) ≅ (H_1(A)⊕H_1(B)) / im φ. Yes, this holds regardless of H_2. The H_2 part only affects ker φ, which doesn't change the quotient. So we only need the map φ: H_1(C) → H_1(A)⊕H_1(B) given by φ(x) = (f_*(x), -g_*(x))? Wait, the map in Mayer-Vietoris is usually (i_*, j_*): H_n(U∩V) → H_n(U)⊕H_n(V). For pushout C → A, C → B, the intersection is C, U=A, V=B, so the map is (f_*, g_*): H_n(C) → H_n(A)⊕H_n(B), where f: C → A and g: C → B. Then the sequence is ... → H_n(C) → H_n(A)⊕H_n(B) → H_n(X) → ... So φ = (f_*, g_*)? Wait, earlier I wrote (f_*, -g_*). That's for the reduced homology or something? Let's recall the standard Mayer-Vietoris sequence for a union U ∪ V:
+... → H_n(U∩V) → H_n(U)⊕H_n(V) → H_n(U∪V) → H_{n-1}(U∩V) → ...
+The map H_n(U∩V) → H_n(U)⊕H_n(V) is indeed (i_*, j_*) where i: U∩V → U, j: U∩V → V. So it's (f_*, g_*) if we identify U=A, V=B, U∩V=C, i=f, j=g. So the map is x ↦ (f_*(x), g_*(x)). Then H_n(X) = coker of this map? No, the sequence is H_n(C) → H_n(A)⊕H_n(B) → H_n(X) → H_{n-1}(C) → ... So H_n(X) is not simply the cokernel; it's an extension. Let's write the exact sequence:
+H_n(C) --(f_*, g_*)--> H_n(A)⊕H_n(B) --ψ--> H_n(X) --∂--> H_{n-1}(C) --(f_*, g_*)--> ...
+Then im(f_*, g_*) = ker ψ. So ψ induces an injection (H_n(A)⊕H_n(B))/im(f_*, g_*) → H_n(X). The cokernel of (f_*, g_*) injects into H_n(X), and the quotient H_n(X)/im(ψ) ≅ im(∂) ⊆ H_{n-1}(C). So H_n(X) is an extension of a subgroup of H_{n-1}(C) by the cokernel of (f_*, g_*). In our case, we are looking at n=1:
+H_1(C) --(f_*, g_*)--> H_1(A)⊕H_1(B) --ψ--> H_1(X) --∂--> H_0(C) --(f_*, g_*)--> H_0(A)⊕H_0(B).
+Here f_*: H_0(C) → H_0(A) and g_*: H_0(C) → H_0(B). Since C, A, B are path-connected, H_0 = Z for each. f_* and g_* are isomorphisms (since inclusions of path-connected spaces). So (f_*, g_*): Z → Z⊕Z is n ↦ (n, n). Its kernel is 0, its cokernel is Z (since Z⊕Z / diagonal Z ≅ Z). The map ∂: H_1(X) → H_0(C) has image = ker(f_*, g_*) = 0. So ∂ = 0. Thus ψ is surjective? Wait, if ∂=0, then im ψ = ker ∂ = H_1(X). So ψ is surjective. And ker ψ = im(f_*, g_*). Therefore H_1(X) ≅ (H_1(A)⊕H_1(B)) / im(f_*, g_*). Yes! Because ψ induces an isomorphism from the cokernel of (f_*, g_*) to H_1(X). So my earlier statement was correct, but I used (f_*, -g_*) by mistake; it's actually (f_*, g_*). Let's verify with reduced homology: In reduced homology, the map is (i_*, -j_*) because the sum of the inclusions on reduced H_0 is zero? But in unreduced, it's (i_*, j_*). And for H_0, (i_*, j_*) is n ↦ (n, n), which has kernel 0, so ∂=0, and H_1(X) = coker(f_*, g_*). So we just need the cokernel of the map φ = (f_*, g_*): H_1(C) → H_1(A)⊕H_1(B), where f_* and g_* are the maps on H_1 induced by the two structure maps.
+
+So we have two matrices M and N, which are the matrices of f_* and g_* with respect to standard bases of Z^2. We need to assign which is f and which is g. The problem says "the two structure maps induce the matrices M and N". It doesn't explicitly say which is which, but we might assume the order corresponds to the order of the maps in the diagram: b ← a → c. The map from a to b might be the first one mentioned? Or maybe the map to b is M and to c is N? We can try both and see if the torsion subgroup order is the same. If it's different, we need to figure out the intended assignment. Let's compute both.
+
+First, let's understand the matrices:
+M = [[0, 2],
+     [6, 0]]
+N = [[0, 2],
+     [6, 2]]
+
+Both are 2x2 integer matrices. The map φ: Z^2 → Z^2 ⊕ Z^2 is given by φ(x) = (M x, N x) if f corresponds to M and g to N? Wait, if f is the map a → b, then f_*: H_1(C) → H_1(A) where A = F(b). g: a → c gives g_*: H_1(C) → H_1(B) where B = F(c). So φ(x) = (f_*(x), g_*(x)). So the matrix of φ is a 4x2 matrix:
+[ M ]
+[ N ]
+(where M and N are stacked).
+
+We need to compute the cokernel of this map, i.e., (Z^2 ⊕ Z^2) / im(φ). The torsion subgroup of this cokernel is what we want.
+
+Let's do this algebraically. Let V = Z^2, W = V ⊕ V = Z^4. φ: V → W, φ(v) = (M v, N v). We want the torsion subgroup of W / im φ.
+
+First, compute im φ. The image is the subgroup generated by the columns of the 4x2 matrix [M; N]. We can compute the Smith normal form or just compute the quotient.
+
+Let's write M and N explicitly:
+M = [ [0, 2],
+      [6, 0] ]
+N = [ [0, 2],
+      [6, 2] ]
+
+So φ(e1) = (M e1, N e1) = ( (0,6)^T , (0,6)^T )? Wait, M e1 = first column of M = (0, 6)^T. N e1 = first column of N = (0, 6)^T. So φ(e1) = (0,6, 0,6)^T.
+φ(e2) = (M e2, N e2) = ( (2,0)^T , (2,2)^T ) = (2,0, 2,2)^T.
+
+So im φ is the subgroup of Z^4 generated by v1 = (0,6,0,6) and v2 = (2,0,2,2).
+
+We want Z^4 / <v1, v2>. We can compute the structure of this abelian group by finding the Smith normal form of the matrix whose columns are v1, v2? Or rows? The quotient is the cokernel of the map Z^2 → Z^4 given by the matrix A (4x2) with columns v1, v2. The cokernel is Z^4 / im A. The torsion subgroup is the torsion part of this quotient. We can compute the invariant factors by finding the diagonal entries in the Smith normal form of A. The non-zero diagonal entries (if any) greater than 1 are the torsion coefficients.
+
+Alternatively, we can compute the quotient by performing row and column operations over Z.
+
+Matrix A (4 rows, 2 columns):
+[ 0  2 ]
+[ 6  0 ]
+[ 0  2 ]
+[ 6  2 ]
+
+We can do row operations to simplify. Since we are computing cokernel, we can do row operations (which correspond to changes of basis in the target Z^4) and column operations (changes of basis in the source Z^2).
+
+Let's write the matrix:
+R1: 0 2
+R2: 6 0
+R3: 0 2
+R4: 6 2
+
+We can swap rows to get a non-zero pivot. Swap R1 and R2:
+R1: 6 0
+R2: 0 2
+R3: 0 2
+R4: 6 2
+
+Now use R1 to eliminate other entries in column 1. R4 has 6 in column 1. R4 = R4 - R1: (6-6, 2-0) = (0, 2).
+Matrix:
+R1: 6 0
+R2: 0 2
+R3: 0 2
+R4: 0 2
+
+Now column 2 has entries: 0, 2, 2, 2. We can use R2 to eliminate below. R3 = R3 - R2 = (0,0). R4 = R4 - R2 = (0,0).
+Matrix:
+R1: 6 0
+R2: 0 2
+R3: 0 0
+R4: 0 0
+
+Now we can also swap columns to have pivots in order, but it's already diagonal: 6 and 2 on the diagonal, rest zeros. The cokernel of this matrix is Z/6Z ⊕ Z/2Z ⊕ Z^2? Wait, the matrix is 4x2 with rank 2. The cokernel is Z^4 / im A. The image is generated by (6,0,0,0)^T and (0,2,0,0)^T (after row operations, but row operations are invertible over Z, so they don't change the cokernel structure? Wait: Row operations correspond to multiplying A on the left by an invertible integer matrix (element of GL(4,Z)). This changes the basis of the target Z^4. The cokernel of A is isomorphic to the cokernel of P A for P ∈ GL(4,Z). Similarly column operations correspond to right multiplication by Q ∈ GL(2,Z), giving cokernel isomorphic to cokernel of A Q. So we can reduce A to its Smith normal form. The Smith normal form of a 4x2 matrix of rank 2 will have two diagonal entries d1, d2, and the rest zero rows/columns. The cokernel will be Z/d1 Z ⊕ Z/d2 Z ⊕ Z^{4-2} = Z/d1 Z ⊕ Z/d2 Z ⊕ Z^2.
+
+In our reduced matrix, we have diagonal entries 6 and 2. But are they the invariant factors? We need to ensure d1 divides d2. Here 6 does not divide 2. So we need to further reduce. In Smith normal form, we need d1 | d2. We can do column/row operations to make the diagonal entries divide each other. Currently we have diag(6,2). We can use the 2 to reduce the 6. Since 6 = 3*2 + 0? Actually 6 and 2: gcd is 2. We can do row operations? Wait, Smith normal form: we can do both row and column operations. We have a 2 in the second pivot position. We can use it to reduce the 6. For example, we can subtract 3 times the second row from the first row? But the first row has 6 in column 1 and 0 in column 2. The second row has 0 in column 1 and 2 in column 2. They are in different columns. To use the 2 to reduce the 6, we need to bring them into the same column or row? In Smith normal form, we can only do elementary operations: swap rows/columns, add integer multiple of one row/column to another. The current matrix:
+[6 0]
+[0 2]
+[0 0]
+[0 0]
+
+We can't directly combine them because they are in different columns and rows. But we can do column operations: we can add a multiple of column 2 to column 1? Column 2 has entries (0,2,0,0)^T. Column 1 has (6,0,0,0)^T. If we add column 2 to column 1? That would change column 1 to (6,2,0,0)^T, not helpful. Actually, to get the gcd in the (1,1) position, we can do row and column operations to bring the 2 into the (1,1) position? We can swap columns: put the column with 2 as first column.
+Swap column 1 and column 2:
+[0 6]
+[2 0]
+[0 0]
+[0 0]
+Now swap rows 1 and 2:
+[2 0]
+[0 6]
+[0 0]
+[0 0]
+Now we have diag(2,6). Then we can use the 2 to reduce the 6: column 2 has 6, we can subtract 3 times column 1 from column 2? Column 1 is (2,0,0,0)^T, column 2 is (0,6,0,0)^T. Subtracting 3*col1 from col2 does nothing because col1 has 0 in row 2. We can subtract 3 times row 1 from row 2? Row 1 is (2,0), row 2 is (0,6). Subtracting 3*row1 from row2: row2 becomes ( -6, 6 )? That's not right. Actually, to reduce 6 by 2, we can do column operation: column 2 = column 2 - 3*column 1? Column 1 has 2 in row1, 0 in row2. Column 2 has 0 in row1, 6 in row2. So column 2 - 3*column 1 = (-6, 6)? That introduces a non-zero in row1. Then we could use row operations to eliminate. The standard algorithm: we can find the gcd of all entries, which is 2. We can bring a 2 to (1,1). Then use it to eliminate all other entries in row 1 and column 1. Then the remaining submatrix has entries that are multiples of 2? Let's do it systematically.
+
+We have matrix after first reduction:
+[6 0]
+[0 2]
+We can do: row2 = row2? We can use the 2 to eliminate the 6? Since 6 = 3*2, we can do column1 = column1 - 3*column2? Column1: (6,0), column2: (0,2). column1 - 3*column2 = (6, -6). Then we have:
+[6 -6]
+[0  2]
+Now we can use row operations: row1 = row1 + 3*row2? row1 + 3*row2 = (6, -6) + (0,6) = (6,0). That just undoes it. Instead, we can do row1 = row1 - 3*row2? (6, -6) - (0,6) = (6, -12). Not helpful.
+Better: we can do column2 = column2 + something? The standard way: we want to get the gcd in the top-left. The gcd of 6 and 2 is 2. We can get 2 in (1,1) by swapping columns and rows as I did:
+Swap columns:
+[0 6]
+[2 0]
+Swap rows:
+[2 0]
+[0 6]
+Now we have 2 and 6. We want to make the (2,2) entry a multiple of 2, which it is (6=3*2). But we also need the (1,2) and (2,1) entries to be zero, which they are. The Smith normal form requires d1 | d2. Here d1=2, d2=6. 2 divides 6. So the Smith normal form is diag(2,6)! Wait, earlier I had diag(6,2) which does not have d1|d2. But if we swap rows and columns to get diag(2,6), then 2 divides 6. Is that allowed? Yes, swapping rows and columns is part of Smith normal form. So the Smith normal form is diag(2,6). But wait, the matrix was 4x2, and we have two non-zero diagonal entries: 2 and 6. The cokernel is Z/2Z ⊕ Z/6Z ⊕ Z^{4-2} = Z/2Z ⊕ Z/6Z ⊕ Z^2. But is that correct? Let's check the rank: the original matrix had columns (0,6,0,6) and (2,0,2,2). The image is generated by these two vectors. The quotient Z^4 / im A. We can compute the torsion subgroup directly.
+
+Alternatively, compute the determinant of the 2x2 minor? Or we can find the structure by computing the kernel of the map and cokernel.
+
+Let's do it without Smith normal form by computing the quotient explicitly. We have Z^4 with basis e1,e2,e3,e4. The submodule is generated by v1 = (0,6,0,6) and v2 = (2,0,2,2).
+We can change basis of Z^4 to simplify.
+Let’s write elements of Z^4 as (x1,x2,x3,x4).
+We want to quotient by the relations:
+6 x2 + 6 x4 = 0? Wait, the generators are added as relations? In the quotient, we are modding out by the subgroup generated by v1 and v2. That means we set v1 = 0 and v2 = 0 in the quotient? Actually, if we are computing Z^4 / im A, then im A is the set of integer linear combinations of v1 and v2. So in the quotient, v1 = 0 and v2 = 0. So we have:
+(1) 6 x2 + 6 x4 = 0? No, v1 = (0,6,0,6) means 6 e2 + 6 e4 = 0 in the quotient.
+(2) v2 = (2,0,2,2) means 2 e1 + 2 e3 + 2 e4 = 0 in the quotient? Wait, v2 = (2,0,2,2) = 2 e1 + 0 e2 + 2 e3 + 2 e4.
+But these are elements of the submodule, so in the quotient, they are zero. So we have relations:
+6 e2 + 6 e4 = 0,
+2 e1 + 2 e3 + 2 e4 = 0.
+Also we can multiply these relations by integers. We can simplify.
+From (2): 2 e1 + 2 e3 + 2 e4 = 0 => divide by 2? Not allowed in integer quotient, but we can say 2(e1 + e3 + e4) = 0. So e1 + e3 + e4 has order dividing 2.
+From (1): 6(e2 + e4) = 0. So e2 + e4 has order dividing 6.
+
+We can change basis. Let’s set:
+y1 = e1 + e3 + e4
+y2 = e2 + e4
+We also need to complete to a basis of Z^4. We have e1, e2, e3, e4.
+We can express:
+e1 = y1 - e3 - e4
+e2 = y2 - e4
+We can choose e3 and e4 as additional basis vectors? But e3 and e4 are not necessarily independent with y1,y2. Let's see: y1 = e1 + e3 + e4, y2 = e2 + e4. Then we can write:
+e1 = y1 - e3 - e4
+e2 = y2 - e4
+e3 = e3
+e4 = e4
+So the set {y1, y2, e3, e4} spans Z^4? The matrix of change from (e1,e2,e3,e4) to (y1,y2,e3,e4) is:
+y1 = e1 + 0 e2 + e3 + e4
+y2 = 0 e1 + e2 + 0 e3 + e4
+e3 = 0 e1 + 0 e2 + e3 + 0 e4
+e4 = 0 e1 + 0 e2 + 0 e3 + e4
+Determinant: 1? Let's check: the matrix is:
+[1 0 1 1]
+[0 1 0 1]
+[0 0 1 0]
+[0 0 0 1]
+This is upper triangular with 1s on diagonal, so determinant 1. So it's a valid basis change.
+In terms of this basis, the relations are:
+y1 has order dividing 2? Because 2 y1 = 2 e1 + 2 e3 + 2 e4 = v2 = 0 in quotient.
+y2 has order dividing 6? Because 6 y2 = 6 e2 + 6 e4 = v1 = 0.
+What about e3 and e4? They are free? But wait, we have no other relations. However, we must check if there are any hidden relations. The quotient is Z^4 / im A. The image is generated by v1 and v2. In the new basis, v1 = 6 y2, v2 = 2 y1. So the submodule is generated by 2 y1 and 6 y2. Since y1, y2, e3, e4 are a basis of Z^4, the quotient is Z/2Z y1 ⊕ Z/6Z y2 ⊕ Z e3 ⊕ Z e4. So the torsion subgroup is Z/2Z ⊕ Z/6Z. The order of the torsion subgroup is 2 * 6 = 12.
+
+But wait: The Smith normal form I found earlier was diag(2,6) giving Z/2 ⊕ Z/6 ⊕ Z^2, torsion order 12. So that matches.
+
+But is this the correct assignment? We assumed M is the map for a→b and N for a→c? Or the other way? Let's check the other assignment: suppose f_* corresponds to N and g_* to M. Then φ(x) = (N x, M x). The matrix A would have columns:
+For e1: N e1 = (0,6), M e1 = (0,6) => (0,6,0,6) same as before?
+Wait, M = [[0,2],[6,0]], N = [[0,2],[6,2]].
+First column of M: (0,6). First column of N: (0,6). So φ(e1) is the same regardless of which is f or g? Because both M and N have the same first column (0,6). So φ(e1) = (0,6,0,6) either way.
+Second column: M e2 = (2,0), N e2 = (2,2).
+If f=M, g=N: φ(e2) = (2,0,2,2).
+If f=N, g=M: φ(e2) = (2,2,2,0)? Wait, if f=N and g=M, then φ(e2) = (N e2, M e2) = ( (2,2), (2,0) ) = (2,2,2,0).
+So the two possibilities give different images for e2.
+Case 1 (f=M, g=N): v2 = (2,0,2,2).
+Case 2 (f=N, g=M): v2 = (2,2,2,0).
+
+We computed Case 1: torsion subgroup Z/2 ⊕ Z/6, order 12.
+Let's compute Case 2.
+
+Case 2: v1 = (0,6,0,6), v2 = (2,2,2,0).
+Matrix A:
+[0 2]
+[6 2]
+[0 2]
+[6 0]
+
+We can compute Smith normal form or quotient directly.
+Let's do quotient: Z^4 with basis e1,e2,e3,e4. Relations:
+v1 = 6 e2 + 6 e4 = 0 => 6(e2 + e4) = 0.
+v2 = 2 e1 + 2 e2 + 2 e3 = 0 => 2(e1 + e2 + e3) = 0.
+
+Change basis: let y1 = e1 + e2 + e3, y2 = e2 + e4.
+We need to complete to basis. We have e1, e2, e3, e4.
+Express:
+e1 = y1 - e2 - e3
+e2 = ? We can keep e2 and e3? But we have y2 = e2 + e4 => e4 = y2 - e2.
+Then:
+e1 = y1 - e2 - e3
+e2 = e2
+e3 = e3
+e4 = y2 - e2
+Matrix from (y1,y2,e2,e3) to (e1,e2,e3,e4):
+y1 = e1 + e2 + e3
+y2 = e2 + e4
+e2 = e2
+e3 = e3
+This is:
+[1 1 1 0] for y1? Wait, order: let's write new basis as (y1, y2, e2, e3).
+y1 = 1*e1 + 1*e2 + 1*e3 + 0*e4
+y2 = 0*e1 + 1*e2 + 0*e3 + 1*e4
+e2 = 0*e1 + 1*e2 + 0*e3 + 0*e4
+e3 = 0*e1 + 0*e2 + 1*e3 + 0*e4
+Matrix:
+[1 0 1 0]? Wait, rows should correspond to e1,e2,e3,e4? Let's do change of basis matrix P such that new coordinates = P * old coordinates.
+We have old basis (e1,e2,e3,e4). New basis (y1,y2,e2,e3) expressed in old:
+y1 = e1 + e2 + e3
+y2 = e2 + e4
+e2 = e2
+e3 = e3
+So the matrix P (columns are new basis in old coordinates):
+col1 (y1): (1,1,1,0)^T
+col2 (y2): (0,1,0,1)^T
+col3 (e2): (0,1,0,0)^T
+col4 (e3): (0,0,1,0)^T
+This matrix has determinant? Compute:
+|1 0 0 0|
+|1 1 1 0|
+|1 0 0 1|
+|0 1 0 0|
+Wait, let's write properly:
+Rows: e1, e2, e3, e4.
+y1: 1,1,1,0
+y2: 0,1,0,1
+e2: 0,1,0,0
+e3: 0,0,1,0
+Matrix:
+[1 0 0 0]  <- e1 coefficients? Wait, y1 has e1 coeff 1, y2 0, e2 0, e3 0? No, y1 = 1*e1 + 1*e2 + 1*e3 + 0*e4. So coefficients: (1,1,1,0).
+y2 = (0,1,0,1).
+e2 = (0,1,0,0).
+e3 = (0,0,1,0).
+So matrix (columns = y1,y2,e2,e3):
+[1 0 0 0]  <- e1
+[1 1 1 0]  <- e2
+[1 0 0 1]  <- e3
+[0 1 0 0]  <- e4
+Determinant: expand? It's upper triangular? Not quite. Let's compute det:
+det = 1 * det([1 1 0; 0 0 1; 1 0 0])? Wait, first row is (1,0,0,0). So det = 1 * det of 3x3:
+[1 1 0]
+[0 0 1]
+[1 0 0]?
+Actually, remove first row and column:
+Rows left: e2,e3,e4; columns: y2,e2,e3.
+y2: (1,0,1)? Wait, original matrix:
+e1: 1 0 0 0
+e2: 1 1 1 0
+e3: 1 0 0 1
+e4: 0 1 0 0
+Remove e1 row and y1 column:
+[1 1 0]   (e2 row: y2=1, e2=1, e3=0)
+[0 0 1]   (e3 row: y2=0, e2=0, e3=1)
+[1 0 0]   (e4 row: y2=1, e2=0, e3=0)
+Wait, e4 row: original was 0,1,0,0 for (y1,y2,e2,e3)? Actually e4 row: y1=0, y2=1, e2=0, e3=0. So after removing y1 column, it's (1,0,0).
+So 3x3 matrix:
+[1 1 0]
+[0 0 1]
+[1 0 0]
+Determinant: expand along second row: (0,0,1) -> det = 1 * (-1)^{2+3} * det([1 1; 1 0]) = -1 * (1*0 - 1*1) = -1 * (-1) = 1. So overall det = 1*1 = 1. So it's a valid basis change.
+In this basis, the relations are:
+v1 = 6 y2 = 0.
+v2 = 2 y1 = 0.
+So the quotient is Z/2Z y1 ⊕ Z/6Z y2 ⊕ Z e2 ⊕ Z e3? Wait, we have four basis vectors: y1, y2, e2, e3. The relations only involve y1 and y2. So the quotient is Z/2Z ⊕ Z/6Z ⊕ Z^2. Torsion subgroup order = 12 again!
+
+So in both assignments, the torsion subgroup order is 12. That's good; the answer is likely 12.
+
+But wait, we should double-check if there is any other interpretation. The problem says: "Let C be the category b ← a → c". This could be read as a category with three objects and two morphisms: one from a to b, one from a to c. Yes.
+
+"and let D = C ▷ be obtained by adjoining a terminal object t." The symbol ▷ might mean something specific? Sometimes C ▷ means the category obtained by adding a terminal object? Usually, C + 1 or C → 1? The symbol ▷ might be a specific notation from some text. But "adjoining a terminal object" is clear.
+
+"Define F: C → S by F(a)=F(b)=F(c)=T^2 = S^1 × S^1." S is probably the category of topological spaces, or maybe S is the category of spaces? \mathcal S. Yes.
+
+"With respect to the standard bases of H_1(T^2; Z) ≅ Z^2, suppose that the two structure maps induce the matrices M and N." "Structure maps" likely refer to the maps F(a) → F(b) and F(a) → F(c). There are two such maps. We assumed they are the maps induced by the arrows a → b and a → c. That makes sense.
+
+"Let X = (Lan_j F)(t)." Lan_j F is the left Kan extension of F along j: C → D. As computed, Lan_j F(t) = colim_{c ∈ C} F(c) = pushout of the two maps. So X is the pushout.
+
+"What is the order of the torsion subgroup of H_1(X; Z)?"
+
+We computed H_1(X) using Mayer-Vietoris, assuming the pushout is the homotopy pushout or that the maps are nice enough that the Mayer-Vietoris sequence holds. In algebraic topology, the left Kan extension in the category of spaces is usually taken as the homotopy colimit? Actually, Kan extension in the category of functors between categories of spaces is a bit delicate, but often "Lan" refers to the pointwise left Kan extension, which for topological spaces might be the strict colimit? However, the strict colimit of T^2's under these maps might not have the homotopy type of the homotopy pushout. But typically in such problems, especially with homology computations given matrices, they intend the algebraic pushout (i.e., the homotopy pushout) or they assume the maps are cofibrations? The maps on T^2 induced by the matrices: are they cofibrations? Not necessarily. But the homology of the strict pushout might not be computable just from the H_1 matrices. Usually, in categorical algebra problems like this, "Lan" is computed in the category of abstract groups or chain complexes? But here S is \mathcal S, probably spaces. However, the use of H_1 suggests we are working with homology, and the Mayer-Vietoris sequence for the homotopy pushout is standard. Alternatively, maybe the category S is the category of abelian groups? But it says T^2 = S^1 × S^1, which is a topological space. H_1 is homology. So it's likely that we are to compute the homology of the homotopy pushout.
+
+But wait: Is there any chance that "Lan_j F" is computed in the category of chain complexes or homology? No, F takes values in \mathcal S, which is likely spaces. The left Kan extension of a functor between categories of spaces is a functor that assigns to t the colimit of the diagram. In topology, the colimit of a diagram of spaces is the quotient of the disjoint union by the equivalence relation generated by the maps. For a pushout of T^2's, the strict pushout might have weird homology if the maps are not cofibrations. However, the problem gives only the H_1 matrices, so we must assume that the homology of the pushout can be computed from the H_1 maps, likely via the Mayer-Vietoris sequence. And we got a definite answer 12.
+
+But let's double-check the computation of the cokernel. We had M and N.
+M = [[0,2],[6,0]]
+N = [[0,2],[6,2]]
+We computed the cokernel of (M; N) as Z^4 / im [M; N].
+We got torsion Z/2 ⊕ Z/6, order 12.
+But wait: Is the map in Mayer-Vietoris (f_*, g_*) or (f_*, -g_*)? I need to be absolutely sure.
+Mayer-Vietoris sequence for a union U ∪ V:
+... → H_n(U∩V) → H_n(U) ⊕ H_n(V) → H_n(U∪V) → H_{n-1}(U∩V) → ...
+The map H_n(U∩V) → H_n(U) ⊕ H_n(V) is (i_*, j_*), where i: U∩V → U, j: U∩V → V.
+In our pushout, X = pushout of C → A and C → B. This is the union of A and B along C if we think of the pushout as the double mapping cylinder or something. The standard homotopy pushout is the union of mapping cylinders. The Mayer-Vietoris sequence for the homotopy pushout is exactly the same: the map is (f_*, g_*): H_n(C) → H_n(A) ⊕ H_n(B). Yes.
+Then H_n(X) is computed from that sequence.
+For n=1: H_1(C) → H_1(A)⊕H_1(B) → H_1(X) → H_0(C) → H_0(A)⊕H_0(B).
+We already did this: H_0(C)=Z, H_0(A)=Z, H_0(B)=Z. f_* and g_* on H_0 are isomorphisms. So (f_*, g_*): Z → Z⊕Z is n ↦ (n,n). Kernel is 0, cokernel is Z. Then ∂: H_1(X) → H_0(C) has image = ker(f_*, g_*) = 0, so ∂=0. Then H_1(X) ≅ (H_1(A)⊕H_1(B)) / im(f_*, g_*).
+So it's the cokernel of (f_*, g_*). Not (f_*, -g_*). So our computation with stacked matrices [M; N] is correct.
+
+But wait: Is the pushout of T^2 ← T^2 → T^2 the same as the union along the intersection? In the double mapping cylinder, the intersection is the original T^2? Actually, the homotopy pushout of two maps f,g: C → A,B is the space X with a map from A and B such that the diagrams commute. The Mayer-Vietoris sequence for the homotopy pushout can be derived from the long exact sequence of the pair (X, something) or from the fact that X is the quotient of A ∐ B ∐ C? Wait, there's a standard result: the homotopy pushout fits into a Mayer-Vietoris sequence:
+... → H_n(C) → H_n(A) ⊕ H_n(B) → H_n(X) → H_{n-1}(C) → ...
+Yes, this is true for any cofibration? Actually, it's true for any maps if we use the homotopy pushout? Let's recall: The homotopy pushout of a square of spaces is the total space of a homotopy coequalizer. The Mayer-Vietoris sequence for the homotopy pushout is exactly the one I wrote, with the map (f_*, g_*). This is a standard fact in homological algebra: the homotopy colimit of a diagram can be computed via the Mayer-Vietoris sequence when the diagram is a pushout? Actually, for a general diagram, the homotopy colimit's homology can be computed by a spectral sequence, but for a simple pushout square, the Mayer-Vietoris sequence holds. Yes, for a pushout square, the homotopy pushout has a Mayer-Vietoris sequence with the map (f_*, g_*). So our computation is correct.
+
+But let's check if there's any subtlety: The diagram is F(b) ← F(a) → F(c). So A = F(b), B = F(c), C = F(a). The maps are f: F(a) → F(b) and g: F(a) → F(c). So the map is (f_*, g_*): H_1(C) → H_1(A) ⊕ H_1(B). We used M and N as the matrices for these maps. We considered both assignments and got 12 in both.
+
+But wait: The problem says "With respect to the standard bases of H_1(T^2; Z) ≅ Z^2, suppose that the two structure maps induce the matrices M and N." It does not say which is which. But we got the same torsion order in both cases. Is it always the same? Let's verify if the cokernel of [M; N] and [N; M] always have the same torsion? Not necessarily, but in this specific case they do. We computed both and got Z/2 ⊕ Z/6. So torsion order 12.
+
+But wait: In Case 1, the matrix was:
+[0 2]
+[6 0]
+[0 2]
+[6 2]
+We computed Smith normal form and got diag(2,6). In Case 2:
+[0 2]
+[6 2]
+[0 2]
+[6 0]
+We got diag(2,6) as well? In our basis change we found relations: 2 y1 = 0, 6 y2 = 0, so yes, Z/2 ⊕ Z/6.
+
+But let's double-check Case 2 Smith normal form directly:
+Matrix:
+0 2
+6 2
+0 2
+6 0
+Swap rows to get pivot:
+R2: 6 2
+R1: 0 2
+R3: 0 2
+R4: 6 0
+Swap R4 and R1? Let's do:
+R1: 6 2
+R2: 0 2
+R3: 0 2
+R4: 6 0
+R4 = R4 - R1: (0, -2)
+Matrix:
+6 2
+0 2
+0 2
+0 -2
+Now R3 = R3 - R2: (0,0)
+R4 = R4 + R2: (0,0)
+Matrix:
+6 2
+0 2
+0 0
+0 0
+Now we have [6 2; 0 2]. We can do column operations: C1 = C1 - 3 C2? C1: (6,0), C2: (2,2). C1 - 3 C2 = (6-6, 0-6) = (0,-6). Then matrix:
+0 2
+-6 2
+Swap columns:
+2 0
+2 -6
+Then swap rows:
+2 0
+2 -6
+R2 = R2 - R1: (0, -6)
+Matrix:
+2 0
+0 -6
+Multiply R2 by -1: 6.
+So diag(2,6). Yes.
+
+So both give Z/2 ⊕ Z/6 ⊕ Z^2. Torsion order = 12.
+
+But wait: The question asks for "the order of the torsion subgroup of H_1(X; Z)". The torsion subgroup is the set of all torsion elements. Its order is the product of the orders of the cyclic factors, which is 2*6=12. So answer is 12.
+
+But is there any chance that the torsion subgroup could be different if we consider the higher homology? We assumed ∂: H_1(X) → H_0(C) is zero because H_0(C) map is injective. But what if the map on H_0 is not injective? We said f_* and g_* on H_0 are isomorphisms because T^2 is path-connected. Inclusion of path-connected spaces into path-connected spaces induces isomorphism on H_0. So yes, injective.
+
+But wait: The maps f and g are continuous maps T^2 → T^2. Do they necessarily induce isomorphisms on H_0? Yes, any continuous map between path-connected spaces induces an isomorphism on H_0 (since H_0 is Z for each, and the map is multiplication by the degree of the map on components; since there's only one component, it's an isomorphism). So (f_*, g_*): Z → Z⊕Z is n ↦ (n,n), which is injective. So kernel is 0. Then ∂: H_1(X) → Z has image 0, so ∂=0. So H_1(X) = coker(f_*, g_*). That seems solid.
+
+But is there any possibility that the pushout X is not the homotopy pushout but the strict pushout, and its H_1 might differ? In general, the strict pushout of CW complexes along maps that are not cofibrations might not have the Mayer-Vietoris sequence. However, the problem is likely from an algebraic topology context where "Lan_j F" is computed in the category of spaces, and homology is computed via the algebraic pushout of chain complexes? Actually, the left Kan extension of a functor F: C → Spaces along C → D, evaluated at t, is the colimit of the diagram F(C) → F(t)? Wait, D has a terminal object t. The comma category C ↓ t is C itself. So Lan_j F(t) = colim F(c) = pushout. In the category of spaces, the colimit is the strict pushout (the quotient of the disjoint union by the equivalence relation). The homology of a strict pushout is not always given by Mayer-Vietoris unless the maps are cofibrations. However, if the maps are not cofibrations, the strict pushout might not even be a CW complex. But often in such problems, they either assume the maps are cofibrations (which they might not be, given the matrices have determinant? M has det = -12? M = [[0,2],[6,0]], det = -12. N = [[0,2],[6,2]], det = -12. So they are homotopy equivalences? Actually, det = ±12 means they induce multiplication by 12 on H_2? But on H_1 they are invertible over Q, so they are homotopy equivalences? No, a map T^2 → T^2 with matrix on H_1 having non-zero determinant is a homotopy equivalence? Not necessarily; it could be a map that is not surjective on H_1? If det ≠ 0, it's an isomorphism over Q, so it's a rational isomorphism. It might not be an isomorphism over Z, so it could have torsion in cokernel. But it's still a homotopy equivalence if the matrix is invertible over Z? Wait, if the matrix is not in GL(2,Z), it's not a homotopy equivalence? Actually, a continuous map T^2 → T^2 inducing an isomorphism on H_1 must have determinant ±1 to be a homotopy equivalence? Not necessarily; there are maps with det ≠ ±1 that are not homotopy equivalences. For example, multiplication by 2 on S^1 induces det 2 on H_1, and is not a homotopy equivalence. Here M has det -12, so it's not a homotopy equivalence. But it could still be a map that is a cofibration? The pushout of two maps T^2 → T^2 might not be a nice space. However, in many algebraic topology problems, when they give matrices on homology and ask for homology of the pushout, they implicitly use the Mayer-Vietoris sequence for the homotopy pushout, or they are working in the category of chain complexes/abelian groups where the pushout is the algebraic pushout. The phrase "With respect to the standard bases... suppose that the two structure maps induce the matrices..." strongly suggests we are to compute in abelian groups, using the maps on H_1. The fact that they only give H_1 matrices and not H_2 suggests that the H_2 part doesn't affect H_1 (as we saw, it doesn't if the H_0 map is injective). Even if the H_2 map were non-zero, it could affect the kernel of f_* - g_* but not the cokernel? Wait, we used the Mayer-Vietoris sequence and found H_1(X) = coker(f_* - g_*) only because the map H_1(X) → H_0(C) was zero. That relied on the map H_0(C) → H_0(A)⊕H_0(B) being injective. It is injective because it's (1,1): Z → Z⊕Z. So that's independent of H_2. The H_2 map affects the kernel of f_* - g_* but not the cokernel? Actually, the exact sequence is:
+H_2(X) → H_1(C) → H_1(A)⊕H_1(B) → H_1(X) → 0.
+The image of H_2(X) is the kernel of the map H_1(C) → H_1(A)⊕H_1(B). So H_1(X) is the cokernel of that map. The kernel only affects the part of H_1(C) that maps to zero, but the cokernel is the quotient of the target by the image. The image is the same regardless of the kernel? Wait, the image of φ: H_1(C) → H_1(A)⊕H_1(B) is a subgroup. The kernel of φ doesn't affect the image. The cokernel is the quotient of the target by the image. So H_1(X) is indeed the cokernel of φ, regardless of what H_2(X) is. The only thing H_2(X) affects is the kernel of φ, which is part of the exact sequence but doesn't change the cokernel. So H_1(X) is always the cokernel of (f_* - g_*) in this case. So we don't even need to worry about H_2 or the H_2 maps. The result is purely determined by the H_1 maps.
+
+Wait, is that always true? In the exact sequence:
+... → H_2(A)⊕H_2(B) → H_2(X) → H_1(C) → H_1(A)⊕H_1(B) → H_1(X) → H_0(C) → ...
+We have H_1(X) = coker( H_1(C) → H_1(A)⊕H_1(B) ) if the map H_1(X) → H_0(C) is zero. The map H_1(X) → H_0(C) is zero if the map H_0(C) → H_0(A)⊕H_0(B) is injective. That's true if the spaces are path-connected, which they are. So yes, H_1(X) is the cokernel of the H_1 map. The H_2 part doesn't affect H_1 at all in this case. So we only need the H_1 matrices. Our computation is robust.
+
+Thus the torsion subgroup of H_1(X) is Z/2 ⊕ Z/6, order 12.
+
+But let's double-check the matrices and the computation of the cokernel.
+M = [[0, 2], [6, 0]]
+N = [[0, 2], [6, 2]]
+We stacked them as columns? We took the map φ: Z^2 → Z^2 ⊕ Z^2, φ(v) = (M v, N v). So if v = (x,y)^T, then Mv = (2y, 6x)^T, Nv = (2y, 6x+2y)^T. So φ(x,y) = (2y, 6x, 2y, 6x+2y).
+We want the cokernel of this map. That is Z^4 / im φ.
+We can compute the image generators:
+For (1,0): φ(1,0) = (0, 6, 0, 6)
+For (0,1): φ(0,1) = (2, 0, 2, 2)
+We found the quotient is Z/2 ⊕ Z/6 ⊕ Z^2.
+Let's verify by finding the structure of the quotient explicitly.
+We have Z^4 with basis e1,e2,e3,e4. Relations:
+2 e3 + 2 e4? Wait, φ(0,1) = (2,0,2,2) = 2 e1 + 2 e3 + 2 e4 = 0 in quotient.
+φ(1,0) = (0,6,0,6) = 6 e2 + 6 e4 = 0.
+So we have:
+2(e1 + e3 + e4) = 0
+6(e2 + e4) = 0
+Let u1 = e1 + e3 + e4, u2 = e2 + e4.
+Then 2 u1 = 0, 6 u2 = 0.
+We need to complete {u1, u2} to a basis of Z^4.
+We have e1 = u1 - e3 - e4.
+e2 = u2 - e4.
+We can choose e3 and e4 as the other basis vectors? But u1 and u2 involve e3 and e4. Let's express e3 and e4 in terms of u1, u2, e3, e4? That's circular.
+We can set new basis: u1, u2, e3, e4.
+Check if they are linearly independent over Z. The matrix expressing u1, u2, e3, e4 in terms of e1,e2,e3,e4:
+u1 = e1 + e3 + e4
+u2 = e2 + e4
+e3 = e3
+e4 = e4
+Matrix:
+[1 0 0 0] (e1)
+[0 1 0 0] (e2)? Wait, u1 has e1, u2 has e2, e3 has e3, e4 has e4. Let's write columns as u1,u2,e3,e4:
+u1: (1,0,1,1)^T? No, e1 coeff: u1=1, u2=0, e3=0, e4=0? Wait, I'm mixing.
+Let's write the change of basis matrix from old basis (e1,e2,e3,e4) to new basis (u1,u2,e3,e4).
+We want to express new basis in terms of old:
+u1 = 1*e1 + 0*e2 + 1*e3 + 1*e4
+u2 = 0*e1 + 1*e2 + 0*e3 + 1*e4
+e3 = 0*e1 + 0*e2 + 1*e3 + 0*e4
+e4 = 0*e1 + 0*e2 + 0*e3 + 1*e4
+So matrix P (columns are new basis):
+[1 0 0 0]  <- e1 row? Wait, rows should be old basis? If we write coordinates of new basis vectors as columns:
+col1 (u1): (1,0,1,1)^T? No, the coefficients of e1,e2,e3,e4 in u1 are (1,0,1,1)? But u2 has (0,1,0,1). e3 has (0,0,1,0). e4 has (0,0,0,1).
+So matrix:
+[1 0 0 0]  <- e1 coefficient? Wait, first row is coefficient of e1: u1:1, u2:0, e3:0, e4:0 -> 1 0 0 0.
+Second row: e2: u1:0, u2:1, e3:0, e4:0 -> 0 1 0 0.
+Third row: e3: u1:1, u2:0, e3:1, e4:0 -> 1 0 1 0.
+Fourth row: e4: u1:1, u2:1, e3:0, e4:1 -> 1 1 0 1.
+This matrix is:
+[1 0 0 0]
+[0 1 0 0]
+[1 0 1 0]
+[1 1 0 1]
+Determinant: lower triangular? Actually, it's block? Determinant = 1*1*1*1 = 1. So it's invertible over Z. So (u1,u2,e3,e4) is a basis of Z^4.
+In this basis, the relations are:
+2 u1 = 0
+6 u2 = 0
+e3, e4 are free.
+So quotient ≅ Z/2Z ⊕ Z/6Z ⊕ Z ⊕ Z.
+Torsion subgroup is Z/2Z ⊕ Z/6Z, order 12.
+Yes.
+
+But wait: In this basis, u1 = e1 + e3 + e4, u2 = e2 + e4. The relations are 2 u1 = 0, 6 u2 = 0. But is there any relation involving e3 or e4 from the image? The image is generated by 2 u1 and 6 u2. So in the quotient, 2 u1 = 0 and 6 u2 = 0, and no other relations. So e3 and e4 are indeed free. So torsion is just from u1 and u2.
+
+Everything seems consistent. The answer is 12.
+
+But let's consider if there's any other interpretation of the category C. "b ← a → c" could be a category with objects a,b,c and morphisms a→b, a→c. That's what we used. Could it be that the arrows are reversed? "b ← a" means arrow from a to b. "a → c" means arrow from a to c. Yes.
+
+What about D = C ▷? The symbol ▷ might mean "obelus" or something? "adjoining a terminal object t". So D has objects a,b,c,t and morphisms: the two original, plus unique maps a→t, b→t, c→t. j: C → D is inclusion.
+
+F: C → S, F(a)=F(b)=F(c)=T^2. The "two structure maps" are F(a→b) and F(a→c). We assumed they are the maps on T^2. The matrices M and N are the induced maps on H_1.
+
+X = (Lan_j F)(t). Lan_j F is left Kan extension along j. Since j is inclusion of C into D, Lan_j F is the functor that sends t to the colimit of the diagram F(C) → F(t)? Wait, for a terminal object t, the comma category j ↓ t is just C, so Lan_j F(t) = colim_{c in C} F(c). The diagram is F(b) ← F(a) → F(c). The colimit is the pushout of F(a) → F(b) and F(a) → F(c). That's what we did.
+
+But wait: The category C has arrows a→b and a→c. So the diagram is F(b) ← F(a) → F(c). The pushout is indeed the union of F(b) and F(c) over F(a). The maps are F(a) → F(b) and F(a) → F(c). So f: F(a) → F(b), g: F(a) → F(c). In Mayer-Vietoris, the intersection is F(a), and the maps are inclusions into F(b) and F(c). So the map on homology is (f_*, g_*): H_*(F(a)) → H_*(F(b)) ⊕ H_*(F(c)). That's exactly what we used.
+
+But could the arrows be interpreted as b ← a and c ← a? That's the same.
+
+Could the "structure maps" refer to something else? Maybe the two structure maps are the maps from F(b) and F(c) to something? No, "structure maps" in the context of a functor usually refers to the maps induced by the morphisms in the domain category.
+
+Another thought: The notation C ▷ might mean something else? Sometimes C ▷ means the category with a zero object? Or maybe it's the "right" adjoint? But it says "adjoining a terminal object t". So it's clear.
+
+Could X be something else? "Lan_j F" might be the left Kan extension of F along j. In category theory, if j: C → D, then Lan_j F: D → S is defined by Lan_j F(d) = colim_{(c, f: j(c) → d)} F(c). For d = t, since t is terminal, there's exactly one map from each j(c) to t, so the comma category is C. So Lan_j F(t) = colim_{c in C} F(c). Yes.
+
+Is there any chance that the colimit is taken in a different category? S is \mathcal S, likely spaces. The colimit in spaces is the pushout. We did that.
+
+Could the matrices M and N be acting on the right? If we use row vectors, the cokernel might be different? But the cokernel of a map between free abelian groups is invariant under transpose? Not necessarily, but usually we consider linear maps as matrices acting on column vectors. The torsion subgroup of the cokernel of a matrix is the same as the torsion subgroup of the cokernel of its transpose? The cokernel of A is Z^m / im A. The cokernel of A^T is Z^n / im A^T. They are not necessarily the same. But we assumed column vectors. The standard convention is that a matrix represents a linear map by multiplication on the left of column vectors. So we did that.
+
+Let's double-check if the torsion subgroup order could be different if we interpret the map as (f_*, -g_*) instead of (f_*, g_*). If we used (f_*, -g_*), the matrix would be [M; -N]. Let's see what that gives. If we used (f_*, -g_*), then φ(e2) = (2,0, -2, -2) or something. But the Mayer-Vietoris map is (i_*, j_*), not (i_*, -j_*). In unreduced homology, it's (i_*, j_*). In reduced homology, it's (i_*, -j_*) but then H_0 is different. Since we used unreduced and got consistent H_0, we should stick with (f_*, g_*). If we used (f_*, -g_*), the H_0 map would be (1, -1): Z → Z⊕Z, which has kernel 0? Wait, (1, -1) has kernel 0 as well (n - n = 0 only if n=0). So kernel is still 0. Cokernel would be Z⊕Z / im(1,-1) = Z. So H_1(X) would still be cokernel of the H_1 map with (f_*, -g_*). Let's compute that just to be sure.
+If φ = (f_*, -g_*), then φ(e1) = (0,6, 0,-6) (assuming f=M, g=N).
+φ(e2) = (2,0, -2,-2).
+Then matrix:
+[0 2]
+[6 0]
+[0 -2]
+[6 -2]
+We can compute Smith normal form. This is similar but with some sign changes. The torsion subgroup might differ? Let's see.
+Quotient: relations: 6 e2 - 6 e4 = 0? Wait, φ(e1) = 6 e2 - 6 e4? Actually, φ(e1) = (0,6,0,-6) = 6 e2 - 6 e4. φ(e2) = (2,0,-2,-2) = 2 e1 - 2 e3 - 2 e4.
+Relations: 6(e2 - e4) = 0, 2(e1 - e3 - e4) = 0.
+Let u1 = e1 - e3 - e4, u2 = e2 - e4.
+Then 2u1=0, 6u2=0. Complete basis: similar, we get Z/2 ⊕ Z/6 ⊕ Z^2. Same torsion.
+If we used f=N, g=M, then φ(e1) = (0,6, 0,-6), φ(e2) = (2,2, -2,0)? Wait, N e2 = (2,2), M e2 = (2,0), so -g_* = -M e2 = (-2,0)? Actually, if f=N, g=M, then φ = (N, -M). φ(e2) = (2,2, -2,0). Relations: 6 e2 - 6 e4 = 0, 2 e1 + 2 e2 - 2 e3 = 0? Wait, N e2 = (2,2) = 2e1+2e2; -M e2 = (-2,0) = -2e1? No, M e2 = (2,0) = 2e1? Wait, standard basis: first coordinate is e1, second is e2? Let's be careful: In H_1(T^2) = Z^2, standard basis might be (a,b). Matrices act on column vectors. So M = [[0,2],[6,0]] means M*(x,y) = (2y, 6x). So first component is 2y, second is 6x. In our previous notation, we had φ(x,y) = (M(x,y), N(x,y)) = (2y, 6x, 2y, 6x+2y). So the four components correspond to e1,e2 for the first T^2, and e3,e4 for the second T^2? Yes, we had φ(e1) = (0,6,0,6) meaning first T^2: (0,6), second: (0,6). So first component is e1 of first T^2, second is e2 of first T^2, third is e1 of second T^2, fourth is e2 of second T^2.
+If we use (f_*, -g_*), then φ(e1) = (0,6, 0,-6) = 6 e2 - 6 e4.
+φ(e2) = (2,0, -2,-2) = 2 e1 - 2 e3 - 2 e4.
+Torsion: Z/2 ⊕ Z/6.
+So in all interpretations, torsion order is 12.
+
+But wait: Could the matrices M and N be given with respect to different bases for the domain and codomain? The problem says "With respect to the standard bases of H_1(T^2; Z) ≅ Z^2". So both domain and codomain use standard bases. Since F(a)=F(b)=F(c)=T^2, all have the same standard basis. So the matrices are directly comparable.
+
+Thus the torsion subgroup order is 12.
+
+But let's re-read the problem carefully: "Let C be the category b \longleftarrow a \longrightarrow c, and let D=C^{\triangleright} be obtained by adjoining a terminal object t. Let j:C\hookrightarrow D. Define F:C\to\mathcal S by F(a)=F(b)=F(c)=T^2=S^1\times S^1. With respect to the standard bases of H_1(T^2;\mathbb Z)\cong\mathbb Z^2, suppose that the two structure maps induce the matrices M=... N=... Let X=(\operatorname{Lan}_jF)(t). What is the order of the torsion subgroup of H_1(X;\mathbb Z)?"
+
+Everything seems to point to 12.
+
+But wait: Is there any possibility that "Lan_j F" means something else? In some contexts, Lan is left Kan extension, but sometimes it's written as Lan. Yes. And j: C → D is inclusion. The left Kan extension of F along j is the functor D → S defined by Lan_j F(d) = colim_{(c, f: j(c) → d)} F(c). For d=t, it's colim_{c} F(c). That's correct.
+
+Could D be something else? "C^{\triangleright}" might be a specific notation. In some category theory texts, C^{\triangleright} could mean the category of functors from C to something? But it says "obtained by adjoining a terminal object t". So it's just C with a terminal object.
+
+Could the "two structure maps" refer to the maps induced by the unique maps to t? No, "structure maps" usually refers to the maps of the functor F. F is a functor from C to S, so it has structure maps for each morphism in C. There are two non-identity morphisms: a→b and a→c. So those are the two structure maps.
+
+Could the matrices M and N correspond to the maps F(b) → something? No.
+
+Another check: The pushout of two maps T^2 → T^2 given by M and N. We computed the cokernel of (M; N) as Z^4 / im [M; N]. But wait: The pushout is F(b) ← F(a) → F(c). The homology of the pushout is the cokernel of H_1(F(a)) → H_1(F(b)) ⊕ H_1(F(c)). But we must be careful: The map in Mayer-Vietoris is (i_*, j_*) where i: F(a) → F(b) and j: F(a) → F(c). So it's (M, N) if we think of H_1(F(b)) ⊕ H_1(F(c)) as Z^2 ⊕ Z^2. The map is v ↦ (Mv, Nv). That's what we did.
+
+But wait: In the pushout, the maps are F(a) → F(b) and F(a) → F(c). So the Homology map is H_1(F(a)) → H_1(F(b)) ⊕ H_1(F(c)). That's correct. The cokernel is (Z^2 ⊕ Z^2) / im(M, N). We computed that as Z/2 ⊕ Z/6 ⊕ Z^2.
+
+But is there any chance that the pushout is taken in the opposite direction? If the diagram is F(b) ← F(a) → F(c), the pushout is the colimit of that diagram. The colimit is indeed the pushout of the two maps out of F(a). So yes.
+
+Let's double-check the computation of the cokernel with another method.
+We want the cokernel of the 4x2 matrix A = [M; N].
+M = [[0,2],[6,0]]
+N = [[0,2],[6,2]]
+A = 
+[0 2]
+[6 0]
+[0 2]
+[6 2]
+We can compute the Hermite normal form or just find the invariant factors.
+We did row operations:
+Swap R1 and R2:
+[6 0]
+[0 2]
+[0 2]
+[6 2]
+R4 = R4 - R1:
+[6 0]
+[0 2]
+[0 2]
+[0 2]
+R3 = R3 - R2:
+[6 0]
+[0 2]
+[0 0]
+[0 2]
+R4 = R4 - R2:
+[6 0]
+[0 2]
+[0 0]
+[0 0]
+Now we have [6 0; 0 2]. The invariant factors are the diagonal entries after ensuring d1|d2. We can swap columns to get [2 0; 0 6]? Actually, the Smith normal form requires the diagonal entries to divide each other. The current matrix has 6 and 2 on the diagonal, but 6 does not divide 2. We can do column operations: we can add column 2 to column 1? Wait, we want to get the gcd in the (1,1) position. The gcd of 6 and 2 is 2. We can bring the 2 to (1,1) by swapping columns:
+Swap C1 and C2:
+[0 6]
+[2 0]
+[0 0]
+[0 0]
+Swap R1 and R2:
+[2 0]
+[0 6]
+[0 0]
+[0 0]
+Now we have diag(2,6) with 2|6. So invariant factors are 2 and 6. The cokernel is Z/2 ⊕ Z/6 ⊕ Z^2. Torsion order = 12.
+
+Everything matches.
+
+But wait: The problem says "What is the order of the torsion subgroup of H_1(X; Z)?" The torsion subgroup is the set of all torsion elements. Its order is the product of the orders of the cyclic torsion summands. 2*6=12. So answer is 12.
+
+Could there be any other torsion? The free part Z^2 has no torsion. So torsion subgroup is exactly Z/2 ⊕ Z/6, order 12.
+
+I should also consider if the pushout might be computed differently if the maps are not cofibrations. But in the context of a math problem like this, it's almost certainly an algebraic computation using the Mayer-Vietoris sequence or just the algebraic pushout of abelian groups. The fact that they only provide H_1 matrices strongly suggests we are to treat the homology as an algebraic problem.
+
+Is there any chance that "Lan_j F" means something else, like the left Kan extension in the category of chain complexes? No, F takes values in \mathcal S, which is likely spaces or maybe abelian groups? But T^2 is a topological space. H_1 is homology. So we are working with spaces.
+
+Another thought: The symbol \triangleright might mean something else. In some category theory, C ▷ could be the category obtained by adding a terminal object? Or maybe it's the "right" adjoint? The problem says "adjoining a terminal object t". So it's clear.
+
+Could the "two structure maps" be the maps from F(a) to F(t)? No, t is not in C. The structure maps of F are the maps F(f) for f in C.
+
+Thus I'm confident the answer is 12.
+
+Let me just re-verify the matrices and the pushout diagram.
+C: a → b, a → c.
+F: F(a)=T^2, F(b)=T^2, F(c)=T^2.
+Maps: f: T^2 → T^2 corresponding to a→b, g: T^2 → T^2 corresponding to a→c.
+H_1 maps: f_* = M, g_* = N (or vice versa).
+Pushout X = T^2 ∪_{T^2} T^2.
+H_1(X) = coker( f_* - g_*? Wait, earlier I said (f_*, g_*). But let's double-check the Mayer-Vietoris map.
+For a union U ∪ V with intersection W, the sequence is:
+... → H_n(W) → H_n(U) ⊕ H_n(V) → H_n(U∪V) → ...
+The map H_n(W) → H_n(U) ⊕ H_n(V) is (i_* , j_*), where i: W → U, j: W → V.
+Here U = F(b), V = F(c), W = F(a). i = f, j = g.
+So the map is (f_*, g_*): H_n(F(a)) → H_n(F(b)) ⊕ H_n(F(c)).
+Yes, it's (f_*, g_*), not (f_*, -g_*). The minus sign appears in the boundary map or in reduced homology? In unreduced Mayer-Vietoris, it's (i_*, j_*). So our matrix [M; N] is correct.
+
+But wait: In some texts, the Mayer-Vietoris sequence is written as:
+... → H_n(W) → H_n(U) ⊕ H_n(V) → H_n(U∪V) → H_{n-1}(W) → ...
+with the map being (i_*, -j_*)? Let's recall the exact sequence for a pair (X,A) or something? No, the standard Mayer-Vietoris for U ∪ V is:
+... → H_n(U∩V) → H_n(U) ⊕ H_n(V) → H_n(U∪V) → H_{n-1}(U∩V) → ...
+with the map H_n(U∩V) → H_n(U) ⊕ H_n(V) given by (i_*, j_*). I'm pretty sure. Let's verify with a simple example: U = V = S^1, intersection = two points? No, better: U = S^1, V = S^1, intersection = S^0? Not a good example. Consider U = D^2, V = D^2, intersection = S^1. Then H_1(U)=0, H_1(V)=0, H_1(U∩V)=Z. The map H_1(S^1) → 0 ⊕ 0 is zero, so H_1(U∪V) = H_1(S^2) = 0, which fits. The map H_0(S^1) → H_0(D^2) ⊕ H_0(D^2) is (1,1): Z → Z⊕Z. The cokernel is Z, which is H_0(S^2)=Z. The kernel is 0, so H_1(S^2) → H_0(S^1) boundary map? Actually, the sequence: 0 → H_1(U∪V) → H_0(U∩V) → H_0(U)⊕H_0(V) → H_0(U∪V) → 0. H_1(U∪V)=0, so map H_0(U∩V) → H_0(U)⊕H_0(V) is injective. Yes, (1,1) is injective. So it works. If it were (1,-1), it would also be injective, and cokernel would be Z as well. In this case both are injective, so it doesn't distinguish. Another example: U = S^1, V = S^1, U∩V = S^0 (two points). H_0(U∩V)=Z^2, H_0(U)=Z, H_0(V)=Z. The map H_0(U∩V) → H_0(U)⊕H_0(V) sends each component to (1,1). So it's (1,1) and (1,1) for the two components? Actually, H_0 of two points is Z^2 with basis the two points. The map sends (a,b) to (a+b, a+b). The kernel is Z (a+b=0), cokernel is Z. H_1(U∪V) = H_1(S^1 ∨ S^1?) Actually, union of two circles intersecting in two points? That's a figure eight? If they intersect in two points, the union is a wedge of two circles? Wait, if two S^1 share two points, that's not a wedge; it's two circles glued along two points, which is homotopy equivalent to S^1 ∨ S^1 ∨ S^1? Actually, if you glue two circles at two points, you get a space with fundamental group free on two generators? The homology H_1 should be Z^2. Let's see: Mayer-Vietoris: H_1(U)=Z, H_1(V)=Z, H_1(U∩V)=0. So H_1(U)⊕H_1(V) → H_1(U∪V) is surjective? Sequence: 0 → H_1(U)⊕H_1(V) → H_1(X) → H_0(U∩V) → H_0(U)⊕H_0(V). The map H_0(U∩V) → H_0(U)⊕H_0(V) is (i_*, j_*). If it's (i_*, j_*), then for each component, it's (1,1). So the map is Z^2 → Z⊕Z given by matrix [[1,1],[1,1]]. The kernel is Z, generated by (1,-1). The cokernel is Z. The sequence: H_1(U)⊕H_1(V) → H_1(X) → ker → 0. So H_1(X) is an extension of Z by Z^2? Actually, H_1(U)⊕H_1(V) = Z^2. The map to H_1(X) has kernel = image from H_2? But H_2 is 0. So H_1(X) ≅ Z^2 ⊕ Z? That would be Z^3? But the union of two circles glued at two points: let's think. Two circles sharing two points: that's like a theta graph? Actually, two circles glued at two points: if you have two circles and you identify two points on one with two points on the other, the result is a graph with two vertices and three edges? Wait, each circle has one edge if we think of it as a graph with one vertex and one edge? No, a circle as a CW complex has one 0-cell and one 1-cell. If we glue two circles by identifying two 0-cells? That's not possible if they only have one 0-cell each. If we glue them at two points, we need to add more 0-cells. Typically, the union of two S^1 intersecting in two points is a space with two 0-cells and three 1-cells? Let's compute H_1: Euler characteristic: V - E = 2 - 3 = -1, so H_1 = 1 - χ = 2? Actually, for a graph, H_1 = E - V + 1 = 3 - 2 + 1 = 2. So H_1 = Z^2. If H_1(X) = Z^2, then the sequence H_1(U)⊕H_1(V) → H_1(X) → H_0(U∩V) → ... must be such that H_1(X) is Z^2. H_1(U)⊕H_1(V) = Z^2. The map to H_1(X) could be an isomorphism, and the boundary map to H_0(U∩V) would be zero. That would happen if the map H_0(U∩V) → H_0(U)⊕H_0(V) is injective. If the map is (i_*, j_*), then for each intersection point, it sends to (1,1). The two points give two vectors (1,1) and (1,1) in Z⊕Z? Wait, H_0(U∩V) is Z^2 with basis the two points. The map sends point 1 to (1,1) and point 2 to (1,1). So the matrix is [[1,1],[1,1]]. The kernel is Z (generated by (1,-1)), so the map is NOT injective. Then the boundary map H_1(X) → H_0(U∩V) has image = kernel = Z. So H_1(X) would be an extension of Z by Z^2, giving Z^3, which is wrong. If the map were (i_*, -j_*), then the matrix would be [[1,-1],[1,-1]]. The kernel is still Z (generated by (1,1)). So still not injective. But if the intersection is two points, the union's H_1 should be Z^2? Wait, if two circles share two points, the union is not a wedge; it's two circles with two common points. The fundamental group is free on two generators? Actually, if you have two circles and you glue them at two points, you can think of it as a graph with two vertices and three edges. The first circle: edge 1 from v1 to v1? No, a circle with two distinguished points is two edges between those two points. So two circles sharing two points means we have two vertices, and each circle contributes two edges between them. Total edges = 4? Wait, each circle has two arcs between the two points. So two circles give four arcs. So graph with 2 vertices and 4 edges. Then H_1 = E - V + 1 = 4 - 2 + 1 = 3. So H_1 = Z^3! That's correct. If you have two circles intersecting in two points, H_1 is Z^3. If they intersect in one point, it's Z^2. So my example with two intersection points gives H_1 = Z^3. So the Mayer-Vietoris with (i_*, j_*) gives H_1(X) as extension of Z by Z^2, total Z^3. That matches. If we used (i_*, -j_*), kernel would be (1,1) which is Z, cokernel Z, so also Z^3. So both give Z^3? Wait, if the map is (i_*, -j_*), the matrix is [[1,-1],[1,-1]]. Kernel is Z (generated by (1,1)). Cokernel is Z. So H_1(X) is still extension of Z by Z^2, so Z^3. So in this case both conventions give the same H_1? Actually, the map on H_0 changes, but the kernel and cokernel dimensions might be the same? In our problem, H_0 map was (1,1) with kernel 0, cokernel Z. If we used (1,-1), kernel 0, cokernel Z as well (since (1,-1) is injective, cokernel Z⊕Z / im(1,-1) = Z). So both give same H_1. So the sign doesn't matter for H_1 in our case because the map is between Z and Z⊕Z given by (1, ±1), both are injective with cokernel Z. So H_1(X) is the cokernel of the H_1 map in either convention. So our computation is robust.
+
+Thus the torsion subgroup order is 12.
+
+I will answer 12.
+</think>
+
+12
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+129.64 seconds
+
+ATTEMPTS
+========
+
+1

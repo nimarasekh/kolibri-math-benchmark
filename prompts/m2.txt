@@ -1,0 +1,29 @@
+Let C = [1], with unique nonidentity arrow 0 -> 1. Let
+
+F : C^op -> Set
+and
+G : C -> Set
+
+be given by
+
+F(0) = {a,b,c,d},    F(1) = {u,v,w},
+
+where the map F(1) -> F(0) is
+
+u -> a,    v -> b,    w -> b,
+
+and
+
+G(0) = {1,2,3},    G(1) = {x,y,z,t},
+
+where the map G(0) -> G(1) is
+
+1 -> x,    2 -> x,    3 -> y.
+
+How many elements does the coend
+
+∫^{c in C} F(c) x G(c)
+
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

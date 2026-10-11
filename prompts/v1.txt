@@ -1,0 +1,47 @@
+Let \(C\) be the one-object category whose endomorphism monoid is
+\[
+\mathbb N^2=\langle p,q\mid pq=qp\rangle.
+\]
+
+Let
+\[
+A=(\mathbb Z/24)^4,
+\]
+and let
+\[
+F:C\to\mathcal S
+\]
+be the functor with
+\[
+F(*)=K(A,3),
+\]
+such that \(F(p)\) and \(F(q)\) are induced by the automorphisms
+\[
+\phi(x_1,x_2,x_3,x_4)
+=
+(x_1+4x_2,\;x_2,\;x_3+3x_4,\;x_4)
+\]
+and
+\[
+\psi(x_1,x_2,x_3,x_4)
+=
+(x_1+6x_2,\;x_2,\;x_3+8x_4,\;x_4),
+\]
+respectively.
+
+Let
+\[
+L_F\longrightarrow N(C)
+\]
+be the left fibration classified by \(F\), and let
+\[
+\Gamma(N(C),L_F)
+\]
+denote its space of sections.
+
+What is the order of the finite abelian group
+\[
+\pi_1\Gamma(N(C),L_F)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

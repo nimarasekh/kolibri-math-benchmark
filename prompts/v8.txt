@@ -1,0 +1,30 @@
+Work in the stable \(\infty\)-category
+\[
+\operatorname{Mod}_{H\mathbb Z}.
+\]
+
+Let
+\[
+f:
+H(\mathbb Z/12\oplus\mathbb Z/20)
+\longrightarrow
+H(\mathbb Z/18\oplus\mathbb Z/30)
+\]
+be induced by the homomorphism
+\[
+(x,y)\longmapsto(3x,3y).
+\]
+
+Let
+\[
+C=\operatorname{cofib}(f).
+\]
+
+What is the cardinality of
+\[
+\pi_0
+\operatorname{Map}_{\operatorname{Mod}_{H\mathbb Z}}
+\bigl(C,\Sigma H(\mathbb Z/24)\bigr)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

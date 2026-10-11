@@ -1,0 +1,20 @@
+Answer: 7
+
+Explanation:
+Under straightening/unstraightening, left fibrations over C correspond to functors
+
+C -> S.
+
+The left fibration L_F corresponds to F, while L_1 corresponds to the covariant representable
+
+Map_C(1,-).
+
+Therefore the mapping space of left fibrations is identified with the mapping space of natural transformations
+
+Map_{Fun(C,S)}(Map_C(1,-), F).
+
+By the covariant Yoneda lemma, this mapping space is equivalent to F(1).
+
+Here F(1) is the discrete space {1,...,7}. Hence the mapping space has exactly 7 connected components.
+
+Final answer: 7

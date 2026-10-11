@@ -1,0 +1,14 @@
+Answer: 10
+
+Explanation:
+A nondegenerate 2-simplex in the nerve of the poset [4] is a strictly increasing chain
+
+i < j < k
+
+of three distinct elements of {0,1,2,3,4}.
+
+Thus the number of nondegenerate 2-simplices is
+
+C(5,3) = 10.
+
+Final answer: 10

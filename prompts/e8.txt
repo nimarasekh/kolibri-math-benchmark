@@ -1,0 +1,12 @@
+Let C_3 act on the six-element set
+{1,2,3,4,5,6}
+by the permutation
+(1 2 3)(4 5 6).
+
+Let X//C_3 be the corresponding action groupoid.
+
+How many connected components does
+|N(X//C_3)|
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

@@ -1,0 +1,16 @@
+Answer: 2
+
+Explanation:
+The connected components of the action groupoid X//C_3 correspond exactly to the orbits of the C_3-action on X.
+
+The permutation
+
+(1 2 3)(4 5 6)
+
+has two orbits:
+
+{1,2,3} and {4,5,6}.
+
+Therefore |N(X//C_3)| has 2 connected components.
+
+Final answer: 2

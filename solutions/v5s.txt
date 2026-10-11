@@ -1,0 +1,84 @@
+Answer: 216
+
+For functors \(F,G:C\to\mathcal D\), the mapping object in a functor
+\(\infty\)-category is given by the twisted-arrow end formula
+\[
+\operatorname{Map}_{\operatorname{Fun}(C,\mathcal D)}(F,G)
+\simeq
+\lim_{\operatorname{Tw}(C)}
+\operatorname{Map}_{\mathcal D}(F(s),G(t)).
+\]
+
+Here both diagrams are constant, so the diagram of mapping spectra over
+\(\operatorname{Tw}(\mathcal C)\) is constant with value
+\[
+E=
+\operatorname{Map}_{H\mathbb Z}
+\bigl(H(\mathbb Z/12),\Sigma^2H(\mathbb Z/18)\bigr).
+\]
+Thus the mapping spectrum is the cotensor of \(E\) by
+\(|N\operatorname{Tw}(\mathcal C)|\).
+
+The nerve of the twisted-arrow category is the edgewise subdivision of
+the original nerve, so it has the same realization. The category
+\(\mathcal I\) has nerve the square \(K_{2,2}\), hence
+\[
+|N(\mathcal I)|\simeq S^1.
+\]
+Therefore
+\[
+|N(\mathcal C)|
+\simeq
+|N(\mathcal I)|\times|N(\mathcal I)|
+\simeq
+T^2.
+\]
+
+Stably,
+\[
+\Sigma^\infty_+T^2
+\simeq
+S^0\vee S^1\vee S^1\vee S^2.
+\]
+Consequently the desired group of components has contributions from
+\(\pi_0E\), two copies of \(\pi_1E\), and \(\pi_2E\).
+
+Over \(\mathbb Z\),
+\[
+\pi_kE
+\cong
+\operatorname{Ext}^{2-k}_{\mathbb Z}
+(\mathbb Z/12,\mathbb Z/18).
+\]
+Since \(\mathbb Z\) has global dimension \(1\),
+\[
+\pi_0E=\operatorname{Ext}^2=0,
+\]
+while
+\[
+\pi_1E
+\cong
+\operatorname{Ext}^1(\mathbb Z/12,\mathbb Z/18)
+\cong
+\mathbb Z/6,
+\]
+and
+\[
+\pi_2E
+\cong
+\operatorname{Hom}(\mathbb Z/12,\mathbb Z/18)
+\cong
+\mathbb Z/6.
+\]
+
+Hence
+\[
+\pi_0
+\operatorname{Map}_{\operatorname{Fun}(N(\mathcal C),\operatorname{Mod}_{H\mathbb Z})}
+(F,G)
+\cong
+(\mathbb Z/6)^3,
+\]
+whose cardinality is
+\[
+6^3=216.

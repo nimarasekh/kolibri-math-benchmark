@@ -1,0 +1,31 @@
+Let C be the category
+
+a <- c -> b.
+
+In the presheaf infinity-category
+
+P(C) = Fun(C^op,S),
+
+write y(-) for the Yoneda embedding and form
+
+X = y(a) amalgamated_{y(c)} y(b).
+
+Let F in P(C) take values in discrete spaces. Suppose
+
+F(c) = {1,2,3,4},
+
+and the map F(a) -> F(c) has fiber cardinalities
+
+3,1,2,2,
+
+while the map F(b) -> F(c) has fiber cardinalities
+
+1,4,2,1.
+
+How many connected components does
+
+Map_{P(C)}(X,F)
+
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

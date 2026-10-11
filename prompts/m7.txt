@@ -1,0 +1,12 @@
+Let
+G = S_4,
+H = <(12)>,
+K = <(34)>.
+
+Consider the homotopy pullback
+
+BH x^h_{BG} BK.
+
+How many connected components does this infinity-groupoid have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

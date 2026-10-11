@@ -1,0 +1,5 @@
+Consider the nerve N([4]).
+
+How many nondegenerate 2-simplices does it contain?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

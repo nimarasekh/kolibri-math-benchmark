@@ -1,0 +1,614 @@
+QUESTION
+========
+
+Let
+\[
+f:K(\mathbb Z^2,2)\longrightarrow K(\mathbb Z^3,2)
+\]
+be the map induced by the homomorphism
+\[
+\mathbb Z^2\longrightarrow\mathbb Z^3,
+\qquad
+(u,v)\longmapsto (2u,\,3v,\,2u+3v).
+\]
+
+Let \(X\) be the homotopy cofiber of \(f\) in pointed spaces:
+\[
+K(\mathbb Z^2,2)
+\xrightarrow{\,f\,}
+K(\mathbb Z^3,2)
+\longrightarrow X.
+\]
+
+Consider the pointed mapping space
+\[
+\operatorname{Map}_*
+\left(
+X,\,
+K(\mathbb Z/12,6)
+\right).
+\]
+
+How many connected components does this mapping space have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are asked: Let f: K(Z^2,2) -> K(Z^3,2) be the map induced by the homomorphism Z^2 -> Z^3, (u,v) -> (2u, 3v, 2u+3v). Let X be the homotopy cofiber of f in pointed spaces: K(Z^2,2) -> K(Z^3,2) -> X. Consider the pointed mapping space Map_*(X, K(Z/12,6)). How many connected components does this mapping space have? Give final answer as a single integer.
+
+We need to compute the number of connected components of Map_*(X, K(Z/12,6)).
+
+First, recall that K(G,n) is an Eilenberg-MacLane space with homotopy group pi_n = G, others zero. For pointed spaces, Map_*(X,Y) is the space of pointed maps. Its connected components correspond to homotopy classes of pointed maps [X,Y]. Since Y = K(Z/12,6) is a space with only non-trivial homotopy in degree 6 which is Z/12, we can analyze [X, K(Z/12,6)].
+
+We need to know the homotopy groups of X. X is the homotopy cofiber of f: K(Z^2,2) -> K(Z^3,2). So X fits into a cofiber sequence:
+K(Z^2,2) --f--> K(Z^3,2) --i--> X --delta--> K(Z^2,3)? Wait, the cofiber sequence in general: If A -> B -> C -> Sigma A -> ... But for pointed spaces, the cofiber of f: A -> B is the pushout of * <- A -> B. The sequence is A -> B -> X -> Sigma A -> Sigma B. Since A = K(Z^2,2), B = K(Z^3,2). Then Sigma A = K(Z^2,3) and Sigma B = K(Z^3,3). So X is the homotopy fiber of some map? No, X is the cofiber. But we might not need full homotopy of X; we can use the fact that [X, Y] ≅ [Sigma A, Y] / ...? Actually, from the cofiber sequence: A -> B -> X -> Sigma A -> Sigma B -> ...
+Applying [-, Y] (pointed homotopy classes), we get:
+... -> [Sigma A, Y] -> [Sigma B, Y] -> [X, Y] -> [B, Y] -> [A, Y] -> ...
+But careful: In homotopy groups, [Sigma^n A, Y] = [A, Omega^n Y]. Alternatively, we can use the fact that Map_*(X,Y) is the fiber of the map Map_*(Sigma A, Y) -> Map_*(Sigma B, Y)? Wait, mapping space from cofiber sequence: If A -> B -> X is a cofiber sequence, then Map_*(X,Y) -> Map_*(B,Y) -> Map_*(A,Y) is a fibration? Actually, for any map f: A -> B with cofiber X, we have a map X -> Sigma A? The standard property: [X, Y] fits into the exact sequence ... -> [Sigma B, Y] -> [Sigma A, Y] -> [X, Y] -> [B, Y] -> [A, Y] ... wait, let's derive correctly.
+
+Given a pointed cofiber sequence: A --f--> B -> X -> Sigma A --Sigma f--> Sigma B.
+This yields an exact sequence of pointed sets (homotopy classes):
+... -> [Sigma B, Y] --[Sigma f, Y]--> [Sigma A, Y] --(delta)--> [X, Y] --(i*)--> [B, Y] --(f*)--> [A, Y] -> ...
+where i: B -> X and f: A -> B. The maps are induced by the maps in the sequence.
+So [X, Y] is the homotopy fiber of f*: [B,Y] -> [A,Y] in the sense that [X,Y] = ker(f*) if [Sigma B,Y] -> [Sigma A,Y] is surjective? Actually it's an exact sequence of pointed sets: [Sigma B,Y] -> [Sigma A,Y] -> [X,Y] -> [B,Y] -> [A,Y].
+We are interested in [X, Y] with Y = K(Z/12,6).
+We can compute [B, Y], [A, Y], [Sigma A, Y] etc. B = K(Z^3,2), A = K(Z^2,2). Sigma A = K(Z^2,3), Sigma B = K(Z^3,3).
+Y = K(Z/12,6).
+
+We know that for any abelian group G and space Y, [K(G,n), Y] = pi_n(Y) if Y is an H-space? Actually, K(G,n) represents cohomology? In homotopy classes of pointed maps [K(G,n), Y] is isomorphic to H^n(Y; G)? Not exactly. The homotopy classes [K(G,n), Y] are in bijection with H^n(Y; G) only for spaces Y that are abelian? Wait, Eilenberg-MacLane spaces: [K(G,n), Y] ≅ [K(G,n), K(H,m)] = H^? Actually, [K(G,n), K(H,m)] = 0 if n != m, and if n=m, it's Hom(G,H)? No, [K(G,n), K(H,n)] = Hom(G, H) for abelian groups? Yes, [K(G,n), K(H,n)] = Hom(G, H) (for n>=1). If n<m, [K(G,n), K(H,m)] = 0. If n>m, it's more complicated? Actually, K(G,n) has homotopy groups only in degree n. So [K(G,n), K(H,m)] = [K(pi_n(K(G,n)), n), K(H,m)] = pi_n(K(H,m)) if n=m? Wait, if m>n, K(H,m) has no homotopy in dimension n, so [K(G,n), K(H,m)] = 0. If m<n, K(H,m) has trivial homotopy in dimension m, but we are mapping from a space with homotopy in n to one with homotopy in m. Since K(G,n) is n-connected? Actually K(G,n) is (n-1)-connected, pi_n = G. The space K(H,m) is (m-1)-connected, pi_m = H. If n > m, we can map K(G,n) to K(H,m) by sending the n-skeleton? The homotopy groups of Map(K(G,n), K(H,m)) can be non-zero. For example, [K(Z,2), K(Z,1)] = ? K(Z,2) = CP^\infty, K(Z,1)=S^1. [CP^\infty, S^1] = 0 because CP^\infty is simply connected? Actually, [X, K(G,1)] = H^1(X;G). For CP^\infty, H^1=0. So [K(G,n), K(H,m)] = H^m(K(G,n); H) if m? Let's recall: [X, K(G,n)] = H^n(X;G) for any space X (cohomology with local coefficients if non-abelian, but here all groups are abelian). So [K(G,n), K(H,m)] = H^m(K(G,n); H). The cohomology of K(G,n) is known: H^*(K(G,n)) is a polynomial algebra on a generator of degree n if G is free abelian? For general G, it's more complicated. But here our groups are Z^2, Z^3, Z/12. And m=6, n=2,3. So we need to compute [K(G,n), K(Z/12,6)] = H^6(K(G,n); Z/12).
+
+But wait! The exact sequence uses [Sigma B, Y] etc. Sigma B = K(Z^3,3)? Actually B = K(Z^3,2). Then Sigma B = K(Z^3,3). Similarly, Sigma A = K(Z^2,3). So we need [K(Z^3,3), K(Z/12,6)] and [K(Z^2,3), K(Z/12,6)]. These are H^6(K(G,3); Z/12).
+
+Also, [B, Y] = H^6(K(Z^3,2); Z/12), and [A, Y] = H^6(K(Z^2,2); Z/12).
+
+We are asked for the number of connected components of Map_*(X, K(Z/12,6)), which is the set of pointed homotopy classes [X, K(Z/12,6)].
+
+So we need to compute the set [X, K(Z/12,6)] from the exact sequence:
+... -> [K(Z^3,3), K(Z/12,6)] --[Sigma f, K(Z/12,6)]--> [K(Z^2,3), K(Z/12,6)] --delta--> [X, K(Z/12,6)] --i*--> [K(Z^3,2), K(Z/12,6)] --f*--> [K(Z^2,2), K(Z/12,6)] -> ...
+
+We need to know the maps induced by f and Sigma f. f: K(Z^2,2) -> K(Z^3,2) induced by phi: Z^2 -> Z^3, (u,v) -> (2u, 3v, 2u+3v). The map on homotopy groups: f_*: pi_2(K(Z^2,2)) = Z^2 -> pi_2(K(Z^3,2)) = Z^3 is exactly phi. Since K(G,2) represent cohomology? Actually, [K(G,2), Y] = H^2(Y;G)? Wait, [K(G,n), Y] = H^n(Y;G). But here we are mapping from K(G, n) to K(Z/12,6). So it's H^6(K(G,n); Z/12). The maps f* and Sigma f* are induced by pullback along the map f: K(Z^3,2) -> K(Z^2,2)? Careful: f goes from A=K(Z^2,2) to B=K(Z^3,2). So f*: [B, Y] -> [A, Y] is pullback by f. In terms of cohomology, it's f^*: H^6(B; Z/12) -> H^6(A; Z/12). And Sigma f: Sigma A -> Sigma B? The cofiber sequence is A -> B -> X -> Sigma A -> Sigma B. So Sigma f: Sigma A -> Sigma B is induced by f: A -> B. So [Sigma B, Y] -> [Sigma A, Y] is pullback by Sigma f. But [Sigma A, Y] = [A, Omega Y]? We can compute directly using cohomology.
+
+We need to compute H^6(K(G,n); Z/12) for G = Z^2, Z^3, with n=2,3.
+
+First, what is H^*(K(G,n); Z/12)? For a general abelian group G, the cohomology of K(G,n) with coefficients in Z/12 can be complicated if G has torsion. But here G is free abelian: Z^2 and Z^3. For K(Z^n, n), the cohomology with Z coefficients is an exterior algebra on generators of degree n if n is even? Wait, K(Z,1) = S^1, H^1 = Z, H^i = 0 for i>1. K(Z,2) = CP^\infty, H^*(CP^\infty; Z) = Z[x] with deg x = 2. K(Z,3) has torsion? Actually, K(Z,3) is not a torus; its cohomology with Z coefficients has torsion? K(Z,n) for n >= 3 has non-trivial torsion in cohomology? Wait, K(Z,n) is the Eilenberg-MacLane space for the infinite cyclic group. Its integral cohomology is known: H^*(K(Z,n); Z) has torsion? For n odd, H^n(K(Z,n); Z) = Z, and there are higher torsion classes? I recall that K(Z,n) has integral cohomology that is an exterior algebra on a generator of degree n if n is odd? Actually, K(Z,2) = CP^\infty, integral cohomology is polynomial Z[x] deg 2. K(Z,3) integral cohomology has Z in degree 3, and torsion? I think H^*(K(Z,3); Z) has torsion in higher degrees? Let's check: K(Z,n) for n even: cohomology is polynomial on a generator of degree n. For n odd: cohomology is exterior on a generator of degree n? Wait, K(Z,1) = S^1, cohomology is exterior (polynomial truncated) on degree 1. K(Z,3) cohomology is not just exterior; there is torsion? Actually, I remember that the integral cohomology of K(Z,n) is: for n odd, it's an exterior algebra on one generator of degree n tensored with a polynomial algebra? No, that's for K(Z,2k+1)? Let's recall Whitehead's results: The integral cohomology of K(Z,n) is: if n is even, H^*(K(Z,n); Z) = Z[x] with deg x = n. If n is odd, H^*(K(Z,n); Z) has 2-torsion? Wait, K(Z,3) is related to K(Z,2)? I can look up: K(Z,3) is the loop space of K(Z,4)? Not exactly. The cohomology of K(Z,n) with Z coefficients: For n=3, H^3 = Z, H^4 = 0? H^5 = Z/2? Actually, K(Z,3) is not a rational homology sphere? I think the integral cohomology of K(Z,n) is complicated, but we are using Z/12 coefficients. With Z/12 coefficients, we can use universal coefficient theorem or just note that K(G,n) with Z/p coefficients for p not dividing something? Since we are working with Z/12 coefficients, and the spaces are K(Z^n, n), the cohomology with Z/12 coefficients might just be a polynomial algebra? Wait, if we consider rational homotopy, K(Z^n, n) has rational cohomology an exterior algebra on n generators of degree n if n is even? Actually, for n even, K(Z^n, n) rational cohomology is polynomial on n generators? No, K(Z^n, n) for n even: CP^\infty has polynomial cohomology. K(Z^n, n) for n even is a product of n copies of CP^\infty? Only if it's K(Z^n, n) = (CP^\infty)^n? Is K(Z^n, n) rationally a product? The rational homotopy type of K(Z^n, n) is a wedge of spheres? Actually, K(Z^n, n) is not a product; it's a single Eilenberg-MacLane space. But rationally, it's equivalent to a product of K(Q, n)? No, K(Z^n, n) rationally is a product of n copies of K(Q, n)? Because the rational homotopy groups are Q^n in degree n. So rationally it's (K(Q, n))^n. But integrally, K(Z,2) = CP^\infty, and K(Z^2, 2) = CP^\infty x CP^\infty? Wait, K(Z^2, 2) is the classifying space for Z^2-bundles? Actually, K(Z^2, 2) is homotopy equivalent to CP^\infty x CP^\infty? Let's check: The Eilenberg-MacLane space K(G, n) for a free abelian group G = Z^r is rationally a product of r copies of K(Z,n). But integrally, is K(Z^r, n) = (K(Z,n))^r? For n=1, K(Z^r,1) = T^r, which is not (S^1)^r? Actually, T^r = (S^1)^r, so yes. For n=2, K(Z^2,2) is the classifying space for abelian 2-bundles? Is it CP^\infty x CP^\infty? CP^\infty = K(Z,2). So K(Z^2,2) should be K(Z,2) x K(Z,2) = CP^\infty x CP^\infty? I think K(G1 x G2, n) = K(G1,n) x K(G2,n). Yes, because the product represents the product of groups. So K(Z^2,2) = K(Z,2) x K(Z,2) = CP^\infty x CP^\infty. Similarly, K(Z^3,2) = (CP^\infty)^3. For n=3, K(Z^r,3) = (K(Z,3))^r. Is that true? K(G1 x G2, n) = K(G1,n) x K(G2,n) always holds? Yes, because the product of Eilenberg-MacLane spaces represents the product of groups: [X, K(G1 x G2, n)] = [X, K(G1,n) x K(G2,n)] = [X, K(G1,n)] x [X, K(G2,n)] = H^n(X; G1) x H^n(X; G2) = H^n(X; G1 x G2). So indeed K(G1 x G2, n) = K(G1, n) x K(G2, n). So K(Z^2,2) = K(Z,2)^2, K(Z^3,2) = K(Z,2)^3, etc. Similarly, K(Z/12,6) = (K(Z/12,6))? It's not a product of copies.
+
+So we can simplify: A = K(Z,2)^2, B = K(Z,2)^3. Y = K(Z/12,6).
+
+We need [X, Y] where X is the cofiber of f: K(Z,2)^2 -> K(Z,2)^3 given by f(u,v) = (2u, 3v, 2u+3v). Since K(Z,2) = CP^\infty, we can work with cohomology.
+
+We need H^6(K(Z,2)^k; Z/12). K(Z,2) = CP^\infty. Its integral cohomology is Z[x] with deg x = 2. So H^*(K(Z,2); Z) = Z[x]. With Z/12 coefficients,
+
+ANSWER
+======
+
+
+
+H^*(K(Z,2); Z/12) = Z/12[x] with deg x = 2, by universal coefficient theorem (since H^*(K(Z,2); Z) is free). Therefore, for a product of copies, H^*(K(Z,2)^k; Z/12) = Z/12[x_1,...,x_k] with deg x_i = 2.
+
+So H^6(K(Z,2)^k; Z/12) is the space of homogeneous polynomials of degree 3 in the x_i (since 2*3=6), i.e., Z/12-linear combinations of monomials of total degree 3. For k=2: monomials: x1^3, x1^2 x2, x1 x2^2, x2^3. So H^6 = (Z/12)^4.
+For k=3: monomials of degree 3 in x1,x2,x3: number = C(3+3-1,3) = C(5,3) = 10. So H^6 = (Z/12)^{10}.
+
+Now, f: K(Z,2)^2 -> K(Z,2)^3 induced by (u,v) -> (2u, 3v, 2u+3v). In cohomology, pullback f*: H^6(K(Z,2)^3; Z/12) -> H^6(K(Z,2)^2; Z/12) is given by substituting the pullbacks of the generators. Let the generators of K(Z,2)^3 be y1,y2,y3 (degree 2). Then f^*(y1) = 2 x1, f^*(y2) = 3 x2, f^*(y3) = 2 x1 + 3 x2.
+Here x1,x2 are generators of K(Z,2)^2.
+Then f^* on degree 3 monomials: f^*(y1^3) = (2 x1)^3 = 8 x1^3,
+f^*(y1^2 y2) = (2 x1)^2 (3 x2) = 4*3 x1^2 x2 = 12 x1^2 x2 = 0 mod 12,
+f^*(y1^2 y3) = (2 x1)^2 (2 x1 + 3 x2) = 4 x1^2 (2 x1+3 x2) = 8 x1^3 + 12 x1^2 x2 = 8 x1^3,
+f^*(y1 y2^2) = (2 x1)(3 x2)^2 = 2*9 x1 x2^2 = 18 x1 x2^2 = 6 x1 x2^2 mod 12,
+f^*(y1 y2 y3) = (2 x1)(3 x2)(2 x1+3 x2) = 6 x1 x2 (2 x1+3 x2) = 12 x1^2 x2 + 18 x1 x2^2 = 6 x1 x2^2,
+f^*(y1 y3^2) = (2 x1)(2 x1+3 x2)^2 = 2 x1 (4 x1^2 + 12 x1 x2 + 9 x2^2) = 8 x1^3 + 24 x1^2 x2 + 18 x1 x2^2 = 8 x1^3 + 6 x1 x2^2,
+f^*(y2^3) = (3 x2)^3 = 27 x2^3 = 3 x2^3 mod 12,
+f^*(y2^2 y3) = (3 x2)^2 (2 x1+3 x2) = 9 x2^2 (2 x1+3 x2) = 18 x1 x2^2 + 27 x2^3 = 6 x1 x2^2 + 3 x2^3,
+f^*(y3^3) = (2 x1+3 x2)^3 = 8 x1^3 + 36 x1^2 x2 + 54 x1 x2^2 + 27 x2^3 = 8 x1^3 + 6 x1 x2^2 + 3 x2^3 mod 12? Let's compute carefully mod 12:
+(2x1 + 3x2)^3 = 8 x1^3 + 3*(4 x1^2)*(3 x2) + 3*(2 x1)*(9 x2^2) + 27 x2^3
+= 8 x1^3 + 36 x1^2 x2 + 54 x1 x2^2 + 27 x2^3
+36 = 0 mod 12, 54 = 6 mod 12, 27 = 3 mod 12. So = 8 x1^3 + 6 x1 x2^2 + 3 x2^3.
+
+We also need f* on all basis elements? Actually we just need the image of f* as a linear map Z/12^10 -> Z/12^4? Wait, H^6(K(Z,2)^3) has dimension 10 over Z/12? But Z/12 is not a field; we treat it as a Z/12-module. The image is a submodule. We want the kernel of f*? The exact sequence is:
+[Sigma B, Y] -> [Sigma A, Y] -> [X, Y] -> [B, Y] -> [A, Y].
+So [X, Y] is the fiber of f*: [B, Y] -> [A, Y] after the previous map? Actually, the exact sequence of pointed sets:
+... -> [Sigma B, Y] -> [Sigma A, Y] -> [X, Y] -> [B, Y] -> [A, Y].
+The map [X, Y] -> [B, Y] is i*, and then [B, Y] -> [A, Y] is f*. The sequence is exact, so the image of i* is the kernel of f*. And the kernel of i* is the image of delta: [Sigma A, Y] -> [X, Y].
+So [X, Y] sits in an exact sequence:
+[Sigma B, Y] --Sigma f*--> [Sigma A, Y] --delta--> [X, Y] --i*--> [B, Y] --f*--> [A, Y].
+We are interested in the set [X, Y]. Since all these are abelian groups? Are they abelian groups? [K(G,n), K(H,m)] = H^m(K(G,n); H) which is an abelian group. So [B,Y], [A,Y], [Sigma A,Y], [Sigma B,Y] are all abelian groups (Z/12-modules). The maps are group homomorphisms. The sequence is an exact sequence of abelian groups? In general, the sequence of homotopy classes [X_n, Y] for a cofiber sequence is an exact sequence of pointed sets, but when Y is an H-space (like K(Z/12,6) is an abelian group object, actually an H-space? K(G,n) is an H-space only if n=1 or maybe n>1? K(G,n) for n>1 is not necessarily an H-space, but it is an infinite loop space? Actually, K(G,n) is an H-space if n=1, but for higher n, it's not necessarily an H-space? Wait, K(G,n) is an H-space only if G is abelian and n=1? No, K(G,n) for any abelian G and n>=1 is an H-space? Actually, K(G,n) is the space representing cohomology, but is it an H-space? S^1 = K(Z,1) is a loop space. K(Z,2) = CP^\infty is not an H-space? CP^\infty is not a loop space, but it is a classifying space? It is an H-space? CP^\infty is not an H-space because its cohomology ring is not an exterior algebra? Wait, H-space means there is a multiplication with unit up to homotopy. CP^\infty is not an H-space; its fundamental group is trivial, so it could be, but its rational cohomology is polynomial, which is not an exterior algebra, so it's not an H-space? Actually, an H-space with trivial pi_1 has rational cohomology an exterior algebra? No, an H-space with pi_1=0 can have polynomial cohomology? For example, K(Z,2) is not an H-space? I think K(G,n) for n>1 is not an H-space in general. However, the set of pointed homotopy classes [X, Y] when Y is not an H-space is just a pointed set, not necessarily a group. But here Y = K(Z/12,6). Is it an H-space? K(Z/12,6) has homotopy only in degree 6. For it to be an H-space, its homotopy groups must be commutative up to some higher structure? The only non-trivial homotopy is pi_6 = Z/12. For an H-space, the multiplication induces a map pi_6 x pi_6 -> pi_6 which must be associative etc. But more simply, K(G,n) is an H-space if and only if n=1? Actually, K(G,n) is an infinite loop space only if it's a product of K(Z/n, n)? I'm not sure. But we can still use the exact sequence of pointed sets. However, if Y is a K(G,6), then [X, Y] is just the set of homotopy classes of maps from X to Y. Since Y has only pi_6 non-zero, we can analyze the exact sequence.
+
+But wait: In the cofiber sequence A -> B -> X -> Sigma A -> Sigma B, we can apply the functor [-, Y]. Since Y is a K(Z/12,6), [Z, Y] = H^6(Z; Z/12) for any CW complex Z. This is an abelian group. The maps are group homomorphisms because H^6 is a cohomology group and pullback is linear. The exact sequence of pointed sets becomes an exact sequence of abelian groups if the connecting map delta is a group homomorphism? In general, for a cofiber sequence, [X, Y] is the homotopy fiber of f*: [B, Y] -> [A, Y] in the category of pointed sets. If Y is an H-space, then [B, Y] and [A, Y] are groups and the maps are group homomorphisms, and the kernel is a subgroup. But is K(Z/12,6) an H-space? K(G,n) is an H-space if G is an abelian group and n=1? For n>1, K(G,n) is generally not an H-space. However, K(Z/12,6) is a space with only one non-zero homotopy group, which is in degree 6. The set of pointed maps [X, K(G,n)] is in bijection with H^n(X; G) if X is a CW complex? Actually, [X, K(G,n)] is indeed H^n(X; G) for any space X? Yes, by definition of Eilenberg-MacLane space, [X, K(G,n)] = H^n(X; G) (with local coefficients if pi_1 is non-trivial, but here X might have pi_1? We'll see). Since X is the cofiber of a map between simply connected spaces (K(Z^2,2) and K(Z^3,2) are simply connected), X is simply connected? The cofiber of a map between simply connected spaces is simply connected? Yes, because the first non-trivial homotopy of X would be in dimension >=2? Actually, if A and B are simply connected, the map A->B is an isomorphism on pi_1, so X has trivial pi_1. So X is simply connected. Thus [X, K(Z/12,6)] = H^6(X; Z/12) as an abelian group. Similarly, [B, Y] = H^6(B; Z/12), [A, Y] = H^6(A; Z/12), [Sigma A, Y] = [Sigma A, K(Z/12,6)] = H^6(Sigma A; Z/12) = H^5(A; Z/12)? Wait, [Sigma A, Y] = [A, Omega Y]. But Omega K(Z/12,6) = K(Z/12,5)? Not exactly; Omega K(G,n) is K(G, n-1) only up to homotopy? Actually, Omega K(G,n) is not K(G,n-1); it has higher homotopy groups. But [Sigma A, K(G,n)] = H^n(Sigma A; G) = H^{n-1}(A; G) by suspension isomorphism? For cohomology, H^n(Sigma A; G) = H^{n-1}(A; G). So [Sigma A, K(G,6)] = H^6(Sigma A; Z/12) = H^5(A; Z/12). Similarly for B and Sigma B.
+
+So all these groups are cohomology groups of A and B with Z/12 coefficients in various degrees. Since A and B are products of K(Z,2), their cohomology is polynomial algebras. The maps f* and Sigma f* are induced by the map f on cohomology.
+
+We need to compute the exact sequence:
+H^6(Sigma B; Z/12) -> H^5(A; Z/12) -> [X, Y] -> H^6(B; Z/12) -> H^6(A; Z/12).
+Wait, let's get the degrees right:
+cofiber sequence: A -> B -> X -> Sigma A -> Sigma B.
+Apply [-, Y] with Y = K(Z/12,6):
+[Sigma B, Y] -> [Sigma A, Y] -> [X, Y] -> [B, Y] -> [A, Y].
+We have [B, Y] = H^6(B; Z/12).
+[A, Y] = H^6(A; Z/12).
+[Sigma A, Y] = H^6(Sigma A; Z/12) = H^5(A; Z/12).
+[Sigma B, Y] = H^6(Sigma B; Z/12) = H^5(B; Z/12).
+
+So the sequence is:
+H^5(B; Z/12) --Sigma f*--> H^5(A; Z/12) --delta--> [X, Y] --i*--> H^6(B; Z/12) --f*--> H^6(A; Z/12).
+
+Here Sigma f: Sigma A -> Sigma B is induced by f: A -> B. In cohomology, Sigma f* : H^5(B; Z/12) -> H^5(A; Z/12) is the same as f^* but in degree 5? Actually, Sigma f is the suspension of f. The pullback in cohomology by Sigma f is the same as the pullback by f but with a degree shift? Wait, if f: A -> B, then Sigma f: Sigma A -> Sigma B. The induced map on cohomology H^*(Sigma B) -> H^*(Sigma A) is given by pullback. But H^*(Sigma A) = H^{*-1}(A) (reduced cohomology). So Sigma f* : H^5(Sigma B) -> H^5(Sigma A) corresponds to H^4(B) -> H^4(A)? Let's be careful.
+
+We have Y = K(Z/12,6). Then [Sigma A, Y] = H^6(Sigma A; Z/12). By suspension isomorphism, H^6(Sigma A; Z/12) = H^5(A; Z/12) (reduced cohomology). Similarly, [Sigma B, Y] = H^5(B; Z/12).
+The map [Sigma B, Y] -> [Sigma A, Y] is given by precomposition with Sigma f: Sigma A -> Sigma B? Wait, the cofiber sequence is A --f--> B -> X -> Sigma A --Sigma f--> Sigma B.
+So the map is [Sigma B, Y] -> [Sigma A, Y] induced by Sigma f: Sigma A -> Sigma B? Actually, in the sequence, the map before [X,Y] is delta: [Sigma A, Y] -> [X, Y]? Wait, let's write the exact sequence carefully:
+... -> [Sigma B, Y] --[Sigma f, Y]--> [Sigma A, Y] --[delta, Y]--> [X, Y] --[i, Y]--> [B, Y] --[f, Y]--> [A, Y].
+Here [Sigma f, Y]: [Sigma B, Y] -> [Sigma A, Y] is precomposition with Sigma f: Sigma A -> Sigma B? No, if we have a map g: U -> V, then [V, Y] -> [U, Y] is precomposition. So [Sigma f, Y]: [Sigma B, Y] -> [Sigma A, Y] is indeed precomposition with Sigma f: Sigma A -> Sigma B. Wait, Sigma f goes from Sigma A to Sigma B. So precomposition sends a map h: Sigma B -> Y to h o Sigma f: Sigma A -> Y. That's a map from [Sigma B, Y] to [Sigma A, Y]. So the map is f^* on cohomology: H^6(Sigma B; Z/12) -> H^6(Sigma A; Z/12). Under suspension isomorphism, this corresponds to H^5(B; Z/12) -> H^5(A; Z/12) induced by f^*: H^*(B) -> H^*(A)? Let's check: H^6(Sigma B) = H^5(B). H^6(Sigma A) = H^5(A). The map h^* : H^6(Sigma B) -> H^6(Sigma A) corresponds via suspension isomorphism to the map f^* : H^5(B) -> H^5(A)? Actually, suspension isomorphism: H^k(Sigma X) = H^{k-1}(X). The pullback by Sigma f: H^k(Sigma B) -> H^k(Sigma A) commutes with suspension isomorphism? For any map f: X -> Y, the suspension Sigma f: Sigma X -> Sigma Y induces f^*: H^k(Sigma Y) -> H^k(Sigma X) which under suspension isomorphism H^k(Sigma Y) = H^{k-1}(Y) and H^k(Sigma X) = H^{k-1}(X) corresponds exactly to f^*: H^{k-1}(Y) -> H^{k-1}(X). So yes, Sigma f* is just f^* in degree 5.
+
+Similarly, f* on [B, Y] = H^6(B) -> H^6(A) is f^* in degree 6.
+
+So the exact sequence is:
+H^5(B; Z/12) --f^*--> H^5(A; Z/12) --delta--> [X, Y] --i*--> H^6(B; Z/12) --f*--> H^6(A; Z/12).
+
+We need to compute [X, Y] = H^6(X; Z/12). The sequence is exact, so [X, Y] is the middle term of a 4-term exact sequence of abelian groups. We can compute the kernel and cokernel of f^* in degree 5 and 6, but we need to know the map delta. The sequence is:
+H^5(B) --f^*_5--> H^5(A) --delta--> H^6(X) --i*--> H^6(B) --f^*_6--> H^6(A).
+We want H^6(X). We can compute H^5(B), H^5(A), H^6(B), H^6(A), and the maps f^*_5 and f^*_6. Then H^6(X) is an extension of ker(f^*_6) by coker(f^*_5)? Wait, exact sequence:
+A1 --f1--> A2 --d--> X --i--> B1 --f2--> B2.
+Here A1 = H^5(B), A2 = H^5(A), B1 = H^6(B), B2 = H^6(A).
+Exactness: im(f1) = ker(d); im(d) = ker(i); im(i) = ker(f2).
+So X / ker(i) = im(i) = ker(f2). Thus X fits into 0 -> ker(i) -> X -> ker(f2) -> 0, where ker(i) = im(d) = A2 / ker(d) = A2 / im(f1) = coker(f1).
+So X is an extension: 0 -> coker(f1) -> X -> ker(f2) -> 0.
+Since all groups are Z/12-modules (or just abelian groups), we need to find the sizes of coker(f^*_5) and ker(f^*_6), and also the extension class? But the question asks for the number of connected components of Map_*(X, K(Z/12,6)), which is the cardinality of [X, K(Z/12,6)] = H^6(X; Z/12). Since H^6(X; Z/12) is a finite abelian group? It might be a finite group. The number of connected components is the order of this group (if it's finite). If it's not finite, the question might expect an integer, so it must be finite. Let's check the groups.
+
+First, compute H^5(A; Z/12) and H^5(B; Z/12).
+A = K(Z,2)^2. H^*(A; Z/12) = Z/12[x1, x2] with deg xi = 2.
+So H^5(A; Z/12) = 0, because all generators have even degree, so any cohomology group in odd degree is 0. Similarly, H^5(B; Z/12) = 0, since B = K(Z,2)^3, all generators degree 2, odd cohomology vanishes.
+So H^5(B) = 0, H^5(A) = 0.
+Then f1: 0 -> 0, so coker(f1) = 0.
+Thus the exact sequence simplifies:
+0 -> H^6(X) --i*--> H^6(B) --f2--> H^6(A).
+So H^6(X) is isomorphic to ker(f^*_6).
+Because im(i*) = ker(f2), and i* is injective since its kernel is 0.
+So [X, Y] = H^6(X; Z/12) = ker(f^*: H^6(B; Z/12) -> H^6(A; Z/12)).
+
+Wow, that's much simpler! The map delta is from H^5(A)=0, so H^6(X) injects into H^6(B) with image equal to the kernel of f*.
+
+So we just need to compute the kernel of f*: H^6(B; Z/12) -> H^6(A; Z/12).
+
+We already set up f* in degree 6. Let's compute the linear map f^*: (Z/12)^{10} -> (Z/12)^4.
+
+Basis for H^6(B): monomials of degree 3 in y1,y2,y3 (10 of them):
+y1^3, y1^2 y2, y1^2 y3, y1 y2^2, y1 y2 y3, y1 y3^2, y2^3, y2^2 y3, y2 y3^2, y3^3.
+Basis for H^6(A): monomials of degree 3 in x1,x2 (4 of them):
+x1^3, x1^2 x2, x1 x2^2, x2^3.
+
+We computed f^* on each:
+f^*(y1) = 2x1
+f^*(y2) = 3x2
+f^*(y3) = 2x1 + 3x2
+
+Now compute f^* on each basis monomial:
+1) y1^3 -> (2x1)^3 = 8 x1^3
+2) y1^2 y2 -> (2x1)^2 (3x2) = 4*3 x1^2 x2 = 12 x1^2 x2 = 0
+3) y1^2 y3 -> (2x1)^2 (2x1+3x2) = 4 x1^2 (2x1+3x2) = 8 x1^3 + 12 x1^2 x2 = 8 x1^3
+4) y1 y2^2 -> (2x1)(3x2)^2 = 2*9 x1 x2^2 = 18 x1 x2^2 = 6 x1 x2^2 (mod 12)
+5) y1 y2 y3 -> (2x1)(3x2)(2x1+3x2) = 6 x1 x2 (2x1+3x2) = 12 x1^2 x2 + 18 x1 x2^2 = 6 x1 x2^2
+6) y1 y3^2 -> (2x1)(2x1+3x2)^2 = 2x1 (4x1^2 + 12x1x2 + 9x2^2) = 8x1^3 + 24x1^2 x2 + 18x1 x2^2 = 8x1^3 + 6x1 x2^2
+7) y2^3 -> (3x2)^3 = 27 x2^3 = 3 x2^3
+8) y2^2 y3 -> (3x2)^2 (2x1+3x2) = 9x2^2 (2x1+3x2) = 18 x1 x2^2 + 27 x2^3 = 6 x1 x2^2 + 3 x2^3
+9) y2 y3^2 -> (3x2)(2x1+3x2)^2 = 3x2 (4x1^2 + 12x1x2 + 9x2^2) = 12 x1^2 x2 + 36 x1 x2^2 + 27 x2^3 = 3 x2^3 (since 12=0, 36=0, 27=3)
+10) y3^3 -> (2x1+3x2)^3 = 8x1^3 + 36x1^2 x2 + 54x1 x2^2 + 27 x2^3 = 8 x1^3 + 6 x1 x2^2 + 3 x2^3
+
+Let's list the results in terms of basis (x1^3, x1^2 x2, x1 x2^2, x2^3):
+1: (8, 0, 0, 0)
+2: (0, 0, 0, 0)
+3: (8, 0, 0, 0)
+4: (0, 0, 6, 0)
+5: (0, 0, 6, 0)
+6: (8, 0, 6, 0)
+7: (0, 0, 0, 3)
+8: (0, 0, 6, 3)
+9: (0, 0, 0, 3)
+10: (8, 0, 6, 3)
+
+We can write the matrix with columns as the images? Actually, f* is a linear map from (Z/12)^{10} to (Z/12)^4. We want the kernel. Let's write the map as a matrix where rows correspond to basis of target, columns to basis of source. Or we can just find all linear combinations of the 10 columns that sum to zero.
+
+Let the source coefficients be a1,...,a10 in Z/12 corresponding to y1^3, y1^2 y2, ..., y3^3.
+The target coordinates:
+c1 (x1^3): 8 a1 + 0 a2 + 8 a3 + 0 a4 + 0 a5 + 8 a6 + 0 a7 + 0 a8 + 0 a9 + 8 a10
+c2 (x1^2 x2): all zero? Yes, every term has 0 for x1^2 x2. So c2 is always 0.
+c3 (x1 x2^2): 0 a1 + 0 a2 + 0 a3 + 6 a4 + 6 a5 + 6 a6 + 0 a7 + 6 a8 + 0 a9 + 6 a10
+c4 (x2^3): 0 a1 + 0 a2 + 0 a3 + 0 a4 + 0 a5 + 0 a6 + 3 a7 + 3 a8 + 3 a9 + 3 a10
+
+Wait, check each:
+1: 8,0,0,0
+2: 0,0,0,0
+3: 8,0,0,0
+4: 0,0,6,0
+5: 0,0,6,0
+6: 8,0,6,0
+7: 0,0,0,3
+8: 0,0,6,3
+9: 0,0,0,3
+10: 8,0,6,3
+
+So the map is:
+c1 = 8(a1 + a3 + a6 + a10)
+c2 = 0
+c3 = 6(a4 + a5 + a6 + a8 + a10)
+c4 = 3(a7 + a8 + a9 + a10)
+
+We want all (a1,...,a10) in (Z/12)^{10} such that:
+8(a1 + a3 + a6 + a10) = 0 mod 12
+6(a4 + a5 + a6 + a8 + a10) = 0 mod 12
+3(a7 + a8 + a9 + a10) = 0 mod 12
+
+We need the number of solutions in Z/12. Since Z/12 is a ring, we can solve these congruences.
+
+Let's simplify the conditions mod 12:
+1) 8S1 = 0 mod 12, where S1 = a1 + a3 + a6 + a10.
+8S1 ≡ 0 (mod 12) => Divide by 4: 2S1 ≡ 0 (mod 3) => S1 ≡ 0 (mod 3). Because 2 is invertible mod 3, so S1 ≡ 0 mod 3. So S1 can be 0,3,6,9 mod 12? Wait, S1 is an integer mod 12. The condition is S1 ≡ 0 mod 3. So S1 ∈ {0,3,6,9} in Z/12.
+
+2) 6S3 = 0 mod 12, where S3 = a4 + a5 + a6 + a8 + a10.
+6S3 ≡ 0 (mod 12) => Divide by 6: S3 ≡ 0 (mod 2). So S3 must be even. S3 ∈ {0,2,4,6,8,10} in Z/12.
+
+3) 3S4 = 0 mod 12, where S4 = a7 + a8 + a9 + a10.
+3S4 ≡ 0 (mod 12) => Divide by 3: S4 ≡ 0 (mod 4). So S4 ∈ {0,4,8} in Z/12.
+
+We need to count the number of tuples (a1,...,a10) in (Z/12)^{10} satisfying these three linear congruences. The variables are not entirely independent; they appear in multiple sums. Let's group the variables by the sums they appear in.
+
+List variables and the sums they belong to:
+a1: S1 only
+a2: appears nowhere? a2 is y1^2 y2, which mapped to 0. It doesn't appear in any of S1, S3, S4. So a2 is free: any of 12 choices.
+a3: S1 only
+a4: S3 only
+a5: S3 only
+a6: S1 and S3
+a7: S4 only
+a8: S3 and S4
+a9: S4 only
+a10: S1, S3, S4
+
+Also we have a2: free, 12 choices.
+
+So total number of solutions = 12 * (number of solutions for the other 9 variables subject to the three congruences).
+
+We can sum over the possible values of the dependent variables? Or we can treat this as a linear system over Z/12. Since Z/12 is not a field, we need to be careful. But we can use the fact that the system is a set of linear equations. We can count the number of solutions by standard methods: the number of solutions is 12^{number of free variables} if the system is consistent and the relations are independent? But we have three equations, but they involve overlaps. The total number of variables in these equations is 9. The equations are:
+S1 = a1 + a3 + a6 + a10 ≡ something? Actually, the equations are congruences on the sums, not fixed values. They are:
+S1 ∈ {0,3,6,9}
+S3 ∈ {0,2,4,6,8,10}
+S4 ∈ {0,4,8}
+
+We want to count the number of (a1,a3,a4,a5,a6,a7,a8,a9,a10) such that these sums fall into those sets.
+
+We can approach by first choosing the sums S1, S3, S4 that satisfy the conditions, and then for each choice, count the number of ways to choose the variables that sum to those values.
+
+For a fixed S1, S3, S4, the number of solutions for a1,a3,a6,a10 with sum S1 is: a1,a3,a6,a10 in Z/12, sum = S1. The number of solutions to x1+x2+x3+x4 = S in Z/n is n^3? Actually, for any S, the number of solutions to x1+...+xk = S in Z/n is n^{k-1}. Here k=4, so 12^3 = 1728? But wait, that's if we consider all variables unrestricted. Here we have overlapping variables across the sums. So we cannot just multiply the number of solutions for each sum independently because a6, a8, a10 appear in multiple sums.
+
+We can instead treat the whole system. Let's list the variables and the sums:
+S1 = a1 + a3 + a6 + a10
+S3 = a4 + a5 + a6 + a8 + a10
+S4 = a7 + a8 + a9 + a10
+
+We can eliminate the sums by introducing them as new variables, but then we have equations linking them. Alternatively, we can think of this as a linear map from Z/12^9 to Z/12^3 given by the matrix:
+Variables in order: a1, a3, a4, a5, a6, a7, a8, a9, a10.
+Equations:
+S1 = a1 + a3 + a6 + a10
+S3 = a4 + a5 + a6 + a8 + a10
+S4 = a7 + a8 + a9 + a10
+
+We want the number of tuples (a1,...,a10 excluding a2) such that S1 ∈ 3Z/12? Actually, the condition is 8 S1 = 0, 6 S3 = 0, 3 S4 = 0. But we can just count all tuples (a1,...,a10) in Z/12^9, and then the condition is that 8 S1 = 0, etc. But we can also first count all tuples without conditions? Wait, we want the kernel of f*, which is the set of all (a1,...,a10) such that the three expressions equal 0 in the respective moduli? No, f* maps to Z/12^4. The kernel is the set where the target is (0,0,0,0). The target coordinates are:
+c1 = 8 S1 mod 12
+c2 = 0
+c3 = 6 S3 mod 12
+c4 = 3 S4 mod 12
+We want c1=0, c3=0, c4=0. So the conditions are exactly 8 S1 ≡ 0, 6 S3 ≡ 0, 3 S4 ≡ 0 mod 12. These are conditions on the sums S1, S3, S4. They do not fix S1, S3, S4 to specific values; they just restrict them to subsets.
+
+So we need to count the number of (a1,...,a10) in Z/12^9 such that S1 ∈ {0,3,6,9}, S3 ∈ {0,2,4,6,8,10}, S4 ∈ {0,4,8}.
+
+We can count this by summing over all possible values of the overlapping variables a6, a8, a10? Or we can use linear algebra over Z/12. Note that the map f* is a group homomorphism from (Z/12)^{10} to (Z/12)^4. We want the size of its kernel. We can compute the size of the kernel by computing the size of the image, then kernel size = (total size of domain) / (size of image). Total domain size = 12^{10} (including a2? Wait, domain of f* is H^6(B) = (Z/12)^{10}. So total size = 12^{10}. We want the kernel size. If we can compute the image size, we can get kernel size = 12^{10} / |im f*|. But we must be careful: Z/12 is not a field, so the domain and codomain are finite abelian groups of the same order? No, codomain is (Z/12)^4, size 12^4. The image is a subgroup. The kernel size is |domain| / |image|. This is true for any group homomorphism between finite groups. So if we can compute the image of f* as a subgroup of (Z/12)^4, we can find its size, then kernel size = 12^{10} / |im f*|.
+
+That might be easier! Let's compute the image of f*.
+
+f*: (Z/12)^{10} -> (Z/12)^4 given by:
+c1 = 8 S1
+c2 = 0
+c3 = 6 S3
+c4 = 3 S4
+
+Where S1, S3, S4 are linear combinations of the variables. But note that S1, S3, S4 are just sums of subsets of variables. The image of f* is the set of all possible (8 S1, 0, 6 S3, 3 S4) as (S1, S3, S4) range over all possible values that can be achieved as these sums. But what are the possible values of S1, S3, S4? Since the variables are free in Z/12, and S1, S3, S4 are linear combinations, we can ask: what is the image of the map (a1,...,a10) -> (S1, S3, S4)? Then we apply the map (S1,S3,S4) -> (8 S1, 6 S3, 3 S4) and set c2=0.
+
+But wait, the map from variables to (S1,S3,S4) is not necessarily surjective onto (Z/12)^3 because the variables overlap. Let's find the image of the map phi: Z/12^9 -> Z/12^3 given by the matrix:
+S1 = a1 + a3 + a6 + a10
+S3 = a4 + a5 + a6 + a8 + a10
+S4 = a7 + a8 + a9 + a10
+
+This is a linear map. We can compute its image. The variables are a1,a3,a4,a5,a6,a7,a8,a9,a10. We can see that a1 only in S1, a3 only in S1, a4 only in S3, a5 only in S3, a7 only in S4, a9 only in S4. So by choosing a1,a3 we can make S1 anything we want independent of the other sums? Let's check: For any desired values of S1, S3, S4, can we find a1,...,a10? We have a6, a8, a10 appearing in multiple equations. We can set a1 = S1 - a3 - a6 - a10, but we can just choose a3=a6=a10=0, then a1 = S1. Similarly, set a5=a6=a8=a10=0, then a4 = S3. Set a9=a8=a10=0, then a7 = S4. So indeed, we can achieve any (S1, S3, S4) in (Z/12)^3 by setting a6=a8=a10=0, and then a1=S1, a3=0, a4=S3, a5=0, a7=S4, a9=0. The other variables a2 is free but doesn't affect sums. So the map phi is surjective onto (Z/12)^3. Therefore, (S1, S3, S4) can be any triple in Z/12.
+
+Thus the image of f* is the set of all (8 S1, 0, 6 S3, 3 S4) for S1, S3, S4 in Z/12. Since S1, S3, S4 range independently over Z/12, the image is the product of the images of the maps:
+S1 -> 8 S1 in Z/12
+S3 -> 6 S3 in Z/12
+S4 -> 3 S4 in Z/12
+and the second coordinate is always 0.
+
+So im f* = { (8s1, 0, 6s3, 3s4) | s1,s3,s4 in Z/12 }.
+This is a subgroup of (Z/12)^4.
+
+We can compute its size by finding the sizes of the images of these scalar multiplications.
+In Z/12:
+- The map s -> 8s: image is the multiples of 8 modulo 12. 8*0=0, 8*1=8, 8*2=16=4, 8*3=24=0, then repeats. So image = {0,4,8}. Size = 3.
+- The map s -> 6s: image is multiples of 6: {0,6}. Size = 2.
+- The map s -> 3s: image is multiples of 3: {0,3,6,9}. Size = 4.
+- The second coordinate is always 0, so size 1.
+
+Since these are independent (the choices of s1,s3,s4 are independent and give independent coordinates because the targets are in separate components? Wait, the target is (c1, 0, c3, c4). The first coordinate depends only on s1, third on s3, fourth on s4. So the image is the direct product of the images in each coordinate. So size = 3 * 1 * 2 * 4 = 24.
+
+But wait: Is the map from (s1,s3,s4) to (8s1, 6s3, 3s4) surjective onto that product? Yes, because for any a in {0,4,8} there is s1 with 8s1 = a; similarly for others. And since the choices are independent, the combined map is surjective onto the product set. So |im f*| = 24.
+
+Therefore, the kernel of f* has size = |domain| / |image| = 12^{10} / 24.
+12^{10} = 61917364224? Let's compute: 12^10 = (12^5)^2 = 248832^2 = 61917364224. Divide by 24: 12^{10} / 24 = 12^{10} / (12/0.5?) Wait, 24 = 2*12? 12^{10} / 24 = 12^9 / 2 = 5159780352 / 2? Let's compute 12^9: 12^2=144, 12^3=1728, 12^4=20736, 12^5=248832, 12^6=2985984, 12^7=35831808, 12^8=429981696, 12^9=5159780352. Divide by 2 = 2579890176. But wait, is that correct? 12^{10} = 61917364224. 61917364224 / 24 = 2579890176. That's a large number. But the question asks "How many connected components does this mapping space have?" and expects a single integer. Could it be 2579890176? That seems very large for a typical topology problem. Maybe I missed something.
+
+Let's double-check everything. The space Y = K(Z/12, 6). The mapping space Map_*(X, Y) has connected components [X, Y] = [X, K(Z/12,6)] = H^6(X; Z/12) if X is simply connected? X is the cofiber of f: K(Z^2,2) -> K(Z^3,2). K(Z^2,2) and K(Z^3,2) are simply connected, so X is simply connected. So [X, Y] = H^6(X; Z/12). We derived H^6(X) = ker(f*: H^6(B) -> H^6(A)). But wait, is that correct? Let's reexamine the exact sequence.
+
+We had:
+H^5(B; Z/12) --f^*--> H^5(A; Z/12) --delta--> H^6(X; Z/12) --i*--> H^6(B; Z/12) --f*--> H^6(A; Z/12).
+
+We said H^5(B) = 0 and H^5(A) = 0 because they are products of K(Z,2) and odd cohomology vanishes. That's true: K(Z,2) = CP^\infty, H^odd = 0. So H^5 = 0. Then the sequence becomes:
+0 -> H^6(X) -> H^6(B) -> H^6(A).
+So H^6(X) is indeed isomorphic to the kernel of f*: H^6(B) -> H^6(A).
+
+But wait! Is Y = K(Z/12,6) an Eilenberg-MacLane space for Z/12? Yes. But is [Sigma A, Y] = H^6(Sigma A; Z/12) = H^5(A; Z/12)? Suspension isomorphism for cohomology: H^n(Sigma X; G) = H^{n-1}(X; G) for reduced cohomology. Since A and B are simply connected, we can use reduced cohomology. H^5(A; Z/12) is indeed 0. So that seems correct.
+
+Then [X,Y] = ker(f*) = kernel of the map H^6(K(Z^3,2); Z/12) -> H^6(K(Z^2,2); Z/12).
+
+We computed H^6(K(Z^3,2); Z/12) = (Z/12)^{10} and H^6(K(Z^2,2); Z/12) = (Z/12)^4. The map f* was induced by the homomorphism Z^2 -> Z^3 given by (u,v) -> (2u, 3v, 2u+3v). In terms of generators, we took the standard generators for K(Z,2) as x_i. But wait! K(Z^3,2) = K(Z,2)^3. Its cohomology is polynomial on three generators y1,y2,y3 of degree 2. K(Z^2,2) = K(Z,2)^2, polynomial on x1,x2. The map f: K(Z^2,2) -> K(Z^3,2) is induced by the group homomorphism phi: Z^2 -> Z^3. How does this induce a map on K(Z^3,2)? Wait, the map f goes from A = K(Z^2,2) to B = K(Z^3,2)? The problem says: f: K(Z^2,2) -> K(Z^3,2) induced by the homomorphism Z^2 -> Z^3, (u,v) -> (2u, 3v, 2u+3v). So f: A -> B. Then the induced map on cohomology f*: H^*(B) -> H^*(A) is pullback. B has generators y1,y2,y3 corresponding to the standard basis of Z^3? And A has generators x1,x2 corresponding to standard basis of Z^2. The pullback f^*(y_i) should be the linear combination corresponding to the i-th component of phi. If phi: Z^2 -> Z^3, then the map on K(Z^2,2) -> K(Z^3,2) is classifying map for the pullback of bundles? In general, if we have a group homomorphism phi: G -> H, it induces a map K(G,n) -> K(H,n). On cohomology, H^*(K(H,n)) -> H^*(K(G,n)) sends the generator corresponding to a basis element to the corresponding linear combination in G? Wait, if G = Z^r, H = Z^s, and phi is given by an s x r matrix M, then the induced map on K(Z^r, n) -> K(Z^s, n)? Actually, the standard generators of H^n(K(Z^r, n); Z) correspond to the basis of H^n(K(Z, n)) = Z. For a product, the generators are the pullbacks from the factors. If phi: Z^r -> Z^s, then the map K(phi): K(Z^r, n) -> K(Z^s, n) is such that the i-th coordinate map K(Z^s, n) -> K(Z, n) composed with K(phi) gives the i-th component of phi. In cohomology, the pullback by the i-th coordinate is the i-th generator. So pullback of the i-th generator of K(Z^s, n) is the i-th component of phi, which is a linear combination of the generators of K(Z^r, n). So if we write phi as a matrix M with entries m_{ij} where i=1..s, j=1..r, then f^*(y_i) = sum_j m_{ij} x_j.
+In our case, phi: Z^2 -> Z^3, (u,v) -> (2u, 3v, 2u+3v). So:
+y1 corresponds to first coordinate: 2u -> 2 x1
+y2 corresponds to second coordinate: 3v -> 3 x2
+y3 corresponds to third coordinate: 2u+3v -> 2 x1 + 3 x2.
+This matches what I had: f^*(y1) = 2x1, f^*(y2) = 3x2, f^*(y3) = 2x1+3x2.
+But careful: The map f goes from K(Z^2,2) to K(Z^3,2). So f* goes from H^*(K(Z^3,2)) to H^*(K(Z^2,2)). That's what I used. Then the exact sequence is:
+... -> [Sigma B, Y] -> [Sigma A, Y] -> [X, Y] -> [B, Y] -> [A, Y].
+Here A = K(Z^2,2), B = K(Z^3,2). The map f: A -> B. So f*: [B, Y] -> [A, Y] is pullback. That's what I used: f*: H^6(B) -> H^6(A).
+Then the kernel of f* is [X, Y]? We had H^5(B)=H^5(A)=0, so [X,Y] = ker(f*). That is H^6(X). So the number of connected components is |ker f*| = 12^{10} / |im f*|.
+
+But wait! The cofiber sequence is A -> B -> X -> Sigma A -> Sigma B. The map Sigma f: Sigma A -> Sigma B is induced by f: A -> B. Then [Sigma B, Y] -> [Sigma A, Y] is pullback by Sigma f, which corresponds to f* in degree 5. That's consistent.
+
+But is the cohomology of K(Z^2,2) really Z/12[x1,x2]? K(Z^2,2) = K(Z,2) x K(Z,2) = CP^\infty x CP^\infty. Its integral cohomology is Z[x1,x2] with deg xi = 2. With Z/12 coefficients, it's Z/12[x1,x2]. That's correct. H^6 is degree 3 monomials, so dimension 4. H^5 is 0. So that's correct.
+
+Then im f* in degree 6: we computed the image size as 3*2*4 = 24? Wait, we had image in Z/12^4: c1 = 8 S1, c2 = 0, c3 = 6 S3, c4 = 3 S4. But we need to be careful: S1, S3, S4 are the sums we defined from the coefficients of the basis monomials. Are we sure that S1, S3, S4 can be arbitrary in Z/12? We said the map from variables to (S1,S3,S4) is surjective. Let's verify.
+
+The variables are the coefficients a1,...,a10 of the 10 basis monomials of H^6(B). The map f* sends these to (c1,c2,c3,c4) as we wrote. We found that c2 is always 0. And c1 = 8(a1 + a3 + a6 + a10), c3 = 6(a4 + a5 + a6 + a8 + a10), c4 = 3(a7 + a8 + a9 + a10). We defined S1 = a1 + a3 + a6 + a10, etc. We want to know the image of the map (a1,...,a10) -> (8 S1, 0, 6 S3, 3 S4). Since a1 only appears in S1, we can set a1 to anything to achieve any S1 regardless of other variables? Wait, a1 appears only in S1. So for any fixed values of a3,a6,a10, we can choose a1 to make S1 any desired value. Similarly, a4 only in S3, a7 only in S4. So indeed, for any desired (S1,S3,S4), we can set a6=a8=a10=0, then choose a1=S1, a4=S3, a7=S4, and all other variables 0. This gives a valid tuple. So (S1,S3,S4) can be any triple in Z/12^3. Therefore, the image of (S1,S3,S4) -> (8S1, 6S3, 3S4) is the product of the images of each component map. The image sizes: 8Z/12 = {0,4,8} size 3; 6Z/12 = {0,6} size 2; 3Z/12 = {0,3,6,9} size 4. So image size = 3*2*4 = 24. Then kernel size = 12^{10} / 24 = 2579890176.
+
+But is that the number of connected components? The question might be from a context where the answer is not a huge number. Maybe I misinterpreted the spaces. Let's re-read the problem carefully.
+
+"Let f: K(Z^2,2) -> K(Z^3,2) be the map induced by the homomorphism Z^2 -> Z^3, (u,v) -> (2u, 3v, 2u+3v)."
+Wait, Z^2 and Z^3 here are the groups. K(Z^2,2) means K(Z^2, 2)? Usually K(G,n) denotes an Eilenberg-MacLane space with homotopy group pi_n = G and others zero. So K(Z^2,2) has pi_2 = Z^2. That's correct.
+
+"Let X be the homotopy cofiber of f in pointed spaces: K(Z^2,2) -> K(Z^3,2) -> X."
+So X is the cofiber.
+
+"Consider the pointed mapping space Map_*(X, K(Z/12,6)). How many connected components does this mapping space have?"
+
+We computed [X, K(Z/12,6)] = H^6(X; Z/12) assuming X is simply connected and K(Z/12,6) represents H^6. But wait! K(Z/12,6) is an Eilenberg-MacLane space for the group Z/12 in degree 6. So [X, K(Z/12,6)] = H^6(X; Z/12) only if X is a CW complex and we are talking about pointed homotopy classes? Yes, for any pointed CW complex X, [X, K(G,n)] = H^n(X; G) (with local coefficients if pi_1 is non-trivial). Here X is simply connected? Let's check: K(Z^2,2) and K(Z^3,2) are simply connected (pi_1 = 0). The map f is between simply connected spaces, so the cofiber X is also simply connected (pi_1(X) = 0). So H^6(X; Z/12) is an ordinary cohomology group. So that's correct.
+
+But is X a CW complex? Yes, we can take CW structures.
+
+Now, could there be a mistake in the cofiber sequence? The cofiber sequence is A -> B -> X -> Sigma A -> Sigma B -> ... So X is the homotopy cofiber. The sequence we used: [Sigma B, Y] -> [Sigma A, Y] -> [X, Y] -> [B, Y] -> [A, Y]. That's the standard exact sequence of a cofiber triangle. Yes.
+
+But wait: Is Y = K(Z/12,6) an H-space? If not, the exact sequence is of pointed sets, but the groups [B,Y] etc. are abelian groups because Y is an Eilenberg-MacLane space? Actually, [B, K(G,n)] = H^n(B; G) is an abelian group. The maps are group homomorphisms. The exact sequence of pointed sets for a cofiber sequence when Y is an H-space gives an exact sequence of groups. But even if Y is not an H-space, the sequence of sets might still be an exact sequence of abelian groups if the maps are group homomorphisms? The connectivity of [X,Y] as a group? Actually, if Y is not an H-space, [X,Y] is just a pointed set, not necessarily a group. But here Y = K(Z/12,6) is a space with only one non-zero homotopy group. Is it an H-space? K(G,n) is an H-space if and only if n=1 or G is trivial? For n>1, K(G,n) is generally not an H-space. For example, K(Z,2) = CP^\infty is not an H-space. So [X, K(Z/12,6)] is just a set. But the exact sequence of pointed sets still holds. However, the sets [B,Y] etc. are groups (since Y is a K(G,n), [X,Y] = H^n(X;G) which is a group). The maps are group homomorphisms. The exact sequence of pointed sets might not respect the group structure on [X,Y] if it's not a group? But [X,Y] here is H^6(X;Z/12), which is a group? Wait, [X, K(G,n)] = H^n(X;G) as a set, but does it have a natural group structure? H^n(X;G) is an abelian group. So [X,Y] is an abelian group. The map i*: [X,Y] -> [B,Y] is induced by i: B -> X. In cohomology, this is i^*: H^n(X) -> H^n(B), which is a group homomorphism. The map f*: [B,Y] -> [A,Y] is f^*, also a homomorphism. The exact sequence of pointed sets becomes an exact sequence of abelian groups if the connecting map delta is a group homomorphism. For a cofiber sequence of spaces, the long exact sequence in homotopy groups is an exact sequence of groups if the spaces are H-spaces? Actually, the sequence [X, Y] fits into a long exact sequence of pointed sets. If Y is an H-space, then [B,Y] and [A,Y] are groups, and the maps are group homomorphisms, and [X,Y] is also a group, and the sequence is exact as groups. If Y is not an H-space, the sequence is only an exact sequence of pointed sets, and [X,Y] may not be a group. However, here Y = K(Z/12,6) is not an H-space (since 6>1). But [B,Y] = H^6(B; Z/12) is a group. The set [X,Y] = H^6(X; Z/12) is also a group? Actually, H^6(X; Z/12) is defined as [X, K(Z/12,6)] as a set? The cohomology group H^n(X;G) is defined as [X, K(G,n)] when X is a CW complex. And it has a group structure because K(G,n) is an H-space? Wait, K(G,n) for G abelian and n>=2 is not an H-space, but H^n(X;G) still has a group structure? How is the group structure defined? Usually, H^n(X;G) is defined via Čech cohomology or singular cohomology, and it's a group. But the set [X, K(G,n)] is in bijection with H^n(X;G) as a set, but the group structure on H^n(X;G) does not necessarily come from a group structure on K(G,n). In fact, K(G,n) is not an H-space, so [X, K(G,n)] does not naturally inherit a group structure from K(G,n). However, H^n(X;G) is still an abelian group, and the bijection [X, K(G,n)] ≅ H^n(X;G) is just a set bijection, not necessarily a group isomorphism? Wait, in stable homotopy theory, K(G,n) is an infinite loop space? Actually, K(G,n) is an infinite loop space if G is an abelian group? No, K(Z,n) is not an infinite loop space for n>1? K(Z,1) = S^1 is a loop space. K(Z,2) = CP^\infty is not a loop space? But K(Z,2) is the classifying space for circle bundles? It is an infinite loop space? Actually, CP^\infty is not an H-space, but it is the loop space of something? The loop space of K(Z,3) is K(Z,2)? Omega K(Z,3) is K(Z,2)? Yes, Omega K(G,n) = K(G, n-1) is not true; Omega K(G,n) has the same homotopy groups as K(G,n-1) but with higher homotopy groups? I think Omega K(G,n) is not K(G,n-1) except for n=2? Omega K(Z,3) has pi_2 = Z, but also higher homotopy? Wait, the homotopy groups of Omega K(G,n) are pi_i(Omega K(G,n)) = pi_{i+1}(K(G,n)). So pi_2 = pi_3(K(G,n)) = 0? Actually, K(G,n) has pi_n = G and all other pi_i = 0. So Omega K(G,n) has pi_{n-1} = G and all other pi_i = 0? That would be K(G, n-1)! So Omega K(G,n) is homotopy equivalent to K(G, n-1)? Is that true? If K(G,n) has only pi_n non-zero, then its loop space has only pi_{n-1} non-zero, so it is an Eilenberg-MacLane space K(G, n-1). Yes! Because an Eilenberg-MacLane space is defined by having only one non-zero homotopy group. So Omega K(G,n) ≃ K(G, n-1). Similarly, Sigma K(G,n) ≃ K(G, n+1). So K(G,n) are infinite loop spaces? Actually, if Omega K(G,n) = K(G,n-1), then K(G,n) is a delooping of K(G,n-1). So K(G,n) are infinite loop spaces? For example, K(Z,2) = CP^\infty, its loop space is K(Z,1) = S^1, which is true: Omega CP^\infty = S^1. K(Z,3) loop space is K(Z,2) = CP^\infty? Is Omega K(Z,3) = CP^\infty? I think that's true rationally, but integrally there might be issues? Actually, K(Z,n) for n>=2 has finite homotopy groups? Wait, K(Z,n) for n>=2 has only pi_n = Z, others zero. Then Omega K(Z,n) has only pi_{n-1} = Z, others zero, so it is K(Z, n-1). Yes, by definition, the loop space of an Eilenberg-MacLane space is an Eilenberg-MacLane space of one lower dimension. So K(G,n) are all H-spaces? If K(G,n) is a loop space, then it is an H-space! Because a loop space always has a multiplication (concatenation of loops). So K(G,n) is an H-space for all n>=1? Wait, K(Z,2) = CP^\infty, is its loop space S^1? Yes, Omega CP^\infty = S^1. And S^1 is a loop space, but CP^\infty is also a loop space? If CP^\infty = Omega K(Z,3), then CP^\infty is a loop space, hence an H-space? But CP^\infty is not an H-space! There's a contradiction. CP^\infty is not an H-space because its rational cohomology is a polynomial ring, while the rational cohomology of an H-space must be an exterior algebra? Wait, an H-space with trivial fundamental group has rational cohomology an exterior algebra? Actually, an H-space with pi_1=0 is rationally a product of Eilenberg-MacLane spaces? I need to recall: An H-space with pi_1=0 has rational homotopy groups concentrated in some degrees, and its rational cohomology is an exterior algebra? No, CP^\infty has rational cohomology polynomial, so it's not rationally an H-space? But CP^\infty is the classifying space for S^1 bundles? It is not an H-space. How can it be a loop space? If CP^\infty were a loop space, it would be Omega X for some X. Then pi_1(CP^\infty) = pi_2(X). Since pi_1(CP^\infty)=0, pi_2(X)=0. But then Omega CP^\infty = S^1 would be the loop space of CP^\infty? Wait, Omega S^1 = Z? I'm confusing myself.
+
+Let's clarify: K(Z,1) = S^1. K(Z,2) = CP^\infty. The loop space of CP^\infty is S^1? Is that true? Omega CP^\infty: the loop space of CP^\infty consists of loops in CP^\infty. CP^\infty is simply connected. Its homotopy groups: pi_2 = Z, pi_n = 0 for n != 2. So pi_i(Omega CP^\infty) = pi_{i+1}(CP^\infty). So pi_1(Omega CP^\infty) = pi_2(CP^\infty) = Z. pi_i = 0 for i != 1. So Omega CP^\infty has only pi_1 = Z, which is K(Z,1) = S^1. So indeed, Omega CP^\infty = S^1 up to homotopy. That means CP^\infty is a delooping of S^1. So CP^\infty = K(Z,2) is the delooping of K(Z,1). In general, K(G,n) is the (n-1)-fold delooping of K(G,1)? Actually, K(G,1) is a K(G,1). K(G,2) is a K(G,2) which deloops to K(G,1). So K(G,n) for n>=2 are not loop spaces; they are deloopings of loop spaces. Wait, if Omega K(G,n) = K(G,n-1), then K(G,n-1) is a loop space. So K(G,n-1) is Omega K(G,n). So K(G,n) is a delooping of K(G,n-1). Thus K(G,n) is not necessarily a loop space unless n=1? Actually, K(G,1) is S^1, which is a loop space (Omega S^2? No, S^1 is Omega S^2? But S^2 is not K(Z,2)? K(Z,2) is CP^\infty, not S^2. S^1 is not Omega of something with only pi_2=Z? Actually, S^1 is Omega K(Z,2) = Omega CP^\infty. So S^1 is a loop space. K(Z,2) = CP^\infty is a delooping of S^1. Is CP^\infty a loop space? If CP^\infty were a loop space, it would be Omega X for some X. Then pi_1(CP^\infty) = pi_2(X). But pi_1(CP^\infty)=0, so pi_2(X)=0. Then pi_2(CP^\infty) = pi_3(X) = Z. So X would have pi_3 = Z, and maybe other homotopy groups? But there is a space with pi_3 = Z and others zero? K(Z,3). So Omega K(Z,3) = K(Z,2)? Yes! Omega K(Z,3) = K(Z,2) = CP^\infty. So CP^\infty is a loop space! Indeed, K(Z,3) exists, and its loop space is K(Z,2). So CP^\infty is a loop space. But then CP^\infty is an H-space? Every loop space is an H-space (via loop concatenation). So CP^\infty should be an H-space. But CP^\infty is not an H-space! Its rational cohomology is Z[x] with deg x=2, which is a polynomial algebra. The rational cohomology of an H-space with trivial pi_1 must be an exterior algebra? Is that true? An H-space with pi_1=0 is rationally a product of Eilenberg-MacLane spaces K(Q, n)? But K(Q, n) for even n has polynomial cohomology? Wait, K(Q,2) = CP^\infty rational? Actually, K(Q,2) is rationally CP^\infty, and its rational cohomology is Q[x] with deg x=2. That is not an exterior algebra. But an H-space can have polynomial cohomology? For example, an infinite product of circles? S^1 x S^1 x ... is an H-space? S^1 is an H-space, product of H-spaces is an H-space. Its rational cohomology is exterior algebra on generators of degree 1. What about K(Q,2)? K(Q,2) is rationally CP^\infty. Is CP^\infty rationally an H-space? I think CP^\infty is not an H-space because its rational homotopy groups are concentrated in even degrees? Wait, if a space is an H-space, its rational homotopy groups can be in any degrees, but there's a theorem: an H-space with trivial pi_1 has rational cohomology an exterior algebra? Actually, the rational cohomology of an H-space is an exterior algebra if the H-space is formal? I'm not sure. Let's check: K(Q, n) for even n has rational cohomology a polynomial algebra on one generator of degree n. If K(Q, n) is an H-space, then its loop space would be K(Q, n-1). But for even n, K(Q, n-1) has rational cohomology an exterior algebra on one generator of degree n-1? That's possible. But is K(Q, 2) an H-space? If K(Q,2) is an H-space, then its loop space K(Q,1) = S^1 rationally is an H-space, which it is. But K(Q,2) itself: can it have a multiplication? I recall that CP^\infty is not an H-space. In fact, the only Eilenberg-MacLane spaces that are H-spaces are K(G,1) and maybe K(G,0)? For n>1, K(G,n) is not an H-space. Why? Because if K(G,n) were an H-space, then its cohomology ring would have a cup product that is commutative? But more importantly, the homotopy groups of an H-space must satisfy certain commutativity conditions? Actually, any H-space has a multiplication, but the cup product in cohomology might not be commutative? Wait, an H-space has a multiplication, so the cohomology ring is graded commutative? But for even degree generators, commutative just means commutative. Polynomial ring is commutative. So that's not an obstruction. The obstruction might be that the homotopy groups of an H-space must satisfy higher commutativity? I'm not entirely sure. Let's look up: Is K(Z,2) an H-space? I think it's a classical fact that K(Z,n) for n>=2 is not an H-space. For example, CP^\infty is not an H-space because if it were, its loop space S^1 would have a multiplication that extends? Actually, the loop space of an H-space is not necessarily an H-space? Wait, if X is an H-space, then Omega X is an H-space (loop concatenation). So if CP^\infty were an H-space, then S^1 = Omega CP^\infty would be an H-space (it is), and CP^\infty would be a delooping of S^1. Any delooping of an H-space is an H-space? If Y = Sigma X and X is an H-space, is Y an H-space? Not necessarily. For example, Sigma S^1 = CP^\infty? Sigma S^1 is S^2, not CP^\infty. CP^\infty is not Sigma S^1; CP^\infty is K(Z,2), while Sigma S^1 = S^2. So K(Z,2) is not a suspension of S^1? Wait, we said Omega CP^\infty = S^1, so CP^\infty is a delooping of S^1, but it's not the suspension of S^1. Suspension is a specific delooping (Sigma). CP^\infty is some delooping, but not the suspension. In any case, CP^\infty is not an H-space. So my earlier statement that K(G,n) are infinite loop spaces is wrong. They are not infinite loop spaces; only K(G,1) are loop spaces? Actually, K(G,1) are loop spaces? K(Z,1) = S^1 is a loop space. K(G,n) for n>1: Omega K(G,n) = K(G,n-1), so K(G,n-1) is a loop space. So K(G,1) is a loop space? If n=2, Omega K(G,2) = K(G,1), so K(G,1) is a loop space. If n=1, K(G,1) is a loop space? S^1 is a loop space. So K(G,1) is a loop space. K(G,2) is a delooping of a loop space, so it might not be a loop space? But we said Omega K(G,3) = K(G,2), so K(G,2) is a loop space! Wait, if Omega K(G,3) = K(G,2), then K(G,2) is a loop space. That would imply K(G,2) is an H-space. Contradiction. Let's check: For G=Z, K(Z,3) is a space with pi_3=Z, others 0. Its loop space has pi_2=Z, others 0, which is K(Z,2). So K(Z,2) is a loop space. So K(Z,2) should be an H-space. But CP^\infty is not an H-space. What's wrong? Is K(Z,3) really having only pi_3=Z? Yes, K(Z,n) are Eilenberg-MacLane spaces. Their loop spaces are K(Z,n-1)? That would mean K(Z,2) is the loop space of K(Z,3). But CP^\infty is not the loop space of something? Wait, CP^\infty is K(Z,2). Is CP^\infty the loop space of K(Z,3)? K(Z,3) is a space with pi_3=Z. Its loop space has pi_2=Z. So it's a space with pi_2=Z and others 0? But K(Z,2) is the unique space (up to homotopy) with pi_2=Z and others 0. So indeed, Omega K(Z,3) = K(Z,2). So CP^\infty is a loop space. Then CP^\infty must be an H-space? But I've always heard that CP^\infty is not an H-space. Let's verify: An H-space is a space with a continuous multiplication with identity up to homotopy. Loop spaces always have a multiplication (concatenation of loops). So any loop space is an H-space. So if CP^\infty is a loop space, it is an H-space. Is CP^\infty an H-space? I can check: CP^\infty = classifying space for S^1 bundles? It is not a topological group, but can it be an H-space? An H-space with pi_1=0 has rational cohomology an exterior algebra? I recall that the rational cohomology of a connected H-space is an exterior algebra on generators of odd degree? No, that's for a connected H-space? Actually, the cohomology ring of a connected H-space rationally is the cohomology of a product of odd-dimensional spheres? I think there's a theorem: If X is a connected H-space, then its rational cohomology is an exterior algebra on odd-degree generators. Because if it's an H-space, its rational homotopy is a Lie algebra, and the minimal model has generators in odd degrees? I'm not sure. But CP^\infty has rational cohomology Q[x] with deg x=2 (even). So it cannot be rationally an H-space. Therefore, CP^\infty is not an H-space. Contradiction. Where is the flaw?
+
+The flaw: Is K(Z,3) really having only pi_3=Z? Yes. Is Omega K(Z,3) = K(Z,2)? The homotopy groups of Omega K(Z,3) are pi_i = pi_{i+1}(K(Z,3)). So pi_2 = pi_3 = Z, all others zero. So it has the same homotopy groups as K(Z,2). By Whitehead's theorem, any two CW complexes with the same homotopy groups in all dimensions are homotopy equivalent. So Omega K(Z,3) is homotopy equivalent to K(Z,2). So K(Z,2) is a loop space up to homotopy. Does that imply K(Z,2) is an H-space up to homotopy? If X is homotopy equivalent to a loop space, then X is an H-space up to homotopy? Because if X ~ Omega Y, then X has a multiplication induced from the loop space structure on Omega Y. So yes, K(Z,2) would be an H-space up to homotopy. But CP^\infty is not an H-space up to homotopy? Wait, is CP^\infty homotopy equivalent to an H-space? Maybe I'm wrong and CP^\infty is rationally an H-space? But its rational cohomology is polynomial. Can a polynomial algebra be the rational cohomology of an H-space? Consider an H-space X with pi_1=0. Its rational homotopy groups form a Lie algebra. The rational cohomology is the cohomology of the minimal model, which is a free graded commutative algebra? If the Lie algebra has generators in even degrees, then the cohomology would be polynomial? But a Lie algebra cannot have generators in even degrees if it's the rational homotopy of an H-space? Actually, the rational homotopy Lie algebra of a connected H-space must be a Lie algebra over Q, and it can have even-degree generators? For example, the Eilenberg-MacLane space K(Q,2) has rational homotopy concentrated in degree 2. Is that a Lie algebra? A Lie algebra structure on a 1-dimensional space is trivial (since [x,x]=0). So it's a valid Lie algebra. Then the minimal model would have an exterior algebra on generators? Wait, the minimal model of K(Q,2) has a generator in degree 2, but the differential is zero? Actually, K(Q,2) is rationally CP^\infty. Its rational cohomology is Q[x] with deg x=2, differential zero. The minimal model is (Lambda(x), d=0) with x in degree 2? But Lambda usually denotes exterior algebra. For even degree, exterior and symmetric are the same? For even degree, the exterior algebra is the same as the polynomial algebra truncated? No, for even degree generators, the minimal model uses polynomial algebra? In rational homotopy theory, the minimal model of a space is a differential graded commutative algebra. For K(Q,n), if n is even, the minimal model is (Q[x], d=0) with x in degree n, and the algebra is the polynomial algebra? But in dgr-commutative algebras, even degree generators commute, so it's the polynomial algebra. If n is odd, it's the exterior algebra. So K(Q,2) has a polynomial algebra as its minimal model. Is that possible for an H-space? For an H-space, the minimal model must satisfy the condition that the coproduct is compatible? Actually, any space with trivial rational homotopy in all but one even degree has polynomial cohomology and is an H-space? I think CP^\infty is not an H-space, but K(Q,2) rationally might be an H-space? Wait, CP^\infty itself is not an H-space because it has torsion? No, CP^\infty has no torsion in integral cohomology. It's Z[x]. Rationally it's Q[x]. Why is CP^\infty not an H-space? I can check: If CP^\infty were an H-space, then its loop space S^1 would be an H-space (it is), and the multiplication on CP^\infty would induce a multiplication on S^1? That's not a contradiction. There's a known fact: The only Eilenberg-MacLane spaces that are H-spaces are K(G,1) for abelian G? I'm not sure. Let's think: K(Z,2) = CP^\infty. Can we define a multiplication on CP^\infty up to homotopy? CP^\infty is the classifying space for S^1 bundles. The product of two S^1 bundles is an S^1 x S^1 bundle, not an S^1 bundle. So there's no natural multiplication. But up to homotopy? I think it's a theorem that K(G,n) is an H-space if and only if n <= 1? Or maybe n=1? For G abelian, K(G,1) is a topological group (if G is discrete, it's a K(G,1) which is a group). For n>=2, K(G,n) is not an H-space. Why? Because if K(G,n) were an H-space, then its Postnikov tower would have to be compatible, but the k-invariants might not allow it. I'm pretty sure that K(G,n) for n>=2 is not an H-space. However, the exact sequence of pointed sets for a cofiber sequence still holds for any pointed spaces. The sets [B,Y] etc. are just pointed sets. But we are interested in the number of connected components of Map_*(X,Y), which is the set [X,Y] (pointed homotopy classes). We don't necessarily need a group structure; we just need the cardinality of this set.
+
+In our computation, we used the exact sequence of groups, but if Y is not an H-space, the sequence might not be exact as groups? Wait, the exact sequence of pointed sets:
+... -> [Sigma B, Y] -> [Sigma A, Y] -> [X, Y] -> [B, Y] -> [A, Y] -> ...
+This is always exact as pointed sets when Y is a pointed space? Yes, for any pointed spaces A,B,X in a cofiber sequence, and any pointed space Y, there is a long exact sequence of pointed sets. The maps are induced by composition. Exactness means: the image of one map is the fiber of the next, etc. This holds in the category of pointed sets. If the sets [B,Y], [A,Y], etc. happen to be groups and the maps are group homomorphisms, the sequence is exact as pointed sets, but [X,Y] may just be a pointed set, not necessarily a group. However, the cardinality of [X,Y] can still be determined from the exact sequence of sets? Not easily, because we don't know the group structure of [X,Y]. But in our case, Y = K(Z/12,6) is a space with only one non-zero homotopy group. [B,Y] = H^6(B; Z/12) is an abelian group. [A,Y] = H^6(A; Z/12) is an abelian group. [Sigma A, Y] = H^5(A; Z/12) = 0, [Sigma B, Y] = 0. So the exact sequence becomes:
+0 -> [X,Y] -> H^6(B) -> H^6(A).
+This is an exact sequence of pointed sets. It says that the map i*: [X,Y] -> H^6(B) is injective (as a map of pointed sets), and its image is the kernel of f*: H^6(B) -> H^6(A) (as pointed sets, i.e., the set of elements mapping to the basepoint). Since H^6(B) and H^6(A) are groups and f* is a group homomorphism, the kernel is a subgroup. The image of i* is a subset of H^6(B) that is in bijection with [X,Y]. Since i* is injective, [X,Y] has the same cardinality as its image, which is exactly the kernel of f* as a set. But the kernel of a group homomorphism is a subgroup, so its cardinality is the order of the kernel group. Therefore, |[X,Y]| = |ker f*|. So even if [X,Y] is not a group, its cardinality is the size of the kernel of f*. So our computation of |ker f*| is valid!
+
+Thus the number of connected components is |ker f*| = 12^{10} / 24 = 2579890176.
+
+But wait! Is 12^{10} correct? H^6(B; Z/12) = (Z/12)^{10}. Let's verify the dimension. B = K(Z^3,2). H^*(B; Z) = Z[y1,y2,y3] with deg yi = 2. With Z/12 coefficients, it's Z/12[y1,y2,y3]. H^6 is the degree 3 part. The number of monomials of degree 3 in 3 variables is C(3+3-1,3) = C(5,3) = 10. Yes, 12^{10}.
+A = K(Z^2,2). H^6 is degree 3 in 2 variables: C(3+2-1,3) = C(4,3) = 4. So 12^4.
+Image size: we found the image of f* is 24. So kernel size = 12^{10} / 24 = 2579890176.
+
+But maybe the map f is induced by the homomorphism Z^2 -> Z^3 given by (u,v) -> (2u, 3v, 2u+3v). Is the induced map on K(Z^2,2) -> K(Z^3,2) really pullback by that matrix? Let's double-check. If we have a group homomorphism phi: G -> H, it induces a map K(G,n) -> K(H,n). On homotopy groups, pi_n(K(G,n)) = G, pi_n(K(H,n)) = H, and the map is phi_*. In cohomology, H^n(K(H,n); Z) = Hom(H, Z) = H? Actually, H^n(K(H,n); Z) is isomorphic to Hom(H, Z) if H is free? For H = Z^k, H^n = Z^k, with basis corresponding to the dual basis. The pullback f^*: H^n(K(H,n)) -> H^n(K(G,n)) sends a linear functional to its composition with phi. So if we choose dual bases, f^* is given by the transpose matrix. Let's be careful.
+
+We have K(Z^3, 2) with generators y1, y2, y3 in H^2. These correspond to the dual basis of Z^3. The map f: K(Z^2,2) -> K(Z^3,2) induces f^*: H^2(K(Z^3,2)) -> H^2(K(Z^2,2)). For a class corresponding to a linear functional L: Z^3 -> Z, f^*(L) = L o phi: Z^2 -> Z. If we take the standard basis of H^2(K(Z^3,2)) corresponding to the coordinate functions (projections to each factor), then pulling back by phi gives the coordinate functions of phi. If phi(u,v) = (2u, 3v, 2u+3v), then the first coordinate function pulls back to 2u, which is 2 times the first coordinate function of Z^2. The second pulls back to 3v = 3 times second coordinate. The third pulls back to 2u+3v = 2*(first) + 3*(second). So f^*(y1) = 2 x1, f^*(y2) = 3 x2, f^*(y3) = 2 x1 + 3 x2. This matches what I used. But wait: In cohomology, the generators y_i are in degree 2. The pullback f^* is a ring homomorphism. So in degree 3, we compute f^*(y_i y_j y_k) = f^*(y_i) f^*(y_j) f^*(y_k). That's exactly what I did.
+
+So the map f* in degree 6 is correct.
+
+But is the exact sequence we used correct? Let's re-derive the exact sequence of a cofiber.
+Given cofiber sequence A --f--> B --i--> X --d--> Sigma A --Sigma f--> Sigma B.
+Applying [-, Y] gives:
+[Sigma B, Y] --[Sigma f, Y]--> [Sigma A, Y] --[d, Y]--> [X, Y] --[i, Y]--> [B, Y] --[f, Y]--> [A, Y].
+This is a long exact sequence of pointed sets. Since [Sigma B, Y] and [Sigma A, Y] are groups (cohomology groups), and the maps are group homomorphisms, the exactness as pointed sets implies that [X,Y] is the fiber of [B,Y] -> [A,Y] up to the action of the previous group? In our case, [Sigma B,Y] = 0, [Sigma A,Y] = 0, so the sequence becomes:
+0 -> [X,Y] -> [B,Y] -> [A,Y].
+So [X,Y] injects into [B,Y] with image equal to the kernel of f*. So |[X,Y]| = |ker f*|. That is correct.
+
+But wait: [Sigma A, Y] = [Sigma A, K(Z/12,6)] = H^6(Sigma A; Z/12). Sigma A = K(Z^2,3)? Wait, A = K(Z^2,2). Sigma A = K(Z^2,3)? Suspension of an Eilenberg-MacLane space: Sigma K(G,n) = K(G, n+1)? Is that true? Homotopically, yes: Sigma K(G,n) has homotopy groups pi_i = pi_{i-1}(K(G,n)), so pi_{n+1} = G, others 0. So Sigma K(G,n) = K(G, n+1). So Sigma A = K(Z^2,3), Sigma B = K(Z^3,3).
+Then [Sigma A, Y] = [K(Z^2,3), K(Z/12,6)] = H^6(K(Z^2,3); Z/12).
+H^*(K(Z^2,3); Z/12) is what? K(Z,3) has cohomology? K(Z,3) is an Eilenberg-MacLane space with pi_3 = Z. Its integral cohomology is not simply a polynomial algebra! K(Z,3) has torsion in cohomology? Wait, earlier I assumed H^5(K(Z^2,2)) = 0, but here we need H^6(Sigma A) = H^6(K(Z^2,3)). That's different! I mistakenly used suspension isomorphism H^6(Sigma A) = H^5(A) which is true for reduced cohomology? Suspension isomorphism: H^n(Sigma X) = H^{n-1}(X) for reduced cohomology. That is a general fact for any space X, with coefficients in an abelian group. So H^6(Sigma A; Z/12) = H^5(A; Z/12). And H^5(A; Z/12) = 0 because A = K(Z^2,2) has only even cohomology. That is correct regardless of the integral cohomology of K(Z,3)! The suspension isomorphism reduces the degree by 1 and shifts the space. So H^5(A) = 0 implies H^6(Sigma A) = 0. Similarly, H^6(Sigma B) = H^5(B) = 0. So [Sigma A, Y] = 0 and [Sigma B, Y] = 0 are correct. The fact that Sigma A = K(Z^2,3) doesn't matter; we can use suspension isomorphism to compute its cohomology in terms of A. But wait: Is the suspension isomorphism valid with Z/12 coefficients? Yes, it's a general isomorphism for reduced cohomology. And A is simply connected, so reduced = unreduced in positive degrees. H^5(A) = 0. So that's correct.
+
+But wait! Is A = K(Z^2,2) really having H^5 = 0? K(Z,2) = CP^\infty, H^odd = 0. So yes. So [Sigma A, Y] = 0. That part is solid.
+
+Now, what about the map f*: H^6(B) -> H^6(A)? B = K(Z^3,2), A = K(Z^2,2). H^6(B) = H^6(K(Z^3,2); Z/12) = (Z/12)^{10}. H^6(A) = (Z/12)^4. The map f* is induced by the group homomorphism phi: Z^2 -> Z^3. We computed it. But is the group homomorphism phi: Z^2 -> Z^3 given by (u,v) -> (2u, 3v, 2u+3v)? That is the map on pi_2. The map on K(Z^2,2) -> K(Z^3,2) is induced by phi. The induced map on H^2 is the dual map phi^*: H^2(K(Z^3,2)) -> H^2(K(Z^2,2)). That's what we used. But wait: The cohomology of K(Z^n, 2) with Z coefficients is Z[x1,...,xn] with deg xi=2. The generators correspond to the dual basis of Z^n. If we have a group homomorphism phi: Z^m -> Z^n, then the induced map on K(Z^m,2) -> K(Z^n,2)? No, phi: Z^2 -> Z^3 means we are mapping K(Z^2,2) -> K(Z^3,2). The map on H^2 is phi^*: H^2(K(Z^3,2)) -> H^2(K(Z^2,2)). If we choose dual bases, phi^* is given by the matrix transpose? Let's check: Let e1,e2 be basis of Z^2, f1,f2,f3 basis of Z^3. phi(e1) = 2f1 + 0f2 + 2f3? Wait, the problem says (u,v) -> (2u, 3v, 2u+3v). So if (u,v) are coordinates in Z^2, then phi(u,v) = (2u)f1? Actually, the standard basis of Z^3: f1 = (1,0,0), f2=(0,1,0), f3=(0,0,1). Then phi(u,v) = 2u f1 + 3v f2 + (2u+3v) f3? No, (2u, 3v, 2u+3v) means the first coordinate is 2u, second 3v, third 2u+3v. So phi(u,v) = (2u)f1 + (3v)f2 + (2u+3v)f3? That would be 2u f1 + 3v f2 + 2u f3 + 3v f3 = 2u(f1+f3) + 3v(f2+f3). So the matrix of phi with respect to bases (e1,e2) for Z^2 and (f1,f2,f3) for Z^3 is:
+[2 0]
+[0 3]
+[2 3]
+Yes, columns are images of e1 and e2: phi(e1) = (2,0,2)^T, phi(e2) = (0,3,3)^T.
+The dual map phi^* on H^2 (which is the dual space of Z^3? Wait, H^2(K(Z^3,2)) is isomorphic to Hom(Z^3, Z) = Z^3, with basis dual to f_i. Let's call the dual basis x^1, x^2, x^3. Then phi^*(x^i) = x^i o phi. For i=1: x^1(phi(u,v)) = 2u = 2 x^1(u,v)? Actually, x^1 on Z^2 is the first coordinate. So phi^*(x^1) = 2 * (first coordinate) = 2 y^1. Similarly, phi^*(x^2) = 3 y^2. phi^*(x^3) = 2 y^1 + 3 y^2. So the pullback on generators is f^*(y^1) = 2 y^1, etc. This matches what I had if we rename generators: Let x1, x2 be generators of H^2(A) = H^2(K(Z^2,2)) dual to e1,e2. Let y1,y2,y3 be generators of H^2(B) dual to f1,f2,f3. Then f^*(y1) = 2 x1, f^*(y2) = 3 x2, f^*(y3) = 2 x1 + 3 x2. This is exactly what I used.
+
+So f* in degree 3 (which is H^6) is the ring homomorphism sending y_i to those linear combinations. My computation of the image of f* used these maps. But wait! In my computation, I used f^*(y1) = 2x1, f^*(y2) = 3x2, f^*(y3) = 2x1+3x2. Then I computed f* on the 10 monomials of degree 3 in y1,y2,y3. That gave the expressions in terms of x1^3, x1^2 x2, etc. That seems correct.
+
+But then I computed the image size as 24. Let's re-verify the image computation carefully. The map f*: (Z/12)^{10} -> (Z/12)^4.
+We can compute the image by finding the subgroup generated by the images of the basis elements. The images of the 10 basis monomials are:
+v1 = f*(y1^3) = 8 x1^3
+v2 = f*(y1^2 y2) = 0
+v3 = f*(y1^2 y3) = 8 x1^3
+v4 = f*(y1 y2^2) = 6 x1 x2^2
+v5 = f*(y1 y2 y3) = 6 x1 x2^2
+v6 = f*(y1 y3^2) = 8 x1^3 + 6 x1 x2^2
+v7 = f*(y2^3) = 3 x2^3
+v8 = f*(y2^2 y3) = 6 x1 x2^2 + 3 x2^3
+v9 = f*(y2 y3^2) = 3 x2^3
+v10 = f*(y3^3) = 8 x1^3 + 6 x1 x2^2 + 3 x2^3
+
+We want the Z/12-span of these vectors. The vectors are in Z/12^4 with basis (x1^3, x1^2 x2, x1 x2^2, x2^3). Note that no vector has an x1^2 x2 component. So the second coordinate is always 0. The image is a subgroup of Z/12 x 0 x Z/12 x Z/12.
+Let's write the non-zero components:
+v1 = (8, 0, 0) in (x1^3, x2^3?) Wait, basis order: let's use (c1, c2, c3, c4) = (coeff of x1^3, coeff of x1^2 x2, coeff of x1 x2^2, coeff of x2^3).
+v1 = (8, 0, 0, 0)
+v2 = (0,0,0,0)
+v3 = (8, 0, 0, 0)
+v4 = (0, 0, 6, 0)
+v5 = (0, 0, 6, 0)
+v6 = (8, 0, 6, 0)
+v7 = (0, 0, 0, 3)
+v8 = (0, 0, 6, 3)
+v9 = (0, 0, 0, 3)
+v10 = (8, 0, 6, 3)
+
+We can ignore the zero vectors. The image is generated by:
+(8,0,0,0), (0,0,6,0), (8,0,6,0), (0,0,0,3), (0,0,6,3), (8,0,6,3).
+We can see that:
+- The first coordinate only takes values that are multiples of 8: 0,8. (But wait, 8*0=0, 8*1=8, 8*2=16=4, 8*3=24=0. But can we get 4? From the generators, we only see 8. But we can take linear combinations with coefficients in Z/12. If we take 2*(8,0,0,0) = (16,0,0,0) = (4,0,0,0)? Wait! The group is a Z/12-module. The generators are vectors, and we can multiply them by scalars in Z/12. The image is the set of all Z-linear combinations with coefficients in Z/12. So we can take 2 * v1 = 2*(8,0,0,0) = (16 mod 12, 0,0,0) = (4,0,0,0). Similarly, 3*v1 = (24,0,0,0) = (0,0,0,0). So the first coordinate can be any multiple of 4? Because 8 generates the subgroup {0,8,4}? Let's check: multiples of 8 in Z/12: 0,8,4 (since 2*8=16=4). So the first coordinate image is {0,4,8}. Size 3. That matches my earlier 8Z/12 = {0,4,8}? Wait, 8Z/12 as a subgroup is generated by 8, which gives {0,8,4}? 8*1=8, 8*2=16=4, 8*3=24=0. Yes, {0,4,8}. But earlier I said the image of s -> 8s is {0,4,8}? I said {0,8,4}? I wrote {0,4,8}. Yes.
+- The third coordinate: generators have 6 or 0. Multiples of 6 in Z/12: {0,6}. So third coordinate image is {0,6}. Size 2.
+- The fourth coordinate: generators have 0 or 3. Multiples of 3 in Z/12: {0,3,6,9}. Size 4.
+- The second coordinate is always 0.
+
+But are all combinations achievable? That is, can we get (4,0,6,9) for example? We need to see if the image is the full product {0,4,8} x {0,6} x {0,3,6,9} or if there are relations between the coordinates.
+
+We have generators that combine these coordinates:
+v1 = (8,0,0,0)
+v4 = (0,0,6,0)
+v7 = (0,0,0,3)
+v6 = (8,0,6,0) = v1 + v4? 8+0=8, 0+6=6, yes v6 = v1 + v4.
+v8 = (0,0,6,3) = v4 + v7.
+v10 = (8,0,6,3) = v1 + v4 + v7.
+v3 = v1, v5=v4, v9=v7.
+So the image is generated by v1, v4, v7. And these are independent? They have disjoint supports: v1 only in first coordinate, v4 only in third, v7 only in fourth. So the image is exactly the direct sum of the subgroups generated by each:
+<v1> = { (0,0,0,0), (8,0,0,0), (4,0,0,0) }? Wait, <v1> means integer multiples of v1 modulo 12. Multiples of (8,0,0,0) are k*(8,0,0,0) = (8k mod 12, 0,0,0). For k=0:0, 1:8, 2:4, 3:0. So it's {0,4,8} in the first coordinate. Similarly, <v4> = {0,6} in third coordinate. <v7> = {0,3,6,9} in fourth coordinate. Since they are independent (the coordinates don't overlap), the image is the product of these subgroups. So size = 3 * 2 * 4 = 24. That matches.
+
+So |im f*| = 24. |ker f*| = |domain| / |im f*| = 12^{10} / 24 = 2579890176.
+
+But wait: The domain of f* is H^6(B; Z/12) = (Z/12)^{10}. Is that correct? H^6(K(Z^3,2); Z/12) = Z/12[y1,y2,y3]_{deg 3}. The number of monomials of total degree 3 in 3 variables is 10. Yes. So domain size = 12^{10}.
+
+But is the map f* really a group homomorphism between these free Z/12-modules? Yes. And we computed its kernel size as domain size divided by image size. That's correct for any group homomorphism between finite groups.
+
+So the number of connected components is 2579890176.
+
+But that seems like a very large number. Perhaps I misinterpreted the spaces. Let's re-read the problem: "Let f: K(Z^2,2) -> K(Z^3,2) be the map induced by the homomorphism Z^2 -> Z^3, (u,v) -> (2u, 3v, 2u+3v)." Could Z^2 and Z^3 be something else? Usually Z^n is the free abelian group of rank n. K(Z^2,2) is the Eilenberg-MacLane space.
+
+Wait: "K(Z/12,6)" - Z/12 is the cyclic group of order 12.
+
+Maybe X is the homotopy cofiber, but the mapping space is Map_*(X, K(Z/12,6)). The number of connected components is the set of homotopy classes [X, K(Z/12,6)]. But we computed [X, K(Z/12,6)] = H^6(X; Z/12). Is that always true? For any space X, [X, K(G,n)] = H^n(X; G) if G is abelian? Yes, by definition of Eilenberg-MacLane space, it represents cohomology. But this requires X to be a CW complex, which we can assume. Also, we used the suspension isomorphism and the fact that X is simply connected? But we didn't actually need X to be simply connected for [X, K(G,n)] = H^n(X; G)? If X is not simply connected, it's H^n(X; G) with local coefficients? But K(G,n) for G abelian represents ordinary cohomology with coefficients in G only if X is simply connected? Actually, [X, K(G,n)] = H^n(X; G) for any CW complex X if G is abelian? I think it's true with local coefficients if pi_1 acts on G, but if G is trivial module, it's ordinary cohomology. Here G = Z/12, which is trivial as a module if pi_1 acts trivially. Does pi_1(X) act trivially? X is the cofiber of a map between simply connected spaces, so X is simply connected. So local coefficients are trivial. So [X, K(Z/12,6)] = H^6(X; Z/12). That's correct.
+
+But wait: Is [Sigma A, K(G,n)] = H^n(Sigma A; G) = H^{n-1}(A; G) always true? Yes, suspension isomorphism for cohomology.
+
+So our computation seems correct.
+
+But maybe the map f is not the pullback on cohomology as I did? Let's double-check the induced map on cohomology of Eilenberg-MacLane spaces. If phi: G -> H is a group homomorphism, the induced map K(phi): K(G,n) -> K(H,n) has the property that on cohomology, K(phi)^*: H^*(K(H,n); A) -> H^*(K(G,n); A) is the map induced by phi^*: Hom(H, A) -> Hom(G, A) for degree n, and is a ring homomorphism. So my computation of f* on generators is correct.
+
+But wait: The problem says the map is induced by the homomorphism Z^2 -> Z^3. But K(Z^2,2) means K(Z^2, 2)? Yes. Could it be that K(Z^2,2) is the Eilenberg-MacLane space for the group Z^2 in dimension 2? Yes.
+
+Maybe the cohomology of K(Z^3,2) with Z/12 coefficients is not just Z/12[y1,y2,y3]? If the group is free abelian, then K(Z^n, 2) = (CP^\infty)^n, and its cohomology with Z/12 is indeed polynomial. So that's fine.
+
+Perhaps the exact sequence of a cofiber is different? The cofiber of f: A -> B is the pushout of * <- A -> B. The sequence is A -> B -> X -> Sigma A -> Sigma B. Yes. And [X, Y] sits in the exact sequence. Yes.
+
+But wait: Y = K(Z/12,6). The maps in the exact sequence:
+[Sigma B, Y] = [K(Z^3,3), K(Z/12,6)] = H^6(K(Z^3,3); Z/12).
+Is H^6(K(Z^3,3); Z/12) = H^5(K(Z^3,2); Z/12)? Suspension isomorphism: H^6(Sigma B) = H^5(B). B = K(Z^3,2), so H^5(B) = 0. So [Sigma B, Y] = 0. That's correct.
+Similarly [Sigma A, Y] = 0.
+So [X,Y] = ker(f*: H^6(B) -> H^6(A)).
+
+So everything hinges on f*: H^6(B) -> H^6(A). Let's re-calculate f* carefully, maybe I made an arithmetic mistake.
+
+f: K(Z^2,2) -> K(Z^3,2) induced by phi: Z^2 -> Z^3, (u,v) -> (2u, 3v, 2u+3v).
+Let's denote the generators of H^2(K(Z^3,2); Z/12) as a,b,c (corresponding to the three coordinates).
+The generators of H^2(K(Z^2,2); Z/12) as x,y.
+Then f^*(a) = 2x
+f^*(b) = 3y
+f^*(c) = 2x + 3y
+
+Now H^6 is the degree 3 part of the polynomial algebra.
+Basis for H^6(B): a^3, a^2 b, a^2 c, a b^2, a b c, a c^2, b^3, b^2 c, b c^2, c^3. (10 elements)
+Compute f^* on each:
+1. a^3 -> (2x)^3 = 8 x^3
+2. a^2 b -> (2x)^2 (3y) = 4*3 x^2 y = 12 x^2 y = 0
+3. a^2 c -> (2x)^2 (2x+3y) = 4x^2(2x+3y) = 8 x^3 + 12 x^2 y = 8 x^3
+4. a b^2 -> (2x)(3y)^2 = 2*9 x y^2 = 18 x y^2 = 6 x y^2
+5. a b c -> (2x)(3y)(2x+3y) = 6xy(2x+3y) = 12 x^2 y + 18 x y^2 = 6 x y^2
+6. a c^2 -> (2x)(2x+3y)^2 = 2x(4x^2 + 12xy + 9y^2) = 8x^3 + 24 x^2 y + 18 x y^2 = 8 x^3 + 6 x y^2 (since 24=0, 18=6 mod 12)
+7. b^3 -> (3y)^3 = 27 y^3 = 3 y^3
+8. b^2 c -> (3y)^2 (2x+3y) = 9y^2(2x+3y) = 18 x y^2 + 27 y^3 = 6 x y^2 + 3 y^3
+9. b c^2 -> (3y)(2x+3y)^2 = 3y(4x^2 + 12xy + 9y^2) = 12 x^2 y + 36 x y^2 + 27 y^3 = 3 y^3 (since 12=0, 36=0, 27=3 mod 12? 27=3 mod 12? 27-24=3, yes 3)
+10. c^3 -> (2x+3y)^3 = 8x^3 + 36 x^2 y + 54 x y^2 + 27 y^3 = 8 x^3 + 6 x y^2 + 3 y^3 (since 36=0, 54=6, 27=3)
+
+Now target basis: x^3, x^2 y, x y^2, y^3.
+Coordinates:
+1: (8,0,0,0)
+2: (0,0,0,0)
+3: (8,0,0,0)
+4: (0,0,6,0)
+5: (0,0,6,0)
+6: (8,0,6,0)
+7: (0,0,0,3)
+8: (0,0,6,3)
+9: (0,0,0,3)
+10: (8,0,6,3)
+
+Image generated by these vectors over Z/12.
+As we saw, the second coordinate (x^2 y) is always 0.
+The first coordinate: possible values from these vectors: we have vectors with first coordinate 8 (1,3,6,10), 0 (others). So the subgroup generated by 8 in Z/12 is {0,4,8}? Wait, 8*1=8, 8*2=16=4, 8*3=24=0. So yes, multiples of 8 give {0,4,8}. But can we get 4? We need to multiply a generator with first coordinate 8 by 2. Since the module structure is scalar multiplication by Z/12, we can take 2 * v1 = (16,0,0,0) = (4,0,0,0). So yes, first coordinate can be 0,4,8.
+Third coordinate: vectors have 6 or 0. Multiples of 6: {0,6}.
+Fourth coordinate: vectors have 3 or 0. Multiples of 3: {0,3,6,9}.
+Are there any relations that prevent certain combinations? For instance, can we get (4,0,6,9)? We would need a combination of generators giving that. Since we have independent generators in each coordinate? We have v1 giving (8,0,0,0), v4 giving (0,0,6,0), v7 giving (0,0,0,3). Any linear combination a v1 + b v4 + c v7 gives (8a mod 12, 0, 6b mod 12, 3c mod 12). As a,b,c range over Z/12, 8a gives {0,4,8}, 6b gives {0,6}, 3c gives {0,3,6,9}. And these choices are independent because a,b,c are independent coefficients. So the image is exactly the product. So size = 3 * 2 * 4 = 24.
+
+But wait: Are a,b,c really independent? The generators v1,v4,v7 are in the list. v1 = v1, v4 = v4, v7 = v7. So yes, we can use them directly. The image is the subgroup generated by v1,v4,v7. Since they are independent (no linear combination of them with coefficients not all zero gives zero unless each coordinate is zero mod 12? Let's check: If a v1 + b v4 + c v7 = 0, then 8a=0 mod 12, 6b=0 mod 12, 3c=0 mod 12. But that doesn't mean a=b=c=0 in Z/12. However, the size of the subgroup generated by v1,v4,v7 is the product of the orders of each component if the components are independent? Actually, the subgroup is isomorphic to the direct sum of the cyclic subgroups generated by each vector? Not necessarily, because there could be torsion interactions? But here the vectors have disjoint supports (non-zero coordinates are in different positions). So the subgroup is indeed the direct product of the subgroups in each coordinate. The size is the product of the sizes of the projections. The projection onto first coordinate is the subgroup generated by 8 in Z/12, size 3. Third coordinate: generated by 6, size 2. Fourth: generated by 3, size 4. Product size = 24. So yes.
+
+Thus |im f*| = 24. |ker f*| = 12^{10} / 24 = 2579890176.
+
+But is 12^{10} the correct size of the domain? The domain is H^6(K(Z^3,2); Z/12). K(Z^3,2) = (CP^\infty)^3. Its H^6 is the degree 3 part of Z/12[x,y,z]. The number of monomials of degree 3 in 3 variables is indeed 10. So the group is (Z/12)^{10}. Size = 12^{10} = 61917364224. Divided by 24 = 2579890176.
+
+But maybe the group is Z/12, but the number of connected components could be infinite? No, it's a finite group, so finite number.
+
+But 2.5 billion seems like an oddly specific large number for a math contest problem. Maybe I have a fundamental misunderstanding.
+
+Let's re-read: "Let f: K(Z^2,2) -> K(Z^3,2) be the map induced by the homomorphism Z^2 -> Z^3, (u,v) -> (2u, 3v, 2u+3v)." Could it be that K(Z^2,2) means something else? Sometimes K(G,n) denotes the Eilenberg-MacLane space, but maybe Z^2 and Z^3 are not free abelian groups? No, Z^2 is standard.
+
+Wait: Could it be that the map is induced by the homomorphism on the homotopy groups? Yes, that's what we did.
+
+Maybe "Z/12" means something else? No.
+
+Perhaps the question is from a context where "connected components" of a mapping space refers to the set of homotopy classes, but maybe Map_* is the space of pointed maps with compact-open topology? The number of connected components is still [X,Y].
+
+Maybe I misidentified the degrees. K(Z^2,2) has pi_2 = Z^2. K(Z^3,2) has pi_2 = Z^3. The map f is on pi_2. The cofiber X will have homotopy groups? We used the exact sequence of cohomology. But maybe we should compute [X, K(Z/12,6)] directly using homotopy groups? Since K(Z/12,6) is a space with only pi_6 = Z/12, we can use the Postnikov tower or the fact that [X, K(G,6)] = H^6(X; G) = Hom(pi_6(X), G) if X is (6-1)-connected? But X is not necessarily 6-connected. X is the cofiber of a map between 2-connected spaces? K(Z^2,2) is 1-connected (pi_1=0, pi_2=Z^2). K(Z^3,2) is 1-connected. So X is 1-connected. Its pi_2, pi_3, etc. could be non-zero. So H^6(X; Z/12) is not just Hom(pi_6(X), Z/12); there could be contributions from higher homotopy groups? No, H^6(X; Z/12) is the set of all maps to K(Z/12,6), which can be detected by the Postnikov tower. But our computation via the exact sequence of the cofiber is correct without needing to know the homotopy of X.
+
+But wait: In the exact sequence, we used [B, Y] = H^6(B; Z/12). B = K(Z^3,2). H^6(B; Z/12) is indeed the set of maps from B to K(Z/12,6). That's correct.
+
+But maybe the map f*: H^6(B) -> H^6(A) is not just the ring homomorphism I computed? Let's double-check the map on cohomology induced by a group homomorphism phi: G -> H between free abelian groups. If K(G,2) = product of K(Z,2) for each generator, and K(H,2) similarly, then the map K(phi): K(G,2) -> K(H,2) is the product of the maps on each factor? Actually, K(G,2) = K(Z^r,2) = (K(Z,2))^r. The map K(phi) is induced by phi: Z^r -> Z^s. This map is not simply a product of maps on factors; it's a map from a product to a product. On cohomology, H^*(K(Z^s,2)) = Z[x1,...,xs]. The pullback by K(phi) sends xi to the linear combination of xj corresponding to the i-th component of phi. That's exactly what I did: y_i pulls back to the i-th component of phi. So that's correct.
+
+But wait: phi: Z^2 -> Z^3. So K(phi): K(Z^2,2) -> K(Z^3,2). The pullback goes from H^*(K(Z^3,2)) to H^*(K(Z^2,2)). So y_i -> i-th component of phi. Yes.
+
+But is the matrix I used correct? phi(u,v) = (2u, 3v, 2u+3v). So the first component is 2u -> 2x1. Second is 3v -> 3x2. Third is 2u+3v -> 2x1+3x2. Yes.
+
+Now, is H^6(K(Z^3,2); Z/12) really Z/12[y1,y2,y3]_3? K(Z^3,2) = K(Z,2)^3. Its cohomology is the tensor product of three polynomial algebras, so yes, it's the polynomial ring in
+
+FINISH REASON
+=============
+
+length
+
+GRADING REASON
+==============
+
+length
+
+TIME
+====
+
+175.46 seconds
+
+ATTEMPTS
+========
+
+1

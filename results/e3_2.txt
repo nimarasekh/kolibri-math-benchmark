@@ -1,0 +1,74 @@
+QUESTION
+========
+
+In Set, let
+X -> Z <- Y
+with Z = {0,1}. Suppose
+|f^{-1}(0)| = 2, |f^{-1}(1)| = 1,
+and
+|g^{-1}(0)| = 3, |g^{-1}(1)| = 1.
+
+How many elements does the pullback X x_Z Y have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are given a pullback diagram:
+
+X -> Z <- Y
+
+with Z = {0,1}. So Z has two elements: 0 and 1.
+
+f: X -> Z, g: Y -> Z.
+
+We are given:
+|f^{-1}(0)| = 2, |f^{-1}(1)| = 1. So X has total 3 elements.
+|g^{-1}(0)| = 3, |g^{-1}(1)| = 1. So Y has total 4 elements.
+
+Pullback (fiber product) X ×_Z Y is the set of pairs (x, y) in X × Y such that f(x) = g(y).
+
+So we need to count the number of pairs (x, y) with f(x) = g(y).
+
+Since Z = {0,1}, we can count pairs where f(x) = g(y) = 0 plus pairs where f(x) = g(y) = 1.
+
+For value 0: number of x with f(x) = 0 is 2. Number of y with g(y) = 0 is 3. Number of pairs = 2 * 3 = 6.
+
+For value 1: number of x with f(x) = 1 is 1. Number of y with g(y) = 1 is 1. Number of pairs = 1 * 1 = 1.
+
+Total pairs = 6 + 1 = 7.
+
+Thus the answer is 7.
+
+I need to output just the integer.
+
+
+ANSWER
+======
+
+
+
+7
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+2.09 seconds
+
+ATTEMPTS
+========
+
+1

@@ -1,0 +1,8 @@
+Let [n] denote the category associated to the linearly ordered set
+0 < 1 < ... < n.
+
+How many functors
+[2] -> [3]
+are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

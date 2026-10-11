@@ -1,0 +1,27 @@
+Let
+\[
+\mathrm{Fin}^{\simeq}
+\]
+denote the symmetric monoidal \(\infty\)-groupoid of finite sets and bijections, with monoidal structure given by disjoint union.
+
+Its underlying \(E_\infty\)-space is
+\[
+X\simeq \coprod_{n\ge 0} B\Sigma_n.
+\]
+
+Let
+\[
+X^{\mathrm{gp}}
+\]
+denote its group completion as an \(E_\infty\)-space, and let
+\[
+(X^{\mathrm{gp}})_0
+\]
+be the connected component containing the unit.
+
+What is the order of the finite group
+\[
+\pi_7\bigl((X^{\mathrm{gp}})_0\bigr)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

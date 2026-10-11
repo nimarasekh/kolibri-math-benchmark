@@ -1,0 +1,85 @@
+Answer: 36
+
+Write
+\[
+A=\mathbb Z/12\oplus\mathbb Z/20,\qquad
+B=\mathbb Z/18\oplus\mathbb Z/30,\qquad
+D=\mathbb Z/24.
+\]
+The cofiber sequence
+\[
+HA\longrightarrow HB\longrightarrow C\longrightarrow\Sigma HA
+\]
+gives, after mapping into \(\Sigma HD\), an exact sequence
+\[
+\operatorname{Hom}(B,D)
+\longrightarrow
+\operatorname{Hom}(A,D)
+\longrightarrow
+[C,\Sigma HD]
+\longrightarrow
+\operatorname{Ext}^1(B,D)
+\longrightarrow
+\operatorname{Ext}^1(A,D).
+\]
+
+Thus the order of
+\[
+[C,\Sigma HD]
+=
+\pi_0\operatorname{Map}(C,\Sigma HD)
+\]
+is the product of
+
+1. the order of the cokernel of
+\[
+\operatorname{Hom}(B,D)\to\operatorname{Hom}(A,D),
+\]
+and
+
+2. the order of the kernel of
+\[
+\operatorname{Ext}^1(B,D)\to\operatorname{Ext}^1(A,D).
+\]
+
+For the first summand, precomposition with
+\[
+\mathbb Z/12\to\mathbb Z/18,\qquad x\mapsto3x
+\]
+gives a Hom-map whose cokernel has order \(6\).
+
+For the second summand,
+\[
+\mathbb Z/20\to\mathbb Z/30,\qquad y\mapsto3y,
+\]
+the corresponding Hom-map has cokernel of order \(2\).
+
+Hence the total Hom-cokernel has order
+\[
+6\cdot2=12.
+\]
+
+For Ext, use
+\[
+\operatorname{Ext}^1(\mathbb Z/n,\mathbb Z/24)
+\cong
+\mathbb Z/\gcd(n,24).
+\]
+The first component gives
+\[
+\mathbb Z/6\longrightarrow\mathbb Z/12,
+\qquad x\mapsto2x,
+\]
+which has trivial kernel.
+
+The second gives
+\[
+\mathbb Z/6\longrightarrow\mathbb Z/4,
+\qquad x\mapsto2x,
+\]
+whose kernel has \(3\) elements.
+
+Therefore the Ext-kernel has order \(3\), and the required mapping group
+has order
+\[
+12\cdot3=36.

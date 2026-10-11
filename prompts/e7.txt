@@ -1,0 +1,6 @@
+Let C_4 be the cyclic group of order 4, regarded as a one-object groupoid BC_4.
+
+What is the order of
+pi_1(|N(BC_4)|)?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

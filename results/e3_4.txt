@@ -1,0 +1,61 @@
+QUESTION
+========
+
+In Set, let
+X -> Z <- Y
+with Z = {0,1}. Suppose
+|f^{-1}(0)| = 2, |f^{-1}(1)| = 1,
+and
+|g^{-1}(0)| = 3, |g^{-1}(1)| = 1.
+
+How many elements does the pullback X x_Z Y have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are given a set S = X ×_Z Y, a pullback of functions f: X -> Z and g: Y -> Z, with Z = {0,1}. The pullback is the set of pairs (x, y) in X × Y such that f(x) = g(y). The question asks: How many elements does the pullback X ×_Z Y have?
+
+Given:
+|f^{-1}(0)| = 2, |f^{-1}(1)| = 1.
+|g^{-1}(0)| = 3, |g^{-1}(1)| = 1.
+
+The pullback consists of pairs (x,y) with f(x)=g(y). Since Z = {0,1}, we can compute the number of pairs with f(x)=0 and g(y)=0, plus the number of pairs with f(x)=1 and g(y)=1.
+
+Number of x with f(x)=0 is 2, number of y with g(y)=0 is 3. So there are 2 * 3 = 6 pairs with both 0.
+Number of x with f(x)=1 is 1, number of y with g(y)=1 is 1. So there is 1 * 1 = 1 pair with both 1.
+
+Total = 6 + 1 = 7.
+
+Answer is 7.
+
+
+ANSWER
+======
+
+
+
+7
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+1.82 seconds
+
+ATTEMPTS
+========
+
+1

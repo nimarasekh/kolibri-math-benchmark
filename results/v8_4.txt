@@ -1,0 +1,418 @@
+QUESTION
+========
+
+Work in the stable \(\infty\)-category
+\[
+\operatorname{Mod}_{H\mathbb Z}.
+\]
+
+Let
+\[
+f:
+H(\mathbb Z/12\oplus\mathbb Z/20)
+\longrightarrow
+H(\mathbb Z/18\oplus\mathbb Z/30)
+\]
+be induced by the homomorphism
+\[
+(x,y)\longmapsto(3x,3y).
+\]
+
+Let
+\[
+C=\operatorname{cofib}(f).
+\]
+
+What is the cardinality of
+\[
+\pi_0
+\operatorname{Map}_{\operatorname{Mod}_{H\mathbb Z}}
+\bigl(C,\Sigma H(\mathbb Z/24)\bigr)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are asked to work in the stable ∞-category Mod_{Hℤ}. This is the derived category of abelian groups, or the stable ∞-category of Hℤ-modules, where Hℤ is the Eilenberg-MacLane spectrum of ℤ (the integer spectrum). Objects are abelian groups (or chain complexes) up to homotopy equivalence? Usually, in stable homotopy theory, Hℤ is the Eilenberg-MacLane spectrum, and its modules are abelian groups viewed as discrete spectra, i.e., just abelian groups. The stable ∞-category Mod_{Hℤ} is equivalent to the derived category of abelian groups, or just abelian groups if we consider them as 0-dimensional? Wait, Hℤ-modules are spectra M such that Hℤ ∧ M ≃ M, i.e., M is a spectrum of abelian groups. Usually, the category of Hℤ-modules is equivalent to the category of abelian groups (or chain complexes) with the usual stable structure. In the stable ∞-category, objects are abelian groups, and morphisms are group homomorphisms? Actually, in the derived category of abelian groups, morphisms are chain maps up to homotopy. Since we are in a stable ∞-category, we have shift Σ, and homotopy groups are the usual homology? Wait, Hℤ is the Eilenberg-MacLane spectrum of ℤ. Its homotopy groups are π_n(Hℤ) = ℤ for n=0 and 0 otherwise. An Hℤ-module M is a spectrum such that π_n(M) are abelian groups, but also the module structure? Wait, Hℤ-modules are just spectra, because Hℤ ∧ M ≃ M for any spectrum M? Actually, any spectrum M can be viewed as an Hℤ-module since Hℤ ∧ M ≃ M? That's not true. Hℤ ∧ M is not necessarily M. If M is a spectrum of abelian groups, Hℤ ∧ M is the homology of M? Wait, Hℤ is the Eilenberg-MacLane spectrum for ℤ, i.e., it represents cohomology with coefficients in ℤ. For an Hℤ-module M, the homotopy groups π_n(M) are abelian groups, and the module structure means we have a map Hℤ ∧ M → M inducing identity on π_0. Actually, the stable ∞-category of Hℤ-modules is equivalent to the category of abelian groups with the derived category structure? In the context of stable homotopy theory, Mod_{Hℤ} usually denotes the stable category of spectra module over Hℤ, which is equivalent to the derived category of abelian groups (or chain complexes of abelian groups). But the notation H(ℤ) sometimes means the Eilenberg-MacLane spectrum Hℤ. However, the notation in the problem is H(ℤ/12 ⊕ ℤ/20) etc. That's likely the Eilenberg-MacLane spectrum with coefficients in that group, i.e., H(ℤ/n) is the Eilenberg-MacLane spectrum of the cyclic group ℤ/n. In Mod_{Hℤ}, objects are Hℤ-modules, but H(ℤ/n) is an Hℤ-module? Actually, Hℤ ∧ H(ℤ/n) ≃ H(ℤ/n), so H(ℤ/n) is an Hℤ-module. And the stable category of Hℤ-modules is equivalent to the stable category of abelian groups (i.e., chain complexes of abelian groups up to quasi-isomorphism). But then π_0 Map(C, Σ H(ℤ/24)) is the set of homotopy classes of maps from C to Σ H(ℤ/24) in the stable ∞-category. Since we are in a stable ∞-category of Hℤ-modules, this should be isomorphic to [C, Σ H(ℤ/24)] where brackets denote stable homotopy classes of maps. In the derived category of abelian groups, this is Ext groups? Actually, if we are in the derived category of abelian groups, then Hom(C, Σ H(ℤ/24)) in the derived category corresponds to Ext? Let's recall: The derived category of abelian groups, D(Ab), is equivalent to the stable ∞-category of Hℤ-modules. In D(Ab), the hom-groups Hom(A, B[n]) correspond to Ext^n(A, B). But here we have Map(C, Σ H(ℤ/24)). Σ is the shift functor, which in D(Ab) is the derived shift, increasing degree by 1? Usually Σ shifts the spectrum up by one; in the derived category of chain complexes, Σ A = A[1] (chain shift?). Wait, in stable homotopy theory, Σ X is the suspension spectrum, which shifts homotopy groups down: π_n(Σ X) = π_{n-1}(X). In the derived category of abelian groups, the shift [1] shifts the chain complex one step to the left (or right?). If we consider abelian groups as chain complexes concentrated in degree 0, then their derived category has objects chain complexes, and the shift [1] shifts degrees up by 1. The homotopy groups of an Hℤ-module M are π_n(M) = H_n(M) if M is a spectrum? Actually, for an Eilenberg-MacLane spectrum H A, π_n(H A) = A if n=0, 0 otherwise. For a general Hℤ-module M, π_n(M) = Tor? Wait, the homotopy groups of an Hℤ-module are just the abelian groups π_n(M) = H_n(M) if M is a chain complex? In the derived category, the homotopy groups of an object X are the homology groups H_n(X). For an Eilenberg-MacLane spectrum H A, H_n(H A) = A for n=0, 0 otherwise. Σ H A has homotopy groups H_n(Σ H A) = A for n=-1, 0 otherwise? But in the problem, H(ℤ/n) probably denotes the Eilenberg-MacLane spectrum of the abelian group ℤ/n, so its homotopy groups are ℤ/n in degree 0, and zero elsewhere. Then Σ H(ℤ/24) has homotopy group ℤ/24 in degree -1? That seems odd because usually π_0 of a map from C to something involves the 0th homotopy group of the mapping object. The mapping space Map(C, Σ H(ℤ/24)) is a space, and its π_0 is the set of connected components. This is the set of homotopy classes of maps from C to Σ H(ℤ/24). In the stable ∞-category, [C, Σ H(ℤ/24)] is the set of equivalence classes of maps.
+
+Now, C = cofib(f), where f: H(ℤ/12 ⊕ ℤ/20) → H(ℤ/18 ⊕ ℤ/30) is induced by the homomorphism (x,y) ↦ (3x,3y).
+
+So we need to compute the number of homotopy classes of maps from the cofib of f to Σ H(ℤ/24).
+
+In the derived category of abelian groups, the cofib of a map f: A → B is the mapping cone of f. The set of maps [cofib(f), Σ H(ℤ/24)] is the set of morphisms in the derived category from the cone to H(ℤ/24)[1]. There is a long exact sequence of Ext groups associated to the cofiber sequence: ... → Ext^n(B, H(ℤ/24)) → Ext^n(A, H(ℤ/24)) → Ext^n(C, H(ℤ/24)) → Ext^{n+1}(B, H(ℤ/24)) → ... Wait, the cofiber sequence is A → B → C → Σ A → Σ B → ... Applying Hom(-, Σ H(ℤ/24)) = Hom(-, H(ℤ/24)[1]), we get a long exact sequence:
+... → Hom(B, H(ℤ/24)[1]) → Hom(A, H(ℤ/24)[1]) → Hom(C, H(ℤ/24)[1]) → Hom(Σ A, H(ℤ/24)[1]) → ...
+But note that Hom(X, H(ℤ/24)[1]) = Ext^1(X, ℤ/24)? Wait, in the derived category of abelian groups, Hom(X, Y) for objects X, Y that are abelian groups (concentrated in degree 0) is just group homomorphisms if we consider morphisms in the 0th degree? Actually, the derived category D(Ab) has Hom-groups: Hom(X, Y) = [X, Y] (stable homotopy classes of maps). If X and Y are abelian groups viewed as spectrum, then [X, Y] = Hom_{Ab}(X, Y) (just group homomorphisms). If we shift Y, [X, Σ Y] = [Σ^{-1} X, Y]? In D(Ab), [X, Y[1]] = Ext^1(X, Y)? Let's recall: For abelian groups A, B, [A, B] = Hom(A, B). [A, B[1]] = Ext^1(A, B). In general, [A, B[n]] = Ext^n(A, B). This is if we take A and B as chain complexes concentrated in degree 0, and shift means shifting the homological degree. So [C, Σ H(ℤ/24)] = [C, H(ℤ/24)[1]] = Ext^1(C, ℤ/24)? But wait, C is a cofiber, so it's an object in the derived category. The map f is a map of Hℤ-modules, i.e., a map of abelian groups? The objects H(ℤ/12 ⊕ ℤ/20) etc. are Eilenberg-MacLane spectra of those groups. So they are abelian groups viewed as discrete spectra. The map f is induced by a group homomorphism. So in the derived category, we have an exact triangle: H(ℤ/12 ⊕ ℤ/20) → H(ℤ/18 ⊕ ℤ/30) → C → Σ H(ℤ/12 ⊕ ℤ/20) → ...
+Then applying the derived Hom functor Hom(-, Σ H(ℤ/24)) = Hom(-, H(ℤ/24)[1]) = Ext^1(-, ℤ/24)? Wait, derived Hom into H(ℤ/24)[1] is Ext^1(-, ℤ/24)? Let's check: For an abelian group A, [A, H(ℤ/24)[1]] = Ext^1(A, ℤ/24). For a general object X in D(Ab), [X, H(ℤ/24)[1]] = Ext^1(X, ℤ/24)? Actually, the derived Hom from X to Y[n] is the n-th derived functor of Hom(X, -) when X is projective? In general, [X, Y[n]] is the n-th cohomological functor. If Y = H(ℤ/24) = ℤ/24 concentrated in degree 0, then [X, ℤ/24[n]] = H^n(X; ℤ/24) = Ext^n_{ℤ}(H_0(X), ℤ/24) ⊕ Tor? Wait, cohomology of a chain complex X with coefficients in ℤ/24 is [X, ℤ/24] in the derived category? Actually, the derived category of abelian groups D(Ab) has objects chain complexes. The homotopy groups of X are H_n(X). The derived Hom [X, Y] is the cohomology of the cochain complex Hom(X, Y) when Y is a complex of projectives? If Y = ℤ/24 concentrated in degree 0, then Hom(X, ℤ/24) is a cochain complex whose n-th term is Hom(X_n, ℤ/24)? Wait, careful: In the derived category of chain complexes of abelian groups, the shift [1] shifts the chain complex: (X[1])_n = X_{n-1}. The Eilenberg-MacLane spectrum H A corresponds to the chain complex A concentrated in degree 0? Or in degree 0? Usually, the homotopy groups of a spectrum are π_n = H_n for chain complexes? If X is a chain complex, its homology groups H_n(X) are the homotopy groups. For H A concentrated in degree 0, H_0 = A, H_n = 0 for n≠0. The shift Σ X = X[1] has H_n(X[1]) = H_{n-1}(X). So Σ H A has H_{-1} = A, H_n = 0 else. Then Map(C, Σ H(ℤ/24)) = [C, Σ H(ℤ/24)] in the stable homotopy category. This is isomorphic to [Σ^{-1} C, H(ℤ/24)] = [C, H(ℤ/24)[1]]? Actually, [C, Σ H(ℤ/24)] = [Σ C, H(ℤ/24)]? No, [X, Σ Y] = [Σ^{-1} X, Y]? In stable category, [X, Σ Y] = [Σ X, Y]? Let's recall: In stable homotopy theory, [X, Σ Y] = [Σ^{-1} X, Y]? If we shift X, we get an isomorphism [Σ X, Y] ≅ [X, Σ^{-1} Y]? Actually, suspension is an equivalence, so [Σ X, Y] ≅ [X, Ω Y], but in stable category, we have [Σ X, Y] ≅ [X, Σ^{-1} Y]? Wait, stable homotopy groups of spectra: π_n(Map(X, Y)) = [X, Y[-n]]? Let's use the derived category notation: In D(Ab), [X, Y[1]] = Ext^1(X, Y)? But we need to be consistent with the shift. Usually, the mapping cone of f: A → B is C with triangle A → B → C → Σ A → Σ B → ... In the derived category, this is A → B → C → A[1] → B[1] → ... Then applying Hom(-, Z), we get a long exact sequence: Hom(B, Z) → Hom(A, Z) → Hom(C, Z) → Hom(A[1], Z) → Hom(B[1], Z) → ... So Hom(C, Z) sits between Hom(A, Z) and Hom(A[1], Z). If we set Z = H(ℤ/24)[1] = ℤ/24[1], then Hom(C, ℤ/24[1]) = [C, Σ H(ℤ/24)]. The exact sequence is:
+... → Hom(B, ℤ/24[1]) → Hom(A, ℤ/24[1]) → Hom(C, ℤ/24[1]) → Hom(A[1], ℤ/24[1]) → Hom(B[1], ℤ/24[1]) → ...
+But Hom(X, ℤ/24[1]) = [X, ℤ/24[1]] = Ext^1(X, ℤ/24)? Actually, if X is a chain complex, then [X, ℤ/24[1]] is the first derived functor of Hom(X, ℤ/24)? Not exactly, because X is not necessarily projective. But in the derived category, we can compute these groups as Ext groups if X is a finitely generated abelian group? Wait, H(ℤ/n) are Eilenberg-MacLane spectra, so they are discrete abelian groups. In D(Ab), the objects A = ℤ/12 ⊕ ℤ/20, B = ℤ/18 ⊕ ℤ/30 are chain complexes concentrated in degree 0. Their Hom groups into ℤ/24[1] are Ext^1(A, ℤ/24) = Ext^1(A, ℤ/24). Similarly Hom(B, ℤ/24[1]) = Ext^1(B, ℤ/24). And Hom(C, ℤ/24[1]) is some group. The exact sequence becomes:
+Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24) → Hom(C, ℤ/24[1]) → Ext^2(A, ℤ/24) → Ext^2(B, ℤ/24) → ...
+But A and B are abelian groups concentrated in degree 0, so their Ext^2 with ℤ/24 are zero because projective dimension of abelian groups? Actually, abelian groups have infinite projective dimension in general? But Ext^n(A, B) for n ≥ 2 is zero if A and B are abelian groups? Wait, for abelian groups A, B, Ext^n(A, B) = 0 for n ≥ 2 if we consider the usual Ext groups (i.e., derived functors of Hom(A, -) on the category of abelian groups). The usual Ext groups Ext^1, Ext^2, etc. are defined for abelian groups and Ext^n = 0 for n ≥ 2 because the category of abelian groups has global dimension 1. Yes! The category of abelian groups has global dimension 1, so Ext^n(A, B) = 0 for all n ≥ 2. In the derived category D(Ab), the shift [1] increases the homological degree, and if we apply Hom(-, Y) for an object Y concentrated in degree 0, then [X, Y[n]] = Ext^n(X_0, Y) where X_0 = H_0(X)? But here C is not necessarily concentrated in degree 0; it's a cofiber. However, the long exact sequence of Ext groups for the triangle A → B → C → A[1] → ... with Z = ℤ/24:
+... → Ext^0(B, ℤ/24) → Ext^0(A, ℤ/24) → Ext^0(C, ℤ/24) → Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24) → Ext^1(C, ℤ/24) → Ext^2(B, ℤ/24) → ...
+Since Ext^2 of any abelian group with ℤ/24 is zero, we have Ext^1(C, ℤ/24) ≅ coker(Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24))? Wait, the sequence is:
+Ext^0(B, ℤ/24) → Ext^0(A, ℤ/24) → Ext^0(C, ℤ/24) → Ext^1(B, ℤ
+
+ANSWER
+======
+
+
+
+But we are looking for [C, Σ H(ℤ/24)] = [C, H(ℤ/24)[1]] = Ext^1(C, ℤ/24)? Let's verify: In the derived category of abelian groups, if X is any object, [X, Y[1]] = Ext^1(X, Y) where Ext^1 is the first derived functor of Hom(X, -)? Not exactly, because Ext^1(X, Y) usually means Ext^1(H_0(X), Y) if X is a chain complex? Wait, if X is a general chain complex, the derived Hom group [X, Y[n]] is the n-th cohomology of the cochain complex RHom(X, Y). If Y = ℤ/24, then RHom(X, ℤ/24) = Hom(P_*, ℤ/24) where P_* is a projective resolution of X. Its cohomology groups are Ext^i(X, ℤ/24). But if X has homology in higher degrees, Ext^i(X, ℤ/24) might involve Tor? Actually, for abelian groups (chain complexes), the derived Hom groups [X, Y] are the Ext groups: [X, Y] = Ext^*(X, Y)? Typically, in D(Ab), [X, Y] = Ext^0(X, Y) = Hom(H_0(X), Y) if Y is injective? No, [X, Y] is the group of morphisms in the derived category. If X and Y are abelian groups (concentrated in degree 0), then [X, Y] = Hom(X, Y), [X, Y[1]] = Ext^1(X, Y). If X is not concentrated in degree 0, say X = Σ A = A[1], then [Σ A, Y] = [A, Y[-1]] = Ext^{-1}? But derived category is 3-balanced, etc. In our case, A and B are concentrated in degree 0, so C is the cone of a map between them, so C has homology in degrees 0 and 1? The cone of f: A → B has a long exact sequence of homology: ... → H_1(C) → H_0(A) → H_0(B) → H_0(C) → 0. So C has H_0(C) = coker(f), H_1(C) = ker(f) (if we use usual convention? Actually, mapping cone of f: A → B: H_n(C) = H_n(B) for n≥1? Let's do: Cone C = B ⊕ A[1] with differential d(b,a) = (f(a), -d_A a)? Wait, standard mapping cone: C_n = B_n ⊕ A_{n-1}. Differential: d_C(b, a) = (d_B b + f(a), -d_A a). If A and B are concentrated in degree 0: A_0 = A, B_0 = B, A_n = B_n = 0 for n≠0. Then C_0 = B_0 ⊕ A_{-1} = B, C_{-1} = B_{-1} ⊕ A_{-2} = 0? Wait, A_{n-1} for n=0 is A_{-1}=0. So C_0 = B. C_1 = B_1 ⊕ A_0 = A. So C has C_1 = A, C_0 = B, and differential d_1: C_1 → C_0 is f? Actually, d_C: C_1 → C_0: for (a,0)? Wait, C_1 = B_1 ⊕ A_0 = A (since B_1=0). C_0 = B. d_C: C_1 → C_0 sends (0, a) to (f(a), -d_A a) = (f(a), 0) since d_A=0. So C is a complex with C_1 = A, C_0 = B, d_1 = f. The homology: H_1 = ker(f), H_0 = coker(f). So C has homology in degrees 0 and 1. Then the derived Hom groups [C, Y[n]] can be computed via a projective resolution of C. Since C is a chain complex with H_0 = coker(f), H_1 = ker(f), and other H_i=0. If Y = ℤ/24, then [C, Y] = Hom(H_0(C), Y) = Hom(coker(f), ℤ/24)? Not exactly, because Y is in degree 0, but we need to consider the derived category. In D(Ab), [C, Y] = Hom_{D(Ab)}(C, Y). If C has projective dimension 1 (since abelian groups have global dimension 1, any chain complex has projective dimension ≤ 1? Actually, the category of chain complexes has global dimension 1? No, the derived category of abelian groups has all objects with projective dimension ≤ 1? Any chain complex can be resolved by a projective complex of length 1? Yes, because abelian groups have projective dimension ≤ 1, any chain complex has a projective resolution of length 1. So we can take a projective resolution of C: 0 → P_1 → P_0 → C → 0. Then [C, Y] = Hom(P_0, Y) / something? Actually, RHom(C, Y) = Hom(P_*, Y). The cohomology of this complex gives [C, Y[n]] = H^n(Hom(P_*, Y)). Since Y is ℤ/24 concentrated in degree 0, Hom(P_n, Y) is concentrated in degree 0? Wait, Hom(P_n, Y) is just Hom(P_n, Y) as abelian groups. The differential in the Hom complex is dual to the differential in the projective resolution. So the cochain complex is 0 → Hom(P_1, Y) → Hom(P_0, Y) → 0. Its cohomology: H^0 = Hom(P_0, Y) / im(Hom(P_1, Y))? Actually, the complex is 0 → Hom(P_1, Y) → Hom(P_0, Y) → 0, so H^0 = coker(Hom(P_1, Y) → Hom(P_0, Y)), H^1 = ker(Hom(P_1, Y) → Hom(P_0, Y)). These are exactly Ext^0(C, Y) = Hom(H_0(C), Y) and Ext^1(C, Y) = Ext^1(H_1(C), Y)? Not exactly, but there is a long exact sequence of Ext groups associated to the short exact sequence 0 → H_1(C) → P_1? Wait, we can use the fact that C is the cone of f: A → B. There is a long exact sequence:
+... → Ext^i(B, Y) → Ext^i(A, Y) → Ext^i(C, Y) → Ext^{i+1}(B, Y) → ...
+This is the exact triangle A → B → C → A[1] → ... Applying RHom(-, Y), we get a long exact sequence of cohomology groups:
+... → Ext^i(B, Y) → Ext^i(A, Y) → Ext^i(C, Y) → Ext^{i+1}(B, Y) → ...
+Since A and B are abelian groups concentrated in degree 0, Ext^i(A, Y) = 0 for i < 0, and Ext^0(A, Y) = Hom(A, Y), Ext^1(A, Y) = Ext^1(A, Y), Ext^i(A, Y) = 0 for i ≥ 2 because Y is ℤ/24 and abelian groups have global dimension 1. Similarly for B. For C, Ext^i(C, Y) = 0 for i < 0? C has homology in degrees 0 and 1, so Ext^i(C, Y) can be non-zero for i = 0, 1? Actually, the derived category Ext groups Ext^i(C, Y) are defined for all i, but if C has projective dimension 1, then Ext^i(C, Y) = 0 for i ≥ 2. For i = 0, Ext^0(C, Y) = Hom(C, Y) = Hom(H_0(C), Y) = Hom(coker f, Y). For i = 1, Ext^1(C, Y) is some group. The long exact sequence:
+0 → Ext^0(B, Y) → Ext^0(A, Y) → Ext^0(C, Y) → Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → 0
+(since Ext^2(B, Y)=Ext^2(A, Y)=0).
+So Ext^1(C, Y) = coker(Ext^1(B, Y) → Ext^1(A, Y))? Wait, the map is Ext^1(B, Y) → Ext^1(A, Y)? From the exact sequence:
+... → Ext^0(C, Y) → Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → Ext^2(B, Y)=0.
+So Ext^1(C, Y) ≅ Ext^1(A, Y) / im(Ext^1(B, Y) → Ext^1(A, Y)).
+But careful: The map in the triangle is A → B, so the induced map on Ext is Ext^1(B, Y) → Ext^1(A, Y)? Let's check: Triangle: A → B → C → Σ A → Σ B. Apply RHom(-, Y): Hom(B, Y) ← Hom(A, Y) ← Hom(C, Y) ← Hom(Σ A, Y) = Hom(A, Y[-1]) = Ext^1(A, Y) ← Hom(Σ B, Y) = Ext^1(B, Y). So the sequence is:
+... → Hom(B, Y) → Hom(A, Y) → Hom(C, Y) → Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → Ext^2(B, Y) → ...
+Yes, so Ext^1(C, Y) = coker(Ext^1(B, Y) → Ext^1(A, Y))? Wait, the map is Ext^1(B, Y) → Ext^1(A, Y). The sequence is:
+Hom(C, Y) → Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → 0.
+So Ext^1(C, Y) = Ext^1(A, Y) / im(Ext^1(B, Y) → Ext^1(A, Y)).
+Now, we are interested in [C, Σ H(ℤ/24)] = [C, H(ℤ/24)[1]] = Ext^1(C, ℤ/24)? Wait, earlier we said [C, Σ Y] = Ext^1(C, Y)? Let's check: If Y = H(ℤ/24), then Σ Y = Y[1]. So [C, Y[1]] = Ext^1(C, Y)? Yes, because in D(Ab), [X, Y[n]] = Ext^n(X, Y). So [C, Σ H(ℤ/24)] = Ext^1(C, ℤ/24).
+But wait! In the problem, H(ℤ/24) is the Eilenberg-MacLane spectrum of ℤ/24. The map f is between H(ℤ/12 ⊕ ℤ/20) and H(ℤ/18 ⊕ ℤ/30). These are Hℤ-modules, so they are just abelian groups. The category Mod_{Hℤ} is the stable ∞-category of Hℤ-modules, which is equivalent to D(Ab). So everything matches.
+
+But we need to be careful: The map f is induced by (x,y) ↦ (3x,3y). So A = ℤ/12 ⊕ ℤ/20, B = ℤ/18 ⊕ ℤ/30. f: A → B is given by multiplication by 3 on each component. Let's verify: ℤ/12: 3x mod 12. ℤ/20: 3y mod 20. Image in B: B = ℤ/18 ⊕ ℤ/30. 3x mod 18: for x in ℤ/12, 3x mod 18 is well-defined? If x ≡ x' mod 12, then 3x ≡ 3x' mod 36, but we need mod 18. Is it well-defined? If x - x' = 12k, then 3(x - x') = 36k ≡ 0 mod 18. So yes, well-defined. Similarly for ℤ/20 to ℤ/30: 3y mod 30, if y ≡ y' mod 20, 3(y-y') = 3*20k = 60k ≡ 0 mod 30. So it's a well-defined group homomorphism.
+
+Now we need to compute Ext^1(C, ℤ/24). As derived above, Ext^1(C, ℤ/24) = Ext^1(A, ℤ/24) / im(Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24)).
+
+But wait: Is there any possibility that Ext^1(C, ℤ/24) is not just that? The long exact sequence gives:
+0 → Ext^0(B, ℤ/24) → Ext^0(A, ℤ/24) → Ext^0(C, ℤ/24) → Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24) → Ext^1(C, ℤ/24) → 0.
+So Ext^1(C, ℤ/24) ≅ Ext^1(A, ℤ/24) / im(Ext^1(B, ℤ/24)).
+But we also need to consider the map Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24) induced by f. This map is the dual map in the long exact sequence? Actually, the map f: A → B induces a map on Ext^1: Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24). This is contravariant: f^*: Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24). Yes.
+
+So we need to compute Ext^1(A, ℤ/24) and Ext^1(B, ℤ/24) as abelian groups, and then compute the image of the induced map, and then the cokernel. The question asks for the cardinality of π_0 Map(C, Σ H(ℤ/24)). π_0 of a mapping space in a stable ∞-category is just the set of isomorphism classes of morphisms, which is the group Ext^1(C, ℤ/24) if it's a group? Wait, [C, Σ Y] is a group? In the derived category, [X, Y] for any X, Y is an abelian group. Yes, the set of morphisms in D(Ab) is an abelian group. But the question asks for the cardinality of π_0 Map(...). If it's an abelian group, its cardinality as a set is the number of elements. So we just need to compute the order of the abelian group Ext^1(C, ℤ/24).
+
+But wait: Could there be a nuance about "stable ∞-category Mod_{Hℤ}"? In some contexts, Mod_{Hℤ} is the stable category of Hℤ-modules, which is the same as the derived category of abelian groups. The objects H(ℤ/n) are Eilenberg-MacLane spectra. The shift Σ is suspension. The mapping space Map(C, Σ H(ℤ/24)) is a spectrum? In a stable ∞-category, Map(X, Y) is an object, and π_0 Map(X, Y) is the set of connected components of the underlying space of the mapping spectrum. This is indeed the set of homotopy classes of maps, which is [X, Y]. And [C, Σ Y] is an abelian group. So its cardinality is the order of that group.
+
+So we need to compute Ext^1(coker(f?), wait C = cofib(f) = cone(f). The group Ext^1(C, ℤ/24) = Ext^1(A, ℤ/24) / im(Ext^1(B, ℤ/24)).
+
+First, compute Ext^1(A, ℤ/24) where A = ℤ/12 ⊕ ℤ/20.
+Ext^1(ℤ/m, ℤ/n) = ℤ/gcd(m,n)? Wait, the standard formula: Ext^1(ℤ/m, ℤ/n) = ℤ/(m,n)? No! Ext^1(ℤ/m, ℤ/n) = ℤ/(m)? Let's recall: Ext^1(ℤ/m, ℤ/n) = ℤ/n if m divides n? Actually, the formula: Ext^1(ℤ/m, ℤ/n) ≅ ℤ/(m,n)? Wait, I need to be careful. The derived functors of Hom(ℤ/m, -): We have a projective resolution of ℤ/m: 0 → ℤ → ℤ → ℤ/m → 0, where the first map is multiplication by m. Apply Hom(-, ℤ/n): we get 0 → Hom(ℤ, ℤ/n) → Hom(ℤ, ℤ/n) → 0, with map multiplication by m mod n. So Ext^1(ℤ/m, ℤ/n) = coker(ℤ/n --×m--> ℤ/n) = ℤ/n / im(×m). The image of ×m on ℤ/n is the subgroup generated by m mod n, which is (m,n)ℤ/n? Actually, the image is mℤ/n ≅ ℤ/(n/gcd(m,n)). The cokernel is ℤ/n / (mℤ/n) ≅ ℤ/gcd(m,n). Yes! Ext^1(ℤ/m, ℤ/n) = ℤ/gcd(m,n).
+
+Wait, is that correct? Let's check: Ext^1(ℤ/m, ℤ/n) = ℤ/(m,n)? The order is gcd(m,n). For example, Ext^1(ℤ/2, ℤ/2) = ℤ/2. Ext^1(ℤ/4, ℤ/2) = ℤ/2? Multiplication by 4 on ℤ/2 is 0, so cokernel is ℤ/2. gcd(4,2)=2. Yes. Ext^1(ℤ/6, ℤ/4): gcd=2, so ℤ/2. Multiplication by 6 on ℤ/4: 6 ≡ 2 mod 4, image is {0,2}, cokernel ℤ/2. Yes.
+
+So Ext^1(ℤ/a, ℤ/b) = ℤ/gcd(a,b).
+
+But wait, is it always ℤ/gcd? What if we use ℤ/24 as the second argument? Yes, Y = ℤ/24.
+So Ext^1(ℤ/a, ℤ/24) = ℤ/gcd(a, 24).
+
+Therefore:
+Ext^1(A, ℤ/24) = Ext^1(ℤ/12, ℤ/24) ⊕ Ext^1(ℤ/20, ℤ/24) = ℤ/gcd(12,24) ⊕ ℤ/gcd(20,24).
+gcd(12,24) = 12 → ℤ/12.
+gcd(20,24) = 4 → ℤ/4.
+So Ext^1(A, ℤ/24) = ℤ/12 ⊕ ℤ/4.
+
+Ext^1(B, ℤ/24) where B = ℤ/18 ⊕ ℤ/30.
+Ext^1(ℤ/18, ℤ/24) = ℤ/gcd(18,24) = ℤ/6.
+Ext^1(ℤ/30, ℤ/24) = ℤ/gcd(30,24) = ℤ/6.
+So Ext^1(B, ℤ/24) = ℤ/6 ⊕ ℤ/6.
+
+Now we need the map induced by f: A → B on Ext^1. f: A = ℤ/12 ⊕ ℤ/20 → B = ℤ/18 ⊕ ℤ/30 is given by (x,y) ↦ (3x, 3y).
+
+We need to compute the contravariant map f^*: Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24). Since Ext^1 is a direct sum, we can compute the component-wise maps. However, f mixes the components? f: ℤ/12 → ℤ/18 is multiplication by 3, and ℤ/20 → ℤ/30 is multiplication by 3. So it's a direct sum of maps: f_1: ℤ/12 → ℤ/18, f_1(x) = 3x; f_2: ℤ/20 → ℤ/30, f_2(y) = 3y.
+Then f^*: Ext^1(ℤ/18, ℤ/24) ⊕ Ext^1(ℤ/30, ℤ/24) → Ext^1(ℤ/12, ℤ/24) ⊕ Ext^1(ℤ/20, ℤ/24) is given by the transpose of f on each component? Wait, f^* on Ext^1 for a direct sum is not just component-wise if f mixes components. But here f is a direct sum map: f = f_1 ⊕ f_2. Then Ext^1(B, Y) = Ext^1(ℤ/18, Y) ⊕ Ext^1(ℤ/30, Y). The map f^*: Ext^1(B, Y) → Ext^1(A, Y) is the sum of the maps induced by f_1 and f_2? Actually, for a direct sum, the contravariant Hom functor: Hom(⊕ B_i, Y) = ⊕ Hom(B_i, Y). If f: ⊕ A_i → ⊕ B_i is given by a matrix of maps f_{ij}: A_i → B_j, then the induced map on Hom(⊕ B_j, Y) → Hom(⊕ A_i, Y) is given by precomposition: for g: ⊕ B_j → Y, g ∘ f: ⊕ A_i → Y. If f is diagonal (f = f_1 ⊕ f_2), then f^* is also diagonal: f^*(g_1, g_2) = (g_1 ∘ f_1, g_2 ∘ f_2). So yes, f^* is the direct sum of the individual f_i^* maps.
+So we just need to compute f_1^*: Ext^1(ℤ/18, ℤ/24) → Ext^1(ℤ/12, ℤ/24) and f_2^*: Ext^1(ℤ/30, ℤ/24) → Ext^1(ℤ/20, ℤ/24).
+
+Now, Ext^1(ℤ/m, ℤ/24) = ℤ/gcd(m,24). The map f_i^* is induced by multiplication by 3 on the domain? Wait, f: ℤ/a → ℤ/b is multiplication by k (here k=3). Then f^*: Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) is given by precomposition with multiplication by k. If we represent Ext^1(ℤ/b, Y) as cokernel of Y --×b--> Y, then an element is represented by some x mod Y, and f^*(x) is represented by x mod Y? Wait, we need to be careful. Let's derive the map explicitly.
+
+Recall: Ext^1(ℤ/m, Y) = Y / mY, where Y = ℤ/24. The isomorphism Y/mY ≅ ℤ/gcd(m,24) is given by sending 1 mod mY to 1 mod gcd? Actually, Y/mY = ℤ/24 / (mℤ/24) ≅ ℤ/gcd(m,24). The map f: ℤ/a → ℤ/b is multiplication by k (here a=12, b=18, k=3; and a=20, b=30, k=3). The induced map f^*: Y/bY → Y/aY? Wait, Ext^1(ℤ/b, Y) = Y / bY. Ext^1(ℤ/a, Y) = Y / aY. The map f^*: Y/bY → Y/aY is induced by the inclusion? Actually, the long exact sequence of the mapping cone: The map f: ℤ/a → ℤ/b induces a map on Ext^1: Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y). How to compute it? We can use the projective resolution of ℤ/a: 0 → ℤ --×a--> ℤ → ℤ/a → 0. Then Hom(ℤ/a, Y) is not directly, but Ext^1 is the cokernel of Hom(ℤ, Y) --×a--> Hom(ℤ, Y). Similarly for ℤ/b. The map f: ℤ/a → ℤ/b lifts to a chain map between projective resolutions? The projective resolution of ℤ/a is P_*: 0 → ℤ --×a--> ℤ --ε_a--> ℤ/a → 0. For ℤ/b: 0 → ℤ --×b--> ℤ --ε_b--> ℤ/b → 0. The map f: ℤ/a → ℤ/b can be lifted to a map of complexes? Since f is multiplication by k: ℤ/a → ℤ/b, we can define a map on the projective resolutions: at degree 0, identity ℤ → ℤ? But then we need compatibility with differentials. The differential on ℤ/a resolution is multiplication by a; on ℤ/b it's multiplication by b. If we use identity on ℤ for degree 0, then d_0 = ε_a, ε_b ∘ id = ε_b. But the next differential: we need a map ℤ → ℤ such that b ∘ (map) = (map) ∘ a. If we use map = multiplication by k? Then b * k =? We need b * g = g * a, i.e., b k = a k? That would require b = a mod something? But here a=12, b=18, k=3: 18*3 = 54, 12*3 = 36, not equal. So identity doesn't work. Alternatively, we can use the standard fact that Ext^1(ℤ/a, Y) = Y/aY, and the map f^*: Y/bY → Y/aY is multiplication by k? Wait, if f: ℤ/a → ℤ/b is multiplication by k, then the map on Ext^1 is multiplication by k? Let's test with an example. Let a=2, b=4, k=2? f: ℤ/2 → ℤ/4, x ↦ 2x. Y = ℤ/2. Ext^1(ℤ/4, ℤ/2) = ℤ/2 / 4ℤ/2 = ℤ/2. Ext^1(ℤ/2, ℤ/2) = ℤ/2 / 2ℤ/2 = ℤ/2. The map f^*: Ext^1(ℤ/4, ℤ/2) → Ext^1(ℤ/2, ℤ/2). What is it? The projection Y/4Y → Y/2Y? Since 2Y ⊂ 4Y? Wait, 4Y ⊂ 2Y, so Y/4Y → Y/2Y is the quotient map. The quotient map ℤ/2 → ℤ/2 is identity? Y=ℤ/2, 4Y=0, 2Y=0, so both are ℤ/2, quotient map is identity. So f^* is identity. But multiplication by k=2 on ℤ/2 is 0. So it's not multiplication by k. In this case, f^* is the natural map Y/bY → Y/aY given by the inclusion of ideals? Actually, f: ℤ/a → ℤ/b is multiplication by k. This induces a map on resolutions? Let's do it properly.
+
+We have short exact sequences: 0 → ℤ --×a--> ℤ → ℤ/a → 0. Applying Hom(-, Y) gives 0 → Hom(ℤ/a, Y) → Y --×a--> Y → Ext^1(ℤ/a, Y) → 0? Wait, Hom(ℤ/a, Y) = 0 if a ≠ 0? Actually, Hom(ℤ/a, Y) = {y ∈ Y | a y = 0} = Y[a]. But the exact sequence is:
+0 → Hom(ℤ/a, Y) → Y --×a--> Y → Ext^1(ℤ/a, Y) → 0.
+But Ext^1(ℤ/a, Y) = Y / aY. Similarly for b.
+The map f: ℤ/a → ℤ/b induces a map on this exact sequence. f is multiplication by k: ℤ/a → ℤ/b. On the Y term, the map is identity? The map f^*: Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) is the connecting homomorphism? Actually, the map f induces a map of short exact sequences:
+0 → ℤ --×a--> ℤ → ℤ/a → 0
+   |         |        |
+   ?         ?        f
+0 → ℤ --×b--> ℤ → ℤ/b → 0
+We need a commutative diagram. The map ℤ → ℤ could be multiplication by something? If we map the top ℤ to bottom ℤ by multiplication by t, then we need t * a = b * t? That's always true since multiplication commutes. So we can take t = any integer? But we also need the map on ℤ/a to be f, which is multiplication by k. The map on ℤ is t, and the map on ℤ is t, then the map on ℤ/a is induced by t mod a and t mod b? The diagram:
+0 → ℤ --×a--> ℤ --p_a--> ℤ/a → 0
+   | t          | t        | ?        |
+0 → ℤ --×b--> ℤ --p_b--> ℤ/b → 0
+We need p_b(t) = f(p_a(1)). p_a(1) = 1 mod a. f(1 mod a) = k mod b. p_b(t) = t mod b. So we need t ≡ k mod b. Also, the left vertical map commutes with multiplication by a and b? t * a = b * t? That's always true. So we can choose t = k. Then the diagram commutes. So the map on the resolutions is multiplication by k on both ℤ's. Then the induced map on Ext^1 is the map on cokernels: the bottom cokernel is Y / bY, the top is Y / aY. The map on the middle Y is multiplication by k? Wait, the map on the middle Y is Hom(ℤ, Y) → Hom(ℤ, Y) given by precomposition with t=k? Actually, the map of complexes: we have complex 0 → ℤ --×a--> ℤ → 0 and 0 → ℤ --×b--> ℤ → 0. The map between them: on the first ℤ: multiplication by t? Wait, a chain map of these two-term complexes: we have maps f_1: ℤ → ℤ and f_0: ℤ → ℤ such that f_0 ∘ (×a) = (×b) ∘ f_1, and f_0 ∘ p_a? Actually, the complex is 0 → ℤ --×a--> ℤ --ε_a--> ℤ/a → 0, but for RHom we use projective resolution of the module. The resolution is ... → 0 → ℤ --×a--> ℤ → 0. The map f: ℤ/a → ℤ/b is a map of modules. It lifts to a chain map of projective resolutions. We chose f_1 = multiplication by k on the first ℤ? Wait, the resolution has ℤ in degree 1 and ℤ in degree 0? Let's set P_1 = ℤ, P_0 = ℤ, d_1 = ×a: P_1 → P_0. Then ℤ/a = coker(d_1)? Actually, ℤ/a = P_0 / im(d_1). So the map f: ℤ/a → ℤ/b lifts to f_0: P_0 → Q_0 and f_1: P_1 → Q_1 such that f_0 ∘ d_1 = d'_0 ∘ f_1. If we set f_1 = multiplication by k: P_1 → Q_1, and f_0 = multiplication by k: P_0 → Q_0, then f_0(d_1(x)) = f_0(a x) = k a x, and d'_0(f_1(x)) = d'_0(k x) = b k x. So we need k a = b k, which is true. So the chain map is multiplication by k on both degrees. Then applying Hom(-, Y), we get Hom(Q_*, Y) → Hom(P_*, Y) (since it's contravariant). Hom(Q_1, Y) = Y, Hom(Q_0, Y) = Y. The differential in Hom(Q_*, Y) is dual: d^*: Hom(Q_0, Y) → Hom(Q_1, Y) is multiplication by b? Actually, the cochain complex for RHom(ℤ/a, Y) is Hom(P_*, Y): 0 → Hom(P_1, Y) --d^*--> Hom(P_0, Y) where d^*(φ) = φ ∘ d_1. So d^*(φ)(x) = φ(d_1(x)) = φ(a x) = a φ(x) if we identify Hom(ℤ, Y) with Y via evaluation at 1. So d^* is multiplication by a. Similarly for Q: multiplication by b. The chain map f: P_* → Q_* induces a map of cochain complexes f^*: Hom(Q_*, Y) → Hom(P_*, Y) given by f^*(ψ) = ψ ∘ f. So f^*_1: Hom(Q_1, Y) → Hom(P_1, Y) is ψ ↦ ψ ∘ f_1 = ψ(k · ) = k ψ? Wait, if ψ: Q_1 → Y, then ψ ∘ f_1: P_1 → Y is ψ(k x) = k ψ(x) if Y is an abelian group and ψ is a homomorphism? But ψ is a group homomorphism, so ψ(k x) = k ψ(x). So f^*_1 is multiplication by k on Y. Similarly f^*_0: Hom(Q_0, Y) → Hom(P_0, Y) is multiplication by k.
+Now we need to check if this is a map of cochain complexes: We need f^*_0 ∘ d^*_Q = d^*_P ∘ f^*_1.
+d^*_Q: Hom(Q_0, Y) → Hom(Q_1, Y) is multiplication by b.
+f^*_0: Y → Y is multiplication by k.
+So f^*_0 ∘ d^*_Q (y) = k * (b y) = k b y.
+d^*_P ∘ f^*_1 (y) = d^*(k y) = a * (k y) = a k y.
+They are equal since abk = bka. Yes.
+Now the map on Ext^1 is the map on cohomology: H^1 of the cochain complex is Y / bY for Q, and Y / aY for P. The map f^*: Y/bY → Y/aY is induced by f^*_0: Y → Y which is multiplication by k? Wait, the cochain complex for Q is 0 → Y --×b--> Y → 0. The cohomology in degree 1 is ker(×b)/im(0)? No, H^1 is the cokernel of the differential? For a complex 0 → A --d--> B → 0, H^1 = B / im(d). So H^1(Q) = Y / bY. H^1(P) = Y / aY. The map f^*_0: Y → Y is multiplication by k, and it commutes with the differentials: f^*_0 ∘ (×b) = (×a) ∘ f^*_1? Wait, the differential in Q is ×b: Y → Y. In P it's ×a. f^*_1 is also multiplication by k. The map f^*_0: Y → Y (degree 0) and f^*_1: Y → Y (degree 1)? Actually, the cochain complex is 0 → Hom(Q_1, Y) → Hom(Q_0, Y) → 0. So degree 1 is Hom(Q_1, Y) = Y, degree 0 is Hom(Q_0, Y) = Y. The differential d^*: Y (deg 1) → Y (deg 0) is multiplication by b. The map f^*: Hom(Q_*, Y) → Hom(P_*, Y) has components f^*_1: deg 1: Y → Y, f^*_0: deg 0: Y → Y. It commutes with differentials: f^*_0 ∘ d^*_Q = d^*_P ∘ f^*_1, i.e., f^*_0 * b = a * f^*_1. We had f^*_0 = k, f^*_1 = k, so k b = a k, true.
+The map on H^1 = coker(d^*) is induced by f^*_0: Y → Y? Wait, H^1 is Y / im(d^*) = Y / bY for Q, and Y / aY for P. The map on cohomology is induced by f^*_0? Actually, the map between complexes is f^*: C^*(Q) → C^*(P). It sends the generator of H^1? An element of H^1(Q) is represented by y ∈ Y (deg 0) such that b y = 0? No, H^1 is the cokernel of d^*: C^1 → C^0. So an element is a class y ∈ C^0 = Y, with y ~ y' if y - y' = d^*(z) = b z. The map f^* on H^1 sends [y] to [f^*_0(y)] = [k y] in Y/aY. So the map is multiplication by k! But wait, we must be careful: In the example earlier, a=2, b=4, k=2, Y=ℤ/2. Y/bY = ℤ/2 / 4ℤ/2 = ℤ/2. Y/aY = ℤ/2 / 2ℤ/2 = ℤ/2. The map is multiplication by k=2 on ℤ/2, which is 0. But earlier I thought the map was the quotient map Y/bY → Y/aY? Let's reexamine. If f: ℤ/2 → ℤ/4 is multiplication by 2, then b=4, a=2? Wait, f: A → B where A = ℤ/a, B = ℤ/b. In my example, I had f: ℤ/2 → ℤ/4, so a=2, b=4, k=2. Then Y/bY = Y/4Y, Y/aY = Y/2Y. The map f^*: Y/4Y → Y/2Y. In my computation, f^*_0: Y → Y is multiplication by k=2. So [y] ↦ [2y]. In Y=ℤ/2, Y/4Y = ℤ/2, Y/2Y = ℤ/2. Multiplication by 2 is 0. So f^* is the zero map. But earlier I thought the map was the natural quotient Y/4Y → Y/2Y? That would be the map induced by the inclusion of ideals? Wait, what is the natural map Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) for a map f: ℤ/a → ℤ/b? If f is multiplication by k, then the map on Ext^1 is not necessarily the quotient. Let's compute with the long exact sequence of the cone. The cone C of f: ℤ/a → ℤ/b. The long exact sequence:
+0 → Hom(ℤ/b, Y) → Hom(ℤ/a, Y) → Hom(C, Y) → Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) → Ext^1(C, Y) → 0.
+We can compute Ext^1(ℤ/a, Y) = Y/aY, Ext^1(ℤ/b, Y) = Y/bY. The map Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) is the one we want. Let's test with a=2, b=4, Y=ℤ/2. Y/4Y = ℤ/2, Y/2Y = ℤ/2. The map Ext^1(ℤ/4, ℤ/2) → Ext^1(ℤ/2, ℤ/2). In the exact sequence:
+Hom(ℤ/4, ℤ/2) = 0 (since no non-zero hom from ℤ/4 to ℤ/2? Actually, Hom(ℤ/4, ℤ/2) = elements of ℤ/2 annihilated by 4 = ℤ/2? Wait, a hom from ℤ/4 to ℤ/2: if 1 ↦ x, then 4x=0 in ℤ/2, always true. So Hom(ℤ/4, ℤ/2) = ℤ/2. Similarly Hom(ℤ/2, ℤ/2) = ℤ/2. The map Hom(ℤ/4, ℤ/2) → Hom(ℤ/2, ℤ/2) induced by f: ℤ/2 → ℤ/4? f is multiplication by 2. Precomposition: if g: ℤ/4 → ℤ/2, then g ∘ f: ℤ/2 → ℤ/2 is g(2x) = 2 g(x) = 0. So the map is zero. So the sequence is:
+0 → Hom(ℤ/4, ℤ/2) → Hom(ℤ/2, ℤ/2) → ... Wait, the triangle is A → B → C → Σ A. So the sequence is Hom(B, Y) → Hom(A, Y) → Hom(C, Y) → Ext^1(B, Y) → Ext^1(A, Y). Here A = ℤ/2, B = ℤ/4? Wait, f: A → B, so A = ℤ/2, B = ℤ/4. So the sequence is Hom(B, Y) → Hom(A, Y) → ... So Hom(ℤ/4, ℤ/2) → Hom(ℤ/2, ℤ/2). As above, this map is precomposition with f: g ↦ g ∘ f. If g: ℤ/4 → ℤ/2, g(1) = x, then g ∘ f(1) = g(2) = 2x = 0. So the map is zero. Then Hom(A, Y) = ℤ/2, Hom(B, Y) = ℤ/2, map is zero. So the sequence: 0 → ℤ/2 → ℤ/2 → 0? Wait, the exact sequence is:
+0 → Hom(B, Y) → Hom(A, Y) → Hom(C, Y) → Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → 0.
+If the first map is zero, then Hom(A, Y)/im = ℤ/2 / 0 = ℤ/2. So Hom(C, Y) has ℤ/2? Then Ext^1(B, Y) = ℤ/2, Ext^1(A, Y) = ℤ/2. The map Ext^1(B, Y) → Ext^1(A, Y) is what? We need to see if it's zero or iso. If it's zero, then Ext^1(A, Y) / im = ℤ/2. If it's iso, then coker = 0. Let's compute Ext^1 directly from the cone. The cone of f: ℤ/2 → ℤ/4 (mult by 2). The cone has H_0 = coker(f) = ℤ/4 / 2ℤ/2? f is mult by 2, image is 2ℤ/4 = {0,2} ≅ ℤ/2. coker = ℤ/2. H_1 = ker(f) = 0? f: ℤ/2 → ℤ/4, x ↦ 2x. Kernel = {x: 2x=0 in ℤ/4} = {0,2}? Wait, 2*0=0, 2*1=2≠0 in ℤ/4? In ℤ/4, 2*1=2, not 0. So kernel = {0}. So H_1 = 0. So C has H_0 = ℤ/2, H_1 = 0. Then Ext^1(C, Y) = Ext^1(ℤ/2, ℤ/2)? But C is not just ℤ/2; it's a complex with H_0=ℤ/2, H_1=0. In D(Ab), [C, Y[1]] = Ext^1(C, Y). We can compute Ext^1(C, Y) via a projective resolution of C. Since H_1=0, C is quasi-isomorphic to H_0(C) = ℤ/2 concentrated in degree 0? If C has H_1=0 and H_0=ℤ/2, then C is quasi-isomorphic to ℤ/2. Then Ext^1(C, Y) = Ext^1(ℤ/2, Y) = Y/2Y = ℤ/2. So Ext^1(C, Y) = ℤ/2. In the exact sequence, Ext^1(B, Y) = Y/4Y = ℤ/2, Ext^1(A, Y) = Y/2Y = ℤ/2. The map Ext^1(B, Y) → Ext^1(A, Y) must be the zero map for the cokernel to be ℤ/2 (since sequence is ... → Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → 0). If it were an isomorphism, Ext^1(C, Y) would be 0. So the map is zero! But multiplication by k=2 on Y=ℤ/2 is zero. So f^* is multiplication by k. Wait, earlier I said f^*_0: Y → Y is multiplication by k, and the map on H^1 is induced by f^*_0? H^1(B) = Y/4Y, H^1(A) = Y/2Y. The map f^* on H^1 sends [y] to [k y]. Since k=2, [y] ↦ [2y] = 0. So the map is zero. That matches! So the map is indeed multiplication by k on Y/bY → Y/aY? But wait, Y/4Y = ℤ/2, Y/2Y = ℤ/2. Multiplication by 2 sends 1 mod 4 to 2 mod 2 = 0. So it's the zero map. That's consistent with my chain map computation.
+
+So f^*: Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) is multiplication by k on Y/bY → Y/aY? But careful: Y = ℤ/24. The groups are Y/bY and Y/aY. The map is multiplication by k mod a? Actually, the map is induced by f^*_0: Y → Y which is multiplication by k. It sends y mod bY to k y mod aY. So it's the map Y/bY → Y/aY given by multiplication by k.
+
+But wait: Is it always multiplication by k? Let's check with another example. a=3, b=6, k=2? f: ℤ/3 → ℤ/6, x ↦ 2x. Y = ℤ/6. Ext^1(ℤ/6, ℤ/6) = ℤ/6 / 6ℤ/6 = ℤ/6. Ext^1(ℤ/3, ℤ/6) = ℤ/6 / 3ℤ/6 = ℤ/2? Wait, 3ℤ/6 = {0,3}, cokernel = {0,1,2,3,4,5}/{0,3} = ℤ/3? Actually, ℤ/6 / {0,3} has order 3, so ℤ/3. The map f^*: ℤ/6 → ℤ/3? Multiplication by 2: Y/bY = ℤ/6/6ℤ = ℤ/6. Y/aY = ℤ/6/3ℤ = ℤ/3. Multiplication by 2 sends 1 mod 6 to 2 mod 3, which generates ℤ/3. So it's surjective? Let's check via Ext^1(C, Y). f: ℤ/3 → ℤ/6, kernel = {0}? x ↦ 2x mod 6, if 2x ≡ 0 mod 6 => x ≡ 0 mod 3. So kernel=0. Coker = ℤ/6 / im(f) = ℤ/6 / {0,2,4} = ℤ/2? Wait, image of mult by 2 in ℤ/6 is {0,2,4} ≅ ℤ/3. Coker = ℤ/2. So C has H_1=0, H_0=ℤ/2? Actually, H_1=ker=0, H_0=coker=ℤ/2. So C ≃ ℤ/2. Then Ext^1(C, Y) = Ext^1(ℤ/2, ℤ/6) = ℤ/6 / 2ℤ/6 = ℤ/3? Wait, Ext^1(ℤ/2, ℤ/6) = Y/2Y = ℤ/6 / {0,2,4} = ℤ/3? Actually, 2ℤ/6 = {0,2,4}, cokernel = {0,1,3,4? no, 1,3,5} order 3. Yes, ℤ/3. The exact sequence: Ext^1(B) = Ext^1(ℤ/6, ℤ/6) = ℤ/6. Ext^1(A) = Ext^1(ℤ/3, ℤ/6) = ℤ/3. Map Ext^1(B) → Ext^1(A) is multiplication by 2: ℤ/6 → ℤ/3? ℤ/6 / 6ℤ = ℤ/6. ℤ/3 = ℤ/6 / 3ℤ. Multiplication by 2: ℤ/6 → ℤ/3 sends 1 to 2, which is surjective? The image is {0,2} mod 3 = {0,2}? In ℤ/3, 2 generates the whole group? 2*1=2, 2*2=4=1, 2*0=0. Yes, it's an isomorphism. So the map is surjective, cokernel = 0? But we just said Ext^1(C, Y) = ℤ/3, which would be the cokernel? Wait, the exact sequence: ... → Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → 0. If Ext^1(B) → Ext^1(A) is surjective, then Ext^1(C, Y) = 0. But we computed Ext^1(C, Y) = ℤ/3. Contradiction! Let's reexamine carefully.
+
+First, f: A → B. A = ℤ/3, B = ℤ/6, f(x) = 2x. The mapping cone C: H_0(C) = coker(f) = ℤ/6 / {0,2,4} = ℤ/2? Wait, coker(f) = B / im(f). im(f) = {0,2,4} ⊂ ℤ/6. So B/im(f) ≅ ℤ/2? Yes, order 2. H_1(C) = ker(f) = {x ∈ ℤ/3: 2x=0 in ℤ/6}. 2x mod 6 = 0 => x=0 mod 3. So ker = 0. So H_1=0, H_0=ℤ/2. Then C is quasi-isomorphic to ℤ/2 concentrated in degree 0. Then Ext^1(C, Y) = Ext^1(ℤ/2, Y) = Y/2Y = ℤ/6 / {0,2,4} = ℤ/3? Wait, Y = ℤ/6. Y/2Y = ℤ/6 / 2ℤ/6 = ℤ/6 / {0,2,4} = {0,1,3,4?} actually elements: 0,1,2,3,4,5. mod {0,2,4}: 0~0, 2~0, 4~0; 1~1, 3~3? 3-1=2 so 3~1? Wait, in quotient group, two elements are equivalent if their difference is in {0,2,4}. 1 - 3 = -2 = 4 mod 6, which is in the subgroup. So 1 and 3 are equivalent. 5 - 1 = 4, so 5 ~ 1. So there are 3 cosets: {0,2,4}, {1,3,5}, and wait that's only 2? {0,2,4} and {1,3,5} are two cosets! So Y/2Y has order 2? But 2ℤ/6 has order 3, Y has order 6, so cokernel has order 2. Indeed, Y/2Y = ℤ/6 / {0,2,4} ≅ ℤ/2. My mistake earlier: 2Y in ℤ/6 is {0,2,4}, order 3, cokernel order 2. So Ext^1(ℤ/2, ℤ/6) = ℤ/2? Wait, Ext^1(ℤ/m, Y) = Y/mY. For m=2, Y=ℤ/6, Y/2Y = ℤ/2. Yes, Ext^1(ℤ/2, ℤ/6) = ℤ/2. So Ext^1(C, Y) = ℤ/2.
+
+Now Ext^1(B, Y) = Ext^1(ℤ/6, ℤ/6) = Y/6Y = ℤ/6.
+Ext^1(A, Y) = Ext^1(ℤ/3, ℤ/6) = Y/3Y = ℤ/6 / {0,3} = ℤ/3? 3Y = {0,3}, order 2, cokernel order 3. Yes, ℤ/3.
+Now the map Ext^1(B, Y) → Ext^1(A, Y): B=ℤ/6, A=ℤ/3. f: A → B is mult by 2. f^*: Ext^1(B, Y) → Ext^1(A, Y). Ext^1(B) = Y/6Y = Y = ℤ/6 (since 6Y=0). Ext^1(A) = Y/3Y = ℤ/3. f^* is multiplication by 2: Y → Y/3Y? Y/6Y = ℤ/6, map to Y/3Y = ℤ/3 by multiplication by 2: send 1 mod 6 to 2 mod 3. This map is surjective: 2 generates ℤ/3 (since 2*2=4=1 mod 3). So image is ℤ/3. Cokernel is 0. But exact sequence says Ext^1(C, Y) = coker(Ext^1(B) → Ext^1(A))? Wait, the sequence is ... → Ext^1(B) → Ext^1(A) → Ext^1(C) → Ext^2(B)=0. So Ext^1(C) = coker(Ext^1(B) → Ext^1(A)). If map is surjective, coker = 0. But we computed Ext^1(C) = ℤ/2. Contradiction again.
+
+Where is the error? The long exact sequence from the triangle A → B → C → Σ A:
+... → [B, Y] → [A, Y] → [C, Y] → [Σ A, Y] → [Σ B, Y] → ...
+Here [X, Y] = Hom(X, Y) in D(Ab). [Σ A, Y] = [A, Y[-1]]? Wait, we are using Σ as the shift. Usually Σ X = X[1] in chain complexes? Or X[-1]? In stable homotopy theory, Σ X has π_n(Σ X) = π_{n-1}(X). In the derived category of chain complexes, the shift [1] usually shifts homological degree up by 1: H_n(X[1]) = H_{n-1}(X). So Σ X = X[1] is standard. Then [Σ A, Y] = [A[1], Y] = [A, Y[-1]]? But in our Ext computations, we used Ext^n(A, Y) = [A, Y[n]]. So [Σ A, Y] = [A[1], Y] = [A, Y[-1]] = Ext^{-1}(A, Y) = 0. That doesn't match the sequence I wrote earlier where I had Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y). Let's carefully align the shifts.
+
+We want [C, Σ H(ℤ/24)] = [C, H(ℤ/24)[1]] = Ext^1(C, ℤ/24). The triangle is A → B → C → Σ A → Σ B → ... where A = H(ℤ/12 ⊕ ℤ/20), B = H(ℤ/18 ⊕ ℤ/30). Applying [-, Σ H(ℤ/24)] = [-, ℤ/24[1]]:
+We get a long exact sequence:
+... → [B, ℤ/24[1]] → [A, ℤ/24[1]] → [C, ℤ/24[1]] → [Σ A, ℤ/24[1]] → [Σ B, ℤ/24[1]] → ...
+Now [Σ A, ℤ/24[1]] = [A, ℤ/24[1][-1]]? Wait, [Σ X, Y] = [X, Ω Y] but in stable category, [Σ X, Y] ≅ [X, Σ^{-1} Y]? Actually, in a stable ∞-category, [Σ X, Y] = [X, Ω Y], and we can't always shift Y negatively unless it's invertible? But in the derived category, [X[1], Y] = [X, Y[-1]]. So [Σ A, Y] = [A, Y[-1]]. So [Σ A, ℤ/24[1]] = [A, ℤ/24[1][-1]] = [A, ℤ/24] = Ext^0(A, ℤ/24). Similarly [Σ B, ℤ/24[1]] = [B, ℤ/24] = Ext^0(B, ℤ/24).
+Also [B, ℤ/24[1]] = Ext^1(B, ℤ/24), [A, ℤ/24[1]] = Ext^1(A, ℤ/24), [C, ℤ/24[1]] = Ext^1(C, ℤ/24).
+So the sequence is:
+... → Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24) → Ext^1(C, ℤ/24) → Ext^0(A, ℤ/24) → Ext^0(B, ℤ/24) → ...
+Wait, this is different! The map from Ext^1(C) goes to Ext^0(A), not to Ext^2(B). Let's check the order:
+Triangle: A --f--> B --g--> C --h--> Σ A --i--> Σ B.
+Apply [-, Z] where Z = ℤ/24[1]:
+[B, Z] ← [A, Z] ← [C, Z] ← [Σ A, Z] ← [Σ B, Z] ← ...
+So [C, Z] → [Σ A, Z] → [Σ B, Z].
+[Σ A, Z] = [A, Z[-1]] = [A, ℤ/24] = Ext^0(A, ℤ/24).
+[Σ B, Z] = [B, Z[-1]] = [B, ℤ/24] = Ext^0(B, ℤ/24).
+So the map from [C, Z] = Ext^1(C, ℤ/24) goes to Ext^0(A, ℤ/24).
+Then the map from [A, Z] = Ext^1(A, ℤ/24) goes to [C, Z] = Ext^1(C, ℤ/24).
+And the map from [B, Z] = Ext^1(B, ℤ/24) goes to [A, Z] = Ext^1(A, ℤ/24).
+So the sequence around there is:
+Ext^1(B, ℤ/24) → Ext^1(A, ℤ/24) → Ext^1(C, ℤ/24) → Ext^0(A, ℤ/24) → Ext^0(B, ℤ/24).
+Earlier I had Ext^1(B) → Ext^1(A) → Ext^1(C) → Ext^2(B) etc. That was when I applied [-, Y] with Y = ℤ/24, giving Ext^1(C) in the middle but with Ext^0 and Ext^1 shifted? Let's re-derive with Y = ℤ/24:
+If we want [C, Σ Y] = [C, Y[1]] = Ext^1(C, Y). The triangle gives:
+[B, Y[1]] → [A, Y[1]] → [C, Y[1]] → [Σ A, Y[1]] → [Σ B, Y[1]] → ...
+[B, Y[1]] = Ext^1(B, Y)
+[A, Y[1]] = Ext^1(A, Y)
+[C, Y[1]] = Ext^1(C, Y)
+[Σ A, Y[1]] = [A, Y] = Ext^0(A, Y)
+[Σ B, Y[1]] = [B, Y] = Ext^0(B, Y)
+So sequence: Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → Ext^0(A, Y) → Ext^0(B, Y).
+This is correct.
+
+In my earlier example with a=3, b=6, Y=ℤ/6:
+A = ℤ/3, B = ℤ/6.
+Ext^1(B, Y) = Ext^1(ℤ/6, ℤ/6) = Y/6Y = ℤ/6.
+Ext^1(A, Y) = Ext^1(ℤ/3, ℤ/6) = Y/3Y = ℤ/3.
+Ext^0(A, Y) = Hom(ℤ/3, ℤ/6) = elements of ℤ/6 annihilated by 3 = {0,3} ≅ ℤ/2.
+Ext^0(B, Y) = Hom(ℤ/6, ℤ/6) = ℤ/6.
+Map Ext^1(B) → Ext^1(A) = multiplication by 2: ℤ/6 → ℤ/3, surjective (as before).
+Then Ext^1(C) = coker(Ext^1(B) → Ext^1(A))? Wait, exact sequence: Ext^1(B) → Ext^1(A) → Ext^1(C) → Ext^0(A) → Ext^0(B).
+So Ext^1(C) is not just coker of the first map; there is a map from Ext^1(C) to Ext^0(A). The sequence is:
+... → Ext^1(B) --α--> Ext^1(A) --β--> Ext^1(C) --γ--> Ext^0(A) --δ--> Ext^0(B) → ...
+We need to compute Ext^1(C). We know Ext^1(B) = ℤ/6, Ext^1(A) = ℤ/3, α is surjective (image = ℤ/3). Then β: Ext^1(A) → Ext^1(C) has kernel = im(α) = ℤ/3. So β is the zero map! Thus im(β) = 0. Then γ: Ext^1(C) → Ext^0(A) is injective? The sequence is exact: im(β) = ker(γ). Since im(β)=0, ker(γ)=0, so γ is injective. Then Ext^0(A) --δ--> Ext^0(B) has kernel = im(γ). Ext^0(A) = ℤ/2, Ext^0(B) = ℤ/6. δ is the map induced by f: Hom(B, Y) → Hom(A, Y). f: A → B, so δ: Hom(B, Y) → Hom(A, Y) is precomposition. Hom(B, Y) = Hom(ℤ/6, ℤ/6) = ℤ/6. Hom(A, Y) = Hom(ℤ/3, ℤ/6) = {0,3} ≅ ℤ/2. δ sends φ to φ ∘ f. If φ is multiplication by m (i.e., φ(1)=m), then φ(f(1)) = φ(2) = 2m mod 6. For this to be in Hom(A, Y), we need the image to be annihilated by 3? Actually, any φ: ℤ/6 → ℤ/6 gives φ ∘ f: ℤ/3 → ℤ/6 by φ(f(x)). f(x)=2x mod 6. φ(2x) = 2 φ(x)? If φ is multiplication by m, then φ(2x) = 2m x mod 6. For this to be well-defined on ℤ/3, we need 3*(2m) = 6m ≡ 0 mod 6, which is always true. So δ(m) = 2m mod 6, but we identify Hom(A, Y) with the subgroup of ℤ/6 annihilated by 3? Wait, Hom(ℤ/3, ℤ/6) consists of all group homomorphisms. If we send 1 to y ∈ ℤ/6, we need 3y = 0 mod 6, so y ∈ {0,3}. So Hom(A, Y) ≅ ℤ/2. The map δ: ℤ/6 → ℤ/2 sends m mod 6 to the class of 2m mod 6? But 2m mod 6 is always even: {0,2,4}. But we need the result to be in {0,3}? Wait, a homomorphism from ℤ/3 to ℤ/6 must send 1 to an element y with 3y=0. If φ: ℤ/6 → ℤ/6 is multiplication by m, then φ ∘ f sends 1 to φ(2) = 2m. We need 3*(2m) = 6m = 0 mod 6, which is true. But 2m might not be in {0,3}? 3y=0 in ℤ/6 means y is 0 or 3. 2m mod 6: if m=1, 2; 3*2=6=0? 3*2=6=0 mod 6. Yes! 3*2=6=0. So 2 is annihilated by 3? In ℤ/6, elements annihilated by 3 are those with 3y ≡ 0 mod 6. 3*0=0, 3*1=3, 3*2=6=0, 3*3=9=3, 3*4=12=0, 3*5=15=3. So elements annihilated by 3 are {0,2,4}. Wait, I said {0,3} earlier! That was wrong! Hom(ℤ/3, ℤ/6): a homomorphism is determined by image of 1, which must satisfy 3y=0. In ℤ/6, 3y=0 means y is even? 3*0=0, 3*2=6=0, 3*4=12=0. Yes, even numbers. So Hom(ℤ/3, ℤ/6) = {0,2,4} ≅ ℤ/3? But {0,2,4} under addition mod 6: 2+2=4, 2+4=6=0, 4+4=8=2. It's a group of order 3, isomorphic to ℤ/3. Wait, earlier I thought Ext^0(ℤ/3, ℤ/6) = Hom(ℤ/3, ℤ/6). But in my Ext^1 computation I said Ext^1(ℤ/3, ℤ/6) = Y/3Y = ℤ/3. And Ext^0 is Hom. For ℤ/3, Hom(ℤ/3, ℤ/6) = {y: 3y=0} = {0,2,4} ≅ ℤ/3? Wait, order 3? Yes, 3 elements. So Ext^0(ℤ/3, ℤ/6) = ℤ/3, not ℤ/2. I made a mistake: Hom(ℤ/m, Y) = Y[m] = {y in Y: my=0}. For Y=ℤ/6, m=3, Y[3] = {0,2,4} ≅ ℤ/3. For m=6, Y[6] = {0,1,2,3,4,5}? Actually, 6y=0 always, so Hom(ℤ/6, ℤ/6) = ℤ/6. So Ext^0(A)=ℤ/3, Ext^0(B)=ℤ/6.
+Then map δ: Ext^0(B) = ℤ/6 → Ext^0(A) = ℤ/3? Hom(B,Y) = ℤ/6, Hom(A,Y) = {0,2,4} ≅ ℤ/3? But {0,2,4} is a subgroup of ℤ/6 isomorphic to ℤ/3. The map δ sends m to 2m mod 6. If m=1, 2; m=2,4; m=3,0; m=4,2? 8=2; m=5,10=4. So image is {0,2,4} = whole Hom(A,Y). So δ is surjective, kernel = {0,3} ≅ ℤ/2. Then im(γ) = ker(δ) = ℤ/2. Since γ is injective, Ext^1(C) = im(γ) = ℤ/2. This matches Ext^1(C) = ℤ/2 computed earlier! So the sequence works.
+
+Now back to our problem. We need to compute Ext^1(C, ℤ/24) = π_0 Map(C, Σ H(ℤ/24)). We have A = ℤ/12 ⊕ ℤ/20, B = ℤ/18 ⊕ ℤ/30. f: A → B is (x,y) ↦ (3x,3y). Y = ℤ/24.
+
+We need to compute the groups and maps in the long exact sequence:
+Ext^1(B, Y) → Ext^1(A, Y) → Ext^1(C, Y) → Ext^0(A, Y) → Ext^0(B, Y).
+
+We can compute all these groups.
+
+First, A = ℤ/12 ⊕ ℤ/20, B = ℤ/18 ⊕ ℤ/30, Y = ℤ/24.
+
+Compute Ext^1(A, Y) = Ext^1(ℤ/12, ℤ/24) ⊕ Ext^1(ℤ/20, ℤ/24).
+Ext^1(ℤ/m, ℤ/24) = ℤ/gcd(m,24).
+gcd(12,24)=12 → ℤ/12.
+gcd(20,24)=4 → ℤ/4.
+So Ext^1(A) = ℤ/12 ⊕ ℤ/4.
+
+Ext^1(B, Y) = Ext^1(ℤ/18, ℤ/24) ⊕ Ext^1(ℤ/30, ℤ/24).
+gcd(18,24)=6 → ℤ/6.
+gcd(30,24)=6 → ℤ/6.
+So Ext^1(B) = ℤ/6 ⊕ ℤ/6.
+
+Now Ext^0(A, Y) = Hom(A, Y) = Hom(ℤ/12, ℤ/24) ⊕ Hom(ℤ/20, ℤ/24).
+Hom(ℤ/m, ℤ/n) = ℤ/gcd(m,n)? Wait, Hom(ℤ/m, ℤ/n) = {x ∈ ℤ/n | m x = 0} = the subgroup of ℤ/n annihilated by m. Its order is gcd(m,n)? Actually, the number of solutions to m x ≡ 0 mod n is gcd(m,n). So Hom(ℤ/m, ℤ/n) ≅ ℤ/gcd(m,n). Yes.
+gcd(12,24)=12 → ℤ/12.
+gcd(20,24)=4 → ℤ/4.
+So Ext^0(A) = ℤ/12 ⊕ ℤ/4.
+
+Ext^0(B, Y) = Hom(ℤ/18, ℤ/24) ⊕ Hom(ℤ/30, ℤ/24).
+gcd(18,24)=6 → ℤ/6.
+gcd(30,24)=6 → ℤ/6.
+So Ext^0(B) = ℤ/6 ⊕ ℤ/6.
+
+Now we need the maps.
+The map f: A → B is given by f_1: ℤ/12 → ℤ/18, f_1(x) = 3x; f_2: ℤ/20 → ℤ/30, f_2(y) = 3y.
+
+This induces maps:
+On Ext^1: f^*: Ext^1(B) → Ext^1(A). Since f is a direct sum, f^* is the direct sum of the maps on each component.
+We need to compute f_1^*: Ext^1(ℤ/18, ℤ/24) → Ext^1(ℤ/12, ℤ/24) and f_2^*: Ext^1(ℤ/30, ℤ/24) → Ext^1(ℤ/20, ℤ/24).
+
+Similarly on Ext^0: f_*: Ext^0(B) → Ext^0(A) (contravariant as well, often denoted f^*). It's the direct sum of Hom maps: f_1^*: Hom(ℤ/18, ℤ/24) → Hom(ℤ/12, ℤ/24) and f_2^*: Hom(ℤ/30, ℤ/24) → Hom(ℤ/20, ℤ/24).
+
+We need to determine these maps precisely.
+
+Let's analyze the general situation: For f: ℤ/a → ℤ/b given by multiplication by k, where k is an integer such that the map is well-defined (i.e., k * a ≡ 0 mod b? Actually, we need: if x ≡ x' mod a, then kx ≡ kx' mod b => k(x-x') ≡ 0 mod b => b | k a. In our case, a=12, b=18, k=3: 3*12=36, 18|36 yes. a=20, b=30, k=3: 3*20=60, 30|60 yes.)
+Y = ℤ/n where n=24.
+
+We have Ext^1(ℤ/b, Y) = Y / bY = ℤ/n / b(ℤ/n) = ℤ / gcd(b,n)? Actually, Y/bY = ℤ/n / (b mod n) ≅ ℤ/gcd(b,n).
+Ext^1(ℤ/a, Y) = ℤ/gcd(a,n).
+Ext^0(ℤ/b, Y) = Y[b] = {y ∈ ℤ/n : b y = 0} ≅ ℤ/gcd(b,n).
+Ext^0(ℤ/a, Y) = Y[a] ≅ ℤ/gcd(a,n).
+
+The map f^*: Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) is induced by multiplication by k on Y? As we derived, if we represent Ext^1(ℤ/b, Y) as Y/bY, the map is y mod bY ↦ k y mod aY. Similarly, the map f^*: Ext^0(ℤ/b, Y) → Ext^0(ℤ/a, Y) is given by precomposition: for φ: ℤ/b → Y, φ ∘ f: ℤ/a → Y. If φ is given by multiplication by m? Wait, Hom(ℤ/b, Y) is the subgroup of Y annihilated by b. It consists of elements y ∈ Y such that b y = 0. A homomorphism φ: ℤ/b → Y is determined by φ(1) = y, with b y = 0. Then φ ∘ f: ℤ/a → Y sends 1 to φ(k) = k y mod n? But we must ensure k y is well-defined as an element of Hom(A,Y), i.e., a*(k y) = 0 mod n. Indeed, a k y = k (a y)? Wait, we need a*(k y) = k a y = 0 mod n? Since y is annihilated by b, b y = 0. But we need a k y = 0. We know b | a k? Since f is well-defined, b divides a k? Actually, f: ℤ/a → ℤ/b, x ↦ kx. For this to be well-defined, if x ≡ x' mod a, then kx ≡ kx' mod b => b | k(x-x'). Since x-x' is multiple of a, we need b | k a. Yes, b | a k. So a k = b t for some t. Then a (k y) = t (b y) = t * 0 = 0 mod n. So k y is indeed annihilated by a, so it lies in Hom(A,Y). So the map on Hom is y ↦ k y mod n. But careful: Hom(ℤ/b, Y) is identified with Y[b] = {y ∈ Y: b y = 0}. The map sends y to k y. Under the isomorphism Y[b] ≅ ℤ/gcd(b,n), what is this map?
+
+Let's do it component-wise with the given numbers.
+
+First component: f_1: ℤ/12 → ℤ/18, k=3.
+Y = ℤ/24.
+
+Compute Ext^1:
+Ext^1(ℤ/18, ℤ/24) = ℤ/6. How to represent? Y/18Y = ℤ/24 / 18ℤ/24. 18ℤ/24 = {0,6,12,18}? 18*1=18, 18*2=36=12, 18*3=54=6, 18*4=72=0. So 18ℤ/24 = {0,6,12,18} ≅ ℤ/4? Wait, order is 4? 24/gcd(18,24)=24/6=4. So Y/18Y has order 4? But earlier I said Ext^1(ℤ/18, ℤ/24) = ℤ/gcd(18,24) = ℤ/6? Contradiction! Let's recalc: Ext^1(ℤ/m, ℤ/n) = ℤ/gcd(m,n). For m=18, n=24, gcd=6, so it should be ℤ/6. But Y/18Y = ℤ/24 / 18ℤ/24. The order of Y is 24. The order of 18Y is n / gcd(18,n)? Actually, the image of multiplication by m on ℤ/n has size n / gcd(m,n). So cokernel has size gcd(m,n). Here n=24, m=18, gcd=6. Image size = 24/6 = 4. Cokernel size = 6. So Y/18Y has order 6. My list of 18Y was wrong: 18*1=18, 18*2=36 mod 24 = 12, 18*3=54 mod 24 = 6, 18*4=72 mod 24 = 0. That's {0,6,12,18} which has 4 elements. Cokernel = ℤ/24 / {0,6,12,18}. The cosets: {0,6,12,18}, {1,7,13,19}, {2,8,14,20}, {3,9,15,21}, {4,10,16,22}, {5,11,17,23}. That's 6 cosets. Yes, order 6. So it is ℤ/6.
+
+Ext^1(ℤ/12, ℤ/24) = ℤ/12. Y/12Y: 12Y = {0,12}, order 2, cokernel order 12. ℤ/12.
+
+Ext^1(ℤ/30, ℤ/24): m=30, n=24, gcd=6. Y/30Y: 30 mod 24 = 6, so 30Y = 6Y = {0,6,12,18}, same as 18Y? Wait, 30Y = {30k mod 24} = {6k mod 24} = {0,6,12,18}. Cokernel order 6. ℤ/6.
+Ext^1(ℤ/20, ℤ/24): gcd=4. Y/20Y: 20Y = {20, 16? 20*1=20, 20*2=40=16, 20*3=60=12, 20*4=80=8, 20*5=100=4, 20*6=120=0}. That's {0,4,8,12,16,20} order 6, cokernel order 4. ℤ/4.
+
+Now the map f_1^*: Ext^1(ℤ/18, ℤ/24) → Ext^1(ℤ/12, ℤ/24) is multiplication by k=3 on the cokernel representative. That is, we take y ∈ ℤ/24, map it to 3y mod 12Y? But we need to be careful: The map is induced by the chain map which was multiplication by k on Y. So it sends the class of y mod 18Y to the class of 3y mod 12Y.
+
+We can identify Ext^1(ℤ/18, ℤ/24) with Y/18Y. But Y/18Y ≅ ℤ/6. How does multiplication by 3 act? Let's choose a convenient representative for the cosets of Y/18Y. The cosets are:
+C0 = {0,6,12,18}
+C1 = {1,7,13,19}
+C2 = {2,8,14,20}
+C3 = {3,9,15,21}
+C4 = {4,10,16,22}
+C5 = {5,11,17,23}
+Multiplication by 3 mod 24 sends:
+C0: 0→0, 6→18, 12→12, 18→6? 18*3=54=6. So 3*C0 = {0,6,12,18} = C0.
+C1: 1→3, 7→21, 13→39=15, 19→57=9? 3*1=3, 3*7=21, 3*13=39=15, 3*19=57=9. So 3*C1 = {3,9,15,21} = C3.
+C2: 2→6, 8→24=0, 14→42=18, 20→60=12. 3*C2 = {0,6,12,18} = C0.
+C3: 3→9, 9→27=3, 15→45=21, 21→63=15. 3*C3 = {3,9,15,21} = C3.
+C4: 4→12, 10→30=6, 16→48=0, 22→66=18. 3*C4 = C0.
+C5: 5→15, 11→33=9, 17→51=3, 23→69=21. 3*C5 = C3.
+So the map f_1^* on Y/18Y sends C1 → C3, C2 → C0, C4 → C0, C5 → C3, C0 → C0, C3 → C3.
+Now we need to map these to Ext^1(ℤ/12, ℤ/24) = Y/12Y.
+Y/12Y: 12Y = {0,12}. Cosets mod 12:
+D0 = {0,1,2,...,11}? Actually, ℤ/24 / {0,12} has 12 cosets:
+We can represent them by 0 to 11.
+D_i = {i, i+12} for i=0,...,11.
+Multiplication by 3 on Y sends D_i to D_{3i mod 12}. Because 3(i+12) = 3i + 36 ≡ 3i mod 12? 36 mod 12 = 0. Yes.
+So f_1^*: Y/18Y → Y/12Y sends the class of y mod 18Y to the class of 3y mod 12Y. But we must be careful: The map factors through Y/18Y → Y/12Y? It's just multiplication by 3 from Y/18Y to Y/12Y? Wait, multiplication by 3 maps Y to Y, and it sends 18Y to? 18Y = {0,6,12,18}. 3*(18Y) = {0,18,36=12,54=6} = {0,6,12,18} = 18Y? But we are mapping to Y/12Y. 18Y ⊂ 12Y? 12Y = {0,12}. 18Y contains 6,18 which are not in 12Y. So the map does not factor through Y/18Y → Y/12Y in the sense of a natural quotient map? It's a map between different quotients: Y/18Y → Y/12Y given by multiplication by 3? But we must check that if y ≡ y' mod 18Y, then 3y ≡ 3y' mod 12Y. If y - y' ∈ 18Y, then y - y' = 18k. Then 3(y - y') = 54k = 12*(4.5k)? Not necessarily a multiple of 12? Wait, 18Y = {0,6,12,18}. If we multiply by 3: 3*6=18 ≡ 6 mod 12? 18 mod 12 = 6. 12 mod 12 = 0. So 3*(6) = 18 ≡ 6 mod 12. But 6 is not in 12Y? But we are mapping Y/18Y to Y/12Y. The map sends the coset containing 6 to the coset containing 3*6=18 ≡ 6 mod 12. But we need to check well-definedness: If y and y' differ by 18, say y' = y + 18. Then 3y' = 3y + 54 ≡ 3y + 6 mod 12. So 3y and 3y' differ by 6 mod 12, which is not 0! So the map is NOT well-defined as a map from Y/18Y to Y/12Y! Wait, but we derived that f^*: Ext^1(ℤ/18, Y) → Ext^1(ℤ/12, Y) is given by multiplication by k on Y? Let's reexamine.
+
+Earlier we said Ext^1(ℤ/b, Y) = Y/bY, and the map f^* sends [y] mod bY to [k y] mod aY. We must check well-definedness: If y ≡ y' mod bY, then y - y' = b t. Then k y - k y' = k b t. We need this to be in aY, i.e., a | k b t for all t. That is, a divides k b. Is that true? f: ℤ/a → ℤ/b, x ↦ kx. Well-defined means b | k a. It does NOT necessarily mean a | k b. In our case, a=12, b=18, k=3. k b = 3*18 = 54. a=12. Does 12 divide 54? No. 54/12 = 4.5. So k b is not a multiple of a. Therefore, the map y mod bY ↦ k y mod aY is NOT well-defined!
+
+Where is the flaw? The flaw is in the identification of Ext^1(ℤ/b, Y) with Y/bY and the induced map. The projective resolution we used was: 0 → ℤ --×b--> ℤ → ℤ/b → 0. Then Hom(ℤ/b, Y) is not directly, but Ext^1 = coker(×b on Y). The map f: ℤ/a → ℤ/b lifts to a chain map of resolutions: we chose f_1 = multiplication by k, f_0 = multiplication by k. Then the map on Ext^1 is induced by f^*_0: Y → Y, which is multiplication by k. But wait! The cochain complex for Ext^1(ℤ/b, Y) is 0 → Y --×b--> Y → 0, with the first Y being Hom(ℤ, Y) in degree 1? Actually, the resolution is P_1 = ℤ, P_0 = ℤ, d_1 = ×b. Then Hom(P_*, Y) is 0 → Hom(P_1, Y) --d^*--> Hom(P_0, Y) → 0. Hom(P_1, Y) = Y, Hom(P_0, Y) = Y. d^* is multiplication by b? Wait, if we evaluate at 1, d^*(φ) = φ ∘ d_1 = φ(b · ) = b φ. So d^* is multiplication by b from degree 1 to degree 0? Actually, the differential in the cochain complex goes from degree 1 to degree 0? In the derived category, the cochain complex for RHom(ℤ/b, Y) is usually Hom(P_*, Y) with differential d^*: Hom(P_n, Y) → Hom(P_{n-1}, Y)? If P_* is a chain complex concentrated in degrees 0 and 1? Standard: P_1 → P_0 → ℤ/b → 0. Then Hom(P_0, Y) → Hom(P_1, Y)? Let's be consistent: If we have a projective resolution ... → P_1 → P_0 → M → 0, then the cochain complex is Hom(P_0, Y) → Hom(P_1, Y) → ... with differential dual to the differential of the resolution. Usually the cohomology of this complex in degree n is Ext^n(M, Y). For M = ℤ/b, resolution: 0 → ℤ --×b--> ℤ → ℤ/b → 0. Here P_0 = ℤ, P_1 = ℤ, d_1: P_1 → P_0 is ×b. Then Hom(P_0, Y) = Y, Hom(P_1, Y) = Y. The differential d^*: Hom(P_0, Y) → Hom(P_1, Y) is given by d^*(φ) = φ ∘ d_1 = φ(b · ) = b φ. So the complex is 0 → Y --×b--> Y → 0 with the map from degree 0 to degree 1? Actually, if we put Hom(P_0) in degree 0 and Hom(P_1) in degree 1, then d^*: Hom(P_0, Y) → Hom(P_1, Y) is multiplication by b. Then H^0 = ker(d^*) = Y[b], which is Hom(ℤ/b, Y). H^1 = coker(d^*) = Y / bY = Ext^1(ℤ/b, Y). So Ext^1 is in degree 1.
+Now the map f: ℤ/a → ℤ/b lifts to a chain map g_*: P_*^{ℤ/a} → P_*^{ℤ/b}. P_*^{ℤ/a}: P_1 = ℤ, P_0 = ℤ, d_1 = ×a. P_*^{ℤ/b}: Q_1 = ℤ, Q_0 = ℤ, d_1 = ×b. g_1: P_1 → Q_1, g_0: P_0 → Q_0. We chose g_1 = ×k, g_0 = ×k. Then g_0 ∘ d_1^P = g_0(×a) = ×a ∘ g_0? Actually, d_1^P(x) = a x. g_0(d_1^P(x)) = g_0(a x) = k a x. d_1^Q(g_1(x)) = d_1^Q(k x) = b k x. So we need k a = b k, which is true. So the chain map is multiplication by k on both.
+Now RHom(f, Y): Hom(Q_*, Y) → Hom(P_*, Y). The map in degree 0: Hom(Q_0, Y) → Hom(P_0, Y) is φ ↦ φ ∘ g_0 = φ(k · ) = k φ? Wait, φ: Q_0 → Y. φ ∘ g_0: P_0 → Y is φ(k x) = k φ(x) if φ is a homomorphism? Yes, φ is a group homomorphism, so φ(k x) = k φ(x). So f^*_0 = ×k: Hom(Q_0, Y) → Hom(P_0, Y).
+In degree 1: Hom(Q_1, Y) → Hom(P_1, Y) is ψ ↦ ψ ∘ g_1 = ×k.
+Now we need to check compatibility with differentials. The differential in Hom(Q_*, Y): d^*_Q: Hom(Q_0, Y) → Hom(Q_1, Y) is multiplication by b. In Hom(P_*, Y): d^*_P: Hom(P_0, Y) → Hom(P_1, Y) is multiplication by a.
+We need f^*_1 ∘ d^*_Q = d^*_P ∘ f^*_0.
+f^*_1 ∘ d^*_Q (φ) = f^*_1(b φ) = k b φ.
+d^*_P ∘ f^*_0 (φ) = d^*_P(k φ) = a k φ.
+Since k b = a k? No! k b = 3*18=54, a k = 12*3=36. They are not equal! Wait, we need k b = a k? But we had k a = b k from the chain map condition? g_0 d_1^P = d_1^Q g_1 => g_0 (a x) = b (g_1(x)) => k a x = b k x => k a = b k. Here a=12, b=18, k=3: k a = 36, b k = 54. They are not equal! So the chain map we chose (multiplication by k on both) is NOT valid because f: ℤ/a → ℤ/b given by x ↦ kx does not lift to a chain map of these projective resolutions with g_0 = g_1 = ×k. Indeed, we need g_0(a x) = g_1(b x)? Wait, the condition is g_0 ∘ d_1^P = d_1^Q ∘ g_1. d_1^P is multiplication by a. d_1^Q is multiplication by b. So g_0(a x) = b g_1(x). If we set g_1 = ×m, g_0 = ×n, then n a = b m. We need to find integers n, m such that this holds and the induced map on cokernels (ℤ/a) is multiplication by k. The map on cokernels: g_0 induces map ℤ/a → ℤ/b? Actually, the map on modules: f: P_0 / im(d_1^P) → Q_0 / im(d_1^Q). f(1 mod a) = g_0(1) mod b = n mod b. We want this to be k mod b. So n ≡ k mod b. Similarly, we need the map to be well-defined, so we need a | n? Wait, f is defined on ℤ/a, so we just need n ≡ k mod b. But we also need the chain map condition: n a ≡ m b? Actually, g_0(a x) = n a x, d_1^Q(g_1(x)) = b m x. So we need n a = b m. So we need integers n, m such that n a = b m, and n ≡ k mod b. In our case, a=12, b=18, k=3. We need n*12 = m*18 => 2n = 3m => n must be a multiple of 3, m multiple of 2. Let n = 3t, then m = 2t. We also need n ≡ k mod b => 3t ≡ 3 mod 18 => 3t ≡ 3 mod 18 => t ≡ 1 mod 6. So we can choose t=1, then n=3, m=2. So g_0 = ×3, g_1 = ×2! Not both multiplication by k.
+Let's verify: g_0 = ×3, g_1 = ×2. Then g_0 d_1^P(x) = 3 * 12 x = 36 x. d_1^Q g_1(x) = 18 * 2 x = 36 x. Works. And on cokernels: g_0(1) = 3 mod 18 = 3, which is k. So f^* on Ext^1 is induced by this chain map.
+So the map f^*: Hom(Q_*, Y) → Hom(P_*, Y) has components:
+f^*_0: Hom(Q_0, Y) → Hom(P_0, Y) is φ ↦ φ ∘ g_0 = φ(3 · ) = 3 φ? Wait, φ: Q_0 → Y. φ ∘ g_0: P_0 → Y sends x to φ(3 x) = 3 φ(x) if φ is a homomorphism? Yes, φ is a group hom, so φ(3x) = 3 φ(x). So f^*_0 = ×3.
+f^*_1: Hom(Q_1, Y) → Hom(P_1, Y) is ψ ↦ ψ ∘ g_1 = ψ(2 · ) = 2 ψ? Wait, g_1 = ×2, so ψ(2 x) = 2 ψ(x). So f^*_1 = ×2.
+Now check compatibility: f^*_1 ∘ d^*_Q = ×2 ∘ (×b) = ×(2b) = ×36. d^*_P ∘ f^*_0 = (×a) ∘ ×3 = ×36. Yes, works!
+So the induced map on Ext^1 = H^1 = coker(d^*) is: Y/18Y → Y/12Y given by f^*_0? Wait, H^1 is the cokernel of d^*: Hom(P_0, Y) → Hom(P_1, Y)? Actually, the complex is 0 → Hom(Q_1, Y) --d^*_Q--> Hom(Q_0, Y) → 0 for the target? Let's write both complexes:
+For target A = ℤ/12: C^*(A): 0 → Hom(P_1, Y) --d^*_P--> Hom(P_0, Y) → 0? Wait, the resolution of ℤ/12 is 0 → ℤ --×12--> ℤ → ℤ/12 → 0. So P_1 = ℤ (degree 1), P_0 = ℤ (degree 0). The cochain complex is Hom(P_0, Y) in degree 0 and Hom(P_1, Y) in degree 1? Usually, if resolution is ... P_1 → P_0, then cochain complex is ... ← Hom(P_1, Y) ← Hom(P_0, Y)? The differential d^*: Hom(P_0, Y) → Hom(P_1, Y) is dual to d: P_1 → P_0. So d^*: Hom(P_0) → Hom(P_1) is multiplication by 12. So the complex is 0 → Hom(P_0, Y) --×12--> Hom(P_1, Y) → 0? No, Hom(P_0) is in degree 0, Hom(P_1) in degree 1? The differential goes from degree 0 to degree 1: d^*: H^0 → H^1. Then H^0 = ker(d^*) = Y[12] = Hom(ℤ/12, Y). H^1 = coker(d^*) = Y/12Y = Ext^1(ℤ/12, Y).
+So C^0 = Y, C^1 = Y, d^*: C^0 → C^1 is ×12.
+Similarly for B = ℤ/18: C'^0 = Y, C'^1 = Y, d'^*: C'^0 → C'^1 is ×18.
+The map f^*: C^*(B) → C^*(A) is: f^*_0: C'^0 → C^0 is ×3 (as we found: φ ↦ φ ∘ g_0, but g_0: P_0^A → P_0^B? Wait, careful: f: A → B, so chain map is g: P_*^A → P_*^B. Then RHom(f, Y): Hom(P_*^B, Y) → Hom(P_*^A, Y). So it goes from the cochain complex of B to the cochain complex of A. So f^*_0: Hom(P_0^B, Y) → Hom(P_0^A, Y) is ×? g_0: P_0^A → P_0^B is ×? Wait, we had g_0: P_0^A → P_0^B? The chain map is from A's resolution to B's resolution. P_*^A is for A, P_*^B is for B. So g_0: P_0^A → P_0^B, g_1: P_1^A → P_1^B. We found g_0 = ×3, g_1 = ×2? Let's check: A = ℤ/12, B = ℤ/18. g_0: ℤ → ℤ sends 1 to 3 mod 18? So g_0(x) = 3x. g_1: ℤ → ℤ sends 1 to 2? g_1(x) = 2x. Then g_0 ∘ d_A = d_B ∘ g_1: d_A = ×12, d_B = ×18. g_0(12x) = 3*12x=36x; d_B(g_1(x)) = 18*2x=36x. Good.
+Now RHom(f, Y): Hom(P_*^B, Y) → Hom(P_*^A, Y).
+C'^0 = Hom(P_0^B, Y) = Y. C'^1 = Hom(P_1^B, Y) = Y.
+C^0 = Hom(P_0^A, Y) = Y. C^1 = Hom(P_1^A, Y) = Y.
+f^*_0: C'^0 → C^0: φ ↦ φ ∘ g_0. φ: P_0^B → Y. φ ∘ g_0: P_0^A → Y. If φ is evaluation at 1, i.e., φ(y) = y * c? Actually, Hom(ℤ, Y) ≅ Y by φ ↦ φ(1). Then (φ ∘ g_0)(1) = φ(g_0(1)) = φ(3) = 3 φ(1). So f^*_0 is multiplication by 3: Y → Y.
+f^*_1: C'^1 → C^1: ψ ↦ ψ ∘ g_1. ψ(1) ↦ ψ(g_1(1)) = ψ(2) = 2 ψ(1). So f^*_1 is multiplication by 2.
+Now the differential d^*_B: C'^0 → C'^1 is ×18. d^*_A: C^0 → C^1 is ×12.
+Check: f^*_1 ∘ d'^* (c) = 2 * (18 c) = 36 c. d^*_A ∘ f^*_0 (c) = 12 * (3 c) = 36 c. Works.
+Now Ext^1(B) = H^1(C') = coker(d'^*) = Y / 18Y.
+Ext^1(A) = H^1(C) = coker(d^*) = Y / 12Y.
+The map f^*: Ext^1(B) → Ext^1(A) is induced by f^*_0: C'^0 → C^0? Actually, the map on cohomology: H^1(C') = C'^1 / im(d'^*)? Wait, H^1 is the cohomology at degree 1. The complex is 0 → C'^0 --d'^*--> C'^1 → 0. So H^1 = C'^1 / im(d'^*) = Y / 18Y. The map f^* on H^1 is induced by f^*_1: C'^1 → C^1? Because f^* maps the complex to the complex, so it induces a map on cohomology: H^1(C') → H^1(C) by f^*_1 on C'^1 followed by quotient. Also we could use f^*_0 on C'^0? But the map on H^1 is given by the degree 1 component f^*_1. Let's check: The exact sequence of complexes: 0 → C'^0 → C'^1 → 0 and 0 → C^0 → C^1 → 0. f^*: C'^* → C^* is a chain map: f^*_1 ∘ d'^* = d^* ∘ f^*_0. The induced map on H^1 = ker(d^*)/im? Wait, H^1 = C^1 / im(d^*). The map f^*: H^1(C') = C'^1 / im(d'^*) → C^1 / im(d^*) = H^1(C) sends [x] to [f^*_1(x)]. We need to check that if x ∈ im(d'^*), then f^*_1(x) ∈ im(d^*). Indeed, if x = d'^*(y) = 18y, then f^*_1(x) = 2 * 18y = 36y = 12 * 3y = d^*(3y) ∈ im(d^*). So it's well-defined. So the map is [y mod 18Y] ↦ [2y mod 12Y]? Wait, f^*_1 is multiplication by 2! Not 3. Earlier I thought it was multiplication by 3, but that was f^*_0. The map on Ext^1 is multiplication by 2 on the cokernel representative? But the elements of H^1(C') are cosets of Y/18Y. We can represent them by elements of C'^1 = Y. The map sends y mod 18Y to 2y mod 12Y.
+Let's test with the earlier example a=3, b=6, k=2? There we had f: ℤ/3 → ℤ/6, so a=3, b=6, k=2. We would have g_0 = ? n a = b m => 3n = 6m => n=2m. n ≡ k mod b => 2m ≡ 2 mod 6 => m ≡ 1 mod 3 => m=1, n=2. So g_0=2, g_1=1. Then f^*_1 = multiplication by g_1 = 1. f^*_0 = multiplication by g_0 = 2. The map on Ext^1: Y/6Y → Y/3Y by [y] ↦ 1*y mod 3Y = y mod 3Y. In that example, we had Y=ℤ/6. Y/6Y = ℤ/6. Y/3Y = ℤ/3. The map is reduction mod 3: ℤ/6 → ℤ/3, which is surjective. And we found earlier that Ext^1(B)=ℤ/6, Ext^1(A)=ℤ/3, map was surjective. Yes, matches! And the map was multiplication by g_1 = 1, not k=2. So the correct map on Ext^1 is multiplication by m, where m is the lift of g_1. But we can determine m from the condition: n a = b m, n ≡ k mod b. Alternatively, the map on Ext^1 can be described intrinsically.
+
+We can also compute the map on Ext^0. Ext^0(B) = Hom(B, Y) = H^0(C') = ker(d'^*) = Y[18] = {y ∈ Y: 18y=0}. Ext^0(A) = Y[12] = {y: 12y=0}. The map f^* on H^0 is induced by f^*_0: C'^0 → C^0, which is multiplication by n = g_0. In the example a=3,b=6,k=2, n=2, so map was multiplication by 2 on Y[6] → Y[3]. Y[6]=ℤ/6, Y[3]=ℤ/3? Wait, Hom(ℤ/3, ℤ/6) = Y[3] = {y: 3y=0} = {0,2,4} ≅ ℤ/3. Hom(ℤ/6, ℤ/6) = Y[6] = ℤ/6. Map: multiplication by 2: ℤ/6 → ℤ/3, sends 1 to 2, which is an isomorphism? Actually, {0,2,4} in ℤ/6 is isomorphic to ℤ/3, and multiplication by 2 maps ℤ/6 to this subgroup? 1→2, 2→4, 3→0, 4→2, 5→4. Image is {0,2,4}. It's surjective. Matches earlier.
+
+So in general, for f: ℤ/a → ℤ/b given by multiplication by k (with b | a k), we can find the chain map: we need g_0, g_1 such that g_0 a = g_1 b, and g_0 ≡ k mod b. Then f^* on Ext^1 is multiplication by g_1 on Y/bY → Y/aY? Wait, Ext^1(B) = Y/bY, Ext^1(A) = Y/aY. The map is [y] ↦ [g_1 y mod aY]? But g_1 is the map on P_1. In our example, g_1 = 2, and map was [y] ↦ [2y mod 12Y] for the first component? Wait, in the first component of our problem, a=12, b=18, k=3. We found n=3, m=2. So g_0 = 3, g_1 = 2. Then f^* on Ext^1 is multiplication by g_1 = 2: Y/18Y → Y/12Y, [y] ↦ [2y mod 12Y].
+f^* on Ext^0 is multiplication by g_0 = 3: Y[18] → Y[12], y ↦ 3y mod 24? But careful: Y[18] = {y: 18y=0}, Y[12] = {y: 12y=0}. Map sends y to 3y. Since 12*(3y) = 36y = 18*(2y) = 0, so 3y ∈ Y[12].
+
+Let's double-check with another perspective. The map f: ℤ/a → ℤ/b induces a map on Ext^1 and Ext^0 that can be computed using the short exact sequences:
+0 → ℤ --×a--> ℤ → ℤ/a → 0
+0 → ℤ --×b--> ℤ → ℤ/b → 0
+Applying Hom(-, Y) gives long exact sequences:
+0 → Hom(ℤ/b, Y) → Y --×b--> Y → Ext^1(ℤ/b, Y) → 0
+0 → Hom(ℤ/a, Y) → Y --×a--> Y → Ext^1(ℤ/a, Y) → 0
+The map f^*: Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) is the connecting homomorphism in the snake lemma? Actually, the map f: ℤ/a → ℤ/b induces a map of short exact sequences:
+0 → ℤ --×a--> ℤ → ℤ/a → 0
+   | g_0       | g_0? wait, the map on the resolutions is not unique. But we can use the commutative diagram:
+0 → ℤ --×a--> ℤ → ℤ/a → 0
+   |            |         |
+   |            |         f
+0 → ℤ --×b--> ℤ → ℤ/b → 0
+The vertical maps: we can choose them to make the diagram commute. As we saw, we need g_0 on the left and middle ℤ such that g_0 a = b g_0? If we use the same g on both, we need g a = b g, which is impossible unless a=b. So we must use different maps? Wait, in a short exact sequence of modules, a map f: ℤ/a → ℤ/b lifts to a map of short exact sequences:
+0 → ℤ --×a--> ℤ --p_a--> ℤ/a → 0
+   | h_1        | h_0        | f
+0 → ℤ --×b--> ℤ --p_b--> ℤ/b → 0
+with h_0 p_a = p_b f, and h_0 ∘ ×a = ×b ∘ h_1.
+We solved this: h_0 = n, h_1 = m, with n a = b m, and n ≡ f(1) mod b. Here f(1) = k mod b. So n ≡ k mod b.
+Then the induced map on Ext^1 is the map on cokernels: Y/bY → Y/aY? Wait, the long exact sequence from the diagram:
+... → Hom(ℤ/b, Y) → Y --×b--> Y → Ext^1(ℤ/b, Y) → 0
+          | h_0^*      | h_0^*? Wait, the map on Y is induced by h_0? The middle Y is Hom(ℤ, Y). The vertical map from the top ℤ to bottom ℤ? Actually, the resolution is 0 → ℤ → ℤ → 0. The map on Hom(ℤ, Y) = Y is given by precomposition with h_0? But there are two ℤ's: the first and the second. The map h_0 is between the second ℤ's. The map h_1 is between the first ℤ's. The map on Hom(ℤ, Y) for the first ℤ is precomposition with h_1, which is ×m. For the second ℤ it's ×n. The connecting homomorphism Ext^1(ℤ/b, Y) → Ext^1(ℤ/a, Y) is induced by the map on the kernels/cokernels. The snake lemma gives that the map Ext^1(B) → Ext^1(A) is given by the map on the cokernels of ×b and ×a, which are Y/bY and Y/aY, induced by the map on the middle Y's? Actually, the map on Ext^1 is the composition: Y/bY = Y / bY → Y / aY? The map Y/bY → Y/aY is induced by the map Y → Y? Which map? The snake lemma says the map between cokernels is induced by the map between the middle terms? Wait, the exact sequence: 0 → ℤ/a → 0? Let's write the full sequence:
+0 → Hom(ℤ/b, Y) → Y --×b--> Y → Ext^1(ℤ/b, Y) → 0
+   |            |            |
+   v            v            v
+0 → Hom(ℤ/a, Y) → Y --×a--> Y → Ext^1(ℤ/a, Y) → 0
+The vertical maps: on Hom(ℤ/b, Y) = Y[b], it's induced by f: precomposition with f? Actually, Hom(ℤ/b, Y) → Hom(ℤ/a, Y) sends φ to φ ∘ f. If φ is given by y ∈ Y[b], then φ ∘ f sends 1 to φ(k) = k y. So this map is ×k on Y[b]. On the middle Y: the top Y is the Hom from the first ℤ? Wait, the resolution is: 0 → ℤ --×b--> ℤ → ℤ/b → 0. The terms are: P_1 = ℤ, P_0 = ℤ. Hom(P_0, Y) = Y, Hom(P_1, Y) = Y. The map is d^*: Hom(P_0, Y) → Hom(P_1, Y) = ×b. The vertical maps: we have h_0: P_0^A? Wait, f: ℤ/a → ℤ/b, so chain map goes from resolution of ℤ/a to resolution of ℤ/b: P_*^A → P_*^B. Then RHom(f, Y): Hom(P_*^B, Y) → Hom(P_*^A, Y). So it goes from the B complex to the A complex. So the vertical maps in the snake lemma are from B to A.
+B complex: 0 → Hom(P_1^B, Y) --×b--> Hom(P_0^B, Y) → 0
+A complex: 0 → Hom(P_1^A, Y) --×a--> Hom(P_0^A, Y) → 0
+Maps: f^*_1: Hom(P_1^B, Y) → Hom(P_1^A, Y) induced by h_1: P_1^A → P_1^B? Wait, chain map g: P_*^A → P_*^B. Then f^*: Hom(P_*^B, Y) → Hom(P_*^A, Y) is φ ↦ φ ∘ g. So f^*_0: Hom(P_0^B, Y) → Hom(P_0^A, Y) is φ ↦ φ ∘ g_0. f^*_1: Hom(P_1^B, Y) → Hom(P_1^A, Y) is ψ ↦ ψ ∘ g_1.
+We had g_0 = n, g_1 = m? Wait, earlier we had f: A → B, so g: P^A → P^B. We had g_0(1) = n, g_1(1) = m. Then f^*_0: Y → Y sends φ to φ ∘ g_0: (φ(g_0(x))) = φ(n x) = n φ(x)? Actually, if φ: P_0^B → Y, φ ∘ g_0: P_0^A → Y. If we identify Hom(ℤ, Y) with Y by evaluating at 1, then (φ ∘ g_0)(1) = φ(g_0(1)) = φ(n) = n φ(1). So f^*_0 = ×n. Similarly f^*_1 = ×m.
+Now the snake lemma sequence:
+0 → Ker(f^*_1?) Actually, the diagram:
+0 → Hom(P_1^B) --×b--> Hom(P_0^B) → 0
+   | ×m            | ×n          |
+   v              v            v
+0 → Hom(P_1^A) --×a--> Hom(P_0^A) → 0
+Commutativity: ×a ∘ ×n = ×b ∘ ×m => a n = b m, which holds.
+The map on H^1 = coker: Y/bY → Y/aY is induced by ×n? Or ×m? Let's see: The map on the middle Y (degree 0) is ×n. The map on H^1 is the map on cokernels of the vertical map on the middle Y? Wait, the snake lemma for a short exact sequence of complexes: If we have a short exact sequence 0 → X' → X → X'' → 0 and similarly for Y, a chain map f: X → Y induces f'': H^1(X'') → H^1(Y''). But here we have two separate short exact sequences (the resolutions of B and A). The map between them is a chain map. The cohomology of the first is H^0 = Hom(B,Y), H^1 = Ext^1(B,Y). The map f^*: Ext^1(B,Y) → Ext^1(A,Y) is induced by the map on the cokernels of the differentials. The differential d': C'^0 --×b--> C'^1 is 0 → Y --×b--> Y → 0 with C'^0 in degree 0, C'^1 in degree 1? Wait, we need to be consistent with degrees. If the resolution is 0 → P_1 → P_0 → M → 0, then the cochain complex is 0 → Hom(P_0, Y) --d^*--> Hom(P_1, Y) → 0? That would put Hom(P_0) in degree 0, Hom(P_1) in degree 1, and d^*: degree 0 → degree 1. Then H^0 = ker(d^*) = Hom(M, Y), H^1 = coker(d^*) = Ext^1(M, Y).
+So for B: C'^0 = Y (degree 0), C'^1 = Y (degree 1), d'^* = ×b: C'^0 → C'^1.
+For A: C^0 = Y, C^1 = Y, d^* = ×a: C^0 → C^1.
+The chain map f^*: C'^* → C^*: f^*_0: C'^0 → C^0 = ×n, f^*_1: C'^1 → C^1 = ×m.
+Check: f^*_1 ∘ d'^* = ×m ∘ ×b = ×mb; d^* ∘ f^*_0 = ×a ∘ ×n = ×an. mb = an? Yes, mb = an.
+Now H^1(B) = C'^1 / im(d'^*) = Y / bY. H^1(A) = Y / aY.
+The map f^*: H^1(B) → H^1(A) sends [x] ∈ C'^1 to [f^*_1(x)] = [m x] in C^1, then mod im(d^*) = aY. So it's multiplication by m on Y/bY → Y/aY.
+H^0(B) = ker(d'^*) = Y[b] ⊆ Y. H^0(A) = Y[a]. The map f^*: H^0(B) → H^0(A) sends [y] to [f^*_0(y)] = [n y] in Y[a]. So it's multiplication by n on Y[b] → Y[a].
+So indeed, Ext^1 map is multiplication by m (which we called g_1), and Ext^0 map is multiplication by n (g_0).
+In our earlier example a=3,b=6,k=2: we needed n a = b m => 3n = 6m => n=2m. n ≡ k mod b => 2m ≡ 2 mod 6 => m=1, n=2. So Ext^1 map: ×1 (reduction mod 3), Ext^0 map: ×2. Matches.
+In our problem, we have two components.
+
+First component: f_1: ℤ/12 → ℤ/18, so a=12, b=18, k=3.
+We need n, m integers such that:
+12 n = 18 m => 2n = 3m => n = 3t, m = 2t.
+n ≡ k mod b => 3t ≡ 3 mod 18 => t ≡ 1 mod 6. Smallest positive t=1 gives n=3, m=2.
+So Ext^1 map: multiplication by m=2: ℤ/6 → ℤ/12? Wait, Ext^1(B) = Y/18Y = ℤ/6, Ext^1(A) = Y/12Y = ℤ/12. Map is ×2: ℤ/6 → ℤ/12.
+But we must be careful: Y = ℤ/24. Y/18Y ≅ ℤ/6, Y/12Y ≅ ℤ/12. The map is [y] ↦ [2y mod 12Y]. We need to compute this map explicitly in terms of the standard generators.
+Similarly Ext^0 map: multiplication by n=3: Y[18] → Y[12].
+Y[18] = {y ∈ ℤ/24: 18y=0 mod 24} = elements annihilated by 18. 18y ≡ 0 mod 24 => 3y ≡ 0 mod 4? Actually, gcd(18,24)=6. The subgroup of ℤ/24 annihilated by 18 is the set of multiples of 24/6=4? Wait, in ℤ/n, the subgroup annihilated by m is generated by n/gcd(m,n). So Y[18] = <4> ≅ ℤ/6. Y[12] = <2> ≅ ℤ/12? gcd(12,24)=12, so Y[12] = <2> ≅ ℤ/12.
+Map
+
+FINISH REASON
+=============
+
+length
+
+GRADING REASON
+==============
+
+length
+
+TIME
+====
+
+175.63 seconds
+
+ATTEMPTS
+========
+
+1

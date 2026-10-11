@@ -1,0 +1,26 @@
+Answer: 85
+
+Explanation:
+The arrow category Fun([1],[3]) is the poset of pairs
+
+(i,j) with 0 <= i <= j <= 3,
+
+ordered coordinatewise.
+
+A nondegenerate 2-simplex in its nerve is a strict chain
+
+x < y < z.
+
+For each possible middle object y, multiply the number L(y) of strict lower objects by the number U(y) of strict upper objects. For
+
+(0,0),(0,1),(0,2),(0,3),(1,1),(1,2),(1,3),(2,2),(2,3),(3,3),
+
+the products L(y)U(y) are respectively
+
+0, 8, 12, 9, 10, 16, 12, 10, 8, 0.
+
+Their sum is
+
+85.
+
+Final answer: 85

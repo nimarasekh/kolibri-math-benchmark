@@ -1,0 +1,50 @@
+QUESTION
+========
+
+In Set, let
+A -> B and A -> C
+be injections with
+|A| = 2, |B| = 4, |C| = 5.
+
+How many elements does the pushout B ⨿_A C have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are given: In Set, let A -> B and A -> C be injections (injective functions) with |A| = 2, |B| = 4, |C| = 5.
+
+We need to find the number of elements in the pushout B ⊔_A C (pushout of the diagram A -> B and A -> C). This is a categorical pushout in the category of sets. The pushout of two injections from A into B and C is basically the union of B and C along the common image of A, assuming we identify the images. More precisely, the pushout of f: A -> B and g: A -> C is the set (B ⊔ C)/~ where ~ identifies f(a) ~ g(a) for all a in A. Since f and g are injections, this is just the set obtained by gluing B and C together along the subsets f(A) and g(A). The resulting set has cardinality |B| + |C| - |A| = 4 + 5 - 2 = 7.
+
+Thus the answer should be 7.
+
+
+ANSWER
+======
+
+
+
+7
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+1.61 seconds
+
+ATTEMPTS
+========
+
+1

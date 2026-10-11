@@ -1,0 +1,34 @@
+Answer: 2
+
+Explanation:
+Passing to the infinity-groupoid completion means formally inverting every morphism of C.
+
+Choose the arrows
+
+f_1 : 0 -> 1
+and
+g_1 : 1 -> 2
+
+as a spanning tree. After groupoid completion, these tree arrows can be used to identify all three objects with the base object 0 without contributing generators to the fundamental group.
+
+The remaining arrows initially give three loop generators:
+
+one from f_2 relative to f_1,
+one from f_3 relative to f_1,
+and one from g_2 relative to g_1.
+
+The defining relation
+
+g_1 f_1 = g_2 f_2
+
+becomes one relation among these three loop generators. Because all arrows are invertible in the groupoid completion, it allows the generator coming from g_2 to be expressed in terms of the generator coming from f_2.
+
+Thus two free generators remain, with no further relations.
+
+Hence
+
+pi_1(C^gpd,0)
+
+is a free group of rank 2.
+
+Final answer: 2

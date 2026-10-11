@@ -1,0 +1,7 @@
+Regard N([2]) as an infinity-category.
+
+How many 0-simplices does its arrow infinity-category
+Fun(Delta^1, N([2]))
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

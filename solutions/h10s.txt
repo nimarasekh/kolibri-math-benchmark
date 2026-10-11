@@ -1,0 +1,48 @@
+Answer: 8
+
+Explanation:
+For any space Y and abelian group A,
+
+pi_0 Map(Y,K(A,n))
+~= H^n(Y;A).
+
+Therefore
+
+pi_0 Map(
+  K(Z^2,2),
+  K(Z/2,4)
+)
+
+is
+
+H^4(K(Z^2,2); Z/2).
+
+Since
+
+K(Z^2,2)
+~= K(Z,2) x K(Z,2)
+~= CP^infinity x CP^infinity,
+
+its mod-2 cohomology ring is
+
+H^*(K(Z^2,2);Z/2)
+~= (Z/2)[x_1,x_2],
+
+where x_1 and x_2 both have degree 2.
+
+The degree-4 part has basis
+
+x_1^2, x_1 x_2, x_2^2.
+
+Hence
+
+H^4(K(Z^2,2);Z/2)
+~= (Z/2)^3.
+
+This group has
+
+2^3 = 8
+
+elements. Therefore the mapping space has 8 connected components.
+
+Final answer: 8

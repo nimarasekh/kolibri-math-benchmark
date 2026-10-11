@@ -1,0 +1,8 @@
+In Set, let
+A -> B and A -> C
+be injections with
+|A| = 2, |B| = 4, |C| = 5.
+
+How many elements does the pushout B ⨿_A C have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

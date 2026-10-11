@@ -1,0 +1,11 @@
+Regard [4] as an infinity-category via its nerve and form its twisted-arrow infinity-category
+
+Tw([4]).
+
+How many nondegenerate 3-simplices does
+
+N(Tw([4]))
+
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

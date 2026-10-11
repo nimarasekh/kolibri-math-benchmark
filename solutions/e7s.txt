@@ -1,0 +1,12 @@
+Answer: 4
+
+Explanation:
+For a discrete group G, the realization of the nerve of the one-object groupoid BG is the classifying space BG, whose fundamental group is G.
+
+Thus
+
+pi_1(|N(BC_4)|) ≅ C_4.
+
+Since C_4 has order 4, the required number is 4.
+
+Final answer: 4

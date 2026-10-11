@@ -1,0 +1,32 @@
+Answer: 16
+
+Explanation:
+The coend is the quotient of
+
+(F(0) x G(0)) disjoint_union (F(1) x G(1))
+
+by the relations
+
+(F(alpha)(u),i) ~ (u,G(alpha)(i))
+
+for the unique nonidentity arrow alpha:0->1, with u in F(1) and i in G(0).
+
+There are initially
+
+4*3 + 3*4 = 24
+
+elements.
+
+Using u->a, v->b, w->b and 1,2->x, 3->y, the relations produce four nontrivial equivalence classes:
+{(a,1),(a,2),(u,x)},
+{(a,3),(u,y)},
+{(b,1),(b,2),(v,x),(w,x)},
+{(b,3),(v,y),(w,y)}.
+
+The remaining 12 elements are unaffected by the relations. Hence the quotient has
+
+4 + 12 = 16
+
+elements.
+
+Final answer: 16

@@ -1,0 +1,142 @@
+QUESTION
+========
+
+Let [n] denote the category associated to the linearly ordered set
+0 < 1 < ... < n.
+
+How many functors
+[2] -> [3]
+are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are asked: "Let [n] denote the category associated to the linearly ordered set 0 < 1 < ... < n. How many functors [2] -> [3] are there? Give your final answer as a single integer."
+
+First, we need to understand what [n] means as a category. The category associated to a linearly ordered set 0 < 1 < ... < n: Usually, a poset category has objects as elements of the poset, and there is exactly one morphism from a to b if a ≤ b. So [n] is a category with objects {0,1,...,n} and morphisms i -> j if and only if i ≤ j. And composition is forced. Also, identity morphisms are present for each object. This is a common definition: the order category of the poset.
+
+So [2] has objects {0,1,2} and morphisms: id_0, id_1, id_2, 0->1, 1->2, 0->2. Total of 6 morphisms.
+
+[3] has objects {0,1,2,3} and morphisms: id_i for i=0..3, and i->j for all 0 ≤ i < j ≤ 3. Total of 4 + 6 = 10 morphisms.
+
+A functor F: [2] -> [3] is a function on objects and morphisms that preserves identities and composition. Since the categories are posets, the composition condition means that if we have morphisms f: a -> b and g: b -> c, then F(g ∘ f) = F(g) ∘ F(f). In a poset category, there's at most one morphism between any two objects, so composition is uniquely determined if it exists. Basically, F is just a function from objects of [2] to objects of [3] that is order-preserving (if a ≤ b in [2], then F(a) ≤ F(b) in [3]), and then it extends uniquely to morphisms: for any a ≤ b, the morphism F(a -> b) is just the unique morphism F(a) -> F(b) in [3]. Also, we must check that identities map to identities: F(id_a) = id_{F(a)}. Since there is only one morphism from F(a) to F(a), it's automatically the identity. So functors from a poset category to another correspond exactly to order-preserving maps between the posets.
+
+But wait: Is there any subtlety? The question says "the category associated to the linearly ordered set 0 < 1 < ... < n". The strict inequality 0 < 1 < ... < n might indicate that it's the category where morphisms are only for strict inequalities? No, typically a poset category includes all order relations, i.e., ≤. But they wrote "0 < 1 < ... < n" which suggests strict inequality, but the category associated to a linearly ordered set usually has objects and morphisms for all pairs i ≤ j. However, sometimes people define a linearly ordered set as a poset with strict inequality, and the category of that poset has morphisms i → j if i < j? But then transitivity would require also i ≤ j? If they only have strict inequalities, composition of i < j and j < k gives i < k, so it's closed under strict inequalities, but there would be no identity morphisms unless we include them separately. Usually, a category associated to a poset includes identity morphisms and all non-strict inequalities. But the notation "0 < 1 < ... < n" might just be describing the order relation as strict. In many contexts, "poset" includes reflexive order, but they write strict inequality for convenience. I need to interpret correctly.
+
+Let's check standard terminology: "Let [n] denote the category associated to the linearly ordered set 0 < 1 < ... < n." In category theory, [n] often denotes the category of the linear order of n elements, sometimes used as a notation for a chain. But sometimes [n] denotes the category with objects {0,1,...,n} and morphisms i -> j if i ≤ j. I think it's the poset category. If it were the strict order, there would be no identity morphisms, which would not be a category (categories require identity morphisms). So they must mean the poset category with ≤. The strict inequality in the description just describes the strict order part; they likely include identities and thus the full ≤.
+
+But wait: If they wrote "linearly ordered set", that usually means a totally ordered set, which is reflexive. So it's ≤. They just wrote 0 < 1 < ... < n to indicate the order. So [n] has objects 0..n and morphism i -> j iff i ≤ j.
+
+Then functors [2] -> [3] are order-preserving maps f: {0,1,2} -> {0,1,2,3} such that if i ≤ j then f(i) ≤ f(j).
+
+We need to count the number of such functions f.
+
+Let's list them. f is determined by f(0), f(1), f(2) with 0 ≤ f(0) ≤ f(1) ≤ f(2) ≤ 3.
+
+We are choosing 3 elements from {0,1,2,3} with replacement, order non-decreasing. That's equivalent to combinations with repetition: number of multisets of size 3 from a set of 4 elements. Formula: C(3 + 4 - 1, 3) = C(6,3) = 20. But wait, is that all?
+
+Let's double-check: Are there any functors that are not order-preserving? No, any functor between poset categories must be order-preserving. And any order-preserving map gives a unique functor. So the number should be the number of non-decreasing sequences of length 3 with values in {0,1,2,3}. That is C(3+4-1,3) = 20.
+
+But wait: The poset [2] has 3 elements: 0,1,2. [3] has 4 elements: 0,1,2,3. Non-decreasing sequences of length 3 from 4 elements: C(3+4-1,3)=C(6,3)=20. Let's list them to be sure:
+f(0), f(1), f(2):
+0,0,0
+0,0,1
+0,0,2
+0,0,3
+0,1,1
+0,1,2
+0,1,3
+0,2,2
+0,2,3
+0,3,3
+1,1,1
+1,1,2
+1,1,3
+1,2,2
+1,2,3
+1,3,3
+2,2,2
+2,2,3
+2,3,3
+3,3,3
+That's 20.
+
+But wait: The question says "linearly ordered set 0 < 1 < ... < n". If [n] has objects 0,1,...,n, then [2] has objects {0,1,2}. That's 3 objects. [3] has objects {0,1,2,3}. That's 4 objects. So 20 seems correct.
+
+However, I recall that sometimes [n] denotes the category with objects 0,1,...,n and morphisms only the strict inequalities? But then it wouldn't be a category because no identity morphisms. Unless they consider it as a "strict order" category? Some authors define the "order category" of a poset with strict order and then add identities? No, standard is ≤.
+
+Let's think if there's any other interpretation. Maybe [n] is the category associated to the linearly ordered set, meaning the nerve of the order? No.
+
+Could [n] denote the category of sets [n] = {1,...,n}? No, that's different.
+
+Another thought: In some contexts, [n] is the poset category with n elements, i.e., {1,...,n}. But they wrote 0 < 1 < ... < n, so it has n+1 elements. So [2] has 3 elements, [3] has 4.
+
+Number of order-preserving maps from a 3-element chain to a 4-element chain: This is the number of order-preserving maps between two chains of lengths m and n, which is C(m+n, m). Here m=3, n=4? Wait, [2] has objects 0,1,2 (3 objects), [3] has 0,1,2,3 (4 objects). The formula for number of order-preserving maps from an m-element chain to an n-element chain is C(m+n-1, m) (stars and bars). Here m=3, n=4, so C(6,3)=20. Alternatively, if [n] means the chain of length n (i.e., n morphisms, n+1 objects), then [2] has 3 objects, [3] has 4 objects, same.
+
+But wait: Could [n] denote the category with objects {1,...,n}? Then [2] would have 2 objects, [3] would have 3 objects. The description says "0 < 1 < ... < n", so it includes 0. So [2] has objects 0,1,2. [3] has 0,1,2,3.
+
+If [n] meant the category with n objects? The notation [n] often means the linear order with n elements. But they wrote "0 < 1 < ... < n", which suggests n+1 elements. If n=2, it's 0<1<2 (3 elements). If n=3, it's 0<1<2<3 (4 elements). So [2] has 3 objects, [3] has 4 objects.
+
+Is there any chance they meant [n] as the category with objects {0,1,...,n-1}? No, they wrote 0 < 1 < ... < n.
+
+Let's double-check the count: Number of non-decreasing functions from a 3-element set to a 4-element set. This is equivalent to choosing a multiset of size 3 from 4 elements, which is C(3+4-1,3)=20. Or we can think of it as number of ways to place 2 dividers among 3+4-1=6 positions? Actually stars and bars: number of non-negative integer solutions to x0+x1+x2+x3 = 3? No, that's if we sum the preimage sizes. The number of order-preserving maps f: {0,1,2} -> {0,1,2,3} is the number of 3-element multisets from a 4-element set, which is C(4+3-1,3)=C(6,3)=20. Correct.
+
+But let's consider if the functor must also preserve the direction of all morphisms? Since it's a poset category, any order-preserving map does preserve morphisms because there's exactly one morphism between any comparable pair, and if f(i) ≤ f(j), the morphism is the unique one.
+
+Is there any other constraint? Functors must preserve composition. In a poset, if i ≤ j ≤ k, then i ≤ k, and f(i) ≤ f(j) ≤ f(k) implies f(i) ≤ f(k), so composition is preserved automatically.
+
+So 20 seems solid.
+
+However, I should consider if the category associated to the linearly ordered set might be something else, like a groupoid? No.
+
+Maybe [n] is the category with one object and n morphisms? No, "linearly ordered set" clearly indicates a poset.
+
+Could "category associated to the linearly ordered set" mean the category of chains? No.
+
+Maybe it's the "order category" but some authors define it with strict inequality for non-identity morphisms, and then composition of two strict morphisms gives a strict morphism, but there are no identity morphisms? That would not be a category because identities are required. So they must include identities.
+
+Thus, I'm confident the answer is 20.
+
+But let's read the prompt carefully: "Let [n] denote the category associated to the linearly ordered set 0 < 1 < ... < n. How many functors [2] -> [3] are there? Give your final answer as a single integer."
+
+If [n] has objects 0,...,n, then [2] has objects 0,1,2 and [3] has 0,1,2,3. Number of functors = 20.
+
+Wait: Could [2] mean the category with objects 0,1? "0 < 1 < ... < n" for n=2 would be 0 < 1 < 2, so 3 objects. If they meant n=2 as the number of elements? They wrote "0 < 1 < ... < n", so if n=2, it's 0<1<2. If they meant the set {0,1,...,n}, then for n=2 it's {0,1,2}. So 3 objects. If they meant the set {1,...,n} they would write 1<2<...<n. So it's 0..n.
+
+But sometimes [n] denotes the chain with n elements, e.g., [0] has one element? If n=0, it's just 0. So [n] has n+1 elements. So [2] has 3 elements, [3] has 4 elements.
+
+Number of order-preserving maps from a 3-element chain to a 4-element chain: C(3+4-1,3)=20.
+
+I'll answer 20.
+
+
+ANSWER
+======
+
+
+
+20
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+16.20 seconds
+
+ATTEMPTS
+========
+
+1

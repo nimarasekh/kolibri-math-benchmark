@@ -1,0 +1,5 @@
+Let B_5 be the poset of all subsets of {1,2,3,4,5}, ordered by inclusion.
+
+How many nondegenerate 4-simplices does the nerve N(B_5) have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

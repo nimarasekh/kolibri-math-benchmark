@@ -1,0 +1,9 @@
+Let
+V_4 = C_2 x C_2
+be the Klein four group. Regard BV_4 and BS_4 as infinity-groupoids.
+
+How many connected components does
+Map_{Cat_infinity}(BV_4, BS_4)
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

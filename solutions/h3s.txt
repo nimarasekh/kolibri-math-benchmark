@@ -1,0 +1,38 @@
+Answer: 2
+
+Explanation:
+The pointwise formula for a left Kan extension gives
+
+(Lan_j F)(t) ~= colim_{(j/t)} F.
+
+Since t is freely adjoined as a terminal object, the comma category (j/t) is equivalent to C itself. Hence
+
+(Lan_j F)(t) ~= colim_C F.
+
+The functor F is constant at S^1 and every structure map is the identity. For a constant diagram with value X in spaces, its homotopy colimit over C is
+
+X x |N(C)|.
+
+Thus
+
+(Lan_j F)(t) ~= S^1 x |N(C)|.
+
+The nerve of C has four vertices a,b,c,d and four nonidentity arrows
+
+a->c, a->d, b->c, b->d.
+
+There are no nondegenerate simplices of dimension greater than 1, so |N(C)| is the graph K_{2,2}. This graph is a single cycle, hence
+
+|N(C)| ~= S^1.
+
+Therefore
+
+(Lan_j F)(t) ~= S^1 x S^1,
+
+the 2-torus. Its first integral homology is
+
+H_1(S^1 x S^1; Z) ~= Z^2.
+
+The rank is therefore 2.
+
+Final answer: 2

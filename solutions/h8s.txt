@@ -1,0 +1,48 @@
+Answer: 13
+
+Explanation:
+In the presheaf infinity-category
+
+P(C) = Fun(C^op,S),
+
+the Yoneda lemma gives
+
+Map(y(a),F) ~= F(a),
+Map(y(b),F) ~= F(b),
+Map(y(c),F) ~= F(c).
+
+Since
+
+X = y(a) amalgamated_{y(c)} y(b)
+
+is a pushout, mapping out of X turns this pushout into a pullback:
+
+Map(X,F)
+~=
+F(a) x_{F(c)} F(b).
+
+All spaces involved are discrete, so the number of connected components is simply the cardinality of this pullback.
+
+For the four elements of F(c), the fiber sizes of
+
+F(a) -> F(c)
+
+are
+
+3,1,2,2,
+
+while the fiber sizes of
+
+F(b) -> F(c)
+
+are
+
+1,4,2,1.
+
+The pullback cardinality is therefore the sum of the products of corresponding fiber sizes:
+
+3*1 + 1*4 + 2*2 + 2*1
+= 3 + 4 + 4 + 2
+= 13.
+
+Final answer: 13

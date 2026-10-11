@@ -1,0 +1,40 @@
+Let \(C\) be the category
+\[
+b\longleftarrow a\longrightarrow c,
+\]
+and let \(D=C^{\triangleright}\) be obtained by adjoining a terminal object \(t\). Let
+\[
+j:C\hookrightarrow D.
+\]
+
+Define \(F:C\to\mathcal S\) by
+\[
+F(a)=F(b)=F(c)=T^2=S^1\times S^1.
+\]
+
+With respect to the standard bases of \(H_1(T^2;\mathbb Z)\cong\mathbb Z^2\), suppose that the two structure maps induce the matrices
+\[
+M=
+\begin{pmatrix}
+0&2\\
+6&0
+\end{pmatrix},
+\qquad
+N=
+\begin{pmatrix}
+0&2\\
+6&2
+\end{pmatrix}.
+\]
+
+Let
+\[
+X=(\operatorname{Lan}_jF)(t).
+\]
+
+What is the order of the torsion subgroup of
+\[
+H_1(X;\mathbb Z)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

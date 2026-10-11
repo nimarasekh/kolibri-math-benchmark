@@ -1,0 +1,93 @@
+QUESTION
+========
+
+Let [n] denote the category associated to the linearly ordered set
+0 < 1 < ... < n.
+
+How many functors
+[2] -> [3]
+are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are asked: Let [n] denote the category associated to the linearly ordered set 0 < 1 < ... < n. How many functors [2] -> [3] are there? Give final answer as a single integer.
+
+We need to interpret: The category associated to a linearly ordered set 0 < 1 < ... < n. This is a category with objects {0, 1, ..., n} and morphisms i -> j iff i ≤ j, and composition is usual. That's a poset category (a thin category).
+
+A functor F: [2] -> [3] is a functor between these poset categories.
+
+Objects: 0,1,2 in domain; 0,1,2,3 in codomain.
+
+Morphisms in domain: For i ≤ j, there is a unique morphism i → j.
+Morphisms in codomain: For a ≤ b, there is a unique morphism a → b.
+
+A functor F must map objects to objects, and morphisms to morphisms, preserving identities and composition.
+
+Since the categories are posets (at most one morphism between any two objects), a functor is just an order-preserving map between the posets? Wait, careful: In a functor between poset categories, the condition is: if there is a morphism f: X → Y, then there must be a morphism F(f): F(X) → F(Y). So F(X) ≤ F(Y) whenever X ≤ Y. Additionally, it must preserve composition, but composition in posets is just transitivity, which is automatically satisfied if the map preserves order. Also identity morphisms map to identity morphisms, which is automatic if F(X) ≤ F(X). So yes, a functor between poset categories is precisely an order-preserving map of posets.
+
+But wait: Does a functor require mapping every morphism? Yes, for every morphism f: X → Y, we must choose a morphism F(f): F(X) → F(Y). Since there is exactly one such morphism in the codomain if F(X) ≤ F(Y), we must have F(X) ≤ F(Y) for all X ≤ Y in the domain. If X ≰ Y, there is no morphism, so no requirement. So functors correspond to order-preserving maps.
+
+Thus we need to count the number of order-preserving maps f: {0,1,2} → {0,1,2,3} with the usual total order.
+
+Such maps are just non-decreasing sequences of length 3 with values in {0,1,2,3}. That's equivalent to combinations with repetition: number of multisets of size 3 from 4 elements, i.e., C(4+3-1, 3) = C(6,3) = 20.
+
+But wait: Is that all? Let's double-check: [2] is the category associated to the linearly ordered set 0 < 1 < 2. So there are morphisms 0→1, 0→2, 1→2, and identities. Similarly [3] has 0<1<2<3. An order-preserving map f: {0,1,2} → {0,1,2,3} means f(0) ≤ f(1) ≤ f(2). The number of such maps is indeed the number of non-decreasing triples from 0..3, which is C(3+4-1, 3) = C(6,3)=20.
+
+But wait: Could there be any other interpretation? "category associated to the linearly ordered set" - typically it's the poset category. Yes.
+
+But is there any nuance? For example, does a functor require mapping objects to objects and morphisms to morphisms, but could we map multiple objects to the same object? Yes, order-preserving maps can be constant. So that's included.
+
+But let's verify: Are there any other functors that don't correspond to order-preserving maps? In a poset category, if f is any function on objects, we can define F(f) for f: x → y only if f(x) ≤ f(y). If f(x) > f(y), there is no morphism, so we cannot define F(f). So it's necessary that f is order-preserving. So yes, order-preserving maps.
+
+Thus answer is 20.
+
+But let me check if there's any subtlety: [2] could be the category with objects 0,1,2 and only the strict inequalities? The problem says "linearly ordered set 0 < 1 < ... < n". The category associated to a poset usually includes all morphisms corresponding to order relations, i.e., if a ≤ b, there is a morphism a → b. But here they write "0 < 1 < ... < n", strict inequalities? Usually a linearly ordered set includes all ≤, but they wrote <. Could it be that the category only has morphisms for strict inequalities? That would be weird because then composition: if a < b and b < c, then a < c, so it's still a category if we include the transitive closure? Actually if we only include immediate successors, it's not a category because composition of a < b and b < c would require a < c, but if we don't include a < c, it's not closed under composition. So the category associated to a linearly ordered set must include all morphisms i → j for i ≤ j. Typically it's called the order category or the poset as a category. So it includes non-strict inequalities.
+
+Thus the number is 20.
+
+But wait: Could "linearly ordered set 0 < 1 < ... < n" mean a total order with strict inequalities, and the category is the one with objects and morphisms given by the strict order? That would not be a category because composition of 0 < 1 and 1 < 2 would be 0 < 2, but if we only have strict immediate successors, 0 < 2 is not a morphism. So it must be the transitive closure. So it's the poset category.
+
+Thus answer 20.
+
+However, let me double-check: The domain is [2] (n=2, so objects 0,1,2) and codomain [3] (objects 0,1,2,3). Number of order-preserving maps: It's the number of monotone functions from a 3-element chain to a 4-element chain. This is C(3+4-1, 3) = 20. Alternatively, we can list: f(0) can be 0..3, f(1) can be f(0)..3, f(2) can be f(1)..3. Number of triples (a,b,c) with 0 ≤ a ≤ b ≤ c ≤ 3. That's the number of weak compositions of length 3 into 4 parts, or stars and bars: choose 3 positions out of 3+4-1=6? Actually number of non-decreasing sequences of length k from n elements is C(n+k-1, k). Here n=4, k=3 => C(6,3)=20.
+
+So answer is 20.
+
+But wait: The problem says "Let [n] denote the category associated to the linearly ordered set 0 < 1 < ... < n." Could [n] be something else? In some contexts, [n] is the category of finite sets? No, [n] usually denotes the set {0,1,...,n} or the poset. The notation [n] for a linearly ordered set is common in combinatorics. And "category associated to the linearly ordered set" confirms it's the poset category.
+
+So I'm confident.
+
+Thus final answer: 20.
+
+
+ANSWER
+======
+
+
+
+20
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+8.89 seconds
+
+ATTEMPTS
+========
+
+1

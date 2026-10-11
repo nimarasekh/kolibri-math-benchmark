@@ -1,0 +1,75 @@
+QUESTION
+========
+
+Let [n] denote the category associated to the linearly ordered set
+0 < 1 < ... < n.
+
+How many functors
+[2] -> [3]
+are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We need to find the number of functors from [2] to [3], where [n] denotes the category associated to the linearly ordered set 0 < 1 < ... < n. Usually, such a category is a poset category where there is a morphism between a and b iff a ≤ b in the order. So [n] is a totally ordered set with a unique morphism for each pair a ≤ b.
+
+So we want the number of functors F: [2] -> [3].
+
+[2] has objects {0,1,2}? Wait [n] denotes the linearly ordered set 0 < 1 < ... < n, so [2] has objects {0,1,2}. The order is 0 < 1 < 2.
+
+[3] has objects {0,1,2,3}.
+
+A functor F: [2] -> [3] consists of:
+- An assignment of objects F(i) ∈ {0,1,2,3} for each i ∈ {0,1,2}.
+- An assignment of morphisms: for any i < j in [2], we need a morphism F(i) -> F(j) in [3]. Since [3] is a poset category, there is at most one morphism between any two objects x ≤ y. So for the functor to be well-defined, we must have F(i) ≤ F(j) in [3] whenever i < j in [2]. Also, we must preserve composition and identities. Since there's at most one morphism between any comparable pair, preservation of composition is automatic if we just require that the only required morphism (the one from F(i) to F(j)) exists and is the unique one. Actually, we just need to choose F(0), F(1), F(2) such that F(0) ≤ F(1) ≤ F(2) in [3] (with possible equalities? Wait, in the order, we have strict inequalities? The order is 0 < 1 < 2. In a poset category, morphisms are between x ≤ y. But the condition i < j means there is a morphism i -> j. Does i -> i exist? Yes, identity morphisms for all objects. Also, for i < j, there is a morphism i -> j. In a functor, we must map identity to identity: F(i) = F(i). And for each morphism i -> j, we map to a morphism F(i) -> F(j). Since there's exactly one morphism if i ≤ j, and no morphism if i > j. So we need to map the morphism i -> j (for i < j) to a morphism F(i) -> F(j), which requires F(i) ≤ F(j). Additionally, the functor must preserve composition: if we have i -> k and k -> j, then F(i) -> F(j) must be the composition of F(i) -> F(k) and F(k) -> F(j). In a poset category, if F(i) ≤ F(k) ≤ F(j), then the composition of the unique morphism F(i) -> F(k) and F(k) -> F(j) is the unique morphism F(i) -> F(j). So it's automatically satisfied as long as the inequalities hold. Also, we need to map identities to identities, which we do by sending object i to F(i) and identity i->i to identity F(i)->F(i).
+
+Therefore, a functor from [2] to [3] is exactly a monotone non-decreasing function from the linearly ordered set {0,1,2} to {0,1,2,3}. That is, a sequence a ≤ b ≤ c where a,b,c ∈ {0,1,2,3}.
+
+Number of such sequences: number of non-decreasing sequences of length 3 from 4 elements with repetition allowed. That is combination with repetition: C(4 + 3 - 1, 3) = C(6,3) = 20.
+
+But wait! Is there any subtlety about "linearly ordered set 0 < 1 < ... < n"? The strict inequality usually indicates a strict total order, but in category theory, the associated category usually has morphisms for all ≤ relations (i.e., x ≤ y). If it's strictly less than, then there are morphisms only for strict inequalities? Typically, the category associated to a poset has objects as elements, and a morphism f: x -> y iff x ≤ y. If the order is strict, that would be weird because there would be no identity morphisms (since x < x is false). But categories require identity morphisms for all objects. So it must be the non-strict order: 0 ≤ 1 ≤ ... ≤ n. Usually, [n] denotes the category corresponding to a totally ordered set with ≤. I'll assume that.
+
+Thus the number of functors is the number of order-preserving maps from [2] to [3].
+
+[2] has 3 objects, [3] has 4 objects.
+Order-preserving maps from a chain of length 3 to a chain of length 4: number is C(4+3-1,3) = C(6,3)=20.
+
+But let's double-check. Sometimes [n] might denote the ordinal category {0 < 1 < ... < n} where there is a unique morphism i -> j iff i ≤ j. Yes.
+
+So answer 20.
+
+But wait, could it be that [2] means the category with objects 0,1,2 and only the cover morphisms? No, "category associated to the linearly ordered set" means the order category.
+
+So I'll go with 20.
+
+
+ANSWER
+======
+
+
+
+20
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+6.58 seconds
+
+ATTEMPTS
+========
+
+1

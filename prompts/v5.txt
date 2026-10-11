@@ -1,0 +1,39 @@
+Let \(\mathcal I\) be the ordinary category with objects
+\[
+x_0,x_1,y_0,y_1
+\]
+and exactly four nonidentity morphisms
+\[
+x_i\longrightarrow y_j,
+\qquad i,j\in\{0,1\}.
+\]
+
+Let
+\[
+\mathcal C=\mathcal I\times\mathcal I,
+\]
+and consider the stable \(\infty\)-category
+\[
+\operatorname{Fun}\bigl(N(\mathcal C),\operatorname{Mod}_{H\mathbb Z}\bigr).
+\]
+
+Let
+\[
+\Delta:\operatorname{Mod}_{H\mathbb Z}
+\longrightarrow
+\operatorname{Fun}\bigl(N(\mathcal C),\operatorname{Mod}_{H\mathbb Z}\bigr)
+\]
+denote the constant-diagram functor, and set
+\[
+F=\Delta H(\mathbb Z/12),
+\qquad
+G=\Delta\Sigma^2 H(\mathbb Z/18).
+\]
+
+What is the cardinality of
+\[
+\pi_0\operatorname{Map}_{\operatorname{Fun}(N(\mathcal C),\operatorname{Mod}_{H\mathbb Z})}
+(F,G)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

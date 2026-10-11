@@ -1,0 +1,53 @@
+Let
+\[
+C=B\mathbb Z^2
+\]
+be the one-object \(\infty\)-groupoid with commuting generators \(p,q\).
+
+Define a functor
+\[
+F:C\longrightarrow \Cat_\infty
+\]
+by
+\[
+F(*)=B\mathbb Z^4.
+\]
+The actions of \(p\) and \(q\) on \(\mathbb Z^4\) are given respectively by the commuting automorphisms
+\[
+M=
+\begin{pmatrix}
+-2&1&-1&4\\
+1&-1&2&-3\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}
+\]
+and
+\[
+N=
+\begin{pmatrix}
+1&0&1&-2\\
+0&1&-6&5\\
+0&0&-4&3\\
+0&0&1&-1
+\end{pmatrix}.
+\]
+
+Let
+\[
+\mathcal E=\int_C F
+\]
+be the \(\infty\)-categorical Grothendieck construction, equivalently the total \(\infty\)-category of the coCartesian fibration over \(C\) classified by \(F\).
+
+Let
+\[
+\mathcal E^{\mathrm{gpd}}
+\]
+denote its \(\infty\)-groupoid completion.
+
+What is the order of the torsion subgroup of
+\[
+H_1(\mathcal E^{\mathrm{gpd}};\mathbb Z)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

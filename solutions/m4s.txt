@@ -1,0 +1,23 @@
+Answer: 3
+
+Explanation:
+Since 3 is terminal in D, the pointwise left Kan extension at 3 is the colimit of F over C. Thus
+
+(Lan_j F)(3) = F(1) amalgamated_{F(0)} F(2).
+
+The six elements of F(0) impose the identifications
+
+b1~c1, b1~c2,
+b2~c2,
+b3~c3, b3~c4,
+b4~c4.
+
+Therefore the elements of F(1) disjoint_union F(2) fall into the three equivalence classes
+
+{b1,b2,c1,c2},
+{b3,b4,c3,c4},
+{c5}.
+
+Hence the pushout has 3 elements.
+
+Final answer: 3

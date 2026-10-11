@@ -1,0 +1,18 @@
+Answer: 6
+
+Explanation:
+The 0-simplices of Fun(Delta^1, N([2])) are functors
+
+[1] -> [2].
+
+Such a functor is the same as a morphism in [2].
+
+The morphisms in [2] are
+
+0->0, 0->1, 0->2,
+1->1, 1->2,
+2->2.
+
+There are 6 in total.
+
+Final answer: 6

@@ -1,0 +1,28 @@
+Let S denote the infinity-category of spaces.
+
+Let C be the category with four objects a,b,c,d, with precisely the four nonidentity arrows
+
+a -> c,
+a -> d,
+b -> c,
+b -> d.
+
+Let D be obtained from C by freely adjoining a terminal object t, and let
+
+j : C -> D
+
+be the inclusion.
+
+Let
+
+F : C -> S
+
+be the constant functor with value S^1, with every morphism acting by the identity.
+
+Let Lan_j F : D -> S denote the left Kan extension computed in the infinity-category of spaces (so the relevant colimits are infinity-categorical colimits).
+
+What is the rank of
+
+H_1((Lan_j F)(t); Z)?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

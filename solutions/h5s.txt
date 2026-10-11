@@ -1,0 +1,38 @@
+Answer: 3024
+
+Explanation:
+Because X,Y,U,V are discrete spaces, the mapping space
+
+Map_{Fun(Delta^1,S)}(f,g)
+
+is itself discrete. Its points are exactly commutative squares
+
+X -> U
+|    |
+f    g
+v    v
+Y -> V.
+
+Choose the lower map b:Y->V first. Once b is fixed, an element x in the fiber f^{-1}(y) must be sent to an element of the fiber g^{-1}(b(y)).
+
+If the fiber of f over y has size n and the chosen fiber of g has size m, then there are
+
+m^n
+
+possible choices over y.
+
+The three fiber sizes of f are 1,2,3, and the available fiber sizes of g are also 1,2,3. Since the value b(y) can be chosen independently for each y, the total number of commutative squares is
+
+(1^1 + 2^1 + 3^1)
+(1^2 + 2^2 + 3^2)
+(1^3 + 2^3 + 3^3).
+
+These factors are
+
+6, 14, 36.
+
+Hence the total number of points, and therefore connected components, is
+
+6 * 14 * 36 = 3024.
+
+Final answer: 3024

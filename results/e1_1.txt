@@ -1,0 +1,94 @@
+QUESTION
+========
+
+Let [n] denote the category associated to the linearly ordered set
+0 < 1 < ... < n.
+
+How many functors
+[2] -> [3]
+are there?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are asked: "Let [n] denote the category associated to the linearly ordered set 0 < 1 < ... < n. How many functors [2] -> [3] are there? Give your final answer as a single integer."
+
+First, understand what "[n]" means: "category associated to the linearly ordered set 0 < 1 < ... < n". Usually, a linearly ordered set can be viewed as a poset, and its associated category (poset category) has objects 0,1,...,n and a unique morphism i -> j iff i ≤ j. So it's a thin category where there's at most one arrow between any two objects, and arrows exist exactly for pairs with the domain ≤ codomain.
+
+Thus [n] has objects {0,1,...,n} and Hom(i,j) = {*} if i ≤ j, else ∅.
+
+We need functors F: [2] → [3]. [2] has objects 0,1,2 with arrows: 0≤0,0≤1,0≤2,1≤1,1≤2,2≤2. So it's the poset 0<1<2.
+
+A functor F: [2] → [3] consists of:
+- On objects: a mapping F_0: {0,1,2} → {0,1,2,3}
+- On morphisms: for each arrow i ≤ j in [2], an arrow F(i) ≤ F(j) in [3].
+Since [3] is a poset (thin category), the morphism is uniquely determined if it exists. So the condition reduces to: If F_0(i) = a, F_0(j) = b, then for every i ≤ j, we must have a ≤ b. In other words, F_0 must be an order-preserving map from the poset [2] to the poset [3].
+
+Wait: is that all? For a functor, we also need to preserve identities. For identity i → i, we must map to identity F(i) → F(i), which is always satisfied since F(i) ≤ F(i) holds. So indeed, functors between posets are exactly order-preserving maps.
+
+But let's double-check: In a poset category, composition of arrows: if i ≤ j and j ≤ k, then there is a unique arrow i → k. Functor requires F(j) - F(i) ≤ F(k) - F(j), but also F(i → k) = F(j→k) ∘ F(i→j). Since there's only one arrow, composition is just the transitivity of ≤. If F_0 is order-preserving, then F(i) ≤ F(j) and F(j) ≤ F(k) implies F(i) ≤ F(k), so the unique arrow exists, and composition holds. So indeed, functors = order-preserving maps.
+
+Thus the number of functors [2] → [3] is the number of order-preserving functions f: {0,1,2} → {0,1,2,3} such that if x ≤ y then f(x) ≤ f(y).
+
+We need to count the number of non-decreasing functions f: {0,1,2} → {0,1,2,3}. Note that the domain and codomain are totally ordered sets of sizes 3 and 4 respectively.
+
+Number of non-decreasing functions from a linearly ordered set of size m to a linearly ordered set of size n is C(m+n-1, m)? Wait, that's for non-decreasing functions to {1,...,n} but here we have specific elements. The standard formula for the number of order-preserving maps from an m-element chain to an n-element chain is C(m+n-1, m) or something similar. Let's recall: The number of order-preserving maps from an m-element totally ordered set to an n-element totally ordered set is binomial coefficient (m+n choose m)? Let's test small values.
+
+For m=1, n=any: number of order-preserving maps = n (choose image of single element). (1+n choose 1) = n+1, not n. (m+n-1 choose m): (1+n-1 choose 1) = n, correct.
+For m=2, n=2: order-preserving maps from {a<b} to {x<y}. Possible maps: both a,b -> x; a->x, b->y; a->y, b->y; a->x,b->x (done). So 3 maps. (2+2-1 choose 2) = (3 choose 2)=3. Correct.
+For m=2, n=3: (2+3-1 choose 2) = (4 choose 2)=6. Let's list: f(0) <= f(1) from {0,1,2}. Number of ways: choose two values f(0),f(1) with 0 <= a <= b <= 2. Number of multisets of size 2 from 3 elements = C(3+2-1,2)=C(4,2)=6. Correct.
+For m=3, n=4: number of non-decreasing functions from {0,1,2} to {0,1,2,3} is number of multisets of size 3 from 4 elements = C(3+4-1,3) = C(6,3) = 20.
+
+But wait: Is [n] category with objects 0 < 1 < ... < n exactly a chain of n+1 objects? Because the notation [n] usually means {0,1,...,n}? The problem says: "Let [n] denote the category associated to the linearly ordered set 0 < 1 < ... < n." So [n] has objects 0,1,...,n (that's n+1 objects). So [2] has objects 0,1,2 (3 objects). [3] has objects 0,1,2,3 (4 objects). So indeed m=3, n=4. Number of functors = number of non-decreasing maps from a 3-element chain to a 4-element chain = C(3+4-1,3) = C(6,3)=20.
+
+But let's double-check: Are there any other constraints? Functor from [2] to [3] must also preserve composition of all possible arrows. For any i ≤ j ≤ k, we need F(k) - F(i) arrow = F(k) - F(j) ∘ F(j) - F(i). In poset, composition is unique arrow, so it's automatically satisfied if order-preserving. Also must preserve identities. So yes, just order-preserving.
+
+But wait: Could there be multiple morphisms in [n]? The category associated to a linearly ordered set: Usually, one could also consider the category where objects are elements and there's a morphism i → j if i ≤ j, and only one morphism for each pair. That's the standard poset category. There's no other natural "category associated to a linearly ordered set" (like the order category). So it's that.
+
+But sometimes [n] might denote a different category? The notation [n] often stands for the category of a chain of n objects? But the problem explicitly says: "associated to the linearly ordered set 0 < 1 < ... < n". So that's n+1 objects. If n=2, the set is {0,1,2}. If n=3, {0,1,2,3}. So yes.
+
+Let's verify by explicitly enumerating to be safe:
+Objects of [2]: 0,1,2. We need f(0) ≤ f(1) ≤ f(2) with f(i) ∈ {0,1,2,3}.
+
+Number of solutions to 0 ≤ a ≤ b ≤ c ≤ 3.
+Let a = x1, b = x2, c = x3. Define y1 = a, y2 = b-a, y3 = c-b, y4 = 3-c. Then y_i ≥ 0 integers, sum = 3. Number of non-negative integer solutions to y1+y2+y3+y4=3 is C(3+4-1,4-1)=C(6,3)=20. Alternatively, stars and bars: choosing 3 items from 4 types with repetition = C(3+4-1,3)=20.
+
+So answer is 20.
+
+But let's see if there is any trick. "Functors [2] -> [3]" - sometimes [n] could mean a category with n objects, labeled 1 to n? But here it explicitly says "0 < 1 < ... < n". So objects are 0,...,n. So [2] has 3 objects. If they meant [n] as having n objects, they would say 1 < 2 < ... < n. So it's fine.
+
+Thus the integer is 20.
+
+I should output just the number.
+
+
+ANSWER
+======
+
+
+
+20
+
+FINISH REASON
+=============
+
+stop
+
+GRADING REASON
+==============
+
+correct
+
+TIME
+====
+
+11.13 seconds
+
+ATTEMPTS
+========
+
+1

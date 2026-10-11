@@ -1,0 +1,14 @@
+In the derived infinity-category D(Z), let
+
+A = Z/12 direct_sum Z/18,
+B = Z/8 direct_sum Z/27,
+
+regarded as complexes concentrated in degree 0.
+
+How many connected components does
+
+Map_{D(Z)}(A,B[1])
+
+have?
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.

@@ -1,0 +1,647 @@
+QUESTION
+========
+
+Work in the stable \(\infty\)-category
+\[
+\operatorname{Mod}_{H\mathbb Z}.
+\]
+
+Let
+\[
+f:
+H(\mathbb Z/12\oplus\mathbb Z/20)
+\longrightarrow
+H(\mathbb Z/18\oplus\mathbb Z/30)
+\]
+be induced by the homomorphism
+\[
+(x,y)\longmapsto(3x,3y).
+\]
+
+Let
+\[
+C=\operatorname{cofib}(f).
+\]
+
+What is the cardinality of
+\[
+\pi_0
+\operatorname{Map}_{\operatorname{Mod}_{H\mathbb Z}}
+\bigl(C,\Sigma H(\mathbb Z/24)\bigr)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
+
+
+REASONING
+=========
+
+
+We are working in the stable ∞-category Mod_{H\mathbb Z}, which is the derived category of modules over the discrete ring H\mathbb{Z}? Actually Mod_{H\mathbb Z} likely denotes the stable ∞-category of H\mathbb{Z}-modules, where H\mathbb Z is the Eilenberg-MacLane spectrum representing integer homology. H\mathbb{Z} is the Eilenberg-MacLane spectrum K(\mathbb Z, 0). Mod_{H\mathbb Z} is the ∞-category of H\mathbb{Z}-modules, which is equivalent to the derived category of \mathbb Z-modules (abelian groups), or spectra that are module spectra over H\mathbb Z. Since H\mathbb Z is a ring spectrum (its ring structure is just the ordinary multiplication of integers), the category of H\mathbb Z-module spectra is equivalent to the stable ∞-category of spectra that are modules over K(\mathbb Z, 0), which essentially means spectra that are built from Eilenberg-MacLane spectra K(A, n) with A an abelian group, and maps are maps of abelian groups in the appropriate degrees.
+
+But we can simplify: in Mod_{H\mathbb Z}, objects are essentially spectra that are H\mathbb Z-module spectra, i.e., spectra with an action of H\mathbb Z. However, any such spectrum can be decomposed into wedges of suspensions of Eilenberg-MacLane spectra K(A, n) for various abelian groups A. But often in such problems, we only care about homology groups. Map(C, Σ H(\mathbb Z/24)): we are looking at the set of isomorphism classes of maps from C to Σ H(\mathbb Z/24) in Mod_{H\mathbb Z}. Since we are in a stable category, π_0 Map(C, Σ H(\mathbb Z/24)) is just [C, Σ H(\mathbb Z/24)]^{-1} ? Wait, π_0 of the mapping spectrum is the set of connected components of the mapping spectrum, which is the set of homotopy classes of maps from C to Σ H(\mathbb Z/24). But since we are in a stable ∞-category, the set of such maps is the same as the set of homotopy groups of the mapping spectrum, i.e., [C, Σ H(\mathbb Z/24)] (the set of isomorphism classes of morphisms in the stable homotopy category). Often denoted [C, Σ H(\mathbb Z/24)].
+
+We have C = cofib(f), where f: H(\mathbb Z/12 ⊕ \mathbb Z/20) -> H(\mathbb Z/18 ⊕ \mathbb Z/30) induced by (x,y) -> (3x, 3y).
+
+We need to compute the cardinality of [C, Σ H(\mathbb Z/24)] in Mod_{H\mathbb Z}.
+
+Let's understand the objects:
+H(\mathbb Z/12 ⊕ \mathbb Z/20) is the Eilenberg-MacLane spectrum H(\mathbb Z/12) ∨ H(\mathbb Z/20)? Wait, H is the functor from abelian groups to spectra representing homology? Usually H A denotes the Eilenberg-MacLane spectrum K(A, 0). So H(\mathbb Z/12 ⊕ \mathbb Z/20) = K(\mathbb Z/12 ⊕ \mathbb Z/20, 0) = K(\mathbb Z/12, 0) ∨ K(\mathbb Z/20, 0) (since the wedge of Eilenberg-MacLane spectra represents direct sum). Similarly H(\mathbb Z/18 ⊕ \mathbb Z/30) = K(\mathbb Z/18, 0) ∨ K(\mathbb Z/30, 0). The map f is induced by the homomorphism (x,y) -> (3x,3y). This gives a map of Eilenberg-MacLane spectra: K(\mathbb Z/12 ⊕ \mathbb Z/20, 0) -> K(\mathbb Z/18 ⊕ \mathbb Z/30, 0). Since Eilenberg-MacLane spectra represent cohomology? Wait, H A usually denotes homology spectrum? In stable homotopy theory, H A is the Eilenberg-MacLane spectrum K(A,0). It represents homology: π_0 Map(X, H A) = H_0(X; A) ? Actually, for a space X, H_*(X; A) = π_* Map(X, H A). But in an abstract stable ∞-category, H A is an object. The homomorphism A -> B induces a map H A -> H B of Eilenberg-MacLane spectra.
+
+Now f: H(\mathbb Z/12 ⊕ \mathbb Z/20) -> H(\mathbb Z/18 ⊕ \mathbb Z/30). It's induced by the group homomorphism φ: \mathbb Z/12 ⊕ \mathbb Z/20 -> \mathbb Z/18 ⊕ \mathbb Z/30, given by φ(x,y) = (3x, 3y). Let's check that this is well-defined: 3*(x mod 12) mod 18? If x is mod 12, 3x mod 18: yes, 3x is well-defined mod 18? If x1 ≡ x2 mod 12, then x1 - x2 = 12k, so 3(x1 - x2) = 36k ≡ 0 mod 18, so yes. Similarly 3y mod 30: if y1 ≡ y2 mod 20, difference 20k, 3*20k=60k ≡ 0 mod 30, so yes. So φ is a group homomorphism.
+
+C = cofib(f). In the stable category, the cofiber sequence is:
+H(\mathbb Z/12 ⊕ \mathbb Z/20) --f--> H(\mathbb Z/18 ⊕ \mathbb Z/30) --i--> C --δ--> Σ H(\mathbb Z/12 ⊕ \mathbb Z/20).
+
+We need to compute [C, Σ H(\mathbb Z/24)].
+
+Since [X, Σ Y] in a stable category is the same as [Σ^{-1} X, Y]. Alternatively, we can use the long exact sequence of homotopy groups for the cofiber sequence. For any spectrum Z, the sequence:
+[H(\mathbb Z/18 ⊕ \mathbb Z/30), Z] -> [C, Z] -> [Σ H(\mathbb Z/12 ⊕ \mathbb Z/20), Z] -> ...
+But we want Z = Σ H(\mathbb Z/24). Then [Σ H(\mathbb Z/24), Z] = [H(\mathbb Z/24), Ω Σ H(\mathbb Z/24)]? Actually better to use the exact triangle:
+H(\mathbb Z/12 ⊕ \mathbb Z/20) -> H(\mathbb Z/18 ⊕ \mathbb Z/30) -> C -> Σ H(\mathbb Z/12 ⊕ \mathbb Z/20).
+Apply [ -, Σ H(\mathbb Z/24)]:
+[Σ H(\mathbb Z/12 ⊕ \mathbb Z/20), Σ H(\mathbb Z/24)] -> [C, Σ H(\mathbb Z/24)] -> [H(\mathbb Z/18 ⊕ \mathbb Z/30), Σ H(\mathbb Z/24)] -> [Σ H(\mathbb Z/12 ⊕ \mathbb Z/20), Σ H(\mathbb Z/24)]? Wait, the exact sequence of homotopy sets:
+... -> [C, Z] -> [B, Z] -> [A, Z] -> [Σ A, Z] -> ...?
+Let's write the cofiber sequence as A -> B -> C -> Σ A.
+Then applying [ -, Z] gives:
+[C, Z] -> [B, Z] -> [A, Z] -> [Σ A, Z] -> [Σ B, Z] -> ...
+Actually the exact triangle is:
+A -> B -> C -> Σ A -> Σ B -> Σ C -> ...
+So applying mapping spectrum to Z gives long exact sequence of homotopy sets (and groups in higher degrees):
+... -> [Σ A, Z] -> [C, Z] -> [B, Z] -> [A, Z] -> [Σ^{-1} A, Z]? Wait, let's recall: For a cofiber sequence A -> B -> C -> Σ A, the sequence of [ -, Z] is:
+[Σ A, Z] <- [C, Z] <- [B, Z] <- [A, Z] <- [Σ^{-1} A, Z] ...
+Actually, the map C -> Σ A induces [Σ A, Z] -> [C, Z]? No, contravariant: [X, -] gives a sequence:
+[Σ A, Z] -> [C, Z] -> [B, Z] -> [A, Z] -> [Σ^{-1} A, Z] ... but we can just use the exact sequence of homotopy groups:
+... -> π_n Map(Σ A, Z) -> π_n Map(C, Z) -> π_n Map(B, Z) -> π_n Map(A, Z) -> π_{n-1} Map(Σ A, Z) ...
+But π_n Map(X, Z) = [Σ^n X, Z] = π_n [X, Z]? Typically [X, Z] denotes π_0 Map(X, Z). The exact sequence for n=0:
+π_0 Map(Σ A, Z) -> π_0 Map(C, Z) -> π_0 Map(B, Z) -> π_0 Map(A, Z) -> π_{-1} Map(Σ A, Z) = π_{-1} Map(Σ A, Z) = π_0 Map(A, Z)? Wait, π_{-1} Map(Σ A, Z) = [Σ A, Σ Z]? No, π_{-1} Map(X, Y) = π_0 Map(Σ X, Y)? Let's be careful.
+
+In a stable ∞-category, we can just use the long exact sequence of homology/cohomology? Alternatively, we can compute the mapping spectrum directly.
+
+We want π_0 Map(C, Σ H(\mathbb Z/24)). This is the set of morphisms from C to Σ H(\mathbb Z/24) in the stable homotopy category of H\mathbb{Z}-modules. Since H\mathbb Z-modules are essentially abelian groups with some structure? Actually Mod_{H\mathbb Z} is the ∞-category of spectra that are modules over H\mathbb Z. The map H\mathbb Z is the Eilenberg-MacLane spectrum K(\mathbb Z, 0). An H\mathbb Z-module spectrum is a spectrum with an action of K(\mathbb Z, 0), which is equivalent to a spectrum that is built from Eilenberg-MacLane spectra K(A, n) where A is an abelian group, and the maps are maps of spectra. In fact, the ∞-category Mod_{H\mathbb Z} is equivalent to the derived category of \mathbb Z-modules? More precisely, it is equivalent to the category of chain complexes of abelian groups? Actually, K(\mathbb Z, 0)-module spectra are just spectra that are modules over the ring spectrum K(\mathbb Z, 0). The homotopy groups of such a spectrum are abelian groups, and the homotopy groups of maps between them are just maps of abelian groups. But we can also think of it as: the category of H\mathbb Z-module spectra is equivalent to the category of spectra that are coproducts of suspensions of H A for various abelian groups A. And [X, Y] = π_0 Map(X, Y) is just the set of homomorphisms between the appropriate homotopy groups? Not exactly, because X and Y may have higher homotopy groups. But H A are connective? Actually H A for abelian group A has only π_0 = A and higher homotopy groups zero? Wait, K(A,0) has π_0 = A and π_n = 0 for n ≠ 0. So H A is an Eilenberg-MacLane spectrum. In Mod_{H\mathbb Z}, any object can be decomposed as a wedge of suspensions of H A? Not necessarily; there could be modules over H\mathbb Z that are not just Eilenberg-MacLane spectra? Actually H\mathbb Z is a ring spectrum, and its module spectra are exactly the derived category of H\mathbb Z-modules, which are just chain complexes of abelian groups? The derived category of H\mathbb Z-modules is equivalent to the homotopy category of chain complexes of abelian groups, which is the same as the homotopy category of spectra that are modules over H\mathbb Z. Since H\mathbb Z is an Eilenberg-MacLane ring spectrum, its module spectra are essentially abelian group spectra. But any such spectrum is equivalent to a wedge of suspensions of Eilenberg-MacLane spectra K(A, n)? Not exactly; there are spectra like the Eilenberg-MacLane spectrum for A but shifted, K(A, n). But also there are modules that are not just wedges of K(A,n)? Actually, over a field, every spectrum is a wedge of Eilenberg-MacLane spectra? No, that's not true. Over a ring, the module category can be complicated. But here the ring is H\mathbb Z, which is just the ordinary integers? Wait, H\mathbb Z is the Eilenberg-MacLane spectrum K(\mathbb Z, 0). Its homotopy groups are \mathbb Z in degree 0, 0 elsewhere. The category of K(\mathbb Z,0)-module spectra is equivalent to the category of spectra X such that K(\mathbb Z,0) ∧ X ≃ X? Actually any spectrum is a K(\mathbb Z,0)-module if we use the trivial action? No, K(\mathbb Z,0) is a ring spectrum, and its modules are spectra with a commutative ring action. The homotopy groups of a K(\mathbb Z,0)-module are just abelian groups with no additional structure. But the module structure gives a map K(\mathbb Z,0) ∧ X -> X. For any spectrum X, this map is determined by a map \mathbb Z -> π_0(End X)? Actually, K(\mathbb Z,0) is the integral Eilenberg-MacLane spectrum. Its modules are spectra with an action of K(\mathbb Z,0). Since K(\mathbb Z,0) is the unit for the tensor product? Wait, the derived category of K(\mathbb Z,0)-modules is equivalent to the derived category of abelian groups, i.e., chain complexes of abelian groups. Indeed, the ∞-category of K(\mathbb Z,0)-module spectra is equivalent to the ∞-category of chain complexes of abelian groups (or abelian group spectra). In this category, every object is a chain complex, and the Eilenberg-MacLane spectra K(A, n) correspond to the chain complexes with A concentrated in degree -n? Something like that.
+
+But we can approach this more simply: In the stable homotopy category of H\mathbb Z-modules, the objects we are dealing with are H(\mathbb Z/12 ⊕ \mathbb Z/20), H(\mathbb Z/18 ⊕ \mathbb Z/30), and Σ H(\mathbb Z/24). These are all Eilenberg-MacLane spectra. The map between them is induced by a group homomorphism. The cofiber C is the cofiber of this map. We want the set of maps from C to Σ H(\mathbb Z/24).
+
+Note that in the stable homotopy category of spectra (or H\mathbb Z-modules), the set of maps [X, Y] can be computed using the Atiyah-Hirzebruch spectral sequence? But maybe we can just use the fact that for Eilenberg-MacLane spectra, maps between them are just maps of the underlying abelian groups in the appropriate degrees? Actually, [K(A, m), K(B, n)] = Hom(π_m K(A,m), π_n K(B,n))? Not exactly, because there could be extensions. But since K(A, m) and K(B, n) are Eilenberg-MacLane spectra, the only possible non-zero homotopy group of the mapping spectrum K(A, m)^∧ K(B, n) is in degree n-m, and it is Hom(A, B)? Wait, in the stable homotopy category, the mapping spectrum between two Eilenberg-MacLane spectra K(A, m) and K(B, n) is an Eilenberg-MacLane spectrum K(Hom(A,B), n-m)? Actually, the category of spectra is not just abelian groups; maps between K(A,m) and K(B,n) are given by homomorphisms A -> B if m = n? But there can be higher homotopy groups? Let's recall: In the stable homotopy category of spectra, the set of maps [K(A, m), K(B, n)] is the group of homomorphisms from A to B if m = n? Actually, [K(A, m), K(B, n)] = π_{n-m} K(A, m)^\vee ∧ K(B, n)? The Spanier-Whitehead dual of K(A, m) is K(A, -m)? The smash product K(A, m) ∧ K(B, n) is K(A ⊗ B, m+n)? No, K(A,m) ∧ K(B,n) is K(A ⊗ B, m+n) only if A and B are finitely generated free abelian groups? For general abelian groups, it's more complicated. But we are working in Mod_{H\mathbb Z}, which is the category of K(\mathbb Z,0)-module spectra. In this category, the smash product is the tensor product? Actually, the category of K(\mathbb Z,0)-module spectra is monoidal under the smash product, and the unit is K(\mathbb Z,0). The Eilenberg-MacLane spectra K(A, n) are K(\mathbb Z,0)-modules. The smash product K(A, m) ∧ K(B, n) is K(A ⊗_{\mathbb Z} B, m+n)? Not sure, but we can use the fact that [K(A, m), K(B, n)] is just the set of group homomorphisms from A to B if we shift appropriately? Wait, we are in a stable ∞-category, so [X, Y] = π_0 Map(X, Y). For X = K(A, m), Y = K(B, n), Map(X, Y) is the function spectrum. Its π_k is [Σ^k X, Y] = [K(A, m+k), K(B, n)] = ? In the category of abelian group spectra (which is Mod_{H\mathbb Z}), the mapping spectrum between two Eilenberg-MacLane spectra is an Eilenberg-MacLane spectrum? Actually, the category of H\mathbb Z-modules is not the same as the category of all spectra; it's a subcategory. But H A are H\mathbb Z-modules. The mapping spectrum Map(H A, H B) in Mod_{H\mathbb Z} should be H(Hom(A,B))?
+
+ANSWER
+======
+
+
+
+We are working in the stable ∞-category Mod_{H\mathbb Z} of H\mathbb{Z}-module spectra, where H\mathbb{Z} is the Eilenberg-MacLane spectrum K(\mathbb{Z},0). In this category, the objects H(A) = K(A,0) for abelian groups A are the Eilenberg-MacLane spectra, and maps between them are induced by group homomorphisms. The category Mod_{H\mathbb{Z}} is equivalent to the derived category of \mathbb{Z}-modules, where the objects are chain complexes of abelian groups, and H(A) corresponds to A concentrated in degree 0. The shift Σ corresponds to shifting the chain complex by one degree. The cofiber sequence corresponds to the short exact sequence of chain complexes.
+
+Given the map f: H(\mathbb{Z}/12 \oplus \mathbb{Z}/20) → H(\mathbb{Z}/18 \oplus \mathbb{Z}/30) induced by φ(x,y) = (3x, 3y), we can represent the objects as abelian groups concentrated in degree 0:
+A = \mathbb{Z}/12 \oplus \mathbb{Z}/20
+B = \mathbb{Z}/18 \oplus \mathbb{Z}/30
+C = cofib(φ) is the mapping cone of φ. In the derived category, the cone of a map of chain complexes concentrated in degree 0 is a chain complex concentrated in degrees 0 and -1:
+C_0 = coker(φ), C_{-1} = ker(φ)? Wait, the cofiber of a map A → B in the stable category is the spectrum representing the long exact sequence ... → π_1(C) → π_0(A) → π_0(B) → π_0(C) → 0? Actually, in the stable category of chain complexes, the cone of f: A → B (where A and B are in degree 0) is the chain complex:
+... → 0 → A → B → 0 → ... with the cone being C with C_0 = B, C_{-1} = A, and differential d: C_{-1} → C_0 is f. But that's the mapping cone. The homology of this cone gives the long exact sequence of homotopy groups. In the stable category, we often work with the homotopy groups. The cofiber C has homotopy groups:
+π_0(C) = coker(φ) = B / im(φ)
+π_1(C) = ker(φ)
+and higher homotopy groups zero? Wait, the cone has C_0 = B, C_{-1} = A, so its homology in degree 0 is H_0(C) = B / im(A) = coker(φ). Its homology in degree -1 is H_{-1}(C) = ker(A → B) = ker(φ). But in the stable category, we usually index homotopy groups by π_n = H_n? Actually, for a chain complex concentrated in degrees 0 and -1, its homotopy groups (which are the homology of the chain complex shifted?) Let's be careful: In the derived category of abelian groups, an object X is a chain complex ... → X_{-1} → X_0 → X_1 → ... The homotopy groups are π_n(X) = H_n(X)? Typically, the Eilenberg-MacLane spectrum K(A, n) has π_n = A and other π_i = 0. So if we have an object concentrated in degrees 0 and -1, its π_0 is H_0 = coker, π_{-1} = H_{-1} = ker, but we usually only consider non-negative homotopy groups? Actually, the stable category includes all integer homotopy groups. But here we are mapping into Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, -1)? Wait, Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1)? H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 0). Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1)? In the derived category of abelian groups, shifting by Σ corresponds to shifting the chain complex by one degree. If we represent K(A, n) as A concentrated in degree n, then H(A) = K(A,0) is A in degree 0. Σ H(A) = K(A,1) is A in degree 1. Then [X, Y] = π_0 Map(X, Y) = Ext^0_{derived}(X, Y)? Actually, in the derived category of abelian groups, the set of morphisms [X, Y] is the 0-th cohomology of the chain complex Hom(X, Y). If X and Y are chain complexes of abelian groups, then Hom(X, Y) is a chain complex whose n-th term is ∏ Hom(X_n, Y_{n+k})? Wait, the derived Hom complex RHom(X, Y) has terms Hom(X_n, Y_m) with appropriate signs. The 0-th homotopy group of Map(X, Y) is the 0-th cohomology of RHom(X, Y), which is the set of chain homomorphisms up to homotopy.
+
+Since we are in a stable ∞-category, we can compute [C, Σ H(\mathbb{Z}/24)] using the long exact sequence of homotopy sets from the cofiber sequence:
+A → B → C → Σ A → Σ B → ...
+Apply [ -, Σ H(\mathbb{Z}/24)]:
+[Σ A, Σ H(\mathbb{Z}/24)] → [C, Σ H(\mathbb{Z}/24)] → [B, Σ H(\mathbb{Z}/24)] → [A, Σ H(\mathbb{Z}/24)] → [Σ A, Σ H(\mathbb{Z}/24)]? Actually the sequence is:
+... → [Σ A, Z] → [C, Z] → [B, Z] → [A, Z] → [Σ^{-1} A, Z] → ...
+But we can just use the exact triangle:
+A --f--> B --i--> C --δ--> Σ A --Σf--> Σ B --Σi--> Σ C ...
+Apply [ -, Z] with Z = Σ H(\mathbb{Z}/24):
+[Σ A, Z] ← [C, Z] ← [B, Z] ← [A, Z] ← [Σ^{-1} A, Z] ...
+Wait, contravariant: [X, -] gives a sequence:
+[Σ A, Z] -> [C, Z] -> [B, Z] -> [A, Z] -> [Σ^{-1} A, Z] -> ...
+But [Σ A, Z] = [A, Ω Z] = [A, Σ^{-1} Z]? In stable category, [Σ A, Z] ≅ [A, Σ^{-1} Z]. Let's just use the long exact sequence of homotopy groups for the mapping spectrum:
+... → π_n Map(Σ A, Z) → π_n Map(C, Z) → π_n Map(B, Z) → π_n Map(A, Z) → π_{n-1} Map(Σ A, Z) → ...
+We want π_0 Map(C, Z). Z = Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1) if H(A) = K(A,0). Then π_k Map(X, Z) = [X, K(\mathbb{Z}/24, 1+k)]? Actually, π_k Map(X, Y) = [Σ^k X, Y]. So π_0 Map(C, Z) = [C, Z] = [C, K(\mathbb{Z}/24, 1)].
+π_0 Map(B, Z) = [B, K(\mathbb{Z}/24, 1)] = [Σ^{-1} B, K(\mathbb{Z}/24, 0)]? Not sure.
+
+Better: We can compute the set [X, K(A, n)] for any X in Mod_{H\mathbb{Z}}. Since Mod_{H\mathbb{Z}} is the derived category of abelian groups, we can compute derived Hom groups.
+In the derived category of abelian groups, [X, Y] = Ext^0_{D(Ab)}(X, Y)? Actually, [X, Y] is the 0-th homotopy group of the mapping spectrum, which in the derived category is the set of morphisms from X to Y, i.e., Hom_{D(Ab)}(X, Y). The derived category of abelian groups is an abelian category? No, it's a triangulated category. The set of morphisms Hom(X,Y) is just the set of morphisms in the triangulated category. If we represent X and Y as chain complexes, then Hom(X,Y) is the 0-th cohomology of the chain complex Hom(X, Y) (where Hom(X,Y)_n = ∏ Hom(X_m, Y_{m+n})). This is Ext^0(X, Y).
+
+We want Hom_{D(Ab)}(C, K(\mathbb{Z}/24, 1)). Wait, K(\mathbb{Z}/24, 1) is the complex with \mathbb{Z}/24 in degree 1 and zero elsewhere? Or is H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 0) concentrated in degree 0? Yes. Then Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1) concentrated in degree 1.
+
+We need to compute the number of morphisms from C to K(\mathbb{Z}/24, 1) in the derived category of abelian groups.
+
+First, let's understand the map f: H(\mathbb{Z}/12 ⊕ \mathbb{Z}/20) → H(\mathbb{Z}/18 ⊕ \mathbb{Z}/30).
+φ: \mathbb{Z}/12 ⊕ \mathbb{Z}/20 → \mathbb{Z}/18 ⊕ \mathbb{Z}/30, (x,y) ↦ (3x, 3y).
+We can compute the kernel and cokernel of φ as abelian groups.
+
+Let A = \mathbb{Z}/12 ⊕ \mathbb{Z}/20.
+B = \mathbb{Z}/18 ⊕ \mathbb{Z}/30.
+
+φ(x,y) = (3x mod 18, 3y mod 30).
+
+First component: \mathbb{Z}/12 → \mathbb{Z}/18 by multiplication by 3.
+Kernel: x ∈ \mathbb{Z}/12 such that 3x ≡ 0 mod 18. 3x ≡ 0 mod 18 means 18 | 3x ⇒ 6 | x. So x = 6k mod 12. The elements are 0, 6. So kernel ≅ \mathbb{Z}/2.
+Image: multiples of 3 in \mathbb{Z}/18. The image is 3\mathbb{Z}/18 ≅ \mathbb{Z}/6. (Since 18/3 = 6.)
+
+Second component: \mathbb{Z}/20 → \mathbb{Z}/30 by multiplication by 3.
+Kernel: y ∈ \mathbb{Z}/20 such that 3y ≡ 0 mod 30 ⇒ 30 | 3y ⇒ 10 | y. So y = 10k mod 20. Elements: 0, 10. Kernel ≅ \mathbb{Z}/2.
+Image: multiples of 3 in \mathbb{Z}/30. Image ≅ \mathbb{Z}/10.
+
+So φ: A → B is given by the direct sum of these two maps. Therefore:
+ker φ = ker(first) ⊕ ker(second) ≅ \mathbb{Z}/2 ⊕ \mathbb{Z}/2.
+coker φ = coker(first) ⊕ coker(second) ≅ (\mathbb{Z}/18 / im) ⊕ (\mathbb{Z}/30 / im).
+coker(first): \mathbb{Z}/18 / (3\mathbb{Z}/18) ≅ \mathbb{Z}/3? Wait, \mathbb{Z}/18 / 3\mathbb{Z}/18 ≅ \mathbb{Z}/3? The image of multiplication by 3 is the subgroup of elements of order dividing 6, which is isomorphic to \mathbb{Z}/6. The quotient \mathbb{Z}/18 / \mathbb{Z}/6 ≅ \mathbb{Z}/3. Yes.
+coker(second): \mathbb{Z}/30 / 3\mathbb{Z}/30 ≅ \mathbb{Z}/3? The image is 3\mathbb{Z}/30 ≅ \mathbb{Z}/10. Quotient \mathbb{Z}/30 / \mathbb{Z}/10 ≅ \mathbb{Z}/3? Wait, 30/10 = 3, so \mathbb{Z}/3. Yes.
+So coker φ ≅ \mathbb{Z}/3 ⊕ \mathbb{Z}/3.
+
+Thus we have a short exact sequence? In the triangulated category, the cofiber C of φ fits into the exact triangle:
+ker φ → A → B → C → Σ ker φ → Σ A → ...
+Actually, the standard cofiber sequence for a map f: A → B is:
+A --f--> B --i--> C --δ--> Σ A --Σf--> Σ B.
+The homology of C (i.e., its homotopy groups) can be deduced from the long exact sequence of homotopy groups:
+... → π_1(C) → π_0(A) → π_0(B) → π_0(C) → π_{-1}(A)? Wait, in a stable category, we have homotopy groups in all degrees. For a map f: A → B of spectra with π_n = 0 for n ≠ 0 (i.e., A and B are abelian groups), the long exact sequence of homotopy groups of the cofiber C gives:
+π_n(C) for n ≥ 1: π_n(C) ≅ π_n(B) = 0? Actually, π_n(A) = π_n(B) = 0 for n ≠ 0. The long exact sequence:
+... → π_n(A) → π_n(B) → π_n(C) → π_{n-1}(A) → π_{n-1}(B) → ...
+For n > 1: 0 → 0 → π_n(C) → 0 → 0, so π_n(C) = 0 for n > 1.
+For n = 1: π_1(A)=0 → π_1(B)=0 → π_1(C) → π_0(A) → π_0(B) → π_0(C) → π_{-1}(A)=0.
+So π_1(C) = ker(π_0(A) → π_0(B)) = ker φ.
+π_0(C) = coker(π_0(A) → π_0(B)) = coker φ.
+For n = 0: π_0(C) = coker φ, and the map to π_{-1}(A)=0 is zero.
+For n = -1: 0 → π_{-1}(C) → π_0(A) → π_0(B) → ... so π_{-1}(C) = ker φ as well? Wait, the long exact sequence for negative n: we have π_n(C) for n ≤ -2: π_n(C) = 0? Let's write the full sequence:
+... → π_2(C) → π_1(A) → π_1(B) → π_1(C) → π_0(A) → π_0(B) → π_0(C) → π_{-1}(A) → π_{-1}(B) → ...
+But A and B have π_n = 0 for n ≠ 0. So:
+π_1(A) = 0, π_1(B) = 0 ⇒ π_1(C) ≅ ker(π_0(A) → π_0(B)) = ker φ.
+π_0(A) → π_0(B) is φ. Then coker φ = π_0(B) / im φ ≅ π_0(C)? The sequence: ... π_1(C) → π_0(A) → π_0(B) → π_0(C) → π_{-1}(A) = 0. So π_0(C) ≅ coker φ.
+π_{-1}(A) = 0, so π_{-1}(B) → π_{-1}(C) → π_{-2}(A)=0? Wait, the sequence continues: ... → π_0(C) → π_{-1}(A)=0 → π_{-1}(B)=0 → π_{-1}(C) → π_{-2}(A)=0 → ... So π_{-1}(C) = 0? Let's check: after π_0(B) → π_0(C) → π_{-1}(A)=0, the next map is π_{-1}(A)=0 → π_{-1}(B)=0, so π_{-1}(C) must be 0? But we also have π_1(C) → π_0(A) → π_0(B) → π_0(C) → 0. There's no ker φ appearing as π_{-1}(C)? Wait, the exact sequence is:
+... → π_n(A) → π_n(B) → π_n(C) → π_{n-1}(A) → π_{n-1}(B) → ...
+For n=1: π_1(A)=0 → π_1(B)=0 → π_1(C) → π_0(A) → π_0(B) → π_0(C) → π_{-1}(A)=0 → π_{-1}(B)=0 → π_{-1}(C) → π_{-2}(A)=0 → ...
+So π_1(C) = ker(π_0(A) → π_0(B)) = ker φ.
+Then π_0(C) = coker(π_0(A) → π_0(B)) = coker φ.
+Then π_{-1}(C) = ker(π_{-1}(A) → π_{-1}(B))? But π_{-1}(A)=π_{-1}(B)=0, so π_{-1}(C)=0.
+But wait, the map π_0(C) → π_{-1}(A) is zero, and π_{-1}(A)=0, so that's fine. Then π_{-1}(A)=0 → π_{-1}(B)=0 → π_{-1}(C) → π_{-2}(A)=0, so π_{-1}(C)=0.
+So C has homotopy groups: π_1(C) = ker φ, π_0(C) = coker φ, and all other π_n(C) = 0.
+But wait, is that consistent with the cone construction? The cone of A → B (where A,B are in degree 0) is a chain complex with C_0 = B, C_{-1} = A, differential = φ. The homology of this chain complex: H_0 = coker φ, H_{-1} = ker φ. The homotopy groups of the spectrum corresponding to this chain complex are π_n = H_n? In the derived category of abelian groups, the homotopy groups of a chain complex X are H_n(X). So π_0 = H_0 = coker φ, π_{-1} = H_{-1} = ker φ. But our long exact sequence gave π_{-1}(C) = 0? There's a discrepancy here. Let's re-examine.
+
+In the stable homotopy category of spectra, the cofiber sequence of a map f: A → B is A → B → C → ΣA. The homotopy groups satisfy the long exact sequence:
+... → π_n(A) → π_n(B) → π_n(C) → π_{n-1}(A) → π_{n-1}(B) → ...
+If A and B are Eilenberg-MacLane spectra K(A,0) and K(B,0), then π_0(A)=A, π_0(B)=B, all other π_n=0.
+For n=1: π_1(A)=0 → π_1(B)=0 → π_1(C) → π_0(A) → π_0(B) → π_0(C) → π_{-1}(A)=0 → π_{-1}(B)=0 → π_{-1}(C) → π_{-2}(A)=0 ...
+Wait, the long exact sequence continues for all n ∈ ℤ. So for n=0:
+π_0(A) → π_0(B) → π_0(C) → π_{-1}(A)=0 → π_{-1}(B)=0 → π_{-1}(C) → π_{-2}(A)=0 ...
+So π_0(C) ≅ coker(π_0(A) → π_0(B)).
+For n=-1:
+π_{-1}(A)=0 → π_{-1}(B)=0 → π_{-1}(C) → π_{-2}(A)=0 → ... So π_{-1}(C)=0? But the map from π_0(C) to π_{-1}(A) is zero, so π_0(C) surjects onto 0, that's fine. Then where does ker φ appear? It appears as π_1(C)! The sequence for n=1:
+π_1(A)=0 → π_1(B)=0 → π_1(C) → π_0(A) → π_0(B) → ... So π_1(C) ≅ ker(π_0(A) → π_0(B)) = ker φ.
+So the homotopy groups of C are:
+π_1(C) = ker φ,
+π_0(C) = coker φ,
+and π_n(C) = 0 for all other n (n ≥ 2 and n ≤ -1).
+But the chain complex model for the cone of a map between 0-th spectra: If we represent K(A,0) as the chain complex with A in degree 0, then the cone is C with C_0 = B, C_{-1} = A, differential d: C_{-1} → C_0 is φ. The homotopy groups (homology) of this chain complex are H_n(C): H_0 = coker φ, H_{-1} = ker φ, and H_n = 0 for n ≠ 0, -1. But in the homotopy groups of the spectrum, π_n = H_{-n}? Or something like that. In the derived category of abelian groups, the homotopy groups of a chain complex X are usually π_n(X) = H_n(X)? But here H_{-1} = ker φ, while π_{-1} = 0. So the indexing is shifted. Indeed, in the stable homotopy category of spectra, the Eilenberg-MacLane spectrum K(A, n) has π_n = A. If we represent K(A, n) as a chain complex, it would be A concentrated in degree -n? Or we can just stick to homotopy groups.
+
+So we have:
+π_1(C) = ker φ = \mathbb{Z}/2 ⊕ \mathbb{Z}/2,
+π_0(C) = coker φ = \mathbb{Z}/3 ⊕ \mathbb{Z}/3,
+and π_n(C) = 0 for n ≠ 0,1.
+
+We want to compute [C, Σ H(\mathbb{Z}/24)]. Σ H(\mathbb{Z}/24) is the suspension of K(\mathbb{Z}/24, 0), which is K(\mathbb{Z}/24, 1)? Wait, suspension increases homotopy groups by 1: π_n(Σ X) = π_{n-1}(X). So if H(\mathbb{Z}/24) has π_0 = \mathbb{Z}/24 and others 0, then Σ H(\mathbb{Z}/24) has π_1 = \mathbb{Z}/24 and others 0. In general, [X, Y] = π_0 Map(X, Y) = the set of morphisms from X to Y in the stable homotopy category.
+
+We can compute [C, Σ H(\mathbb{Z}/24)] using the long exact sequence of homotopy sets from the cofiber sequence:
+A → B → C → Σ A → Σ B → ...
+Apply [ -, Σ H(\mathbb{Z}/24)]:
+... → [Σ A, Z] → [C, Z] → [B, Z] → [A, Z] → [Σ^{-1} A, Z] → ...
+where Z = Σ H(\mathbb{Z}/24).
+We know [X, Z] = π_0 Map(X, Z) = the set of morphisms from X to Z.
+Alternatively, we can use the fact that for any spectra X, Y, [X, Y] can be computed via the homotopy groups and the Atiyah-Hirzebruch spectral sequence, but since C has only π_0 and π_1 non-zero, and Z has only π_1 non-zero, we can compute directly.
+
+First, let's compute [A, Z], [B, Z], [C, Z], and the maps between them.
+
+Z = Σ H(\mathbb{Z}/24). Its homotopy groups: π_1(Z) = \mathbb{Z}/24, all other π_n(Z) = 0.
+X = A = H(\mathbb{Z}/12 ⊕ \mathbb{Z}/20) = K(\mathbb{Z}/12, 0) ∨ K(\mathbb{Z}/20, 0)? Actually, H(A ⊕ B) = H(A) ∨ H(B). So A = K(\mathbb{Z}/12, 0) ∨ K(\mathbb{Z}/20, 0).
+B = K(\mathbb{Z}/18, 0) ∨ K(\mathbb{Z}/30, 0).
+
+We want [X, Z] = [X, K(\mathbb{Z}/24, 1)].
+In the stable homotopy category of H\mathbb{Z}-modules, maps between Eilenberg-MacLane spectra are determined by homomorphisms of the underlying groups, but we must be careful about the degrees.
+Generally, [K(G, m), K(H, n)] = Hom(G, H) if m = n? Actually, [K(G, m), K(H, n)] is the set of morphisms from K(G, m) to K(H, n). In the stable category, this is isomorphic to [Σ^m K(G, 0), Σ^n K(H, 0)] = [K(G, 0), Σ^{n-m} K(H, 0)] = π_{m-n} K(H, 0)? Wait.
+[K(G, m), K(H, n)] = π_0 Map(K(G, m), K(H, n)) = π_0 (K(G, m)^\vee ∧ K(H, n))? The internal Hom in the category of spectra is not just Eilenberg-MacLane. But for abelian group spectra (Mod_{H\mathbb{Z}}), the mapping spectrum between Eilenberg-MacLane spectra is again an Eilenberg-MacLane spectrum? Actually, in the derived category of abelian groups, Hom(K(G, m), K(H, n)) = Hom(G, H) if m = n, and 0 otherwise? Let's think.
+
+In the derived category of abelian groups, an object is a chain complex. K(G, m) is G concentrated in degree m (if we use the convention that K(G, m) has homotopy group G in degree m). Then the derived Hom complex RHom(K(G, m), K(H, n)) has terms Hom(K(G, m)_i, K(H, n)_j) with j-i fixed? Actually, the chain complex Hom(K(G, m), K(H, n)) is concentrated in degree n-m, with term Hom(G, H). So its 0-th cohomology (which is [K(G, m), K(H, n)]) is Hom(G, H) if n=m, and 0 otherwise.
+Wait, if K(G, m) is G in degree m, and K(H, n) is H in degree n, then the Hom chain complex has Hom(G, H) in degree n-m. The 0-th cohomology is Hom(G, H) if n=m, and 0 if n≠m. But is that correct? In the derived category of abelian groups, morphisms between Eilenberg-MacLane spectra are indeed just group homomorphisms when the degrees match, and zero otherwise? But we are mapping into Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1). So n=1. Then for X = K(G, 0), we have m=0, n=1, so [K(G, 0), K(H, 1)] should be Hom(G, H) if 0=1? No, n-m = 1 ≠ 0, so the 0-th cohomology is 0. That would mean [A, Z] = 0, [B, Z] = 0, [C, Z] = 0? But that would give the answer 0? That seems too trivial. Probably my indexing is off.
+
+Let's reconsider: In the stable homotopy category of spectra, [X, Y] is the set of homotopy classes of maps. For Eilenberg-MacLane spectra, [K(G, m), K(H, n)] = [K(G, 0), K(H, n-m)] = π_{n-m} K(H, 0)? Actually, [K(G, m), K(H, n)] = [Σ^m K(G,0), Σ^n K(H,0)] = [K(G,0), Σ^{n-m} K(H,0)] = π_{n-m} K(H,0)? Wait, [X, Σ^k Y] = π_{-k} Map(X,Y)? In stable category, [X, Σ Y] = [Σ^{-1} X, Y]. So [K(G, m), K(H, n)] = [K(G, m-n), K(H, 0)] = [Σ^{m-n} K(G, 0), K(H, 0)] = [K(G, 0), Σ^{n-m} K(H, 0)] = π_{m-n} K(H, 0)? Let's do it carefully:
+[K(G, m), K(H, n)] = π_0 Map(K(G, m), K(H, n)).
+Map(K(G, m), K(H, n)) ≃ Map(Σ^m K(G,0), Σ^n K(H,0)) ≃ Map(K(G,0), Σ^{n-m} K(H,0)).
+Now, π_0 Map(K(G,0), Σ^k K(H,0)) = [K(G,0), Σ^k K(H,0)] = [Σ^{-k} K(G,0), K(H,0)] = [Σ^{-k} K(G,0), K(H,0)].
+But K(G,0) is an Eilenberg-MacLane spectrum with π_0 = G. Σ^{-k} K(G,0) has π_{-k} = G? Actually, Σ^{-k} K(G,0) = K(G, -k)? In the stable category, we can have negative shifts. So [K(G, -k), K(H, 0)] = Hom(π_{-k} K(G,-k), π_0 K(H,0))? Not exactly, but for Eilenberg-MacLane spectra, the mapping spectrum between K(A, m) and K(B, n) is K(Hom(A,B), n-m)? I think in the derived category of abelian groups, the Hom complex between K(A, m) and K(B, n) is Hom(A,B) concentrated in degree n-m. Its 0-th cohomology is Hom(A,B) if n=m, and 0 otherwise. But that would mean [K(A, m), K(B, n)] = Hom(A,B) if n=m, 0 otherwise. But then [K(A, m), Σ K(B, n)] = [K(A, m), K(B, n+1)] = Hom(A,B) if n+1=m? That would be non-zero if m = n+1. In our case, A = K(G,0), Z = K(H,1) where H = \mathbb{Z}/24. Then [K(G,0), K(H,1)] = Hom(G,H) if 0=1? No, if n=m? Here m=0, n=1, so n-m=1 ≠0, so Hom would be 0? That would give 0. But wait, the mapping spectrum between K(A, m) and K(B, n) in the category of all spectra is not just an Eilenberg-MacLane spectrum; it can have higher homotopy groups. However, we are in Mod_{H\mathbb{Z}}, the category of H\mathbb{Z}-module spectra. In this category, the mapping spectrum between two Eilenberg-MacLane spectra might still be an Eilenberg-MacLane spectrum? Actually, the derived category of abelian groups is a triangulated category where Hom(K(A,m), K(B,n)) is indeed Hom(A,B) if m=n, and 0 otherwise? Let's check: In D(Ab), the hom-set Hom(X,Y) is the 0-th cohomology of RHom(X,Y). For X = A[m] (A in degree m) and Y = B[n] (B in degree n), RHom(A[m], B[n]) = Hom(A,B)[n-m]. Its 0-th cohomology is Hom(A,B) if n=m, and 0 if n≠m. So indeed, in D(Ab), [K(A,m), K(B,n)] = Hom(A,B) if m=n, 0 otherwise. But wait, in our case, Z = Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1)? If H(A) = K(A,0), then Σ H(A) = K(A,1)? In D(Ab), suspension shifts degree by +1? If K(A,0) is A in degree 0, then Σ K(A,0) = K(A,1) is A in degree 1? Then [K(A,0), K(B,1)] = Hom(A,B) if 0=1? No, 0≠1, so it would be 0. That would make [C, Z] = 0, so the answer would be 0. But is that correct? Let's re-examine the definition of H(\mathbb{Z}/12 \oplus \mathbb{Z}/20). H is the functor from abelian groups to spectra representing homology. In the stable homotopy category of spectra, H(A) = K(A,0). The map f is induced by a group homomorphism, so it's a map of Eilenberg-MacLane spectra. The cofiber C is the cofiber. Then we want [C, Σ H(\mathbb{Z}/24)].
+
+Maybe I have the shift wrong: Σ H(A) might be K(A, -1)? In stable homotopy theory, suspension Σ shifts homotopy groups down: π_n(Σ X) = π_{n-1}(X). So if H(A) has π_0 = A, then Σ H(A) has π_1 = A? Wait, π_n(Σ X) = π_{n-1}(X). So if X = H(A) has π_0 = A, then Σ X has π_1 = π_0(X) = A. So Σ H(A) has its non-zero homotopy group in degree 1. That is K(A,1). So my assignment K(A,1) is correct in terms of homotopy groups. In D(Ab), the object with homotopy group A in degree 1 is A[1]? Or A[-1]? There are different conventions. Typically, in the derived category of abelian groups, the shift [n] increases the degree by n: if X is concentrated in degree 0, then X[n] is concentrated in degree n. The homotopy groups of X[n] are π_k(X[n]) = H_{k+n}(X)? If X is a chain complex with X_i, then X[n]_i = X_{i-n}. The homology H_i(X[n]) = H_{i-n}(X). So the non-zero homology shifts by +n. So if K(A,0) has H_0 = A, then K(A,1) = K(A,0)[1] has H_1 = A. So Σ H(A) = H(A)[1]? But suspension in spectra usually increases the degree of homotopy groups by +1? π_n(Σ X) = π_{n-1}(X). If X has π_0 = A, then Σ X has π_1 = A. That matches H_1 = A. So Σ H(A) = H(A)[1] in the derived category where [1] shifts homology up by 1? But in the long exact sequence of a cofiber, the map C → Σ A is the connecting map. In terms of chain complexes, if A → B is a map of complexes concentrated in degree 0, the cone C has C_0 = B, C_{-1} = A, with differential A → B. Then the map C → Σ A = A[1] would be the map from the cone to the suspension of the domain. In chain complexes, the suspension A[1] has A in degree 1. The map from C to A[1] sends C_0 = B to A[1]_0 = 0? That doesn't make sense. Let's recall the standard mapping cone in triangulated categories: For f: X → Y, the cone is Y ∪_f CX, with a map CX → Σ X. In chain complexes, if X and Y are complexes, the cone is C with C_n = Y_n ⊕ X_{n-1}, differential (y, x) ↦ (d_Y y + f(x), -d_X x). If X and Y are concentrated in degree 0, then C_0 = Y, C_{-1} = X, differential f: X → Y. Then the map C → Σ X = X[1] (which is X concentrated in degree 1) is given by projecting C_{-1} = X to X[1]_{-1}? Wait, X[1] has X in degree 1, so its degree 1 term is X, others 0. The map C → X[1] sends (y, x) to something in degree 1: it should be x? But C_{-1} is X, so the map from C_{-1} to X[1]_{-1}? X[1]_{-1} = 0. That's not right.
+
+Actually, in the derived category of abelian groups, the shift [n] is usually defined so that [1] shifts degrees up: (X[1])_n = X_{n-1}. So if X is concentrated in degree 0, X[1] is concentrated in degree 1. The mapping cone of f: X → Y (both in degree 0) is C with C_n = Y_n ⊕ X_{n-1}. So C_0 = Y, C_{-1} = X. The map C → X[1] is given by the projection onto X_{-1}? But X[1] has X in degree 1, so X[1]_1 = X, X[1]_0 = 0. The map C → X[1] would send C_{-1} = X to X[1]_? That doesn't match degrees. In triangulated categories, the connecting map δ: Cone(f) → Σ X is a map of degree +1? If Cone(f) has components in degrees -1 and 0, and Σ X has components in degree 1 (if X is in 0), then δ would be a map from degree -1 to degree 1? That's impossible. So maybe Σ X is X shifted by -1? In stable homotopy theory, Σ X has π_n(Σ X) = π_{n-1}(X). If X is K(A,0), then Σ X is K(A,1)? Wait, π_1(Σ X) = π_0(X) = A, so Σ X has its non-zero homotopy in degree 1. That's K(A,1). In chain complexes, K(A,1) would be A in degree 1? If K(A,0) is A in degree 0, then K(A,1) is A in degree -1? Because homotopy group π_n corresponds to H_n? If K(A,0) has H_0 = A, then K(A,1) has H_{-1} = A? Because π_n = H_n? In the derived category of abelian groups, the Eilenberg-MacLane spectrum K(A, n) is usually defined as A concentrated in degree -n? There are different conventions. Let's stick to homotopy groups and the long exact sequence of homotopy groups, which is unambiguous.
+
+We have:
+A = H(\mathbb{Z}/12 ⊕ \mathbb{Z}/20) = K(\mathbb{Z}/12, 0) ∨ K(\mathbb{Z}/20, 0). So π_0(A) = \mathbb{Z}/12 ⊕ \mathbb{Z}/20, π_n(A)=0 for n≠0.
+B = H(\mathbb{Z}/18 ⊕ \mathbb{Z}/30) = K(\mathbb{Z}/18, 0) ∨ K(\mathbb{Z}/30, 0). π_0(B) = \mathbb{Z}/18 ⊕ \mathbb{Z}/30, π_n(B)=0 for n≠0.
+Z = Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1)? Wait, H(\mathbb{Z}/24) has π_0 = \mathbb{Z}/24. Σ H(\mathbb{Z}/24) has π_1 = \mathbb{Z}/24, others 0.
+C = cofib(f). We have π_1(C) = ker φ = \mathbb{Z}/2 ⊕ \mathbb{Z}/2, π_0(C) = coker φ = \mathbb{Z}/3 ⊕ \mathbb{Z}/3, others 0.
+
+We want [C, Z] = π_0 Map(C, Z).
+We can use the long exact sequence of homotopy sets for the cofiber sequence:
+A --f--> B --i--> C --δ--> Σ A --Σf--> Σ B.
+Apply [ -, Z]:
+... → [Σ A, Z] → [C, Z] → [B, Z] → [A, Z] → [Σ^{-1} A, Z] → ...
+But we can also just use the exact sequence of homotopy groups of the mapping spectrum. The mapping spectrum Map(-, Z) sends the cofiber sequence to a long exact sequence of homotopy groups:
+... → π_n Map(Σ A, Z) → π_n Map(C, Z) → π_n Map(B, Z) → π_n Map(A, Z) → π_{n-1} Map(Σ A, Z) → ...
+We want π_0 Map(C, Z).
+Note that π_n Map(X, Z) = [Σ^n X, Z].
+So:
+π_n Map(Σ A, Z) = [Σ^{n+1} A, Z].
+π_n Map(C, Z) = [Σ^n C, Z].
+π_n Map(B, Z) = [Σ^n B, Z].
+π_n Map(A, Z) = [Σ^n A, Z].
+The exact sequence:
+... → [Σ^{n+1} A, Z] → [Σ^n C, Z] → [Σ^n B, Z] → [Σ^n A, Z] → [Σ^n A, Z]? Wait, the last term is π_{n-1} Map(Σ A, Z) = [Σ^{n-1} Σ A, Z] = [Σ^n A, Z].
+So the sequence is:
+... → [Σ^{n+1} A, Z] → [Σ^n C, Z] → [Σ^n B, Z] → [Σ^n A, Z] → [Σ^n A, Z] → ...
+But the map [Σ^n A, Z] → [Σ^n A, Z] is induced by Σ f? Actually, the connecting map δ: C → Σ A induces Map(Σ A, Z) → Map(C, Z)? Wait, the cofiber sequence is A → B → C → Σ A → Σ B. Applying [ -, Z] gives:
+[Σ B, Z] → [Σ A, Z] → [C, Z] → [B, Z] → [A, Z] → ... 
+Let's derive correctly:
+The exact triangle is:
+A --f--> B --g--> C --h--> Σ A --i--> Σ B.
+Apply [X, -]:
+[Σ B, Z] ← [Σ A, Z] ← [C, Z] ← [B, Z] ← [A, Z] ← [Σ^{-1} A, Z] ...
+As a long exact sequence of sets:
+... → [Σ B, Z] → [Σ A, Z] → [C, Z] → [B, Z] → [A, Z] → [Σ^{-1} A, Z] → ...
+But we want to use the homotopy groups. The sequence I wrote earlier with π_n is:
+π_n Map(Σ A, Z) → π_n Map(C, Z) → π_n Map(B, Z) → π_n Map(A, Z) → π_{n-1} Map(Σ A, Z).
+But π_n Map(Σ A, Z) = [Σ^n Σ A, Z] = [Σ^{n+1} A, Z].
+π_n Map(C, Z) = [Σ^n C, Z].
+π_n Map(B, Z) = [Σ^n B, Z].
+π_n Map(A, Z) = [Σ^n A, Z].
+π_{n-1} Map(Σ A, Z) = [Σ^{n-1} Σ A, Z] = [Σ^n A, Z].
+So the sequence is:
+... → [Σ^{n+1} A, Z] → [Σ^n C, Z] → [Σ^n B, Z] → [Σ^n A, Z] --(?)--> [Σ^n A, Z] → ...
+Wait, the map before [Σ^n A, Z] is from [Σ^n B, Z] to [Σ^n A, Z]? Let's check the indices:
+For the triangle A → B → C → Σ A → Σ B, the sequence of [ -, Z] is:
+[Σ B, Z] ← [Σ A, Z] ← [C, Z] ← [B, Z] ← [A, Z] ← [Σ^{-1} A, Z] ← ...
+In terms of homotopy groups (π_n = [Σ^n -, Z]? Actually [X, Z] = π_0 Map(X, Z). So [Σ^n X, Z] = π_0 Map(Σ^n X, Z) = π_n Map(X, Z). So the sequence of [Σ^n -, Z] is:
+[Σ^n Σ B, Z] ← [Σ^n Σ A, Z] ← [Σ^n C, Z] ← [Σ^n B, Z] ← [Σ^n A, Z] ← [Σ^n Σ^{-1} A, Z] ← ...
+Which is:
+[Σ^{n+1} B, Z] ← [Σ^{n+1} A, Z] ← [Σ^n C, Z] ← [Σ^n B, Z] ← [Σ^n A, Z] ← [Σ^{n-1} A, Z] ← ...
+This is a long exact sequence. We are interested in [C, Z] = [Σ^0 C, Z]. So we set n=0:
+[Σ B, Z] ← [Σ A, Z] ← [C, Z] ← [B, Z] ← [A, Z] ← [Σ^{-1} A, Z] ← ...
+We can compute these [X, Z] for various X.
+
+Since Z = Σ H(\mathbb{Z}/24) has π_k(Z) = \mathbb{Z}/24 if k=1, else 0.
+For any X, [X, Z] = π_0 Map(X, Z) = the set of maps from X to Z.
+In the category of H\mathbb{Z}-modules, maps between spectra can be computed via the homotopy groups. Since Z is an Eilenberg-MacLane spectrum K(\mathbb{Z}/24, 1), we have [X, K(\mathbb{Z}/24, 1)] = [Σ X, K(\mathbb{Z}/24, 0)]? Actually, [X, Σ Y] = [Σ^{-1} X, Y] in stable category. So [X, Σ H(\mathbb{Z}/24)] = [Σ^{-1} X, H(\mathbb{Z}/24)].
+H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 0). So [Σ^{-1} X, K(\mathbb{Z}/24, 0)] is the set of maps from Σ^{-1} X to K(\mathbb{Z}/24, 0).
+But it might be easier to use the fact that [X, K(H, n)] is the n-th cohomology group of X with coefficients in H? In the derived category of abelian groups, [X, K(H, n)] = H^n(X; H)? Wait, K(H, n) represents cohomology: [X, K(H, n)] = H^n(X; H). In our case, we are in Mod_{H\mathbb{Z}}, which is the derived category of abelian groups? If H\mathbb{Z} is the ring spectrum K(\mathbb{Z}, 0), then Mod_{H\mathbb{Z}} is the derived category of \mathbb{Z}-modules. In this category, the Eilenberg-MacLane spectrum K(H, n) represents Ext^n? Actually, K(H, n) is the injective object representing Ext^n(-, H)? In the derived category of abelian groups, the hom-set [X, Y] is the 0-th derived Hom, which is Ext^0(X, Y). For Y = K(H, n), [X, K(H, n)] = Ext^n(X, H)? Or Ext^0(X, K(H, n)) = Ext^n(X, H)? Let's check: K(H, n) is the n-th shift of H: K(H, n) = H[n]? If H = K(H,0), then K(H, n) = Σ^n H? In derived category, suspension is usually denoted [n] or Σ^n. If H is concentrated in degree 0, then H[n] is concentrated in degree n. Then [X, H[n]] = Ext^0(X, H[n]) = Ext^n(X, H)? In homological algebra, Ext^n(X, H) = Hom_{D}(X, H[n])? Actually, the standard definition is Ext^n(X, H) = H^n(RHom(X, H)). If H is concentrated in degree 0, then RHom(X, H[n]) = RHom(X, H)[n]? The 0-th cohomology of RHom(X, H[n]) is the n-th cohomology of RHom(X, H), which is Ext^n(X, H). So [X, K(H, n)] = Ext^n(X, H).
+In our case, H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 0) = \mathbb{Z}/24[0]. Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1)? Wait, suspension in spectra: Σ X shifts homotopy groups up by 1? π_n(Σ X) = π_{n-1}(X). If X = K(H,0) has π_0 = H, then Σ X has π_1 = H. In the derived category of abelian groups, if H is concentrated in degree 0, then H[1] has H in degree 1? The homotopy group π_n of a chain complex X is H_n(X)? If X = H[1], then H_n(H[1]) = H_{n-1}(H) = H if n=1, else 0. So Σ X corresponds to H[1]. So Σ H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 1)? Yes, it's K(\mathbb{Z}/24, 1) = \mathbb{Z}/24[1]. Then [X, Σ H(\mathbb{Z}/24)] = [X, \mathbb{Z}/24[1]] = Ext^1(X, \mathbb{Z}/24)? Wait, [X, Y] = Hom_D(X, Y) = Ext^0(X, Y). If Y = \mathbb{Z}/24[1], then Hom_D(X, \mathbb{Z}/24[1]) = Ext^1(X, \mathbb{Z}/24). Let's verify with an example: X = K(\mathbb{Z}/24, 0) = \mathbb{Z}/24. Then [X, Σ H(\mathbb{Z}/24)] = [\mathbb{Z}/24, \mathbb{Z}/24[1]] = Ext^1(\mathbb{Z}/24, \mathbb{Z}/24). In the derived category, this is the group of extensions of \mathbb{Z}/24 by \mathbb{Z}/24, which is \mathbb{Z}/24? Actually, Ext^1(\mathbb{Z}/24, \mathbb{Z}/24) = \mathbb{Z}/24. But is that correct? If we have a map K(\mathbb{Z}/24, 0) → K(\mathbb{Z}/24, 1), that's a map between Eilenberg-MacLane spectra of different degrees. In stable homotopy, such a map is zero if we consider [X, Y]? Wait, [K(A,0), K(B,1)] = [K(A,0), Σ K(B,0)] = [Σ^{-1} K(A,0), K(B,0)] = [K(A,-1), K(B,0)] = Hom(π_{-1} K(A,-1), π_0 K(B,0))? K(A,-1) has π_{-1} = A. So [K(A,-1), K(B,0)] = Hom(A, B). So [K(A,0), K(B,1)] = Hom(A, B). Indeed! [K(A,0), Σ K(B,0)] = Hom(A, B). Let's check: Σ K(B,0) = K(B,1). [K(A,0), K(B,1)] = Hom(A, B)? If A = B = \mathbb{Z}/24, then Hom(\mathbb{Z}/24, \mathbb{Z}/24) = \mathbb{Z}/24. But Ext^1(\mathbb{Z}/24, \mathbb{Z}/24) is also \mathbb{Z}/24? Wait, Ext^1(\mathbb{Z}/24, \mathbb{Z}/24) = \mathbb{Z}/24. But [X, Y] = Hom_D(X, Y). If X = \mathbb{Z}/24[0] and Y = \mathbb{Z}/24[1], then Hom_D(\mathbb{Z}/24, \mathbb{Z}/24[1]) = Ext^1(\mathbb{Z}/24, \mathbb{Z}/24) = \mathbb{Z}/24. That matches. But earlier I said [K(A, m), K(B, n)] = Hom(A, B) if m = n, 0 otherwise. That was if Y = K(B, n) with n=0? If Y = K(B, n), then [K(A, m), K(B, n)] = Ext^{n-m}(A, B)? If n=m, it's Hom(A,B). If n=m+1, it's Ext^1(A,B). In our case, Z = K(\mathbb{Z}/24, 1) = \mathbb{Z}/24[1]. X has various homotopy groups. We want [C, Z] = Hom_D(C, \mathbb{Z}/24[1]) = Ext^1(C, \mathbb{Z}/24).
+But we can compute this using the long exact sequence of Ext groups from the cofiber sequence.
+
+Alternatively, we can just use the long exact sequence of homotopy sets [ -, Z] as I wrote:
+... → [Σ B, Z] → [Σ A, Z] → [C, Z] → [B, Z] → [A, Z] → [Σ^{-1} A, Z] → ...
+We can compute each term.
+
+First, note that Z = Σ H(\mathbb{Z}/24). So [X, Z] = [X, Σ H(\mathbb{Z}/24)] = [Σ^{-1} X, H(\mathbb{Z}/24)].
+H(\mathbb{Z}/24) = K(\mathbb{Z}/24, 0). Maps to K(\mathbb{Z}/24, 0) from a spectrum X are just the 0-th cohomology group H^0(X; \mathbb{Z}/24) = Hom(π_0(X), \mathbb{Z}/24)? Not exactly, because X might have higher homotopy groups. But since H(\mathbb{Z}/24) is an Eilenberg-MacLane spectrum, [X, K(H, 0)] = H^0(X; H) = the set of maps from π_0(X) to H that are compatible with higher homotopy? Actually, in the derived category of abelian groups, [X, H] = Ext^0(X, H) = Hom_{D}(X, H). If X is a chain complex concentrated in degrees 0 and -1 (as our C is), then Hom_D(X, H) can be computed.
+
+But it's easier to compute [X, Z] directly using the formula [X, Z] = π_0 Map(X, Z). Since Z has only π_1 = \mathbb{Z}/24, the mapping spectrum Map(X, Z) has homotopy groups related to the homotopy groups of X. In general, for any X, [X, K(H, n)] = H^n(X; H), the n-th cohomology group of X with coefficients in H. In the stable category of H\mathbb{Z}-modules, cohomology with coefficients in H is just Ext^n(X, H)? Actually, in the derived category of abelian groups, H^n(X; H) = Ext^n(X, H)? Wait, for a chain complex X, the cohomology H^n(X; H) is usually defined as the cohomology of Hom(X, H)? That would be Ext^n(X, H)? Yes, Ext^n(X, H) is the n-th derived functor of Hom(-, H), which is the n-th cohomology of RHom(X, H). And [X, K(H, n)] = Hom_D(X, K(H, n)) = Hom_D(X, H[n]) = Ext^n(X, H). So [X, Z] = Ext^1(X, \mathbb{Z}/24) because Z = K(\mathbb{Z}/24, 1).
+
+So we need to compute Ext^1(C, \mathbb{Z}/24) and the maps in the long exact sequence.
+
+We have the cofiber sequence A → B → C → Σ A → Σ B.
+Applying Ext^1(-, \mathbb{Z}/24) gives a long exact sequence:
+... → Ext^1(Σ B, \mathbb{Z}/24) → Ext^1(Σ A, \mathbb{Z}/24) → Ext^1(C, \mathbb{Z}/24) → Ext^1(B, \mathbb{Z}/24) → Ext^1(A, \mathbb{Z}/24) → Ext^1(Σ^{-1} A, \mathbb{Z}/24) → ...
+But Ext^1(Σ X, \mathbb{Z}/24) = Ext^0(X, \mathbb{Z}/24)? Because Ext^n(Σ X, Y) = Ext^{n-1}(X, Y). Similarly, Ext^1(Σ^{-1} X, \mathbb{Z}/24) = Ext^2(X, \mathbb{Z}/24).
+Also, we can compute Ext^1(X, \mathbb{Z}/24) for X = A, B, C.
+
+Since A, B, C are all chain complexes with homotopy groups only in degrees 0 and 1? Wait, we computed:
+A = K(\mathbb{Z}/12 ⊕ \mathbb{Z}/20, 0) → π_0 = \mathbb{Z}/12 ⊕ \mathbb{Z}/20, others 0.
+B = K(\mathbb{Z}/18 ⊕ \mathbb{Z}/30, 0) → π_0 = \mathbb{Z}/18 ⊕ \mathbb{Z}/30, others 0.
+C = cofiber: π_1 = \mathbb{Z}/2 ⊕ \mathbb{Z}/2, π_0 = \mathbb{Z}/3 ⊕ \mathbb{Z}/3, others 0.
+
+In the derived category of abelian groups, an object with homotopy groups only in degrees 0 and 1 can be represented by a chain complex with terms in degrees 0 and 1? Or 0 and -1? Let's be consistent. If we represent K(G, n) as G concentrated in degree n, then A and B are concentrated in degree 0. C has π_1 = \mathbb{Z}/2 ⊕ \mathbb{Z}/2 and π_0 = \mathbb{Z}/3 ⊕ \mathbb{Z}/3. This means C is a chain complex with C_1 = π_1? Actually, if K(G, n) is G in degree n, then the homology in degree n is G. So C should have C_1 = something with homology \mathbb{Z}/2 ⊕ \mathbb{Z}/2 in degree 1, and C_0 = something with homology \mathbb{Z}/3 ⊕ \mathbb{Z}/3 in degree 0. But we can also just compute Ext^1(C, \mathbb{Z}/24) using the fact that Ext^n(X, Y) depends only on the homotopy groups of X? In the derived category of abelian groups, Ext^n(X, Y) is not determined solely by the homotopy groups of X; there could be extensions. However, for X with homotopy groups only in degrees 0 and 1, and Y = \mathbb{Z}/24 concentrated in degree 0, Ext^1(X, Y) can be computed via the Atiyah-Hirzebruch spectral sequence? Actually, since Y is injective? \mathbb{Z}/24 is not injective in the category of abelian groups, but we are in the derived category, so we can use the spectral sequence:
+E_2^{p,q} = Ext^p(H_q(X), Y) ⇒ Ext^{p+q}(X, Y).
+Here X = C, Y = \mathbb{Z}/24. H_q(X) are the homotopy groups: H_1(C) = \mathbb{Z}/2 ⊕ \mathbb{Z}/2, H_0(C) = \mathbb{Z}/3 ⊕ \mathbb{Z}/3, H_q = 0 otherwise.
+Then Ext^n(C, \mathbb{Z}/24) is computed by the spectral sequence with E_2^{p,q} = Ext^p(H_q(C), \mathbb{Z}/24).
+We want Ext^1(C, \mathbb{Z}/24). The spectral sequence converges to Ext^{p+q}. For total degree 1, possible (p,q): (1,0) and (0,1).
+E_2^{1,0} = Ext^1(H_0(C), \mathbb{Z}/24) = Ext^1(\mathbb{Z}/3 ⊕ \mathbb{Z}/3, \mathbb{Z}/24).
+E_2^{0,1} = Ext^0(H_1(C), \mathbb{Z}/24) = Hom(\mathbb{Z}/2 ⊕ \mathbb{Z}/2, \mathbb{Z}/24).
+There could be differentials. The spectral sequence is for the derived category of abelian groups, which is the same as the spectral sequence for Ext. Since Y = \mathbb{Z}/24 is a cotorsion? Actually, the spectral sequence E_2^{p,q} = Ext^p(H_q(X), Y) ⇒ Ext^{p+q}(X, Y) is the Atiyah-Hirzebruch spectral sequence for Ext. For abelian groups, this spectral sequence often collapses? Not always. We need to check if there are differentials. But we can also just compute Ext^1(C, \mathbb{Z}/24) directly using the long exact sequence from the cofiber sequence.
+
+Let's use the long exact sequence in Ext groups from the triangle A → B → C → Σ A → Σ B.
+Apply Ext^1(-, \mathbb{Z}/24):
+... → Ext^1(Σ B, \mathbb{Z}/24) → Ext^1(Σ A, \mathbb{Z}/24) → Ext^1(C, \mathbb{Z}/24) → Ext^1(B, \mathbb{Z}/24) → Ext^1(A, \mathbb{Z}/24) → Ext^1(Σ^{-1} A, \mathbb{Z}/24) → ...
+We have:
+Ext^1(Σ X, \mathbb{Z}/24) = Ext^0(X, \mathbb{Z}/24) = Hom(X, \mathbb{Z}/24)? Wait, Ext^0(X, Y) = Hom_D(X, Y). If X is an abelian group concentrated in degree 0, then Hom_D(X, Y) = Hom(X, Y) if Y is also concentrated in degree 0? But here Y = \mathbb{Z}/24 is concentrated in degree 0. Σ X means X shifted by +1? If X is concentrated in degree 0, Σ X is concentrated in degree -1? Let's be careful with shifts.
+
+In the derived category of abelian groups, the shift [n] shifts the complex by n positions: if X is concentrated in degree 0, then X[1] is concentrated in degree -1? Or +1? Let's fix a convention: Let K(A, n) be the Eilenberg-MacLane spectrum with π_n = A. In terms of chain complexes, if we represent a spectrum by its homotopy groups, K(A, n) has A in degree n. The suspension Σ X has π_k(Σ X) = π_{k-1}(X). So if X = K(A, 0), Σ X = K(A, 1)? Wait, π_1(Σ X) = π_0(X) = A, so Σ X = K(A, 1). That means suspension increases the degree by 1? In homotopy groups, the non-zero group moves from degree 0 to degree 1. So in the chain complex model where the degree of the term corresponds to the homotopy degree, Σ X shifts the complex up by 1? If X has X_0 = A, then Σ X has (Σ X)_1 = A? That would be a shift down in the chain complex indices? Usually, if X_n is the n-th term, then (Σ X)_n = X_{n-1}. So if X_0 = A, then (Σ X)_1 = A. So the non-zero term moves to a higher index. So suspension shifts the chain complex down by one? Let's just use homotopy groups and the formula [X, Σ Y] = [Σ^{-1} X, Y]. This is easier.
+
+We want Ext^1(C, \mathbb{Z}/24) = [C, \mathbb{Z}/24[1]]? Actually, if H = \mathbb{Z}/24 concentrated in degree 0, then H[1] has H in degree 1? But suspension in spectra: Σ H has π_1 = H. So Σ H = H[1]? In the derived category, [1] usually shifts degrees up: (X[1])_n = X_{n-1}. So if X_0 = H, then X[1]_1 = H. So H[1] has H in degree 1. That matches Σ H having π_1 = H. So Σ H = H[1].
+Then [C, Σ H] = [C, H[1]] = Ext^1(C, H)? Wait, [X, Y] = Hom_D(X, Y). So [C, H[1]] = Hom_D(C, H[1]) = Ext^1(C, H)? In homological algebra, Ext^n(X, Y) = Hom_D(X, Y[n]). Yes, that's standard: Ext^n(X, Y) = [X, Y[n]]. So [C, H[1]] = Ext^1(C, H). Good.
+
+Now, the cofiber sequence: A → B → C → Σ A → Σ B.
+Σ A = A[1], Σ B = B[1].
+We want to compute Ext^1(C, H) where H = \mathbb{Z}/24.
+Apply Ext^1(-, H) = [ -, H[1] ]? Wait, Ext^1(X, H) = [X, H[1]]. The cofiber sequence in terms of [ -, H[1] ]:
+[Σ B, H[1]] ← [Σ A, H[1]] ← [C, H[1]] ← [B, H[1]] ← [A, H[1]] ← [Σ^{-1} A, H[1]] ...
+But [Σ B, H[1]] = [B, H] (since [Σ X, Y] = [X, Ω Y] = [X, Y[-1]]? In stable category, [Σ X, Y] = [X, Σ^{-1} Y]. So [Σ B, H[1]] = [B, H]. Similarly, [Σ A, H[1]] = [A, H]. [C, H[1]] = Ext^1(C, H). [B, H[1]] = Ext^1(B, H). [A, H[1]] = Ext^1(A, H). [Σ^{-1} A, H[1]] = [A, H[2]] = Ext^2(A, H).
+So the long exact sequence is:
+... → [B, H] → [A, H] → Ext^1(C, H) → Ext^1(B, H) → Ext^1(A, H) → Ext^2(A, H) → ...
+Wait, let's get the order right. The cofiber sequence: A → B → C → Σ A → Σ B.
+Apply [ -, H[1] ]:
+[Σ B, H[1]] ← [Σ A, H[1]] ← [C, H[1]] ← [B, H[1]] ← [A, H[1]] ← [Σ^{-1} A, H[1]] ...
+So:
+[B, H] ← [A, H] ← Ext^1(C, H) ← Ext^1(B, H) ← Ext^1(A, H) ← Ext^2(A, H) ...
+As a long exact sequence of sets (and groups where applicable):
+... → Ext^2(A, H) → Ext^1(A, H) → Ext^1(B, H) → Ext^1(C, H) → [A, H] → [B, H] → ...
+Let's verify the indices: The sequence is ... → [Σ B, Z] → [Σ A, Z] → [C, Z] → [B, Z] → [A, Z] → [Σ^{-1} A, Z] → ...
+With Z = H[1]:
+[Σ B, H[1]] = [B, H]
+[Σ A, H[1]] = [A, H]
+[C, H[1]] = Ext^1(C, H)
+[B, H[1]] = Ext^1(B, H)
+[A, H[1]] = Ext^1(A, H)
+[Σ^{-1} A, H[1]] = [A, H[2]] = Ext^2(A, H)
+So the sequence is:
+... → Ext^2(A, H) → Ext^1(A, H) → Ext^1(B, H) → Ext^1(C, H) → [A, H] → [B, H] → ...? Wait, the arrow from [C, Z] to [B, Z] is the map induced by B → C? The sequence is:
+[Σ B, Z] ← [Σ A, Z] ← [C, Z] ← [B, Z] ← [A, Z] ← [Σ^{-1} A, Z]
+So:
+[B, H] ← [A, H] ← Ext^1(C, H) ← Ext^1(B, H) ← Ext^1(A, H) ← Ext^2(A, H)
+Reading left to right as a sequence of arrows:
+... → Ext^2(A, H) → Ext^1(A, H) → Ext^1(B, H) → Ext^1(C, H) → [A, H] → [B, H] → ...
+Wait, the arrow from [C, Z] to [B, Z] is the map [C, Z] → [B, Z]? In the sequence [Σ B, Z] ← [Σ A, Z] ← [C, Z] ← [B, Z] ← [A, Z], the arrows go from right to left? Let's write it as a usual exact sequence:
+... → [Σ B, Z] → [Σ A, Z] → [C, Z] → [B, Z] → [A, Z] → ...
+Actually, applying [X, -] to a cofiber sequence X → Y → Z gives a long exact sequence:
+... → [Σ Z, W] → [Σ Y, W] → [X, W]? No, the standard long exact sequence of homotopy sets for a cofiber sequence A → B → C is:
+... → [Σ A, W] → [C, W] → [B, W] → [A, W] → [Σ^{-1} A, W] → ...
+Wait, I need to get the exact sequence right.
+
+Cofiber sequence: A --f--> B --g--> C --δ--> Σ A.
+Apply [ -, W]:
+We get maps:
+[C, W] → [B, W] → [A, W] → [Σ A, W]? No, [C, W] is contravariant, so g^*: [C, W] → [B, W], f^*: [B, W] → [A, W]. Then δ^*: [Σ A, W] → [C, W]? Wait, δ: C → Σ A induces δ^*: [Σ A, W] → [C, W]. And the next map in the cofiber sequence is Σ f: Σ A → Σ B, which induces [Σ B, W] → [Σ A, W].
+So the sequence is:
+... → [Σ B, W] → [Σ A, W] → [C, W] → [B, W] → [A, W] → ...
+But wait, where is the map from [A, W] to something? The sequence should continue with [Σ^{-1} A, W]? In a stable category, the cofiber sequence continues: ... → Σ^{-1} A → Σ^{-1} B → Σ^{-1} C → A → B → C → Σ A → ... So applying [ -, W] gives:
+... → [Σ B, W] → [Σ A, W] → [C, W] → [B, W] → [A, W] → [Σ^{-1} A, W] → ...
+Yes, the map [A, W] → [Σ^{-1} A, W] is induced by the connecting map Σ^{-1} A → A? Actually, the cofiber sequence is A → B → C → Σ A → Σ B → ... So the inverse system is periodic. The map from A to Σ^{-1} A? There is a map Σ^{-1} C → A? The sequence is ... → Σ^{-1} B → Σ^{-1} C → Σ^{-1} Σ A = A → B → ... So the map A → B is induced by A? Wait, the original sequence is A → B → C → Σ A. Shifting down by 1: Σ^{-1} A → Σ^{-1} B → Σ^{-1} C → A → B. So there is a map from A to B? That's the same f. The map from Σ^{-1} C to A is the connecting map. So applying [ -, W] gives:
+... → [Σ B, W] → [Σ A, W] → [C, W] → [B, W] → [A, W] → [Σ^{-1} A, W] → ...?
+Wait, the map from A to B in the shifted sequence is the same f: A → B. So [B, W] → [A, W] is f^*. The next map is from [A, W] to [Σ^{-1} A, W]? That would be induced by a map A → Σ^{-1} A? But in the shifted sequence, the map after A is B? The sequence is Σ^{-1} A → Σ^{-1} B → Σ^{-1} C → A → B → C → Σ A → Σ B. So after A comes B, not Σ^{-1} A. The map before A is Σ^{-1} C → A. So [A, W] → [Σ^{-1} C, W]? Let's write the full sequence of maps:
+... ← [Σ B, W] ← [Σ A, W] ← [C, W] ← [B, W] ← [A, W] ← [Σ^{-1} C, W] ← [Σ^{-1} B, W] ← [Σ^{-1} A, W] ← ...
+Wait, the arrows go in the opposite direction because [ -, W] is contravariant. The original maps:
+Σ^{-1} A → Σ^{-1} B → Σ^{-1} C → A → B → C → Σ A → Σ B.
+Contravariant:
+[Σ B, W] ← [Σ A, W] ← [C, W] ← [B, W] ← [A, W] ← [Σ^{-1} C, W] ← [Σ^{-1} B, W] ← [Σ^{-1} A, W] ← ...
+So the sequence of sets is:
+... → [Σ^{-1} A, W] → [Σ^{-1} B, W] → [Σ^{-1} C, W] → [A, W] → [B, W] → [C, W] → [Σ A, W] → [Σ B, W] → ...
+Yes! The map [A, W] → [B, W]? Wait, the arrow from [A, W] to [B, W] would be induced by B → A? No, the original map is A → B, so contravariant is [B, W] → [A, W]. In the sequence above, I have [C, W] ← [B, W] ← [A, W] ← [Σ^{-1} C, W]. So [B, W] → [A, W] is correct. The order in the sequence as written: ... → [Σ^{-1} B, W] → [Σ^{-1} C, W] → [A, W] → [B, W] → [C, W] → [Σ A, W] → [Σ B, W] → ...
+Wait, [A, W] → [B, W]? The original map is A → B, so [B, W] → [A, W]. In the sequence I wrote: [Σ^{-1} C, W] → [A, W] → [B, W] → [C, W] → [Σ A, W] → [Σ B, W]. That would mean [A, W] → [B, W] is induced by some map? The original map before A is Σ^{-1} C → A, so contravariant gives [A, W] → [Σ^{-1} C, W]? I'm getting confused with the direction.
+
+Let's just use the long exact sequence of homotopy groups of the mapping spectrum, which is unambiguous. For a cofiber sequence A → B → C, the sequence of mapping spectra is:
+Map(C, W) → Map(B, W) → Map(A, W) → Σ Map(C, W)? No.
+The cofiber sequence in the stable category: A → B → C → Σ A.
+Applying the functor [X, -] gives a long exact sequence:
+... → π_n [X, Σ B] → π_n [X, Σ A] → π_n [X, C] → π_n [X, B] → π_n [X, A] → π_{n-1} [X, Σ A] → ...
+But π_n [X, Y] = [Σ^n X, Y].
+So for X = Σ^k W? We want [C, W] = π_0 [C, W] = π_0 [Σ^0 C, W].
+The sequence for a fixed W is:
+... → [Σ^{n+1} B, W] → [Σ^{n+1} A, W] → [Σ^n C, W] → [Σ^n B, W] → [Σ^n A, W] → [Σ^n A, W]? Wait, let's use the exact triangle:
+A --f--> B --g--> C --h--> Σ A --i--> Σ B.
+Apply [Σ^n -, W]:
+[Σ^n Σ B, W] ← [Σ^n Σ A, W] ← [Σ^n C, W] ← [Σ^n B, W] ← [Σ^n A, W] ← [Σ^n Σ^{-1} A, W]? No, the triangle continues: ... → Σ^{-1} A → Σ^{-1} B → Σ^{-1} C → A → B → C → Σ A → Σ B → ...
+So applying [Σ^n -, W] gives a long exact sequence:
+... → [Σ^{n+1} B, W] ← [Σ^{n+1} A, W] ← [Σ^n C, W] ← [Σ^n B, W] ← [Σ^n A, W] ← [Σ^{n-1} A, W] ← ...
+As a sequence of sets with arrows:
+... ← [Σ^{n+1} B, W] ← [Σ^{n+1} A, W] ← [Σ^n C, W] ← [Σ^n B, W] ← [Σ^n A, W] ← [Σ^{n-1} A, W] ← ...
+We can reverse the arrows to read left to right as:
+... → [Σ^{n-1} A, W] → [Σ^n A, W] → [Σ^n B, W] → [Σ^n C, W] → [Σ^{n+1} A, W] → [Σ^{n+1} B, W] → ...
+Wait, reversing arrows flips the order. If we write it as a sequence:
+... → [Σ^{n-1} A, W] → [Σ^n A, W] → [Σ^n B, W] → [Σ^n C, W] → [Σ^{n+1} A, W] → [Σ^{n+1} B, W] → ...
+But is that correct? Let's check the degrees. The original sequence has arrows:
+... ← [Σ^{n+1} B] ← [Σ^{n+1} A] ← [Σ^n C] ← [Σ^n B] ← [Σ^n A] ← [Σ^{n-1} A] ← ...
+If we reverse, we get:
+... → [Σ^{n-1} A] → [Σ^n A] → [Σ^n B] → [Σ^n C] → [Σ^{n+1} A] → [Σ^{n+1} B] → ...
+But note that the arrow from [Σ^n A] to [Σ^n B] is induced by A → B? The original sequence has [Σ^n B] ← [Σ^n A]? Wait, the original sequence has [Σ^n B] ← [Σ^n C]? Let's re-derive carefully.
+
+Cofiber sequence: A → B → C → Σ A → Σ B → Σ^2 A → ...
+Apply [Σ^n -, W]:
+The maps are contravariant:
+... → [Σ^n Σ B, W] → [Σ^n Σ A, W] → [Σ^n C, W] → [Σ^n B, W] → [Σ^n A, W] → [Σ^n Σ^{-1} A, W] → ...
+Wait, the sequence before A is Σ^{-1} A? The cofiber sequence is ... → Σ^{-1} A → Σ^{-1} B → Σ^{-1} C → A → B → C → Σ A → Σ B → ...
+So applying [Σ^n -, W] gives:
+... ← [Σ^{n+1} B, W] ← [Σ^{n+1} A, W] ← [Σ^n C, W] ← [Σ^n B, W] ← [Σ^n A, W] ← [Σ^n Σ^{-1} A, W] ← ...
+Actually, the map before A is Σ^{-1} C → A? No, the sequence is ... → Σ^{-1} B → Σ^{-1} C → A → B → ... So applying [Σ^n, -] gives:
+[Σ^n B, W] ← [Σ^n Σ^{-1} B, W]? This is messy.
+
+Let's stick to the fact that for any spectrum X, the homotopy groups of Map(X, -) form a homology theory? Actually, it's easier to compute Ext groups directly using the long exact sequence of Ext from the short exact sequence of homotopy groups? No, Ext is not a homology theory; it's a cohomology theory. But we can use the long exact sequence of [ -, W] which is a sequence of sets. For W = H[1] = \mathbb{Z}/24[1], we have:
+[Σ^k X, W] = [X, W[-k]] = [X, \mathbb{Z}/24[1-k]] = Ext^{1-k}(X, \mathbb{Z}/24).
+We want [C, W] = Ext^1(C, \mathbb{Z}/24).
+The long exact sequence from A → B → C → Σ A → Σ B:
+... → [Σ B, W] → [Σ A, W] → [C, W] → [B, W] → [A, W] → [Σ^{-1} A, W] → ...
+Let's compute each term in terms of Ext.
+W = \mathbb{Z}/24[1].
+[Σ B, W] = [B, W[-1]] = [B, \mathbb{Z}/24] = Ext^0(B, \mathbb{Z}/24) = Hom_D(B, \mathbb{Z}/24).
+[Σ A, W] = [A, \mathbb{Z}/24] = Ext^0(A, \mathbb{Z}/24).
+[C, W] = Ext^1(C, \mathbb{Z}/24).
+[B, W] = Ext^1(B, \mathbb{Z}/24).
+[A, W] = Ext^1(A, \mathbb{Z}/24).
+[Σ^{-1} A, W] = [A, W[1]] = [A, \mathbb{Z}/24[2]] = Ext^2(A, \mathbb{Z}/24).
+So the sequence is:
+... → Ext^0(B, \mathbb{Z}/24) → Ext^0(A, \mathbb{Z}/24) → Ext^1(C, \mathbb{Z}/24) → Ext^1(B, \mathbb{Z}/24) → Ext^1(A, \mathbb{Z}/24) → Ext^2(A, \mathbb{Z}/24) → ...
+Wait, the order: [Σ B, W] → [Σ A, W] → [C, W] → [B, W] → [A, W] → [Σ^{-1} A, W].
+So:
+Ext^0(B, H) → Ext^0(A, H) → Ext^1(C, H) → Ext^1(B, H) → Ext^1(A, H) → Ext^2(A, H) → ...
+Where H = \mathbb{Z}/24.
+This is a long exact sequence of abelian groups (except possibly Ext^1 which are groups, Ext^0 are groups, Ext^2 are groups). The maps are induced by f: A → B.
+
+Let's verify the direction of the first map: [Σ B, W] ← [Σ A, W]? The sequence I wrote earlier from applying [-, W] to A → B → C → Σ A → Σ B was:
+[Σ B, W] ← [Σ A, W] ← [C, W] ← [B, W] ← [A, W] ← [Σ^{-1} A, W] ← ...
+So the arrows are right to left: [Σ B] ← [Σ A] ← [C] ← [B] ← [A] ← [Σ^{-1}A].
+If we write it as a sequence of groups with arrows going left to right, we reverse the arrows:
+... → [Σ^{-1}A] → [A] → [B] → [C] → [Σ A] → [Σ B] → ...
+Wait, that's different! Let's do this carefully.
+Original triangle: A → B → C → Σ A → Σ B.
+Apply [-, W]:
+We get maps:
+[Σ B, W] ← [Σ A, W] ← [C, W] ← [B, W] ← [A, W] ← [Σ^{-1} A, W]? No, the triangle is infinite: ... → Σ^{-1} A → Σ^{-1} B → Σ^{-1} C → A → B → C → Σ A → Σ B → Σ^2 A → ...
+So applying [-, W] gives:
+... ← [Σ^2 B, W] ← [Σ^2 A, W] ← [Σ C, W] ← [Σ B, W] ← [Σ A, W] ← [C, W] ← [B, W] ← [A, W] ← [Σ^{-1} B, W]? This is not right. The map before A is Σ^{-1} C → A? The sequence is ... → Σ^{-1} C → A → B → ... So applying [-, W] gives:
+[Σ B, W] ← [Σ A, W]? Wait, the map A → B gives [B, W] → [A, W]. The map B → C gives [C, W] → [B, W]. The map C → Σ A gives [Σ A, W] → [C, W]. The map Σ A → Σ B gives [Σ B, W] → [Σ A, W].
+So the sequence is:
+... → [Σ B, W] → [Σ A, W] → [C, W] → [B, W] → [A, W] → ...
+But what comes after [A, W]? The sequence continues: ... → Σ^{-1} C → Σ^{-1} B? No, the inverse sequence: we have Σ^{-1} A? Let's write the full infinite sequence:
+... → Σ^{-1} A → Σ^{-1} B → Σ^{-1} C → A → B → C → Σ A → Σ B → ...
+Apply [-, W]:
+... ← [Σ B, W] ← [Σ A, W] ← [C, W] ← [B, W] ← [A, W] ← [Σ^{-1} C, W] ← [Σ^{-1} B, W] ← [Σ^{-1} A, W] ← ...
+So the arrows go: [Σ B] ← [Σ A] ← [C] ← [B] ← [A] ← [Σ^{-1} C] ← [Σ^{-1} B] ← [Σ^{-1} A] ← ...
+Reading left to right with arrows →, we reverse:
+... → [Σ^{-1} A] → [Σ^{-1} B] → [Σ^{-1} C] → [A] → [B] → [C] → [Σ A] → [Σ B] → ...
+So the sequence is:
+... → [Σ^{-1} B, W] → [Σ^{-1} C, W] → [A, W] → [B, W] → [C, W] → [Σ A, W] → [Σ B, W] → ...
+But we are interested in [C, W] and the maps around it. In this sequence, the map before [C, W] is [B, W] → [C, W], and the map after is [C, W] → [Σ A, W].
+Wait, [B, W] → [C, W] is induced by B → C? No, B → C gives [C, W] → [B, W] contravariantly. So in the sequence with arrows →, it should be [C, W] → [B, W]. There's a discrepancy.
+
+Let's just use the long exact sequence of homotopy groups for the mapping spectrum. Let F(X) = Map(X, W). The cofiber sequence A → B → C gives a long exact sequence of homotopy groups:
+... → π_n F(C) → π_n F(B) → π_n F(A) → π_{n-1} F(C) → ...
+Because the cofiber sequence is A → B → C → Σ A, the sequence of F is F(C) → F(B) → F(A) → Σ F(C)? Wait, the cofiber of F(B) → F(A) is F(C)? No, F is contravariant, so it turns the cofiber sequence into a fiber sequence? In a stable ∞-category, contravariant functors preserve cofiber sequences up to sign? Actually, in a stable category, [X, -] sends cofiber sequences to cofiber sequences? Or does it send them to fiber sequences? In the stable homotopy category, [X, -] is a continuous functor and it preserves exact triangles (i.e., cofiber sequences). So if A → B → C is a cofiber sequence, then [X, A] → [X, B] → [X, C] is also a cofiber sequence? Wait, no: [X, -] is contravariant, so it turns a cofiber sequence into a sequence [X, C] → [X, B] → [X, A] which is a cofiber sequence? Let's check: The cofiber of [X, B] → [X, A] is [X, C]? The cofiber sequence is A → B → C → Σ A. Apply [X, -]: we get [X, Σ A] → [X, C] → [X, B] → [X, A]. This is a cofiber sequence? The map [X, C] → [X, B] is induced by B → C. The map [X, B] → [X, A] is induced by A → B. The next map [X, A] → [X, Σ A]? Wait, [X, Σ A] → [X, C] is induced by C → Σ A. So the sequence is [X, Σ A] → [X, C] → [X, B] → [X, A] → [X, Σ^{-1} A]? Actually, the full sequence is ... → [X, Σ^2 B] → [X, Σ^2 A] → [X, Σ C]? No.
+
+Let's just use the standard long exact sequence of homotopy groups for a cofiber sequence:
+If A → B → C → Σ A is a cofiber sequence, then for any spectrum Y, there is a long exact sequence:
+... → [Σ A, Y] → [C, Y] → [B, Y] → [A, Y] → [Σ^{-1} A, Y] → ...
+This is a standard fact. Let's verify with an example: A = Σ Z, B = Z, C = Σ^{-1} Z? Not sure. But I recall that for a cofiber sequence X → Y → Z, the sequence [Z, W] → [Y, W] → [X, W] → [Σ Z, W] → ... is exact? Wait, the connecting map is Z → Σ X, so it induces [Σ X, W] → [Z, W]. So the sequence is:
+... → [Σ X, W] → [Z, W] → [Y, W] → [X, W] → [Σ^{-1} X, W] → ...
+Yes! Because the cofiber sequence is X → Y → Z → Σ X. The map Z → Σ X gives [Σ X, W] → [Z, W]. The map Y → Z gives [Z, W] → [Y, W]. The map X → Y gives [Y, W] → [X, W]. The map Σ^{-1} Z? Wait, the sequence continues: ... → Σ^{-1} Y → Σ^{-1} Z → Σ^{-1} Σ X = X → Y → Z → Σ X → ... So the map before X is Σ^{-1} Z → X? Actually, the cofiber sequence is ... → Σ^{-1} Y → Σ^{-1} Z → X → Y → Z → Σ X → ... So the map Σ^{-1} Z → X gives [X, W] → [Σ^{-1} Z, W]? No, contravariant: [Σ^{-1} Z, W] ← [X, W]? The sequence of [ -, W] is:
+... ← [Σ X, W] ← [Z, W] ← [Y, W] ← [X, W] ← [Σ^{-1} Z, W] ← ...
+Reading as arrows →:
+... → [Σ^{-1} Z, W] → [X, W] → [Y, W] → [Z, W] → [Σ X, W] → ...
+But wait, the map X → Y gives [Y, W] → [X, W], so in the → sequence it would be [X, W] ← [Y, W]? I'm getting confused again.
+
+Let's use a simple example: Let X = Y = Z = S^0? Not helpful. Let's use the long exact sequence of homotopy groups for a cofiber sequence in terms of π_n. If A → B → C is a cofiber sequence, then there is a long exact sequence:
+... → π_n(A) → π_n(B) → π_n(C) → π_{n-1}(A) → ...
+Now apply [-, W] = Map(-, W). The homotopy groups of Map(X, W) are [Σ^n X, W]. So the long exact sequence for X = W? No, the sequence above is for X being the object in the triangle. If we replace A, B, C by Map(A, W), Map(B, W), Map(C, W), we get:
+... → π_n Map(C, W) → π_n Map(B, W) → π_n Map(A, W) → π_{n-1} Map(C, W)? Wait, the triangle is A → B → C → Σ A. So applying Map(-, W) gives a sequence of spectra:
+Map(Σ A, W) → Map(C, W) → Map(B, W) → Map(A, W) → Map(Σ^{-1} A, W)? No, the fiber sequence is Map(C, W) → Map(B, W) → Map(A, W)? In a stable category, a cofiber sequence A → B → C gives a fiber sequence Map(C, W) → Map(B, W) → Map(A, W)? Actually, [A, -] is contravariant and preserves limits? In a stable ∞-category, [A, -] preserves exact triangles (it is an exact functor). So if A → B → C is an exact triangle, then [A, W] → [B, W] → [C, W] is also an exact triangle? Wait, [A, -] is contravariant, so it sends the triangle A → B → C to [C, W] → [B, W] → [A, W]? Let's test with a simple case: In abelian groups, a short exact sequence 0 → A → B → C → 0 gives a long exact sequence 0 → Hom(C, W) → Hom(B, W) → Hom(A, W) → Ext^1(C, W) → ... So the sequence is Hom(C, W) → Hom(B, W) → Hom(A, W). That's [C, W] → [B, W] → [A, W]. So the order is reversed. And the connecting map is Ext^1(C, W) → Hom(A, W)? In the long exact sequence, it's ... → Ext^1(C, W) → Hom(B, W)? No, the standard long exact sequence for Ext is:
+0 → Ext^0(C, W) → Ext^0(B, W) → Ext^0(A, W) → Ext^1(C, W) → Ext^1(B, W) → Ext^1(A, W) → ...
+Wait, that's for Ext^n(-, W). Here Hom is Ext^0. So the sequence is:
+Ext^0(C, W) → Ext^0(B, W) → Ext^0(A, W) → Ext^1(C, W) → Ext^1(B, W) → Ext^1(A, W) → ...
+Yes! The order is C, B, A, and then the connecting map goes from Ext^0(A, W) to Ext^1(C, W)? No, the sequence is:
+0 → Ext^0(C, W) → Ext^0(B, W) → Ext^0(A, W) → Ext^1(C, W) → Ext^1(B, W) → Ext^1(A, W) → Ext^2(C, W) → ...
+So the map after Ext^0(A, W) is to Ext^1(C, W). The map before Ext^0(C, W) is from Ext^{-1}(B, W)? But Ext^{-1}=0.
+So in general, for a short exact sequence 0 → A → B → C → 0, we have a long exact sequence:
+... → Ext^n(C, W) → Ext^n(B, W) → Ext^n(A, W) → Ext^{n+1}(C, W) → ...
+This is exactly what I wrote earlier but with C, B, A instead of A, B, C.
+In our stable category, the cofiber sequence is A → B → C → Σ A. This corresponds to a "short exact sequence" in the derived category where A is the kernel, B is the middle, C is the cokernel? In the derived category of abelian groups, a map f: A → B has cone C, and the sequence is A → B → C → Σ A. The long exact sequence of Ext is:
+... → Ext^n(C, W) → Ext^n(B, W) → Ext^n(A, W) → Ext^{n+1}(C, W) → ...
+Wait, in the Ext sequence for a short exact sequence 0 → A → B → C → 0, the sequence is Ext^n(C, W) → Ext^n(B, W) → Ext^n(A, W) → Ext^{n+1}(C, W). Here A is the kernel, C is the cokernel. In our case, the cofiber sequence is A → B → C, where A is the domain, B is the codomain, C is the cokernel. The kernel of f is not A; A is the domain. In the short exact sequence 0 → ker f → A → B → coker f → 0. The cofiber C in the stable category is not the cokernel; it's the cone, which has homotopy groups ker f in degree 1 and coker f in degree 0? Wait, we computed π_1(C) = ker f, π_0(C) = coker f. So C is like the cone, which represents the long exact sequence. The long exact sequence of Ext for the cone sequence A → B → C is:
+... → Ext^n(C, W) → Ext^n(B, W) → Ext^n(A, W) → Ext^{n+1}(C, W) → ...
+Let's verify with our earlier computation. We had W = H[1] = \mathbb{Z}/24[1]. We wanted [C, W] = Ext^1(C, W)? Wait, [X, W] = Hom_D(X, W). If W = \mathbb{Z}/24[1], then [X, W] = Ext^1(X, \mathbb{Z}/24)? Actually, Hom_D(X, \mathbb{Z}/24[1]) = Ext^1(X, \mathbb{Z}/24). In the Ext sequence above, if we set Y = \mathbb{Z}/24, then Ext^n(X, Y) = [X, Y[n]]. So [X, W] = [X, Y[1]] = Ext^1(X, Y).
+In the long exact sequence for Ext^n(C, Y), we have:
+... → Ext^n(C, Y) → Ext^n(B, Y) → Ext^n(A, Y) → Ext^{n+1}(C, Y) → ...
+We want Ext^1(C, Y). The relevant part:
+Ext^0(C, Y) → Ext^0(B, Y) → Ext^0(A, Y) → Ext^1(C, Y) → Ext^1(B, Y) → Ext^1(A, Y) → Ext^2(C, Y) → ...
+Here C = cocone, B = middle, A = domain? Wait, in the cofiber sequence A → B → C, A is domain, B is codomain, C is cocone. In the Ext sequence, the order is Ext^n(C) → Ext^n(B) → Ext^n(A) → Ext^{n+1}(C). That matches the short exact sequence 0 → ker f → A → B → coker f → 0 if C were the cokernel? But here C is the cone, which has π_0 = coker f and π_1 = ker f. So Ext^n(C, Y) involves both. The sequence above is correct for the cone sequence in the derived category: the long exact sequence of Hom_D(-, Y) for the triangle A → B → C is:
+... → Hom_D(C, Y) → Hom_D(B, Y) → Hom_D(A, Y) → Hom_D(Σ C, Y)? Wait, the triangle is A → B → C → Σ A. Applying Hom_D(-, Y) gives:
+Hom_D(Σ A, Y) → Hom_D(C, Y) → Hom_D(B, Y) → Hom_D(A, Y) → Hom_D(Σ^{-1} A, Y)? No, Hom_D(-, Y) turns the triangle into a triangle? In a triangulated category, Hom_D(-, Y) sends the triangle A → B → C to Hom_D(C, Y) → Hom_D(B, Y) → Hom_D(A, Y) → Hom_D(C, Σ Y)? Actually, the sequence is:
+... → Hom_D(C, Y) → Hom_D(B, Y) → Hom_D(A, Y) → Hom_D(C, Σ Y) → Hom_D(B, Σ Y) → ...
+Wait, the connecting map is C → Σ A, so Hom_D(Σ A, Y) → Hom_D(C, Y). But we can shift: Hom_D(C, Y) → Hom_D(B, Y) → Hom_D(A, Y) → Hom_D(C, Σ Y)? Let's derive:
+Triangle: A --f--> B --g--> C --h--> Σ A --i--> Σ B.
+Apply Hom_D(-, Y):
+We get maps:
+Hom_D(Σ B, Y) → Hom_D(Σ A, Y) → Hom_D(C, Y) → Hom_D(B, Y) → Hom_D(A, Y) → Hom_D(Σ^{-1} A, Y)? 
+Actually, the sequence is periodic: 
+... → Hom_D(Σ B, Y) → Hom_D(Σ A, Y) → Hom_D(C, Y) → Hom_D(B, Y) → Hom_D(A, Y) → Hom_D(Σ^{-1} A, Y) → ...
+But we can also write it as:
+... → Hom_D(C, Y) → Hom_D(B, Y) → Hom_D(A, Y) → Hom_D(C, Σ Y) → Hom_D(B, Σ Y) → ...
+Yes! Because the connecting map h: C → Σ A induces after applying Hom_D(-, Y): Hom_D(Σ A, Y) → Hom_D(C, Y). But we can also compose with the inverse of the isomorphism Hom_D(Σ A, Y) ≅ Hom_D(A, Ω Y)? In a stable category, Hom_D(Σ A, Y) ≅ Hom_D(A, Σ^{-1} Y). But we want the sequence in terms of Hom_D(C, Y[n]). The long exact sequence of Ext^n(-, Y) for the triangle A → B → C is:
+... → Ext^n(C, Y) → Ext^n(B, Y) → Ext^n(A, Y) → Ext^{n+1}(C, Y) → ...
+This is standard: the cone sequence gives a long exact sequence in Ext with the connecting map Ext^n(A, Y) → Ext^{n+1}(C, Y).
+Let's verify with a short exact sequence of complexes: 0 → A → B → C → 0 concentrated in degree 0. Then Ext^n(C, Y) → Ext^n(B, Y) → Ext^n(A, Y) → Ext^{n+1}(C, Y). That matches the long exact sequence of Ext for 0 → A → B → C → 0? Wait, for 0 → A → B → C → 0, the sequence is Ext^n(C, Y) → Ext^n(B, Y) → Ext^n(A, Y) → Ext^{n+1}(C, Y). Yes! So the cone sequence A → B → C (where C is the cocone) gives the same long exact sequence as the short exact sequence of the homotopy groups? But here our A, B are the domain and codomain, not the kernel and cokernel. In our case, the map f: A → B is not necessarily injective. The cone C has the property that the long exact sequence of homotopy groups is ... → π_n(A) → π_n(B) → π_n(C) → π_{n-1}(A) → ... So the roles of A and C are shifted compared to the short exact sequence 0 → ker f → A → B → coker f → 0. In that short exact sequence, the cone of A → B would have π_0 = coker f and π_1 = ker f. The long exact sequence of Ext for the cone sequence A → B → C is indeed:
+... → Ext^n(C, Y) → Ext^n(B, Y) → Ext^n(A, Y) → Ext^{n+1}(C, Y) → ...
+This is true in any triangulated category for a cone sequence X → Y → Cone(X → Y). Let's check with X = A, Y = B, Cone = C. The long exact sequence of Hom(-, Z) is:
+... → Hom(Cone, Z) → Hom(Y, Z) → Hom(X, Z) → Hom(Cone, Σ Z) → ...
+Since Hom(Cone, Σ Z) = Hom(Cone, Z[1]) = Ext^1(Cone, Z)? Actually, Hom_D(Cone, Z[1]) = Ext^1(Cone, Z)? Wait, Ext^n(X, Z) = Hom_D(X, Z[n]). So Hom_D(Cone, Z[1]) = Ext^1(Cone, Z). And Hom_D(A, Z) = Ext^0(A, Z). So the sequence is:
+... → Hom_D(C, Z) → Hom_D(B, Z) → Hom_D(A, Z) → Hom_D(C, Z[1]) → Hom_D(B, Z[1]) → ...
+Which is:
+... → Ext^0(C, Z) → Ext^0(B, Z) → Ext^0(A, Z) → Ext^1(C, Z) → Ext^1(B, Z) → Ext^1(A, Z) → Ext^2(C, Z) → ...
+Yes! This matches the pattern Ext^n(C, Z) → Ext^n(B, Z) → Ext^n(A, Z) → Ext^{n+1}(C, Z).
+So the long exact sequence we need is:
+... → Ext^n(C, Z) → Ext^n(B, Z) → Ext^n(A, Z) → Ext^{n+1}(C, Z) → ...
+Where Z = \mathbb{Z}/24.
+We want Ext^1(C, Z)? Wait, we want [C, Σ H(\mathbb{Z}/24)] = [C, Z[1]]? H(\mathbb{Z}/24) = \mathbb{Z}/24 concentrated in degree 0 = Z. Σ H(\mathbb{Z}/24) = Z[1]. So [C, Z[1]] = Hom_D(C, Z[1]) = Ext^1(C, Z).
+So we want Ext^1(C, \mathbb{Z}/24).
+From the long exact sequence:
+... → Ext^0(C, Z) → Ext^0(B, Z) → Ext^0(A, Z) → Ext^1(C, Z) → Ext^1(B, Z) → Ext^1(A, Z) → Ext^2(C, Z) → ...
+We can compute all these Ext groups.
+
+First, we need to understand the objects A, B, C as chain complexes, or at least their Ext groups with coefficients in \mathbb{Z}/24.
+A = K(\mathbb{Z}/12 ⊕ \mathbb{Z}/20, 0) = (\mathbb{Z}/12 ⊕ \mathbb{Z}/20)[0].
+B = K(\mathbb{Z}/18 ⊕ \mathbb{Z}/30, 0) = (\mathbb{Z}/18 ⊕ \mathbb{Z}/30)[0].
+C = cone(f). We know the homotopy groups of C: π_1(C) = ker f = \mathbb{Z}/2 ⊕ \mathbb{Z}/2, π_0(C) = coker f = \mathbb{Z}/3 ⊕ \mathbb{Z}/3.
+But we need the actual chain complex structure to compute Ext groups? Or can we use the Atiyah-Hirzebruch spectral sequence? Since Z = \mathbb{Z}/24 is concentrated in degree 0, Ext^n(X, Z) is the n-th cohomology of the chain complex Hom(X, Z)? Alternatively, we can use the spectral sequence E_2^{p,q} = Ext^p(H_q(X), Z) ⇒ Ext^{p+q}(X, Z).
+For X = A: H_0(A) = \mathbb{Z}/12 ⊕ \mathbb{Z}/20, others 0.
+Then Ext^n(A, Z) = Ext^n(\mathbb{Z}/12 ⊕ \mathbb{Z}/20, \mathbb{Z}/24) for n=0? Actually, the spectral sequence collapses because there's only one non-zero row? E_2^{p,0} = Ext^p(H_0, Z), and E_2^{p,q}=0 for q≠0. So Ext^n(A, Z) = Ext^n(\mathbb{Z}/12 ⊕ \mathbb{Z}/20, \mathbb{Z}/24).
+Similarly, B: Ext^n(B, Z) = Ext^n(\mathbb{Z}/18 ⊕ \mathbb{Z}/30, \mathbb{Z}/24).
+For C: H_1(C) = \mathbb{Z}/2 ⊕ \mathbb{Z}/2, H_0(C) = \mathbb{Z}/3 ⊕ \mathbb{Z}/3.
+Then the spectral sequence has E_2^{p,q} = Ext^p(H_q(C), Z).
+We want Ext^0(C, Z) and Ext^1(C, Z) and Ext^2(C, Z) maybe.
+Ext^0(C, Z) = E_∞^{0,0}. The only term with total degree 0 is E_2^{0,0} = Ext^0(H_0(C), Z) = Hom(\mathbb{Z}/3 ⊕ \mathbb{Z}/3, \mathbb{Z}/24).
+But there could be a differential from E_2^{0,1}? No, total degree 0 only has (0,0) since H_q=0 for q<0? Wait, spectral sequence usually has E_2^{p,q} for q ≥ 0? For abelian groups, the spectral sequence for Ext^n(X, Y) has E_2^{p,q} = Ext^p(H_q(X), Y) with q ranging over integers? If X has homology in negative degrees? But our X = C has H_1 and H_0, so q = 0,1. For total degree n = p+q.
+For n=0: only p=0,q=0. So Ext^0(C, Z) = Hom(H_0(C), Z) = Hom(\mathbb{Z}/3 ⊕ \mathbb{Z}/3, \mathbb{Z}/24).
+For n=1: p+q=1. Possibilities: (p=1,q=0) = Ext^1(H_0(C), Z) = Ext^1(\mathbb{Z}/3 ⊕ \mathbb{Z}/3, \mathbb{Z}/24); and (p=0,q=1) = Ext^0(H_1(C), Z) = Hom(\mathbb{Z}/2 ⊕ \mathbb{Z}/2, \mathbb{Z}/24).
+There could be a differential d_2: E_2^{0,1} → E_2^{2,0}? That would go from total degree 1 to total degree 2? Actually, differential d_r decreases p by r and increases q by r-1? Standard Atiyah-Hirzebruch spectral sequence for Ext: d_r: E_r^{p,q} → E_r^{p+r, q-r+1}. For total degree p+q to be preserved? No, d_r goes from (p,q) to (p+r, q-r+1), so total degree p+q goes to p+r+q-r+1 = p+q+1. So it increases total degree by 1. So differentials can affect Ext^{n} from lower terms? Wait, the spectral sequence converges to Ext^{p+q}(X, Z). The differentials go from E_r^{p,q} to E_r^{p+r, q-r+1}. The total degree of the target is p+r + q-r+1 = p+q+1. So differentials go from total degree n to n+1. That means the E_∞ terms for total degree n are built from E_2 terms of total degree ≤ n, with differentials d_r: E_r^{p,q} → E_r^{p+r, q-r+1}. So for Ext^1, we need to consider d_2: E_2^{0,1} → E_2^{2,0}? That's total degree 1 to total degree 2? E_2^{0,1} has total degree 1, E_2^{2,0} has total degree 2. So d_2 goes from total degree 1 to total degree 2, so it doesn't affect Ext^1. Similarly, d_3 would go from total degree 0 to total degree 1? E_2^{-3,3}? Not present. So for Ext^1, there are no differentials coming into or out of the terms of total degree 1? Wait, differentials that land in total degree 1 come from total degree 0. d_2: E_2^{p,q} → E_2^{p+2,q-1}. For target total degree 1, we need p+2 + q-1 = p+q+1 = 1 => p+q=0. So source total degree 0. E_2^{0,0} is Hom(H_0, Z). d_2: E_2^{0,0} → E_2^{2,-1}. But E_2^{2,-1} = Ext^2(H_{-1}, Z) = 0 because H_{-1}=0. So no differential from E_2^{0,0}. d_3: E_2^{p,q} → E_2^{p+3,q-2}. Total degree target = p+q+1=1 => p+q=0. Source (0,0) to (3,-2)=0. So no differentials affect Ext^1. Therefore, the spectral sequence collapses at E_2 for total degree 1? Actually, we also need to check if there are any extensions? The spectral sequence gives a filtration of Ext^1, but since there are no differentials, the associated graded is E_∞^{1,0} ⊕ E_∞^{0,1}. So Ext^1(C, Z) is an extension of E_∞^{0,1} by E_∞^{1,0}? The filtration is 0 ⊆ F^1 ⊆ F^0 = Ext^1, with F^1/F^0? Actually, for a spectral sequence converging to a group, there can be extensions between the E_∞ terms. Here E_∞^{1,0} = Ext^1(H_0, Z) and E_∞^{0,1} = Hom(H_1, Z). The group Ext^1(C, Z) could be a non-trivial extension of Hom(H_1, Z) by Ext^1(H_0, Z). But we can compute Ext^1(C, Z) directly from the long exact sequence, which is more reliable.
+
+Let's compute all Ext groups of A, B with coefficients in \mathbb{Z}/24.
+A = \mathbb{Z}/12 ⊕ \mathbb{Z}/20.
+B = \mathbb{Z}/18 ⊕ \mathbb{Z}/30.
+Z = \mathbb{Z}/24.
+
+We need Ext^n(A, Z) and Ext^n(B, Z) for n=0,1,2 maybe.
+Since A and B are finite abelian groups, Ext^n(A, Z) = 0 for n ≥ 2? Wait, for a finite abelian group G, Ext^n(G, Z) = 0 for n ≥ 2? Actually, Ext^1(G, Z) is the Pontryagin dual? For finite G, Ext^1(G, Z) = Hom(G, \mathbb{Q}/\mathbb{Z})? Not exactly. Let's recall: For a finite abelian group G, Ext^1(G, Z) = 0? Because Z is a projective object? No, Z is not projective in the category of abelian groups? Wait, Z is free, hence projective, so Ext^1(G, Z) = 0 for any G? Yes! In the category of abelian groups, Z is a free \mathbb{Z}-module, so it is projective. Therefore, Ext^n(G, Z) = 0 for all n ≥ 1 and any G. Is that true? Ext^1(\mathbb{Z}/n, Z) = 0? Let's check: The projective resolution of \mathbb{Z}/n is 0 → \mathbb{Z} \xrightarrow{\times n} \mathbb{Z} → \mathbb{Z}/n → 0. Apply Hom(-, Z): Hom(\mathbb{Z}, Z) → Hom(\mathbb{Z}, Z) is multiplication by n. The kernel is 0, so Ext^1(\mathbb{Z}/n, Z) = 0. Yes! Ext^1 of any torsion group with Z is 0. Also Ext^2 etc. are 0. So for any abelian group G, Ext^n(G, Z) = 0 for n ≥ 1.
+But wait! Here Z is \mathbb{Z}/24, not \mathbb{Z}. I used Z for the coefficient group \mathbb{Z}/24. Let's denote H = \mathbb{Z}/24. Then Ext^n(A, H) is not necessarily zero for n ≥ 1 because H is not projective. In fact, Ext^1(G, \mathbb{Z}/m) can be non-zero. So we need to compute Ext^n(A, \mathbb{Z}/24) and Ext^n(B, \mathbb{Z}/24) for n=0,1,2.
+
+A = \mathbb{Z}/12 ⊕ \mathbb{Z}/20.
+B = \mathbb{Z}/18 ⊕ \mathbb{Z}/30.
+H = \mathbb{Z}/24.
+
+We can compute Ext^n of finite cyclic groups with coefficients in \mathbb{Z}/24.
+For a finite cyclic group \mathbb{Z}/a and coefficient \mathbb{Z}/b, we have:
+Ext^0(\mathbb{Z}/a, \mathbb{Z}/b) = Hom(\mathbb{Z}/a, \mathbb{Z}/b) ≅ \mathbb{Z}/gcd(a,b).
+Ext^1(\mathbb{Z}/a, \mathbb{Z}/b) = \mathbb{Z}/gcd(a,b)? Actually, there's a formula: Ext^1(\mathbb{Z}/a, \mathbb{Z}/b) ≅ \mathbb{Z}/gcd(a,b)? Wait, let's derive.
+The projective resolution of \mathbb{Z}/a: 0 → \mathbb{Z} \xrightarrow{\times a} \mathbb{Z} → \mathbb{Z}/a → 0.
+Apply Hom(-, \mathbb{Z}/b):
+0 → Hom(\mathbb{Z}, \mathbb{Z}/b) \xrightarrow{\times a} Hom(\mathbb{Z}, \mathbb{Z}/b) → 0 → Ext^1(\mathbb{Z}/a, \mathbb{Z}/b) → 0? Wait, Hom(\mathbb{Z}, \mathbb{Z}/b) ≅ \mathbb{Z}/b. The map is multiplication by a mod b. The kernel is the set of x ∈ \mathbb{Z}/b with a x ≡ 0 mod b, which is isomorphic to \mathbb{Z}/gcd(a,b). The cokernel is (\mathbb{Z}/b) / a(\mathbb{Z}/b) ≅ \mathbb{Z}/gcd(a,b)? Actually, a(\mathbb{Z}/b) is the subgroup generated by a, which has size b/gcd(a,b). The quotient has size gcd(a,b). So Ext^0 = coker? Wait, Ext^0 is the kernel of the first map? Let's do it carefully:
+The resolution: ... → \mathbb{Z} \xrightarrow{\times a} \mathbb{Z} → \mathbb{Z}/a → 0.
+Apply Hom(-, \mathbb{Z}/b):
+0 → Hom(\mathbb{Z}, \mathbb{Z}/b) \xrightarrow{\times a} Hom(\mathbb{Z}, \mathbb{Z}/b) → Ext^1(\mathbb{Z}/a, \mathbb{Z}/b) → 0.
+Wait, the first Hom is in degree 0: Hom(\mathbb{Z}/a, \mathbb{Z}/b) is the cokernel of the map Hom(\mathbb{Z}, \mathbb{Z}/b) → Hom(\mathbb{Z}, \mathbb{Z}/b)? Actually, the complex is:
+0 → Hom(\mathbb{Z}, \mathbb{Z}/b) \xrightarrow{\times a} Hom(\mathbb{Z}, \mathbb{Z}/b) → 0.
+The homology at the first term (degree 0) is the kernel of \times a? No, the map from the first term to the second term is \times a. The complex is:
+0 → \mathbb{Z}/b \xrightarrow{\times a} \mathbb{Z}/b → 0.
+The 0-th homology is the kernel of the map? Wait, the resolution is:
+... → \mathbb{Z} \xrightarrow{d_1} \mathbb{Z} \xrightarrow{d_0} \mathbb{Z}/a → 0.
+d_0 is projection, d_1 is \times a.
+Apply Hom(-, \mathbb{Z}/b):
+0 → Hom(\mathbb{Z}/a, \mathbb{Z}/b) → Hom(\mathbb{Z}, \mathbb{Z}/b) \xrightarrow{d_1^*} Hom(\mathbb{Z}, \mathbb{Z}/b) → Ext^1(\mathbb{Z}/a, \mathbb{Z}/b) → 0.
+So Hom(\mathbb{Z}/a, \mathbb{Z}/b) = ker(d_1^*). d_1^* is multiplication by a on \mathbb{Z}/b. So Hom(\mathbb{Z}/a, \mathbb{Z}/b) = {x ∈ \mathbb{Z}/b : a x ≡ 0 mod b} ≅ \mathbb{Z}/gcd(a,b).
+Then Ext^1(\mathbb{Z}/a, \mathbb{Z}/b) = coker(d_1^*) = (\mathbb{Z}/b) / a(\mathbb{Z}/b) ≅ \mathbb{Z}/gcd(a,b).
+Higher Ext are 0 because the resolution has length 1.
+So for cyclic groups:
+Ext^0(\mathbb{Z}/a, \mathbb{Z}/b) = \mathbb{Z}/gcd(a,b).
+Ext^1(\mathbb{Z}/a, \mathbb{Z}/b) = \mathbb{Z}/gcd(a,b).
+Ext^n = 0 for n ≥ 2.
+
+Now A = \mathbb{Z}/12 ⊕ \mathbb{Z}/20. So Ext^n(A, \mathbb{Z}/24) = Ext^n(\mathbb{Z}/12, \mathbb{Z}/24) ⊕ Ext^n(\mathbb{Z}/20, \mathbb{Z}/24).
+B = \mathbb{Z}/18 ⊕ \mathbb{Z}/30. Ext^n(B, \mathbb{Z}/24) = Ext^n(\mathbb{Z}/18, \mathbb{Z}/24) ⊕ Ext^n(\mathbb{Z}/30, \mathbb{Z}/24).
+
+Compute gcds:
+For \mathbb{Z}/12 and \mathbb{Z}/24: gcd(12,24) = 12. So Ext^0 = \mathbb{Z}/12, Ext^1 = \mathbb{Z}/12.
+For \mathbb{Z}/20 and \mathbb{Z}/24: gcd(20,24) = 4. So Ext^0 = \mathbb{Z}/4, Ext^1 = \mathbb{Z}/4.
+Thus:
+Ext^0(A, H) = \mathbb{Z}/12 ⊕ \mathbb{Z}/4.
+Ext^1(A, H) = \mathbb{Z}/12 ⊕ \mathbb{Z}/4.
+
+For B:
+\mathbb{Z}/18 and \mathbb{Z}/24: gcd(18,24) = 6. Ext^0 = \mathbb{Z}/6, Ext^1 = \mathbb{Z}/6.
+\mathbb{Z}/30 and \mathbb{Z}/24: gcd(30,24) = 6. Ext^0 = \mathbb{Z}/6, Ext^1 = \mathbb{Z}/6.
+Thus:
+Ext^0(B, H) = \mathbb{Z}/6 ⊕ \mathbb{Z}/6.
+Ext^1(B, H) = \mathbb{Z}/6 ⊕ \mathbb{Z}/6.
+
+Now we also need Ext^0(C, H) and Ext^2(C, H)? The long exact sequence we have is:
+... → Ext^0(C, H) → Ext^0(B, H) → Ext^0(A, H) → Ext^1(C, H) → Ext^1(B, H) → Ext^1(A, H) → Ext^2(C, H) → ...
+We want Ext^1(C, H). We can compute it if we know the maps Ext^0(B, H) → Ext^0(A, H) and Ext^1(B, H) → Ext^1(A, H), and also Ext^0(C, H) and Ext^2(C, H). But we might not need Ext^0
+
+FINISH REASON
+=============
+
+length
+
+GRADING REASON
+==============
+
+length
+
+TIME
+====
+
+175.09 seconds
+
+ATTEMPTS
+========
+
+1

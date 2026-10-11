@@ -1,0 +1,37 @@
+Answer: 240
+
+The Barratt--Priddy--Quillen theorem identifies the group completion of
+the symmetric monoidal \(E_\infty\)-space
+\[
+\coprod_{n\ge0}B\Sigma_n
+\]
+with the infinite loop space of the sphere spectrum:
+\[
+X^{\mathrm{gp}}
+\simeq
+QS^0
+=
+\Omega^\infty\mathbb S.
+\]
+
+The connected components of \(QS^0\) are indexed by
+\[
+\pi_0(QS^0)\cong\mathbb Z.
+\]
+Translation by the \(E_\infty\)-group structure identifies all
+components, so in positive degrees the homotopy groups of the unit
+component are the stable homotopy groups of spheres:
+\[
+\pi_7((X^{\mathrm{gp}})_0)
+\cong
+\pi_7^S.
+\]
+
+The seventh stable stem is the classical group
+\[
+\pi_7^S\cong\mathbb Z/240.
+\]
+
+Therefore
+\[
+\left|\pi_7((X^{\mathrm{gp}})_0)\right|=240.

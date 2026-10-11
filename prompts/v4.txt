@@ -1,0 +1,40 @@
+Let \(C\) be the category
+\[
+a\longrightarrow c\longleftarrow b,
+\]
+and let \(D=C^{\triangleleft}\) be obtained by adjoining an initial object \(t\). Let
+\[
+j:C\hookrightarrow D.
+\]
+
+Define \(F:C\to\mathcal S\) by
+\[
+F(a)=K(\mathbb Z/12\oplus\mathbb Z/18,2),
+\]
+\[
+F(b)=K(\mathbb Z/8,2),
+\]
+\[
+F(c)=K(\mathbb Z/24,2).
+\]
+
+The map \(F(a)\to F(c)\) is induced on \(\pi_2\) by
+\[
+(x,y)\longmapsto 2x+4y\pmod{24},
+\]
+and the map \(F(b)\to F(c)\) is induced on \(\pi_2\) by
+\[
+z\longmapsto 3z\pmod{24}.
+\]
+
+Let
+\[
+P=(\operatorname{Ran}_jF)(t).
+\]
+
+What is the order of the finite group
+\[
+\pi_2(P)?
+\]
+
+Give your final answer as a single integer. Your response must contain nothing else; any additional text will be counted as incorrect.
